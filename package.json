@@ -1,0 +1,59 @@
+{
+  "author": {
+    "name": "David Herron",
+    "email": "david@davidherron.com",
+    "url": "http://davidherron.com"
+  },
+  "name": "akashacms-example",
+  "description": "AkashaCMS Example website",
+  "version": "0.9.0",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/akashacms/akashacms-example.git"
+  },
+  "type": "module",
+  "scripts": {
+    "build": "npm-run-all build:copy build:render",
+    "build:copy": "akasharender copy-assets config.mjs",
+    "build:render": "akasharender render --quiet config.mjs",
+    "build-vue": "npm-run-all build-vue:example-1",
+    "build-vue:example-1": "cd vue-js-examples/example-1 && npm install && npm run build",
+    "deploy": "cd out && rsync --archive --delete --exclude '.well-known' --exclude '.well-known/*' --verbose ./ user-name@example.akashacms.com:example.akashacms.com/ ",
+    "gh-pages": "akasharender gh-pages-publish config.mjs",
+    "watch": "npm-run-all --parallel watcher preview",
+    "watcher": "akasharender watch config.mjs",
+    "preview": "live-server out",
+    "test": "npm-run-all build test:mocha",
+    "test:mocha": "cd test && mocha ./index",
+    "update:modules": "git submodule update --recursive --remote --checkout",
+    "checkout": "npm-run-all checkout:*",
+    "checkout:akashacms-external-links": "cd modules/akashacms-external-links && git checkout master",
+    "checkout:akashacms-tagged-content": "cd modules/akashacms-tagged-content && git checkout watcher"
+  },
+  "dependencies": {
+    "@akashacms/plugins-base": "akashacms/akashacms-base#0.9",
+    "@akashacms/plugins-external-links": "akashacms/akashacms-external-links#0.9",
+    "@akashacms/plugins-footnotes": "akashacms/akashacms-footnotes#0.9",
+    "@akashacms/theme-bootstrap": "akashacms/akashacms-theme-bootstrap",
+    "@compodoc/live-server": "^1.2.x",
+    "@sparticuz/chromium": "^131.0.1",
+    "akasharender": "akashacms/akasharender#0.9",
+    "bootstrap": "^4.6.x",
+    "chai": "^4.3.x",
+    "epub-website": "akashacms/epub-website#0.9",
+    "jquery": "^3.6.x",
+    "markdown-it-attrs": "^4.3.0",
+    "markdown-it-container": "^4.0.0",
+    "markdown-it-highlightjs": "^3.5.0",
+    "markdown-it-plantuml": "^1.4.x",
+    "markdown-pdf": "^11.0.0",
+    "mdpdf": "^3.0.4",
+    "mocha": "^9.1.x",
+    "npm-run-all": "^4.1.x",
+    "pagedjs": "^0.4.3",
+    "pagedjs-cli": "^0.4.3",
+    "popper.js": ">=1.16.x",
+    "puppeteer": "^23.10.3",
+    "zx": "^8.2.4"
+  }
+}

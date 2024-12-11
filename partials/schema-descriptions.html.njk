@@ -1,0 +1,5 @@
+<table {% if id %}id="{{ id | safe }}"{% endif %}>
+    {% for def in defs -%}
+    <tr><td>{{ def.key }}</td><td>{{ def.description }}</td>
+    {%- endfor %}
+</table>

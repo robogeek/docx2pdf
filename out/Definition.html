@@ -1,0 +1,2369 @@
+<!doctype html>
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!-- Consider adding a manifest.appcache: h5bp.com/d/Offline -->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<!-- Use the .htaccess and remove these lines to avoid edge case issues. More info: h5bp.com/i/378 -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>OpenADR 3.1.0 Definition</title>
+
+
+
+ 
+ 
+ 
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+<meta name="pagename" content="OpenADR 3.1.0 Definition">
+
+
+
+
+
+
+
+
+
+
+
+<meta name="DC.title" content="OpenADR 3.1.0 Definition">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- OpenGraph Meta Tags -->
+
+<meta name="og:title" content="OpenADR 3.1.0 Definition">
+
+<meta name="og:url" content="https://example.akashacms.com/Definition.html">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="canonical" href="https://example.akashacms.com/Definition.html">
+
+<!-- <ak-header-metatags></ak-header-metatags> -->
+<link rel="sitemap" type="application/xml" href="sitemap.xml">
+
+
+<!--
+<xml-sitemap></xml-sitemap>
+<site-verification></site-verification>
+<ak-header-linkreltags></ak-header-linkreltags>
+-->
+<link rel="stylesheet" type="text/css" href="akasha/epub-website/style.css"><link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css"><link rel="stylesheet" type="text/css" href="style.css">
+<!-- ak-stylesheets></ak-stylesheets -->
+
+<!-- ak-headerJavaScript></ak-headerJavaScript -->
+
+<meta name="og:image" content="https://example.akashacms.com/media/image4.png"><meta name="og:image" content="https://example.akashacms.com/media/image3.png"><meta name="og:image" content="https://example.akashacms.com/media/image2.png"></head>
+<body>
+<h1>OpenADR 3.1.0 Definition</h1>
+<div class="container" role="main">
+<div class="row">
+<!-- include our document's content -->
+<article class="col-md-10">
+<div id="breadcrumbs"><breadcrumb-trail></breadcrumb-trail></div>
+<p><small>Tags: <tags-for-document></tags-for-document></small></p>
+<p><authors-byline></authors-byline></p>
+<p><strong>OpenADR 3.0</strong></p>
+<p><strong>OpenADR 3.1.0 Definitions</strong></p>
+<p>Updated 9/16/2024</p>
+<p>Revision Number: 3.1.0</p>
+<p>Document Status: <strong>Final</strong> <strong>Specification</strong></p>
+<p>Document Number: 20231118-X</p>
+<table>
+<thead>
+<tr>
+<th>Contact:</th>
+<th>Editors:</th>
+<th>Technical Director OpenADR Alliance:</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>OpenADR Alliance</td>
+<td>Frank Sandoval -</td>
+<td>Rolf Bienert</td>
+</tr>
+<tr>
+<td></td>
+<td>Pajarito Technologies</td>
+<td><a href="mailto:rolf@openadr.org">rolf@openadr.org</a></td>
+</tr>
+<tr>
+<td>111 Deerwood Road,</td>
+<td>LLC</td>
+<td></td>
+</tr>
+<tr>
+<td>Suite 200</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Bruce Nordman -- LBNL</td>
+<td></td>
+</tr>
+<tr>
+<td>San Ramon, CA 94583</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Other OpenADR Alliance</td>
+<td></td>
+</tr>
+<tr>
+<td>USA</td>
+<td>Members</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="mailto:info@openadr.org">info@openadr.org</a></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Please send general questions and comments about the specification to
+[comments@openadr.org]{.underline}(<a href="mailto:comments@openadr.org">mailto:comments@openadr.org</a>).</p>
+<h2>CONTENTS</h2>
+<p><a href="#introduction"><strong>1. Introduction 3</strong></a></p>
+<p><a href="#revision-3.0.2-introduction">1.1 Revision 3.0.2 Introduction 3</a></p>
+<p><a href="#normative-references"><strong>2. Normative References 3</strong></a></p>
+<p><a href="#informative-references"><strong>3. Informative References 4</strong></a></p>
+<p><a href="#terms-and-definitions"><strong>4. Terms and Definitions 4</strong></a></p>
+<blockquote class="blockquote">
+<p><a href="#messaging-protocol-terms-and-definitions">4.1 Messaging Protocol Terms and Definitions
+5</a></p>
+</blockquote>
+<p><a href="#overview"><strong>5. Overview 5</strong></a></p>
+<blockquote class="blockquote">
+<p><a href="#system-architecture">5.1. System Architecture 5</a></p>
+<p><a href="#local-scenarios">5.2. Local Scenarios 7</a></p>
+<p><a href="#ven-enrollment">5.3. VEN enrollment 7</a></p>
+</blockquote>
+<p><a href="#general-usage"><strong>6. General Usage 8</strong></a></p>
+<blockquote class="blockquote">
+<p><a href="#vtn-provided-fields">6.1. VTN provided fields 8</a></p>
+<p><a href="#required-and-optional-properties">6.2. Required and optional properties
+8</a></p>
+<p><a href="#response-codes-and-errors">6.3. Response Codes and Errors 8</a></p>
+<p><a href="#problem">6.3.1. Problem 9</a></p>
+<p><a href="#post-and-put">6.4. POST and PUT 9</a></p>
+<p><a href="#compression">6.5. Compression 9</a></p>
+<p><a href="#support-for-strongly-typed-languages">6.6. Support for Strongly Typed languages
+10</a></p>
+<p><a href="#message-validation">6.7. Message validation 10</a></p>
+<p><a href="#subscriptions">6.8. Subscriptions 10</a></p>
+<p><a href="#subscription-and-notification-via-messaging-protocols">6.8.1 Subscription and Notification via Messaging Protocols
+12</a></p>
+<p><a href="#response-filtering">6.9. Response Filtering 13</a></p>
+<p><a href="#object-names">6.10. Object names 14</a></p>
+</blockquote>
+<p><a href="#information-model"><strong>7. Information Model 14</strong></a></p>
+<p><a href="#endpoints"><strong>8. EndPoints 18</strong></a></p>
+<p><a href="#revision"><strong>9. Revision 22</strong></a></p>
+<p><a href="#extensibility"><strong>9. Extensibility 22</strong></a></p>
+<blockquote class="blockquote">
+<p><a href="#model-extension">9.1. Model Extension 22</a></p>
+<p><a href="#private-strings">9.2. Private Strings 22</a></p>
+</blockquote>
+<p><a href="#enumerations"><strong>10. Enumerations 23</strong></a></p>
+<blockquote class="blockquote">
+<p><a href="#introduction-1">10.1. Introduction 23</a></p>
+<p><a href="#event-payload-enumerations">10.2. Event Payload Enumerations 23</a></p>
+<p><a href="#report-enumerations">10.3. Report Enumerations 26</a></p>
+<p><a href="#reading-type-enumerations">10.4. Reading Type Enumerations 29</a></p>
+<p><a href="#operating-state-enumerations">10.5. Operating State Enumerations 29</a></p>
+<p><a href="#resourcename-enumerations">10.6. ResourceName Enumerations 30</a></p>
+<p><a href="#data-quality-enumerations">10.7. Data Quality Enumerations 30</a></p>
+<p><a href="#target-enumerations">10.8. Target Enumerations 31</a></p>
+<p><a href="#attribute-enumerations">10.9. Attribute Enumerations 32</a></p>
+<p><a href="#unit-enumerations">10.10. Unit Enumerations 32</a></p>
+<p><a href="#currency-enumerations">10.11. Currency Enumerations 33</a></p>
+<p><a href="#binding-enumerations">10.12. Binding Enumerations 33</a></p>
+<p><a href="#serialization-enumerations">10.13. Serialization Enumerations 34</a></p>
+<p><a href="#message-broker-auth-enumerations">10.14. Message Broker Auth Enumerations
+34</a></p>
+</blockquote>
+<p><a href="#security"><strong>11. Security 34</strong></a></p>
+<blockquote class="blockquote">
+<p><a href="#security-objectives">11.1. Security objectives 34</a></p>
+<p><a href="#assumptions">11.2. Assumptions 34</a></p>
+<p><a href="#client-scenarios">11.3. Client Scenarios 35</a></p>
+<p><a href="#non-authenticated-clients">11.4. Non-Authenticated Clients 36</a></p>
+<p><a href="#httpstls">11.5. HTTPS/TLS 36</a></p>
+<p><a href="#mqttstls">11.6. MQTTS/TLS 36</a></p>
+<p><a href="#api-gateway">11.6. API Gateway 37</a></p>
+<p><a href="#oauth-2.0-client-credential-flow">11.7. OAuth 2.0 client credential flow
+37</a></p>
+<p><a href="#openapi-specification">11.8. OpenAPI Specification 38</a></p>
+<p><a href="#bearer-tokens">11.9. Bearer tokens 39</a></p>
+<p><a href="#webhooks">11.10. Webhooks 39</a></p>
+</blockquote>
+<p><a href="#reference-implementation"><strong>12. Reference Implementation 40</strong></a></p>
+<blockquote class="blockquote">
+<p><a href="#step-1-trade-clientidclientsecret-for-access-token">12.1. Step 1: Trade clientID/clientSecret for access token
+40</a></p>
+<p><a href="#step-2-include-access-token-in-api-requests">12.2. Step 2: Include access token in API requests
+41</a></p>
+<p><a href="#step-3-resolve-token-to-scopes">12.3. Step 3: Resolve token to scopes
+41</a></p>
+<p><a href="#step-4-enforce-access-control">12.4. Step 4: Enforce Access Control
+41</a></p>
+</blockquote>
+<h1>Introduction</h1>
+<p>This document describes the third major iteration of the OpenADR
+protocol. It serves as a near functional equivalent of its predecessor,
+OpenADR 2.0b, but departs from the 2.0b SOAP-like web service design and
+instead adheres to RESTful web service best practices. REST services are
+much more common today than SOAP and are generally considered much more
+straightforward to use and troubleshoot. The main goal in providing this
+version as a complement to 2.0b is to lower the barriers of entry for
+new implementers and thereby encourage more widespread adoption of the
+standard.</p>
+<p>[This document contains normative and non-normative content and may
+contain simplifications for the purpose of conveying the underlying
+OpenADR REST concepts. Additional normative content can be found in the
+Normative References section, including the OpenADR 3.0 OpenAPI
+document.]{.mark} [OADR-3.0-Specification] which is the authoritative
+specification of the interface between VTN and clients.</p>
+<h2 id="revision-3.0.2-introduction" class="unnumbered">1.1 Revision 3.0.2 Introduction</h2>
+<p>The 3.0 revision supported a single mechanism (webhooks, via HTTP) for
+the Virtual Top Node (VTN) to push notifications to clients (resulting
+from Subscriptions), this revision adds support for notification event
+delivery via standard messaging protocols, with MQTT being the first
+such messaging protocol defined.</p>
+<h1>Normative References</h1>
+<p>[OADR-3.0-Specification] OpenADR 3.0 OpenAPI YAML (SwaggerDoc)
+Specification,
+<a href="https://github.com/oadr3/openapi-3.0.0">[https://github.com/oadr3/openapi-3.0.0]{.underline}</a></p>
+<p>[ISO 8601] ISO date and time format.
+<a href="https://www.iso.org/iso-8601-date-and-time-format.html">https://www.iso.org/iso-8601-date-and-time-format.html</a></p>
+<p>[ISO 4217] ISO 4217 Currency Codes:
+<a href="https://www.six-group.com/en/products-services/financial-information/data-standards.html%23scrollTo=maintenance-agency">[https://www.six-group.com/en/products-services/financial-information/data-standards.html#scrollTo=maintenance-agency]{.underline}</a></p>
+<p>[MQTT] MQTT Version 5.0:</p>
+<p><a href="https://docs.oasis-open.org/mqtt/mqtt/v5.0/mqtt-v5.0.html">[https://docs.oasis-open.org/mqtt/mqtt/v5.0/mqtt-v5.0.html]{.underline}</a></p>
+<h1>Informative References</h1>
+<p>[OADR-3.0-User_Guide] OpenADR 3.0 User Guide, Draft April 17, 2023</p>
+<p>[OADR-3.0-Introduction] OpenADR 3.0 Introducing OpenADR 3.0, Draft
+April 17, 2023</p>
+<p>[OADR-3.0-Reference_Implementation] OpenADR 3.0 Reference
+Implementation
+<a href="https://github.com/oadr3/RI-3.0.0">[https://github.com/oadr3/RI-3.0.0]{.underline}</a></p>
+<p>[REST_Best_Practice] RESTful web API design (website)
+<a href="https://docs.microsoft.com/en-us/azure/architecture/best-practices/api-design">[https://docs.microsoft.com/en-us/azure/architecture/best-practices/api-design]{.underline}</a></p>
+<p>[CTA-2045-B] Modular Communications Interface for Energy Management,
+November 2020</p>
+<p>[OpenAPI Auth] Authentication in OpenAPI
+<a href="https://swagger.io/docs/specification/authentication/">[https://swagger.io/docs/specification/authentication/]{.underline}</a></p>
+<p>[REST-API-Best_Practices] REST API Security Essentials.
+<a href="https://dzone.com/refcardz/rest-api-security-1">[https://dzone.com/refcardz/rest-api-security-1]{.underline}</a></p>
+<p>[OAuth] The OAuth 2.0 Authorization Framework, 2012.
+<a href="https://www.rfc-editor.org/rfc/rfc6749">[https://www.rfc-editor.org/rfc/rfc6749]{.underline}</a></p>
+<p>[JWT] JSON Web Token (JWT), 2015.
+<a href="https://www.rfc-editor.org/rfc/rfc7519">[https://www.rfc-editor.org/rfc/rfc7519]{.underline}</a></p>
+<p>[Oauth2 Client Flow] OAuth 2.0 Client Credentials Grant.
+<a href="https://oauth.net/2/grant-types/client-credentials">[https://oauth.net/2/grant-types/client-credentials]{.underline}</a></p>
+<p>[Client Flow Overview] Client Credentials Flow.
+<a href="https://auth0.com/docs/get-started/authentication-and-authorization-flow/client-credentials-flow">[https://auth0.com/docs/get-started/authentication-and-authorization-flow/client-credentials-flow]{.underline}</a></p>
+<p>[SEMVER] Semantic Versioning
+<a href="https://semver.org">[https://semver.org]{.underline}</a></p>
+<p>[TLS] How SSL and TLS provide identification, authentication,
+confidentiality, and integrity,</p>
+<p><a href="https://www.ibm.com/docs/en/ibm-mq/7.5?topic=ssl-how-tls-provide-authentication-confidentiality-integrity">[https://www.ibm.com/docs/en/ibm-mq/7.5?topic=ssl-how-tls-provide-authentication-confidentiality-integrity]{.underline}</a></p>
+<p>[URI] Uniform Resource Identifier (URI): Generic Syntax</p>
+<p><a href="https://www.rfc-editor.org/rfc/rfc3986">[https://www.rfc-editor.org/rfc/rfc3986]{.underline}</a></p>
+<h1>Terms and Definitions</h1>
+<p>OpenADR 3.0 adopts many terms from 2.0b directly, such as Event and
+Report. Terms that are new or modified are:</p>
+<ul>
+<li><strong>Program -</strong> The business context for a given usage of the VTN. May be a Demand Response program, tariff, or other business construct.</li>
+<li><strong>ProgramName</strong> - A unique name for a program or tariff. May be used by customers.</li>
+<li><strong>[Program Description]{.mark} -</strong> A human readable document provided out-of-band by a Business Logic entity that specifies a usage of the OpenADR 3.0 object model and configuration details such as VTN address, program names, applicable customer types, etc.</li>
+<li><strong>Tariff -</strong> A type of program that defines the basic agreement between a retailer and a customer, such as an electricity pricing structure, as opposed to optional programs offered on top of a tariff.</li>
+<li><strong>Virtual Top Node (VTN) -</strong> An application that implements the OpenADR 3.0 APIs. This is a Resource Server in REST parlance.</li>
+<li><strong>Virtual End Node (VEN)</strong> - A software application that consumes events, generates reports, and directly or indirectly causes changes in energy consumption patterns. This is a client of a VTN.</li>
+<li><strong>Business Logic (BL)</strong> - Application logic embodied in one or more software applications deployed by a utility, retailer, or other &apos;program owner&apos; of the VTN that typically produces events and consumes reports. It may be incorporated into the VTN resource server such that the business logic application exposes the OpenADR 3.0 API. We use the term here to refer to a client of a VTN.</li>
+<li><strong>Customer Logic (CL)</strong> - Application logic that requests and responds to program and event objects, produces reports, and may provide human facing features to support configuration and monitoring. May be incorporated into or interface with a VEN client.</li>
+</ul>
+<h2 id="messaging-protocol-terms-and-definitions" class="unnumbered">4.1 Messaging Protocol Terms and Definitions</h2>
+<ul>
+<li><strong>Broker</strong> - The standard term for the &quot;server&quot; component of a messaging protocol system. VTNs implementing an additional messaging protocol would include at least one messaging broker.</li>
+<li><strong>Topic</strong> - A category used to organize messages. Each topic has a name that is unique to the broker.</li>
+<li><strong>Client</strong> - A client connects to a broker, in order to write or read messages.</li>
+<li><strong>Publisher/Producer</strong> - A client that writes messages to a topic on a broker.VTNs implementing this proposal would be publishing clients</li>
+<li><strong>Subscriber/Consumer</strong> - A client that reads messages from a topic on a broker. Typically the subscribing client will subscribe to a topic, and subsequently receive (read) messages published to that topic. VENs implementing this proposal would be subscribing clients.</li>
+<li><strong>Binding</strong> - A specification (and implementation) of a specific messaging protocol technology to the OpenADR 3.0.2 Messaging Protocol endpoints/extensions. This revision specifies the binding to the MQTT protocol. Future revisions may specify additional bindings, one potential future binding may be to Kafka.</li>
+<li><strong>Subscribe-able Object</strong> - An OpenADR 3 object that can be subscribed to, resulting in subsequent notifications of changes to the subscribed object are sent to the subscriber. OpenADR 3 subscribe-able objects include: PROGRAM, EVENT, REPORT, SUBSCRIPTION, VEN, and RESOURCE.</li>
+</ul>
+<h1>Overview</h1>
+<h2>System Architecture</h2>
+<p>REST systems are composed of a Resource Server exposing a set of HTTP
+APIs and multiple clients of the API. An OpenADR 3.0 VTN is a Resource
+Server, and like an OpenADR 2.0b VTN it provides a mechanism for
+business logic of a utility or other entity to transmit events and
+receive reports to and from an energy consuming client, known as a VEN.</p>
+<p>OpenADR 3.0 defines a RESTful interface that is used by both business
+logic clients and customer logic clients, aka VENs, which represent
+flexible loads and other customer devices. In this model, an OpenADR 3.0
+Resource Server (VTN) provides a mechanism for business logic and energy
+consumers to exchange events and reports. Figure 1 illustrates the
+canonical REST paradigm of server and clients, and how OpenADR terms are
+applied to these constructs.</p>
+<p><strong>Figure 1. REST and its application to OpenADR</strong></p>
+<p>Business Logic (BL) is application software hosted by an energy retailer
+that integrates to the retailers backend systems and interfaces with a
+VTN. It may also support an onboarding process, including a User
+Interface, by which VENs are provided security credentials and other
+configuration information (e.g. VTN URL).</p>
+<p>Customer Logic (CL) uses a VEN client to obtain demand response events
+produced by BL and subsequently manage a set of &apos;resources&apos; such as
+flexible loads and customer devices. CL may expose a User Interface to
+facilitate configuration and management of the VEN, e.g. configure VTN
+address.</p>
+<p>An implementation of an OpenADR 3.0 system might incorporate Business
+Logic (BL) into a VTN, such that certain API features are not used by
+the BL and instead implementation specific mechanisms are used to
+support BL functions.</p>
+<p>OpenADR 3.0.2 VTNs supporting notifications via messaging protocols will
+include one (or more) messaging brokers. VTN clients will make (newly
+defined) REST requests to the VTN to determine the VTN&apos;s support for
+messaging protocol bindings, and if supported, details of message broker
+connection information, and the topic names available for subscribable
+object notifications. A VTN will include a broker for each supported
+messaging protocol, if any. The relationships between the VTN&apos;s REST and
+message protocol broker, and potential clients are shown in Figure 1.5</p>
+<p><img src="media/image4.png" alt>{width=&quot;3.463542213473316in&quot;
+height=&quot;4.299569116360455in&quot;}</p>
+<p><strong>Figure 1.5</strong></p>
+<p>A tiered hierarchy of VTNs and VENs may also be supported, in which an
+entity acts as a VEN to interact with a VTN, and then presents its own
+VTN to &apos;downstream&apos; VENs. This is shown in Figure 2.</p>
+<p><img src="media/image3.png" alt="image1.png">{width=&quot;4.998214129483815in&quot;
+height=&quot;2.8125in&quot;}</p>
+<p><strong>Figure 2. OpenADR 3.0 example implementation scenarios</strong></p>
+<h2>Local Scenarios</h2>
+<p>A common expected future usage of OpenADR will be for a central device
+in a building to receive OpenADR events as a VEN, then rebroadcast
+these - possibly modified - to local flexible loads and other devices.
+The term &apos;local&apos; is applied to match IT usage as with a Local Area
+Network; this is distinct from &apos;locational&apos; to refer to a geographic
+region, as with locational retail prices. The central device might be a
+large building energy management system, a central hub for a collection
+of local devices (e.g. for the Matter protocol), a microgrid controller,
+or even just a Wi-Fi access point. The device is then a VTN for the
+local devices. This is an example of the use of a hierarchy of OpenADR
+links as in the right side of Figure 2.</p>
+<p>There are several cases in which centralizing the reception of retail
+prices is beneficial. Only one device needs to be aware of the identity
+of the retailer and tariff, so that if these change only one device
+needs to be updated. Another case is when the customer wishes to
+incorporate the burden of greenhouse gas emissions into the optimization
+of loads and other devices, and do so with a &apos;local price&apos;; the GHG
+value is multiplied by a &#x24;/ton burden value and added to the retail
+price. The localPrice boolean in a program description notifies
+downstream devices that the retail price has been modified. Another use
+of a central device is to receive OpenADR signals over multiple
+communication channels for redundancy. Yet another is for microgrid
+operation when the grid is down - the central device can be a microgrid
+controller and use OpenADR events, e.g. prices, to balance supply and
+demand.</p>
+<p>It is not anticipated that the OpenADR standard needs to be modified in
+any way to fully support local operation, but any changes would be
+supplementary capabilities.</p>
+<h2>VEN enrollment</h2>
+<p>OpenADR relies on an out-of-band process by which Business Logic (BL)
+entities (e.g. utilities) and VENs/Customer Logic agree on the specifics
+of a &apos;program&apos; or &apos;tariff&apos;. A &apos;program description&apos; may be provided by
+the BL entity that specifies event structure, reporting requirements,
+and other details of a program or tariff. In general, VENs must enroll
+with a BL entity to receive security credentials. These credentials are
+used by a VTN to Authenticate and Authorize VEN requests. A VEN on a
+tariff and some programs may not need to be authenticated to the VTN.</p>
+<p>A BL entity provides a web flow or other mechanism to onboard VENs into
+(non-tariff) programs. This commonly involves action by the Customer. A
+VTN may choose to make some programs freely available, such as those
+that are for a tariff and, for example, only distribute prices and
+similar information.</p>
+<p>Every electric utility customer is on a tariff. This is often a default
+or assigned by the utility based on customer characteristics. This
+assignment or selection of a tariff is the out-of-band process for a
+customer that will then want to receive the prices for that tariff.
+Tariffs also have a program description as other demand response
+coordination mechanisms have, though it is usually simpler.</p>
+<h1>General Usage</h1>
+<h2>VTN provided fields</h2>
+<p>On object creation of programs, events, reports, subscriptions, vens,
+and ven resources, client representations provided to the VTN on POST
+requests are incomplete, as clients do not have the context to provide
+accurate or meaningful values for the following attributes:</p>
+<ul>
+<li>
+<p>objectID</p>
+</li>
+<li>
+<p>createdDataTime</p>
+</li>
+<li>
+<p>modificationDateTime</p>
+</li>
+<li>
+<p>objectType</p>
+</li>
+</ul>
+<p>A VTN SHALL populate object representations with the above fields on
+object creation.</p>
+<h2>Required and optional properties</h2>
+<p>The specification is purposefully sparse of required fields so that
+clients may create and modify objects by creating requests with minimal
+effort.</p>
+<p>If a representation sent to the VTN lacks a required property, a VTN
+SHALL return a 400, Bad Request response. A resource is not created or
+updated. Required fields do not have default values.</p>
+<p>A representation provided in a write request (PUT, POST) to the VTN may
+exclude optional fields. The VTN may create a corresponding object with
+such excluded fields set to default values.</p>
+<p>A VTN may provide representations of an object that do not include
+optional properties that have their default value.</p>
+<p>Optional fields are generally nullable and have default values of null,
+where no assumption can be made on what reasonable a default value might
+be.</p>
+<p>If a representation includes a property that is not defined by an
+object&apos;s schema, a VTN may create a corresponding resource without the
+additional property, effectively ignoring the additional content.</p>
+<h2>Response Codes and Errors</h2>
+<p>A VTN SHALL support the following standard codes:</p>
+<p>GET</p>
+<p>200 - OK</p>
+<p>400 - Bad Request</p>
+<p>403 - Forbidden</p>
+<p>404 - Not Found</p>
+<p>500 - Internal Server Error</p>
+<p>POST</p>
+<p>201 - Created</p>
+<p>400 - Bad Request</p>
+<p>403 - Forbidden</p>
+<p>404 - Not Found</p>
+<p>409 - Conflict (item already exists)</p>
+<p>500 - Internal Server Error</p>
+<p>PUT</p>
+<p>200 - OK</p>
+<p>400 - Bad Request</p>
+<p>403 - Forbidden</p>
+<p>404 - Not Found</p>
+<p>409 - Conflict</p>
+<p>500 - Internal Server Error</p>
+<p>DELETE</p>
+<p>200 - OK</p>
+<p>400 - Bad Request</p>
+<p>403 - Forbidden</p>
+<p>404 - Not Found</p>
+<p>500 - Internal Server Error</p>
+<p>Servers may implement other response codes, but VENs might not recognize
+them.</p>
+<h3>Problem</h3>
+<p>On 40x and 500 responses, a VTN SHALL respond with a <em>problem</em> object
+that contains details of the error. The problem object is intended to
+help clients determine what caused a particular response, such as Bad
+Request, Unauthorized, Forbidden, etc.</p>
+<p>For example:</p>
+<p>problem</p>
+<pre><code class="hljs language-json"><span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">&quot;title&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Not Found&quot;</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-attr">&quot;status&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">404</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-attr">&quot;detail&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Unrecognized URL&quot;</span>
+<span class="hljs-punctuation">}</span>
+</code></pre>
+<p><strong>Figure 3. Problem Example</strong></p>
+<h2>POST and PUT</h2>
+<p>POST is used to create new objects, and PUT is used to update an
+existing object. A VTN SHALL ignore objectID, createdDateTime,
+modificationDateTime, and objectType values included in representations
+used in POST and PUT requests.</p>
+<h2>Compression</h2>
+<p>In some circumstances the size of responses should be minimized, such as
+over bandwidth-constrained connections.</p>
+<p>The HTTP protocol allows a client to request encoding using one of
+several compression algorithms, such as GZIP, by using the
+Accept-Encoding header. Server responses can then use the
+Content-Encoding header to indicate the algorithm chosen, and the
+response body is compressed accordingly. The result should be a seamless
+exchange where data is compressed.</p>
+<p>Configuring this behavior is outside the scope of the OpenAPI definition
+of the OpenADR protocol. Instead, compression is implemented through
+configuration of the HTTP/REST framework used for OpenADR clients and
+servers.</p>
+<p>Support for a given compression format is optional for VTNs, although
+gzip is encouraged.</p>
+<h2>Support for Strongly Typed languages</h2>
+<p>Certain OpenAPI construct, such as oneOf and anyOf are not suited to
+code-generation of client or server stubs in strongly typed languages
+like Java and C#. Code generators could operate if such constructs
+explicitly included a super class with the alternative schemas modeled
+as subclasses, but this is not implemented in OpenADR 3.0. Where OpenADR
+3.0. uses oneOf and anyOf , classes should be manually created in some
+languages.</p>
+<h2>Message validation</h2>
+<p>A VTN SHALL reject request bodies that do not contain required fields.
+Content that is not described by a message schema MAY be ignored. (See
+Section 9.1 Model Extension). Validation of content by a VTN content is
+outside the scope of this specification and is considered an
+implementation detail.</p>
+<p>Content validation is the responsibility of clients and therefore
+outside the scope of this specification.</p>
+<h2>Subscriptions</h2>
+<p>OpenADR 3.0 supports both pull and push interactions. Pull interactions
+are initiated by a client and are implemented with HTTP GET, POST, PUT,
+and DELETE.</p>
+<p>Push interactions are implemented with Subscriptions via webhooks. These
+allow a client to be notified when certain operations transpire. A
+webhook is a client endpoint registered with the VTN. When a specified
+operation occurs, for example when an event is created, a request to the
+client endpoint may be made by the VTN, thus notifying the client of the
+new event.</p>
+<p>Webhooks are implemented using subscription objects. A client creates a
+new subscription object, which contains the webhook callback URL, and a
+description of the objects and operations that will trigger a request to
+the callback URL.</p>
+<p>POST subscription</p>
+<pre><code class="hljs language-json"><span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">&quot;clientName&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;myClient&quot;</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-attr">&quot;programID&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;44&quot;</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-attr">&quot;objectOperations&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;callbackUrl&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;https://myserver.com/callbacks&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;operations&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+      <span class="hljs-string">&quot;POST&quot;</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-string">&quot;PUT&quot;</span>
+    <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;objects&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+      <span class="hljs-string">&quot;EVENT&quot;</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-string">&quot;PROGRAM&quot;</span>
+    <span class="hljs-punctuation">]</span>
+  <span class="hljs-punctuation">}</span><span class="hljs-punctuation">]</span>
+<span class="hljs-punctuation">}</span>
+</code></pre>
+<p><strong>Figure 4. Subscription</strong></p>
+<p>A subscription object is associated with a specific client and specific
+program. The objectOperations list specifies what operations on which
+resource types the client requests to be notified about.</p>
+<p>A client may provide multiple resourceOperation entries to provide
+different callbackUrls to catch notifications of different resources and
+operations.</p>
+<p>POST subscription</p>
+<pre><code class="hljs language-json"><span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">&quot;clientName&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;myClient&quot;</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-attr">&quot;programID&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;44&quot;</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-attr">&quot;objectOperations&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+    <span class="hljs-punctuation">{</span>
+      <span class="hljs-attr">&quot;callbackUrl&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;https://myserver.com/event_callbacks&quot;</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;operations&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+        <span class="hljs-string">&quot;POST&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-string">&quot;PUT&quot;</span>
+      <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;objects&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span> 
+        <span class="hljs-string">&quot;EVENT&quot;</span>
+      <span class="hljs-punctuation">]</span>
+    <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-punctuation">{</span>
+      <span class="hljs-attr">&quot;callbackUrl&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;https://myserver.com/program_callbacks&quot;</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;operations&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+        <span class="hljs-string">&quot;POST&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-string">&quot;PUT&quot;</span>
+      <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;objects&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+        <span class="hljs-string">&quot;PROGRAM&quot;</span>
+      <span class="hljs-punctuation">]</span>
+    <span class="hljs-punctuation">}</span>
+  <span class="hljs-punctuation">]</span>
+<span class="hljs-punctuation">}</span>
+</code></pre>
+<p><strong>Figure 5. multiple callback Subscription</strong></p>
+<p>A VTN SHALL make a request to the callback URL when the conditions are
+met per the objectOperations registered subscriptions. The callback
+request body is a Notifications object that indicates the object type of
+the resource, the operation that provoked the request, and the relevant
+resource object.</p>
+<p>Notification</p>
+<pre><code class="hljs language-json"><span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">&quot;objectType&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;PROGRAM&quot;</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-attr">&quot;operation&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;POST&quot;</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-attr">&quot;object&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;bindingEvents&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">false</span></span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;createdDateTime&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;2023-06-15T15:51:29.000Z&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;id&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;0&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;localPrice&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">false</span></span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;objectType&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;PROGRAM&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;programName&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;myProgram&quot;</span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span>
+</code></pre>
+<p><strong>Figure 6. Notification Example</strong></p>
+<h2 id="subscription-and-notification-via-messaging-protocols" class="unnumbered">6.8.1 Subscription and Notification via Messaging Protocols</h2>
+<p>As an alternative to object Subscriptions via REST and resulting
+Notifications via webhooks, revision 3.0.2 defines an alternate
+mechanism based on standard messaging protocols, initially MQTT only.</p>
+<p>A client may request information about supported messaging protocol
+brokers via the GET /brokers request:</p>
+<p>GET /brokers</p>
+<pre><code class="hljs language-json"><span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">&quot;bindings&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;mqtt&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;connectionURI&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;mqtts://broker.vtn.company.com&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;serialization&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;json&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;auth&quot;</span><span class="hljs-punctuation">:</span> One of<span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;anonymous&quot;</span><span class="hljs-punctuation">,</span> <span class="hljs-string">&quot;clientID-token&quot;</span><span class="hljs-punctuation">,</span> <span class="hljs-string">&quot;cert&quot;</span>
+    <span class="hljs-attr">&quot;certs&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+      <span class="hljs-attr">&quot;ca_crt&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;string containing the Certificate authority certificate&quot;</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;client_crt&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;string containing the client certificate&quot;</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;client_key&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;string containing the client private key&quot;</span>
+    <span class="hljs-punctuation">}</span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span>
+</code></pre>
+<p><strong>Figure 7. GET / brokers Example</strong></p>
+<p>The client may then connect to the VTN&apos;s message broker, and request
+topic names available for subscription. The topic-name request
+endpoints:</p>
+<ul>
+<li><code>GET /brokers/mqtt/topics/programs</code></li>
+<li><code>GET /brokers/mqtt/topics/programs/{programID}</code></li>
+<li><code>GET /brokers/mqtt/topics/programs/{programID}/events</code></li>
+<li><code>GET /brokers/mqtt/topics/programs/{programID}/reports</code></li>
+<li><code>GET /brokers/mqtt/topics/programs/{programID}/subscriptions</code></li>
+<li><code>GET /brokers/mqtt/topics/vens</code></li>
+<li><code>GET /brokers/mqtt/topics/vens/{venID}/resources</code></li>
+</ul>
+<p>An example request and response:</p>
+<p>GET /brokers/mqtt/topics/programs</p>
+<pre><code class="hljs language-json"><span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">&quot;request&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;brokers/mqtt/topics/programs&quot;</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-attr">&quot;topics&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;CREATE&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;programs/create&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;UPDATE&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;programs/update&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;DELETE&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;programs/delete&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;ALL&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;programs/+&quot;</span>
+  <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-attr">&quot;binding&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;mqtt&quot;</span>
+<span class="hljs-punctuation">}</span>
+</code></pre>
+<p>The response from the VTN is a JSON object, containing the following
+keys:</p>
+<ul>
+<li>request - A copy of the request URL path, with no leading &quot;/&quot;</li>
+<li>topics - A JSON object, each key being the operation on the object, and the value of that key is the topic-name for that operation</li>
+<li>binding - Always &quot;mqtt&quot; for MQTT topic names</li>
+</ul>
+<p>Unlike the Subscriptions REST request, response filtering (see section
+6.9 below) is not supported for topic subscriptions made via messaging
+protocols. If a client subscribes to an object&apos;s operations, it will
+receive all such notifications, and it is the responsibility of the
+client to ignore/filter events to which it is not interested.</p>
+<p>The format and content of the notification messages received by clients
+will be the same as the existing notification JSON response format
+specified in OpenADR 3.0 (which is also the same as what is returned
+when the message is obtained via an OpenADR 3.0 REST GET request).</p>
+<h2>Response Filtering</h2>
+<p>A VTN may support large numbers of objects, such as vens and associated
+resources. In order to reduce potentially large responses that might
+include object representations of no interest to a client, clients may
+provide query params to allow a VTN to filter results.</p>
+<p>For example, when requesting a list of reports, a client may specify,
+through query params, that only reports associated with a specific
+program, and/or created by a specific client, be included in a response.</p>
+<p>Targeting criteria can be used to filter responses to include only those
+objects that are targeted to specific vens and resources.</p>
+<p>Program, event, and subscription objects may contain lists of targets
+which indicate sets of vens and resources that are the intended
+recipients of these objects. Vens and resources may include their own
+targeting criteria to expose their target attributes.</p>
+<p>Filtering query params are applied to the following operations:</p>
+<ul>
+<li><code>GET &lt;&gt;/programs: targets</code></li>
+<li><code>GET &lt;&gt;/reports: programID, clientName</code></li>
+<li><code>GET &lt;&gt;/events: programID, targets</code></li>
+<li><code>GET &lt;&gt;/subscriptions: programID, clientName, targets</code></li>
+<li><code>GET &lt;&gt;/vens: targets</code></li>
+<li><code>GET &lt;&gt;/vens/{venID}/resources: targets</code></li>
+</ul>
+<p>VTN SHALL support limit and skip query params on GET operations, as
+described by [OADR-3.0-Specification], to control pagination of
+potentially large responses.</p>
+<p>VTN SHALL treat filtering params as additive, that is, results must
+match every filter term.</p>
+<p>Future versions of OpenADR3 may provide other features that facilitate
+massive scalability or operation under extremely bandwidth or memory
+constrained environments.</p>
+<h2>Object names</h2>
+<p>Some objects have name attributes that can be used as query parameters
+to retrieve them. This requires uniqueness with given scopes.</p>
+<ul>
+<li><code>program.progranName</code> - must be unique to a VTN instance.</li>
+<li><code>ven.venName</code> - must be unique within the scope of a VTN instance.</li>
+<li><code>ven.resource.resourceName</code> - must be unique to its associated ven.</li>
+</ul>
+<p>event and report names are not required to be unique.</p>
+<h1>Information Model</h1>
+<p>An Information Model is a conceptual representation of entities and
+relationships to facilitate human communication; to be useful for
+machines it is translated to a data model. [OADR-3.0-Specification] is
+a machine-readable YAML file providing the authoritative description of
+the protocol, including schema components that define a concrete
+representation of the Information Model. While the YAML is
+human-readable, the description here is provided as an easier to digest
+summary of the main data objects defined in the Specification.</p>
+<p>The specification document does not describe all aspects of the meaning
+of the data elements below. Considerable detail on this is in the User
+Guide [OADR-3.0-User_Guide]. Examples of detail found there are for
+payload descriptors, events, reports, interval timing, data quality, and
+targeting.</p>
+<p>IDs for programs, events, and reports are created by the VTN when these
+objects are posted, and all such IDs are unique within the VTN. Other
+identifiers are created out-of-band of OpenADR such as clientID in
+report or created by the entity creating the object such as ID in
+interval.</p>
+<p>Objects that are addressable through the API, i.e. can be accessed via
+<code>&lt;url&gt;/path/{objectID}</code>, contain an ID attribute that is of type
+objectID, and creation and modification timestamps. These attributes are
+populated by the VTN on object creation and modification.</p>
+<p>In the listing below, any default value is listed in brackets after the
+definition.</p>
+<p><strong>TODO</strong> LOTS OF CLEAN UP REQUIRED -- THis is obviously several object types crammed into one list.</p>
+<ul>
+<li><strong>program</strong>: Provides program specific metadata from VTN to VEN.</li>
+<li><strong>Id</strong>: VTN provisioned ID of this object instance.</li>
+<li><strong>createdDateTime</strong>: Creation time for object, e.g.
+&quot;2023-06-15T12:58:08.000Z&quot;.</li>
+<li><strong>modificationDateTime</strong>: Modification time for object, e.g.
+&quot;2023-06-16T12:58:08.000Z&quot;.</li>
+<li><strong>objectType:</strong> Used as discriminator. PROGRAM</li>
+<li><strong>programName</strong>: Name of program with which this event is associated,
+e.g. &quot;ResTOU&quot;.</li>
+<li><strong>programLongName</strong>: User provided ID, e.g. &quot;Residential Time of
+Use-A&quot;.</li>
+<li><strong>retailerName</strong>: Program defined ID, e.g. &quot;ACME&quot;.</li>
+<li><strong>retailerLongName</strong>: Program defined ID, e.g. &quot;ACME Electric Inc.&quot;.</li>
+<li><strong>programType</strong>: User defined string categorizing the program, e.g.
+&quot;PRICING_TARIFF&quot;.</li>
+<li><strong>country</strong>: Alpha-2 code per ISO 3166-1, e.g. &quot;US&quot;.</li>
+<li><strong>principalSubdivision</strong>: Coding per ISO 3166-2. E.g. state in US, e.g.
+&quot;CO&quot;.</li>
+<li><strong>timeZoneOffset</strong>: An ISO 8601 duration that is to added to all
+interval.start values.</li>
+<li><strong>intervalPeriod</strong>: The temporal span of the program, could be years
+long.</li>
+<li><strong>programDescriptions</strong>: List of URLs to human and/or machine-readable
+content, e.g. &quot;mple: <a href="http://www.myCorporation.com/myProgramDescription">www.myCorporation.com/myProgramDescription</a>&quot;.</li>
+<li><strong>bindingEvents</strong>: True if events can be expected to not be modified.
+[false]</li>
+<li><strong>localPrice</strong>: True if events have been adapted from a grid event.
+[false]</li>
+<li><strong>payloadDescriptors</strong>: An optional list of objects that provide context
+to payload types.</li>
+<li><strong>targets</strong>: An optional list of valuesMap objects.</li>
+<li><strong>report</strong>: report object.</li>
+<li><strong>id</strong>: VTN provisioned ID of this object instance.</li>
+<li><strong>createdDateTime</strong>: server provisions timestamp on object creation,
+e.g. &quot;2023-06-15T12:58:08.000Z.</li>
+<li><strong>modificationDateTime</strong>: server provisions timestamp on object
+modification, e.g. &quot;2023-06-16T12:58:08.000Z&quot;.</li>
+<li><strong>objectType:</strong> Used as discriminator. REPORT</li>
+<li><strong>programID</strong>: ID attribute of program object this report is associated
+with.</li>
+<li><strong>eventID</strong>: ID attribute of event object this report is associated
+with.</li>
+<li><strong>clientName</strong>: String ID of client, may be VEN ID provisioned during
+program enrollment.</li>
+<li><strong>reportName</strong>: User defined string for use in debugging or UI, e.g.
+&quot;Battery_usage_04112023&quot;.</li>
+<li><strong>payloadDescriptors</strong>: An optional list of objects that provide context
+to payload types.</li>
+<li><strong>resources</strong>: An array of objects containing report data for a set of
+resources.</li>
+<li><strong>resourceName</strong>: User generated identifier. A value of
+AGGREGATED_REPORT indicates an aggregation of more than one resource&apos;s
+data.</li>
+<li><strong>intervalPeriod</strong>: Defines temporal aspects of intervals.</li>
+<li><strong>intervals</strong>: An object defining a temporal window and a list of
+payloads.</li>
+<li><strong>event</strong>: Event object to communicate a Demand Response request to VEN.</li>
+<li><strong>id</strong>: VTN provisioned ID of this object instance.</li>
+<li><strong>createdDateTime</strong>: server provisions timestamp on object creation,
+e.g. &quot;2023-06-15T12:58:08.000Z&quot;.</li>
+<li><strong>modificationDateTime</strong>: server provisions timestamp on object
+modification,<br>
+e.g. &quot;2023-06-16T12:58:08.000Z&quot;.</li>
+<li><strong>objectType:</strong> Used as discriminator. EVENT</li>
+<li><strong>programID</strong>: ID attribute of program object this event is associated
+with.</li>
+<li><strong>eventName</strong>: User defined string for use in debugging or UI, e.g.
+&quot;price event 11-18-2022&quot;.</li>
+<li><strong>priority</strong>: relative priority of event. A lower number is a higher
+priority.</li>
+<li><strong>targets</strong>: An array of valuesMap objects.</li>
+<li><strong>reportDescriptors</strong>: An array of reportDescriptor objects. Used to
+request reports from VEN.</li>
+<li><strong>payloadDescriptors</strong>: An array of payloadDescriptor objects.</li>
+<li><strong>intervalPeriod</strong>: Defines default start and durations of intervals.</li>
+<li><strong>intervals</strong>: An array of interval objects</li>
+<li><strong>subscription</strong>: An object created by a client to receive notification
+of operations on objects.</li>
+<li><strong>id</strong>: VTN provisioned ID of this object instance.</li>
+<li><strong>createdDateTime</strong>: server provisions timestamp on object creation,
+e.g. &quot;2023-06-15T12:58:08.000Z&quot;.</li>
+<li><strong>modificationDateTime</strong>: server provisions timestamp on object
+modification, e.g. &quot;2023-06-16T12:58:08.000Z&quot;.</li>
+<li><strong>objectType:</strong> Used as discriminator. SUBSCRIPTION</li>
+<li><strong>clientName</strong>: User generated identifier</li>
+<li><strong>programID</strong>: ID attribute of program object this subscription is
+associated with.</li>
+<li><strong>objectOperations</strong>: list of objects and operations to subscribe to.</li>
+<li><strong>objects:</strong> List of objects to subscribe to.</li>
+<li><strong>operations:</strong> list of operations to subscribe to.</li>
+<li><strong>callbackUrl:</strong> User provided webhook URL.</li>
+<li><strong>bearerToken</strong>: User provided token.</li>
+<li><strong>ven</strong>: Ven represents a client with the ven role.</li>
+<li><strong>id</strong>: VTN provisioned ID of this object instance.</li>
+<li><strong>createdDateTime</strong>: server provisions timestamp on object creation,
+e.g. &quot;2023-06-15T12:58:08.000Z&quot;.</li>
+<li><strong>modificationDateTime</strong>: server provisions timestamp on object
+modification, e.g. &quot;2023-06-16T12:58:08.000Z&quot;.</li>
+<li><strong>objectType:</strong> Used as discriminator. VEN</li>
+<li><strong>venName</strong>: String identifier for VEN. VEN may be configured with ID
+out-of-band.</li>
+<li><strong>attributes</strong>: A list of valuesMap objects describing attributes.</li>
+<li><strong>targets</strong>: An array of valuesMap objects.</li>
+<li><strong>resources</strong>: A list of resource objects representing end-devices or
+systems.</li>
+<li><strong>resource</strong>: a resource is an energy device or system subject to
+control by a VEN.</li>
+<li><strong>id</strong>: VTN provisioned ID of this object instance.</li>
+<li><strong>createdDateTime</strong>: server provisions timestamp on object creation,
+e.g. &quot;2023-06-15T12:58:08.000Z&quot;.</li>
+<li><strong>modificationDateTime</strong>: server provisions timestamp on object
+modification,<br>
+e.g. &quot;2023-06-16T12:58:08.000Z&quot;.</li>
+<li><strong>objectType:</strong> Used as discriminator. RESOURCE</li>
+<li><strong>resourceName</strong>: String identifier for resource. resource may be
+configured with ID out-of-band.</li>
+<li><strong>venID:</strong> VTN provisioned on object creation based on path</li>
+<li><strong>attributes</strong>: A list of valuesMap objects describing attributes.</li>
+<li><strong>targets</strong>: An array of valuesMap objects.</li>
+<li><strong>interval</strong>: An object defining a temporal window and a list of
+payloads.</li>
+<li><strong>id</strong>: A client generated number assigned an interval object. Not a
+sequence number. [0]</li>
+<li><strong>intervalPeriod</strong>: Defines temporal aspects of intervals.</li>
+<li><strong>payloads</strong>: An array of payload objects.</li>
+<li><strong>intervalPeriod</strong>: Defines temporal aspects of intervals.</li>
+<li><strong>start</strong>: The start time of an interval or set of intervals, e.g.
+&quot;2023-06-15T12:58:08.000Z&quot;.</li>
+<li><strong>duration</strong>: The duration of an interval or set of intervals, e.g.
+&quot;PT1H&quot;.</li>
+<li><strong>randomizeStart</strong>: Indicates a randomization time that may be applied
+to start, e.g. &quot;PT5M&quot;.</li>
+<li><strong>valuesMap</strong>: Represents one or more values associated with a type.</li>
+<li><strong>type</strong>: Enumerated or private string signifying the nature of values,
+e.g. &quot;PRICE&quot;.</li>
+<li><strong>values</strong>: : A sequence of data points. Most often a singular value
+such as a price. [None]</li>
+<li><strong>point</strong>: A pair of floats typically used as a point on a 2 dimensional
+grid.</li>
+<li><strong>x</strong>: a value on an x axis</li>
+<li><strong>y</strong>: a value on a y axis</li>
+<li><strong>eventPayloadDescriptor</strong>: Contextual information used to interpret
+event payload values.</li>
+<li><strong>payloadType</strong>: Enumerated or private string signifying the nature of
+values, e.g. &quot;PRICE&quot;.</li>
+<li><strong>units</strong>: units of measure, e.g. &quot;KWH&quot;.</li>
+<li><strong>currency</strong>: currency of price payload, e.g. &quot;USD&quot;.</li>
+<li><strong>reportPayloadDescriptor</strong>: Contextual information used to interpret
+report payload values.</li>
+<li><strong>payloadType</strong>: Enumerated or private string signifying the nature of
+values, e.g. &quot;USAGE&quot;.</li>
+<li><strong>readingType</strong>: Enumerated or private string signifying the type of
+reading,<br>
+e.g. &quot;DIRECT_READ&quot;. [&quot;DIRECT_READ&quot;]</li>
+<li><strong>units</strong>: units of measure, e.g. &quot;KWH&quot;.</li>
+<li><strong>accuracy</strong>: a quantification of the accuracy of a set of payload
+values.</li>
+<li><strong>confidence</strong>: a quantification of the confidence in a set of payload
+values.</li>
+<li><strong>reportDescriptor</strong>: An object that may be used to request a report
+from a VEN.</li>
+<li><strong>payloadType</strong>: Enumerated or private string signifying the nature of
+values, e.g. &quot;USAGE&quot;.</li>
+<li><strong>readingType</strong>: Enumerated or private string signifying the type of
+reading, e.g. &quot;DIRECT_READ&quot;.</li>
+<li><strong>units</strong>: units of measure, e.g. &quot;KWH&quot;.</li>
+<li><strong>targets</strong>: An array of valuesMap objects.</li>
+<li><strong>aggregate</strong>: True if report should aggregate results from all targeted
+resources [false]</li>
+<li><strong>startInterval</strong>: The interval on which to generate a report. [-1]</li>
+<li><strong>numIntervals</strong>: The number of intervals to include in a report. [-1]</li>
+<li><strong>historical</strong>: True indicates report on intervals preceding
+startInterval. [true]</li>
+<li><strong>frequency</strong>: Number of intervals that elapse between reports. [-1]</li>
+<li><strong>repeat</strong>: Number of times to repeat a report. [1]</li>
+<li><strong>objectID</strong>: URL safe VTN assigned object ID.</li>
+<li><strong>notification</strong>: the object that is the subject of the notification.</li>
+<li><strong>objectType</strong>: type of object being returned, i.e. PROGRAM, EVENT,
+REPORT, e.g. &quot;EVENT&quot;.</li>
+<li><strong>operation</strong>: the operation on on object that triggered the
+notification, e.g. &quot;POST&quot;.</li>
+<li><strong>object</strong>: the object that is the subject of the notification.</li>
+<li><strong>objectTypes</strong>: Types of objects addressable through API.</li>
+<li><strong>dateTime</strong>: datetime in ISO 8601 format</li>
+<li><strong>duration</strong>: duration in ISO 8601 format</li>
+<li><strong>problem</strong>: reusable error response. From
+<a href="https://opensource.zalando.com/problem/schema.yaml">https://opensource.zalando.com/problem/schema.yaml</a></li>
+<li><strong>type</strong>: An absolute URI that identifies the problem type. When
+dereferenced, it SHOULD provide human-readable documentation for the problem type (e.g., using HTML). e.g. &quot;&apos;<a href="https://zalando.github.io/problem/constraint-violation%5C">https://zalando.github.io/problem/constraint-violation\</a>&apos;&quot;. [&apos;about:blank&apos;]</li>
+<li><strong>title</strong>: A short summary of the problem type. Written in english and
+readable, e.g. &quot;&quot;.</li>
+<li><strong>status</strong>: The HTTP status code generated by the origin server for this
+occurrence.</li>
+<li><strong>detail</strong>: A human readable explanation specific to this occurrence of
+the problem,<br>
+e.g. &quot;Connection to database timed out&quot;.</li>
+<li><strong>instance</strong>: An absolute URI that identifies the specific occurrence of
+the problem, e.g. &quot;&quot;.</li>
+<li><strong>bindings</strong>: An object detailing the supported messaging protocol
+bindings supported by the VTN.</li>
+<li><strong>binding:</strong> An object detailing a specific message protocol binding.</li>
+<li><strong>connectionURI</strong>: The URI providing message broker connection details.</li>
+<li><strong>serialization</strong>: Enumerated string specifying the serialization format
+of the notification messages.</li>
+<li><strong>auth</strong>: Enumerated string specifying the authentication method
+required by the broker.</li>
+<li><strong>certs</strong>: An object providing the strings required for the client to
+connect with a certificate.</li>
+<li><strong>certs</strong>: An object providing the cert strings required to connect to
+the message broker.</li>
+<li><strong>ca_crt</strong>: String containing the Certificate Authority certificate.</li>
+<li><strong>client_crt:</strong> String containing the client certificate.</li>
+<li><strong>client_key:</strong> String containing the client private key.</li>
+<li><strong>topicNames:</strong> An object providing topic names (per operation).</li>
+<li><strong>request:</strong> A string containing the object(s) associated with the topic
+names.</li>
+<li><strong>topics:</strong> An object providing the topic names for operations on the
+subscribe-able object.</li>
+<li><strong>binding:</strong> An enumerated string describing the binding associated with
+the topic names.</li>
+<li><strong>topics:</strong> An object providing the topic names for operations on the
+subscribe-able object.</li>
+<li><strong>CREATE:</strong> Topic name string for create operations on the
+subscribe-able object.</li>
+<li><strong>UPDATE:</strong> Topic name string for update operations on the
+subscribe-able object.</li>
+<li><strong>DELETE:</strong> Topic name string for delete operations on the
+subscribe-able object.</li>
+<li><strong>ALL:</strong> Topic name string for all/any operations on the subscribe-able
+object.</li>
+</ul>
+<h1>EndPoints</h1>
+<p>A REST API provides URLs that clients use to perform CRUD operations on
+&apos;resources&apos;; this is a URL path but usually called an &apos;endpoint&apos;. Object
+instances of the items described by the Information Model above are
+&apos;resources&apos;, and CRUD operations are Create, Read, Update, and Destroy,
+implemented by the HTTP verbs POST, GET, PUT, and DELETE. There is
+copious free information on the web regarding REST APIs. One good
+example for background is [REST_Best_Practice].</p>
+<p>The YAML document [OADR-3.0-Specification] provides the authoritative
+and complete definition of the endpoint&#x200b;&#x200b; and operations supported by the
+profile. For programs and events, only the BL will do POST, PUT, and
+DELETE operations. Only VENs will POST and PUT reports and
+subscriptions.</p>
+<p>POST is used to create new objects, and PUT is used to update an
+existing object. objectID and createdDateTime values included in
+representations used in POST and PUT requests will be ignored by the VTN
+server.</p>
+<p>The text below is a heavily subsetted version of the specification that
+summarizes only the essential information for human readability. The
+term &apos;security&apos; below indicates the scopes necessary to perform the
+associated operation. Scopes are discussed elsewhere.</p>
+<p>The security terms below (e.g. &quot;security: [read_all]&quot;) indicate the
+access permissions required to perform an operation. From the
+specification:</p>
+<p><strong>TODO</strong> Develop scripting to read this information out of the specification</p>
+<p>read_all: VENs and BL can read all resources</p>
+<p>write_programs: only BL can write to programs</p>
+<p>write_events: only BL can write to events</p>
+<p>write_reports: only VENs can write reports</p>
+<p>write_subscriptions: only VENs can write subscriptions</p>
+<p>write_vens: VENS and BL can write to vens and resources</p>
+<p>/programs:</p>
+<p>get:</p>
+<p>description: List all programs known to the server.</p>
+<p>security: [read_all]</p>
+<p>query parameters: targetType targetValues skip limit</p>
+<p>post:</p>
+<p>description: Create a new program in the server.</p>
+<p>security: [write_programs]</p>
+<p>requestBody: program</p>
+<p>/programs/{programID}:</p>
+<p>get:</p>
+<p>description: Fetch the program specified by the programID in path.</p>
+<p>security: [read_all]</p>
+<p>put:</p>
+<p>description: Update an existing program with the programID in path.</p>
+<p>security: [write_programs]</p>
+<p>requestBody: program</p>
+<p>delete:</p>
+<p>description: Delete an existing program with the programID in path.</p>
+<p>security: [write_programs]</p>
+<p>/reports:</p>
+<p>get:</p>
+<p>description: List all reports known to the server.</p>
+<p>security: [read_all]</p>
+<p>query parameters: programID clientName skip limit</p>
+<p>post:</p>
+<p>description: Create a new report on the server.</p>
+<p>security: [write_reports]</p>
+<p>requestBody: report</p>
+<p>/reports/{reportID}:</p>
+<p>get:</p>
+<p>description: Fetch the report specified by the reportID in path.</p>
+<p>security: [read_all]</p>
+<p>put:</p>
+<p>description: Update the report specified by the reportID in path.</p>
+<p>security: [write_reports]</p>
+<p>requestBody: report</p>
+<p>delete:</p>
+<p>description: Delete the program specified by the reportID in path.</p>
+<p>security: [write_reports]</p>
+<p>/events:</p>
+<p>get:</p>
+<p>description: List all events known to the server. May filter results by
+programID query param.</p>
+<p>security: [read_all]</p>
+<p>query parameters: programID targetType targetValues skip limit</p>
+<p>post:</p>
+<p>description: Create a new event in the server.</p>
+<p>security: [write_events]</p>
+<p>requestBody: event</p>
+<p>/events/{eventID}:</p>
+<p>get:</p>
+<p>description: Fetch event associated with the eventID in path.</p>
+<p>security: [read_all]</p>
+<p>put:</p>
+<p>description: Update the event specified by the eventID in path.</p>
+<p>security: [write_events]</p>
+<p>requestBody: event</p>
+<p>delete:</p>
+<p>description: Delete the event specified by the eventID in path.</p>
+<p>security: [write_events]</p>
+<p>/subscriptions:</p>
+<p>get:</p>
+<p>description: List all subscriptions.</p>
+<p>security: [read_all]</p>
+<p>query parameters: programID clientName targetType targetValues
+objectTypes skip limit</p>
+<p>post:</p>
+<p>description: Create a new subscription.</p>
+<p>security: [write_subscriptions]</p>
+<p>requestBody: subscription</p>
+<p>/subscriptions/{subscriptionID}:</p>
+<p>get:</p>
+<p>description: Return the subscription specified by subscriptionID
+specified in path.</p>
+<p>security: [read_all]</p>
+<p>put:</p>
+<p>description: Update the subscription specified by subscriptionID
+specified in path.</p>
+<p>security: [write_subscriptions]</p>
+<p>delete:</p>
+<p>description: Delete the subscription specified by subscriptionID
+specified in path.</p>
+<p>security: [write_subscriptions]</p>
+<p>/vens:</p>
+<p>get:</p>
+<p>description: List all vens.</p>
+<p>security: [read_all]</p>
+<p>query parameters: targetType targetValues skip limit</p>
+<p>post:</p>
+<p>description: Create a new ven.</p>
+<p>security: [write_vens]</p>
+<p>requestBody: ven</p>
+<p>/vens/{venID}:</p>
+<p>get:</p>
+<p>description: Return the ven specified by venID specified in path.</p>
+<p>security: [read_all]</p>
+<p>put:</p>
+<p>description: Update the ven specified by venID specified in path.</p>
+<p>security: [write_vens]</p>
+<p>delete:</p>
+<p>description: Delete the ven specified by venID specified in path.</p>
+<p>security: [write_vens]</p>
+<p>/vens/{venID}/resources:</p>
+<p>get:</p>
+<p>description: Return the ven resources specified by venID specified in
+path.</p>
+<p>security: [read_all]</p>
+<p>query parameters: targetType targetValues skip limit</p>
+<p>post:</p>
+<p>description: Create a new resource.</p>
+<p>security: [write_vens]</p>
+<p>requestBody: resource</p>
+<p>/vens/{venID}/resources/{resourceID}:</p>
+<p>get:</p>
+<p>description: Return the ven resource specified by venID and resourceID
+specified in path.</p>
+<p>security: [read_all]</p>
+<p>put:</p>
+<p>description: Update the ven resource specified by venID and resourceID
+specified in path.</p>
+<p>security: [write_vens]</p>
+<p>delete:</p>
+<p>description: Delete the ven resource specified by venID and resourceID
+specified in path.</p>
+<p>security: [write_vens]</p>
+<p>/auth/token:</p>
+<p>get:</p>
+<p>description: client ID to exchange for bearer token.</p>
+<p>query parameters: clientID clientSecret</p>
+<p>/brokers:</p>
+<p>get:</p>
+<p>description: Return all message protocol bindings supported by VTN</p>
+<p>security: [read_all]</p>
+<p>/brokers/{bindingName}/topics/programs</p>
+<p>get:</p>
+<p>description: Return topic names to subscribe to all programs operations</p>
+<p>security: [read_all]</p>
+<p>/brokers/{bindingName}/topics/programs/</p>
+<p>get:</p>
+<p>description: Return topic names to subscribe to program operations
+specified by programID</p>
+<p>security: [read_all]</p>
+<p>/brokers/{bindingName}/topics/programs/{programID}/events</p>
+<p>get:</p>
+<p>description: Return topic names to subscribe to the program specified by
+programID&apos;s events</p>
+<p>security: [read_all]</p>
+<p>/brokers/{bindingName}/topics/programs/{programID}/reports</p>
+<p>get:</p>
+<p>description: Return topic names to subscribe to the program specified by
+programID&apos;s reports</p>
+<p>security: [read_all]</p>
+<p>/brokers/{bindingName}/topics/programs/{programID}/subscriptions</p>
+<p>get:</p>
+<p>description: Return topic names to subscribe to the program specified by
+programID&apos;s subscriptions</p>
+<p>security: [read_all]</p>
+<p>/brokers/{bindingName}/topics/vens</p>
+<p>get:</p>
+<p>description: Return topic names to subscribe to all vens operations</p>
+<p>security: [read_all]</p>
+<p>/brokers/{bindingName}/topics/vens/{venID}/resources</p>
+<p>get:</p>
+<p>description: Return topic names to subscribe to all vens operations
+specified by venID</p>
+<p>security: [read_all]</p>
+<h1>Revision</h1>
+<p>REST APIs may be designed to be revised and preserve backwards
+compatibility. Typically, the base URL will contain a version number,
+e.g. <code>https://myAPI/1.0/</code>, with 1.0
+as a version number. A revision to the API can be given a new version
+number and hosted at a new base URL, e.g
+<code>https://myAPI/1.1/</code>. A VTN could offer both versions concurrently, allowing older clients to interoperate
+with the older version while upgrading to the new version at a time of
+their choosing. Typically, an older version will be deprecated after
+some period of time. While there is currently no plan to revise OpenADR
+3.0, doing so with this mechanism would be easy to implement.</p>
+<p>Versioning will follow Semantic Versioning [SEMVER] guidelines where a
+version number is of the form major.minor.patch and each may be
+incremented as follows:</p>
+<ol>
+<li>MAJOR version when you make incompatible API changes</li>
+<li>MINOR version when you add functionality in a backwards compatible manner</li>
+<li>PATCH version when you make backwards compatible bug fixes</li>
+</ol>
+<h1>Extensibility</h1>
+<p>The OpenADR 3.0 protocol allows servers and clients to interoperate
+without custom integration. It is intended to provide a functional
+footprint that is sufficient to accommodate all common demand response
+use cases. However, some demand response program developers may find it
+useful to use content that cannot be expressed using the constructs of
+the specification, or could be expressed in a better form with an
+extension.</p>
+<p>There are two extension mechanisms offered by OpenADR 3.0: model
+extensions, and private strings.</p>
+<h2>Model Extension</h2>
+<p>A VTN and clients might agree to private model extensions by adding
+constructs to the standard models. VTNs that are ignorant of such
+private extensions may simply ignore such content and underlying
+functionality that represents such private extensions.</p>
+<p>The example in Figure 3 shows an event object with a non-standardized
+attribute called myPrivateObject. This attribute may be ignored by VTNs
+that do not recognize it.</p>
+<pre><code class="hljs language-json"><span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">&quot;ID&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">1</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-attr">&quot;createdDateTime&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;2023-06-15T09:12:28.000Z&quot;</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-attr">&quot;modificationDateTime&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;0000-00-00&quot;</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-attr">&quot;myPrivateObject&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;whatever I want&quot;</span><span class="hljs-punctuation">,</span>
+  \....\
+<span class="hljs-punctuation">}</span>
+</code></pre>
+<p><strong>Figure 7. Example Event object</strong></p>
+<h2>Private Strings</h2>
+<p>The standard provides enumerated values for a number of object fields.
+These enumerations have defined semantics. A VTN and clients may agree
+on additional values that can be supplied in these fields.</p>
+<p>The example below shows a report payload object with the
+non-standardized string PRIVATE_ALGORITHM. VTNs do not process attribute
+values, so the use of non-standard strings does not affect the behavior
+of the VTN but both Business Logic and VEN clients may process their
+agreed upon strings.</p>
+<pre><code class="hljs language-json"><span class="hljs-attr">&quot;payloads&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+<span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">&quot;type&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;PRIVATE_ALGORITHM&quot;</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-attr">&quot;values&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-number">0.17</span><span class="hljs-punctuation">]</span>
+<span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+</code></pre>
+<p><strong>Figure 8. Example Private String</strong></p>
+<h1>Enumerations</h1>
+<h2>Introduction</h2>
+<p>A critical feature of OpenADR is the use of enumerations that provide
+context to payload values. For example, a payload value of &apos;0.17&apos; is
+associated with context in order for a client to know that it is a
+price, or percent, or other type of data. OpenADR 3.0 uses enumerated
+strings to provide context to data. These strings enable BL and VENs to
+interoperate. Note that payload values are always an array and so
+enclosed in brackets (&quot;[...]&quot;) even if just a single value.</p>
+<p>VENs that support standard enumerations should interoperate with BL that
+generates events with those values, and conversely generate reports that
+can be consumed by BL that support them. A program may define its own
+strings and work with VEN partners as they implement the appropriate
+logic (see Private Extensions in [OADR-3.0-User_Guide]).</p>
+<p>OpenADR 3.0 defines enumerations for those use cases that are well
+described, are in use today, and/or are plausible for use in the near
+future. Notes in definitions are not part of the formal definition but
+include useful information and context.</p>
+<p>The term &quot;enumeration&quot; is used in its common form as simply indicating
+lists, and not in the computer science sense of mapping numbers to
+names. There is no utility in OpenADR to assign numeric values to the
+strings defined here as enumerations.</p>
+<h2>Event Payload Enumerations</h2>
+<p>The following defined names and types inform a VEN on how to interpret
+values in an event interval payload. The enumerations may be assigned to
+the payloadType attribute of a payload included in an interval included
+in an event and in an associated payloadDescriptor in the Event or
+Program. For example:</p>
+<pre><code class="hljs language-json"><span class="hljs-punctuation">{</span>
+  \...\
+  <span class="hljs-attr">&quot;payloadDescriptors&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+    <span class="hljs-punctuation">{</span>
+      <span class="hljs-attr">&quot;payloadType&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;PRICE&quot;</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;units&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;KWH&quot;</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;currency&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;USD&quot;</span>
+    <span class="hljs-punctuation">}</span>
+  <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-attr">&quot;intervals&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+    <span class="hljs-punctuation">{</span>
+      \...\
+      <span class="hljs-attr">&quot;payloads&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+      <span class="hljs-punctuation">{</span>
+        <span class="hljs-attr">&quot;type&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;PRICE&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;values&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-number">0.17</span><span class="hljs-punctuation">]</span>
+      <span class="hljs-punctuation">}</span>
+    <span class="hljs-punctuation">}</span>
+  <span class="hljs-punctuation">]</span>
+<span class="hljs-punctuation">}</span>
+</code></pre>
+<p><strong>Figure 9. Example Event</strong></p>
+<p><strong>Table 1. Event Enumerations</strong></p>
+<p><strong>TODO</strong> For these Enumeration tables, look into extracting data from the schema files</p>
+<p><table id="event-payload-enumeration">
+    <tr><td>SIMPLE</td><td>An indication of the level of a basic demand response signal. Payload
+value is an integer of 0, 1, 2, or 3.
+Note: An example mapping is normal operations, moderate load shed,
+high load shed, and emergency load shed.
+</td></tr><tr><td>PRICE</td><td>The price of energy. Payload value is a float. Units and currency
+defined in associated eventPayloadDescriptor.
+Note: Can be used for any form of energy.
+</td></tr><tr><td>CHARGE_STATE_SETPOINT</td><td>The state of charge of an energy storage resource. Payload value is
+indicated by units in associated eventPayloadDescriptor.
+Note: Common units are percentage and kWh.
+</td></tr><tr><td>DISPATCH_SETPOINT</td><td>The absolute amount of consumption by a resource. Payload value is
+a float and is indicated by units in associated eventPayloadDescriptor.
+Note: This is used to dispatch resources.
+</td></tr><tr><td>DISPATCH_SETPOINT_RELATIVE</td><td>The relative change of consumption by a resource. Payload value is a
+float and is indicated by units in associated eventPayloadDescriptor.
+Note: This is used to dispatch a resource&apos;s load.
+</td></tr><tr><td>CONTROL_SETPOINT</td><td>Resource dependent setting. Payload value type depends on
+application.
+</td></tr><tr><td>EXPORT_PRICE</td><td>The price of energy exported (usually to the grid). Payload value is
+float and units and currency are defined in associated
+eventPayloadDescriptor.
+Note: Can be used for any form of energy.
+</td></tr><tr><td>GHG</td><td>An estimate of marginal GreenHouse Gas emissions, in g/kWh.
+Payload value is float.
+</td></tr><tr><td>CURVE</td><td>Payload values array contains a series of one or more pairs of floats
+representing a 2D point.
+Note: May be used to represent a curve of values, e.g. VoltVar values.
+</td></tr><tr><td>OLS</td><td>Optimum Load Shape. Payload values array contains a list of values
+0.0 to 1.0 representing percentage of usage over the set of intervals in
+the event.
+Note: See ANSI-SCTE 267.
+</td></tr><tr><td>IMPORT_CAPACITY_SUBSCRIPTION</td><td>The amount of import capacity a customer has subscribed to in
+advance. Payload is a float, and meaning is indicated by units in
+associated eventPayloadDescriptor.
+</td></tr><tr><td>IMPORT_CAPACITY_RESERVATION</td><td>The amount of additional import capacity that a customer has been
+granted by the VTN. Payload is a float, and meaning is indicated by
+units in associated eventPayloadDescriptor.
+</td></tr><tr><td>IMPORT_CAPACITY_RESERVATION_FEE</td><td>The cost per unit of power of extra import capacity available for
+reservation. Payload is a float, and meaning is indicated by units in
+associated eventPayloadDescriptor.
+</td></tr><tr><td>IMPORT_CAPACITY_AVAILABLE</td><td>The amount of extra import capacity available for reservation to the
+customer. Payload is a float, and meaning is indicated by units in
+associated eventPayloadDescriptor.
+</td></tr><tr><td>IMPORT_CAPACITY_AVAILABLE_PRICE</td><td>The cost per unit of power of extra import capacity available for
+reservation. Payload is a float, and meaning is indicated by units in
+associated eventPayloadDescriptor.
+</td></tr><tr><td>EXPORT_CAPACITY_SUBSCRIPTION</td><td>The amount of export capacity a customer has subscribed to in
+advance. Payload is a float, and meaning is indicated by units in
+associated eventPayloadDescriptor.
+</td></tr><tr><td>EXPORT_CAPACITY_RESERVATION</td><td>The amount of additional export capacity that a customer has been
+granted by the VTN. Payload is a float, and meaning is indicated by
+units in associated eventPayloadDescriptor.
+</td></tr><tr><td>EXPORT_CAPACITY_RESERVATION_FEE</td><td>The cost per unit of power of extra export capacity available for
+reservation. Payload is a float, and meaning is indicated by units in
+associated eventPayloadDescriptor.
+</td></tr><tr><td>EXPORT_CAPACITY_AVAILABLE</td><td>The amount of extra export capacity available for reservation to the
+customer. Payload is a float, and meaning is indicated by units in
+associated eventPayloadDescriptor.
+</td></tr><tr><td>EXPORT_CAPACITY_AVAILABLE_PRICE</td><td>The cost per unit of power of extra export capacity available for
+reservation. Payload is a float, and meaning is indicated by units in
+associated eventPayloadDescriptor.
+</td></tr><tr><td>IMPORT_CAPACITY_LIMIT</td><td>The maximum import level for the site. Payload is a float and meaning
+is indicated by units in associated eventPayloadDescriptor.
+</td></tr><tr><td>EXPORT_CAPACITY_LIMIT</td><td>The maximum export level for the site. Payload is a float and meaning
+is indicated by units in associated eventPayloadDescriptor.
+</td></tr><tr><td>ALERT_GRID_EMERGENCY</td><td>There is an imminent risk of the grid failing to continue supplying
+power to some customers, maintaining operational parameters (e.g.
+voltage), or ceasing to operate at all. Payload value contains a
+human-readable string describing the alert.
+</td></tr><tr><td>ALERT_BLACK_START</td><td>The grid is in the process of resuming full operation. Devices should
+minimize electricity use until the event is cleared. Payload value
+contains a human-readable string describing the alert.
+</td></tr><tr><td>ALERT_POSSIBLE_OUTAGE</td><td>Customers may lose grid power in the coming hours or days.
+Note: An example of this from California is Public Service Power
+Shutoffs (usually from fire risk). Payload value contains a
+human-readable string describing the alert.
+</td></tr><tr><td>ALERT_FLEX_ALERT</td><td>Power supply will be scarce during the event. Devices should seek to
+shift load to times before or after the event. Devices that can shed
+should do so during the event. Payload value contains a
+human-readable string describing the alert.
+Note: See: flexalert.org
+</td></tr><tr><td>ALERT_FIRE</td><td>There is a substantial risk of fire in the area which could interrupt
+electricity supply in addition to being a danger to life and property.
+Payload value contains a human-readable string describing the alert.
+</td></tr><tr><td>ALERT_FREEZING</td><td>There is (or is forecast to be) temperatures low enough to be of
+concern. Payload value contains a human-readable string describing
+the alert.
+</td></tr><tr><td>ALERT_WIND</td><td>There is (or is forecast to be) wind speeds high enough to be of
+concern. Includes hurricanes. Payload value contains a
+human-readable string describing the alert.
+</td></tr><tr><td>ALERT_TSUNAMI</td><td>Tsunami waves expected to hit the coastline. Payload value contains a
+human-readable string describing the alert.
+</td></tr><tr><td>ALERT_AIR_QUALITY</td><td>Air quality is or is forecast to be. Payload value contains a
+human-readable string describing the alert.
+</td></tr><tr><td>ALERT_OTHER</td><td>No specific definition. See associated text data element. Payload value
+contains a human-readable string describing the alert.
+</td></tr><tr><td>CTA2045_REBOOT</td><td>Pass through for resources that support [CTA-2045B]. Payload value 0
+= SOFT, 1 = HARD. See [CTA-2045B] for definitions.
+</td></tr><tr><td>CTA2045_SET_OVERRIDE_STATUS</td><td>Pass through CTA-2045 Override status: 0 = No Override, 1 =
+Override. See [CTA-2045B].
+</td>
+</tr></table>
+</p>
+<p>| <strong>Event payload type</strong>     |  <strong>Definition</strong>                         |
+|=====================|================================================|
+| SIMPLE              | An indication of the level of a basic demand   |
+|                     | response signal. Payload value is an integer   |
+|                     | of 0, 1, 2, or 3.                              |
+|                     |                                                |
+|                     | Note: An example mapping is normal operations, |
+|                     | moderate load shed, high load shed, and        |
+|                     | emergency load shed.                           |
++---------------------+------------------------------------------------+
+| PRICE               | The price of energy. Payload value is a float. |
+|                     | Units and currency defined in associated       |
+|                     | eventPayloadDescriptor.\                       |
+|                     | Note: Can be used for any form of energy.      |
++---------------------+------------------------------------------------+
+| CH                  | The state of charge of an energy storage       |
+| ARGE_STATE_SETPOINT | resource. Payload value is indicated by units  |
+|                     | in associated eventPayloadDescriptor.          |
+|                     |                                                |
+|                     | Note: Common units are percentage and kWh.     |
++---------------------+------------------------------------------------+
+| DISPATCH_SETPOINT   | The absolute amount of consumption by a        |
+|                     | resource. Payload value is a float and is      |
+|                     | indicated by units in associated               |
+|                     | eventPayloadDescriptor.\                       |
+|                     | Note: This is used to dispatch resources.      |
++---------------------+------------------------------------------------+
+| DISPATC             | The relative change of consumption by a        |
+| H_SETPOINT_RELATIVE | resource. Payload value is a float and is      |
+|                     | indicated by units in associated               |
+|                     | eventPayloadDescriptor.\                       |
+|                     | Note: This is used to dispatch a resource&apos;s    |
+|                     | load.                                          |
++---------------------+------------------------------------------------+
+| CONTROL_SETPOINT    | Resource dependent setting. Payload value type |
+|                     | depends on application.                        |
++---------------------+------------------------------------------------+
+| EXPORT_PRICE        | The price of energy exported (usually to the   |
+|                     | grid). Payload value is float and units and    |
+|                     | currency are defined in associated             |
+|                     | eventPayloadDescriptor.\                       |
+|                     | Note: Can be used for any form of energy.      |
++---------------------+------------------------------------------------+
+| GHG                 | An estimate of marginal GreenHouse Gas         |
+|                     | emissions, in g/kWh. Payload value is float.   |
++---------------------+------------------------------------------------+
+| CURVE               | Payload values array contains a series of one  |
+|                     | or more pairs of floats representing a 2D      |
+|                     | point.                                         |
+|                     |                                                |
+|                     | Note: May be used to represent a curve of      |
+|                     | values, e.g. VoltVar values.                   |
++---------------------+------------------------------------------------+
+| OLS                 | Optimum Load Shape. Payload values array       |
+|                     | contains a list of values 0.0 to 1.0           |
+|                     | representing percentage of usage over the set  |
+|                     | of intervals in the event.                     |
+|                     |                                                |
+|                     | Note: See ANSI-SCTE 267.                       |
++---------------------+------------------------------------------------+
+| IMPORT_CA           | The amount of import capacity a customer has   |
+| PACITY_SUBSCRIPTION | subscribed to in advance. Payload is a float,  |
+|                     | and meaning is indicated by units in           |
+|                     | associated eventPayloadDescriptor.             |
++---------------------+------------------------------------------------+
+| IMPORT_C            | The amount of additional import capacity that  |
+| APACITY_RESERVATION | a customer has been granted by the VTN.        |
+|                     | Payload is a float, and meaning is indicated   |
+|                     | by units in associated eventPayloadDescriptor. |
++---------------------+------------------------------------------------+
+| IMPORT_CAPAC        | The cost per unit of power of extra import     |
+| ITY_RESERVATION_FEE | capacity available for reservation. Payload is |
+|                     | a float, and meaning is indicated by units in  |
+|                     | associated eventPayloadDescriptor.             |
++---------------------+------------------------------------------------+
+| IMPORT              | The amount of extra import capacity available  |
+| _CAPACITY_AVAILABLE | for reservation to the customer. Payload is a  |
+|                     | float, and meaning is indicated by units in    |
+|                     | associated eventPayloadDescriptor.             |
++---------------------+------------------------------------------------+
+| IMPORT_CAPAC        | The cost per unit of power of extra import     |
+| ITY_AVAILABLE_PRICE | capacity available for reservation. Payload is |
+|                     | a float, and meaning is indicated by units in  |
+|                     | associated eventPayloadDescriptor.             |
++---------------------+------------------------------------------------+
+| EXPORT_CA           | The amount of export capacity a customer has   |
+| PACITY_SUBSCRIPTION | subscribed to in advance. Payload is a float,  |
+|                     | and meaning is indicated by units in           |
+|                     | associated eventPayloadDescriptor.             |
++---------------------+------------------------------------------------+
+| EXPORT_C            | The amount of additional export capacity that  |
+| APACITY_RESERVATION | a customer has been granted by the VTN.        |
+|                     | Payload is a float, and meaning is indicated   |
+|                     | by units in associated eventPayloadDescriptor. |
++---------------------+------------------------------------------------+
+| EXPORT_CAPAC        | The cost per unit of power of extra export     |
+| ITY_RESERVATION_FEE | capacity available for reservation. Payload is |
+|                     | a float, and meaning is indicated by units in  |
+|                     | associated eventPayloadDescriptor.             |
++---------------------+------------------------------------------------+
+| EXPORT              | The amount of extra export capacity available  |
+| <em>CAPACITY_AVAILABLE | for reservation to the customer. Payload is a  |
+|                     | float, and meaning is indicated by units in    |
+|                     | associated eventPayloadDescriptor.             |
++---------------------+------------------------------------------------+
+| EXPORT_CAPAC        | The cost per unit of power of extra export     |
+| ITY_AVAILABLE_PRICE | capacity available for reservation. Payload is |
+|                     | a float, and meaning is indicated by units in  |
+|                     | associated eventPayloadDescriptor.             |
++---------------------+------------------------------------------------+
+| IM                  | The maximum import level for the site. Payload |
+| PORT_CAPACITY_LIMIT | is a float and meaning is indicated by units   |
+|                     | in associated eventPayloadDescriptor.          |
++---------------------+------------------------------------------------+
+| EX                  | The maximum export level for the site. Payload |
+| PORT_CAPACITY_LIMIT | is a float and meaning is indicated by units   |
+|                     | in associated eventPayloadDescriptor.          |
++---------------------+------------------------------------------------+
+| A                   | There is an imminent risk of the grid failing  |
+| LERT_GRID_EMERGENCY | to continue supplying power to some customers, |
+|                     | maintaining operational parameters (e.g.       |
+|                     | voltage), or ceasing to operate at all.        |
+|                     | Payload value contains a human-readable string |
+|                     | describing the alert.                          |
++---------------------+------------------------------------------------+
+| ALERT_BLACK_START   | The grid is in the process of resuming full    |
+|                     | operation. Devices should minimize electricity |
+|                     | use until the event is cleared. Payload value  |
+|                     | contains a human-readable string describing    |
+|                     | the alert.                                     |
++---------------------+------------------------------------------------+
+| AL                  | Customers may lose grid power in the coming    |
+| ERT_POSSIBLE_OUTAGE | hours or days.\                                |
+|                     | Note: An example of this from California is    |
+|                     | Public Service Power Shutoffs (usually from    |
+|                     | fire risk). Payload value contains a           |
+|                     | human-readable string describing the alert.    |
++---------------------+------------------------------------------------+
+| ALERT_FLEX_ALERT    | Power supply will be scarce during the event.  |
+|                     | Devices should seek to shift load to times     |
+|                     | before or after the event. Devices that can    |
+|                     | shed should do so during the event. Payload    |
+|                     | value contains a human-readable string         |
+|                     | describing the alert.                          |
+|                     |                                                |
+|                     | Note: See: <a href="http://flexalert.org">flexalert.org</a>                       |
++---------------------+------------------------------------------------+
+| ALERT_FIRE          | There is a substantial risk of fire in the     |
+|                     | area which could interrupt electricity supply  |
+|                     | in addition to being a danger to life and      |
+|                     | property. Payload value contains a             |
+|                     | human-readable string describing the alert.    |
++---------------------+------------------------------------------------+
+| ALERT_FREEZING      | There is (or is forecast to be) temperatures   |
+|                     | low enough to be of concern. Payload value     |
+|                     | contains a human-readable string describing    |
+|                     | the alert.                                     |
++---------------------+------------------------------------------------+
+| ALERT_WIND          | There is (or is forecast to be) wind speeds    |
+|                     | high enough to be of concern. Includes         |
+|                     | hurricanes. Payload value contains a           |
+|                     | human-readable string describing the alert.    |
++---------------------+------------------------------------------------+
+| ALERT_TSUNAMI       | Tsunami waves expected to hit the coastline.   |
+|                     | Payload value contains a human-readable string |
+|                     | describing the alert.                          |
++---------------------+------------------------------------------------+
+| ALERT_AIR_QUALITY   | Air quality is or is forecast to be. Payload   |
+|                     | value contains a human-readable string         |
+|                     | describing the alert.                          |
++---------------------+------------------------------------------------+
+| ALERT_OTHER         | No specific definition. See associated text    |
+|                     | data element. Payload value contains a         |
+|                     | human-readable string describing the alert.    |
++---------------------+------------------------------------------------+
+| CTA2045_REBOOT      | Pass through for resources that support        |
+|                     | [CTA-2045B]<em>.</em> Payload value 0 = SOFT, 1 =   |
+|                     | HARD. See [CTA-2045B] for definitions.       |
++---------------------+------------------------------------------------+
+| CTA2045</em>            | Pass through CTA-2045 Override status: 0 = No  |
+| SET_OVERRIDE_STATUS | Override, 1 = Override. See [CTA-2045B].     |
++---------------------+------------------------------------------------+</p>
+<h2>Report Enumerations</h2>
+<p>The following enumerations may be assigned to the payloadType attribute
+of a payload included in an interval included in a report. For example:</p>
+<pre><code class="hljs language-json"><span class="hljs-punctuation">{</span>
+  \...\
+  <span class="hljs-attr">&quot;intervals&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+    <span class="hljs-punctuation">{</span>
+      <span class="hljs-attr">&quot;ID&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;payloads&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+        <span class="hljs-punctuation">{</span>
+          <span class="hljs-attr">&quot;type&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;USAGE&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;values&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-number">0.10</span><span class="hljs-punctuation">]</span>
+        <span class="hljs-punctuation">}</span>
+      <span class="hljs-punctuation">]</span>
+    <span class="hljs-punctuation">}</span>
+  <span class="hljs-punctuation">]</span>
+<span class="hljs-punctuation">}</span>
+</code></pre>
+<p><strong>Figure 10. Example Event</strong></p>
+<p><strong>Table 2. Report Enumerations</strong></p>
+<p><table id="report-payload-enumeration">
+    <tr><td>READING</td><td>An instantaneous data point, as from a meter. Same as pulse count. Payload
+value is a float and units are defined in payloadDescriptor.
+</td></tr><tr><td>USAGE</td><td>Energy usage over an interval. Payload value is a float and units are defined in
+payloadDescriptor.
+</td></tr><tr><td>DEMAND</td><td>Power usage for an interval, i.e. Real Power. Payload value is a float, units
+defined in payloadDescriptor. Reading type indicates MEAN, PEAK,
+FORECAST.
+</td></tr><tr><td>SETPOINT</td><td>Current control setpoint of a resource, see CONTROL_SETPOINT event
+payloadType above. Payload values are determined by application.
+</td></tr><tr><td>DELTA_USAGE</td><td>Change in usage as compared to a baseline. Payload value is a float and units
+are defined in payloadDescriptor.
+</td></tr><tr><td>BASELINE</td><td>Indicates energy or power consumption in the absence of load control.
+Payload value is determined by reading type which may indicate usage or
+demand.
+</td></tr><tr><td>OPERATING_STATE</td><td>Payload values array includes a list of operating state enumerations, see
+below.
+</td></tr><tr><td>UP_REGULATION_AVAILABLE</td><td>Up Regulation capacity available for dispatch, in real power. Payload value is a
+float, units defined in payloadDescriptor. Reading type indicates MEAN, PEAK,
+FORECAST.
+</td></tr><tr><td>DOWN_REGULATION_AVAILABLE</td><td>Down Regulation capacity available for dispatch, in real power. Payload value
+is a float, units defined in payloadDescriptor. Reading type indicates MEAN,
+PEAK, FORECAST.
+</td></tr><tr><td>REGULATION_SETPOINT</td><td>Regulation setpoint as instructed as part of regulation services. Payload value
+is a float, units defined in payloadDescriptor. Reading type indicates MEAN,
+PEAK, FORECAST.
+</td></tr><tr><td>STORAGE_USABLE_CAPACITY</td><td>Usable energy that the storage device can hold when fully charged. Payload
+value is a float, units of energy defined in payloadDescriptor.
+</td></tr><tr><td>STORAGE_CHARGE_LEVEL</td><td>Current storage charge level expressed as a percentage, where 0% is empty
+and 100% is full. Payload value is a float, units of PERCENT defined in
+payloadDescriptor.
+</td></tr><tr><td>STORAGE_MAX_DISCHARGE_POWER</td><td>The maximum sustainable power that can be discharged into an electricity
+network (injection). Payload value is a float, units of power defined in
+payloadDescriptor.
+</td></tr><tr><td>STORAGE_MAX_CHARGE_POWER</td><td>The maximum sustainable power that can be charged from an electricity
+network (load). Payload value is a float, units of power defined in
+payloadDescriptor.
+</td></tr><tr><td>SIMPLE_LEVEL</td><td>Simple level that a VEN resource is operating at for each Interval. Payload
+value is an integer 0, 1, 2, 3 corresponding to values in SIMPLE events.
+</td></tr><tr><td>USAGE_FORECAST</td><td>Payload values array contains a single float indicating expected resource
+usage for the associated interval. Units of energy defined in payloadDescriptor.
+</td></tr><tr><td>STORAGE_DISPATCH_FORECAST</td><td>Payload values array contains a single float indicating expected stored energy
+that could be dispatched for the associated interval.
+</td></tr><tr><td>LOAD_SHED_DELTA_AVAILABLE</td><td>Payload values array contains a single float indicating expected increase or
+decrease in load by a resource for the associated interval.
+</td></tr><tr><td>GENERATION_DELTA_AVAILABLE</td><td>Payload values array contains a single float indicating expected generation by
+a resource for the associated interval.
+</td></tr><tr><td>DATA_QUALITY</td><td>Payload values array contains a string indicating data quality of companion
+report payload in the same interval. Strings may be one of enumerated Data
+Quality enumerations.
+</td></tr><tr><td>IMPORT_RESERVATION_CAPACITY</td><td>Amount of additional import capacity requested. Payload values are a float.
+</td></tr><tr><td>IMPORT_RESERVATION_FEE</td><td>Amount per unit of import capacity that the VEN is willing to pay for the
+requested reservation. Payload value is a float with currency defined in
+payloadDescriptor.
+</td></tr><tr><td>EXPORT_RESERVATION_CAPACITY</td><td>Amount of additional export capacity requested. Payload values are a float.
+</td></tr><tr><td>EXPORT_RESERVATION_FEE</td><td>Amount per unit of export capacity that the VEN is willing to pay for the
+requested reservation. Payload value is a float with currency defined in
+payloadDescriptor.
+</td>
+</tr></table>
+</p>
+<p>+----------------+-----------------------------------------------------+
+| <strong>Report       | &gt; <strong>Definition</strong>                                    |
+| payload Type</strong> |                                                     |
++================+=====================================================+
+| READING        | An instantaneous data point, as from a meter. Same  |
+|                | as pulse count. Payload value is a float and units  |
+|                | are defined in payloadDescriptor.                   |
++----------------+-----------------------------------------------------+
+| USAGE          | Energy usage over an interval. Payload value is a   |
+|                | float and units are defined in payloadDescriptor.   |
++----------------+-----------------------------------------------------+
+| DEMAND         | Power usage for an interval, i.e. Real Power.       |
+|                | Payload value is a float, units defined in          |
+|                | payloadDescriptor. Reading type indicates MEAN,     |
+|                | PEAK, FORECAST.                                     |
++----------------+-----------------------------------------------------+
+| SETPOINT       | Current control setpoint of a resource, see         |
+|                | CONTROL_SETPOINT event payloadType above. Payload   |
+|                | values are determined by application.               |
++----------------+-----------------------------------------------------+
+| DELTA_USAGE    | Change in usage as compared to a baseline. Payload  |
+|                | value is a float and units are defined in           |
+|                | payloadDescriptor.                                  |
++----------------+-----------------------------------------------------+
+| BASELINE       | Indicates energy or power consumption in the        |
+|                | absence of load control. Payload value is           |
+|                | determined by reading type which may indicate usage |
+|                | or demand.                                          |
++----------------+-----------------------------------------------------+
+| O              | Payload values array includes a list of operating   |
+| PERATING_STATE | state enumerations, see below.                      |
++----------------+-----------------------------------------------------+
+| UP_REGULA      | Up Regulation capacity available for dispatch, in   |
+| TION_AVAILABLE | real power. Payload value is a float, units defined |
+|                | in payloadDescriptor. Reading type indicates MEAN,  |
+|                | PEAK, FORECAST.                                     |
++----------------+-----------------------------------------------------+
+| DOWN_REGULA    | Down Regulation capacity available for dispatch, in |
+| TION_AVAILABLE | real power. Payload value is a float, units defined |
+|                | in payloadDescriptor. Reading type indicates MEAN,  |
+|                | PEAK, FORECAST.                                     |
++----------------+-----------------------------------------------------+
+| REGUL          | Regulation setpoint as instructed as part of        |
+| ATION_SETPOINT | regulation services. Payload value is a float,      |
+|                | units defined in payloadDescriptor. Reading type    |
+|                | indicates MEAN, PEAK, FORECAST.                     |
++----------------+-----------------------------------------------------+
+| STORAGE_U      | Usable energy that the storage device can hold when |
+| SABLE_CAPACITY | fully charged. Payload value is a float, units of   |
+|                | energy defined in payloadDescriptor.                |
++----------------+-----------------------------------------------------+
+| STORAG         | Current storage charge level expressed as a         |
+| E_CHARGE_LEVEL | percentage, where 0% is empty and 100% is full.     |
+|                | Payload value is a float, units of PERCENT defined  |
+|                | in payloadDescriptor.                               |
++----------------+-----------------------------------------------------+
+| STORAGE_MAX_D  | The maximum sustainable power that can be           |
+| ISCHARGE_POWER | discharged into an electricity network (injection). |
+|                | Payload value is a float, units of power defined in |
+|                | payloadDescriptor.                                  |
++----------------+-----------------------------------------------------+
+| STORAGE_MA     | The maximum sustainable power that can be charged   |
+| X_CHARGE_POWER | from an electricity network (load). Payload value   |
+|                | is a float, units of power defined in               |
+|                | payloadDescriptor.                                  |
++----------------+-----------------------------------------------------+
+| SIMPLE_LEVEL   | Simple level that a VEN resource is operating at    |
+|                | for each Interval. Payload value is an integer 0,   |
+|                | 1, 2, 3 corresponding to values in SIMPLE events.   |
++----------------+-----------------------------------------------------+
+| USAGE_FORECAST | Payload values array contains a single float        |
+|                | indicating expected resource usage for the          |
+|                | associated interval. Units of energy defined in     |
+|                | payloadDescriptor.                                  |
++----------------+-----------------------------------------------------+
+| STORAGE_DIS    | Payload values array contains a single float        |
+| PATCH_FORECAST | indicating expected stored energy that could be     |
+|                | dispatched for the associated interval.             |
++----------------+-----------------------------------------------------+
+| LOAD_SHED_D    | Payload values array contains a single float        |
+| ELTA_AVAILABLE | indicating expected increase or decrease in load by |
+|                | a resource for the associated interval.             |
++----------------+-----------------------------------------------------+
+| GENERATION_D   | Payload values array contains a single float        |
+| ELTA_AVAILABLE | indicating expected generation by a resource for    |
+|                | the associated interval.                            |
++----------------+-----------------------------------------------------+
+| DATA_QUALITY   | Payload values array contains a string indicating   |
+|                | data quality of companion report payload in the     |
+|                | same interval. Strings may be one of enumerated     |
+|                | Data Quality enumerations.                          |
++----------------+-----------------------------------------------------+
+| IMPORT_RESERV  | Amount of additional import capacity requested.     |
+| ATION_CAPACITY | Payload values are a float.                         |
++----------------+-----------------------------------------------------+
+| IMPORT_R       | Amount per unit of import capacity that the VEN is  |
+| ESERVATION_FEE | willing to pay for the requested reservation.       |
+|                | Payload value is a float with currency defined in   |
+|                | payloadDescriptor.                                  |
++----------------+-----------------------------------------------------+
+| EXPORT_RESERV  | Amount of additional export capacity requested.     |
+| ATION_CAPACITY | Payload values are a float.                         |
++----------------+-----------------------------------------------------+
+| EXPORT_R       | Amount per unit of export capacity that the VEN is  |
+| ESERVATION_FEE | willing to pay for the requested reservation.       |
+|                | Payload value is a float with currency defined in   |
+|                | payloadDescriptor.                                  |
++----------------+-----------------------------------------------------+</p>
+<h2>Reading Type Enumerations</h2>
+<p>These labels are qualifiers to report name labels, to indicate the
+nature of the reported value. DIRECT_READ is the default, if the
+qualifier is absent. Note that these apply to the data source in
+general, not to specific intervals.</p>
+<p>Reading types are used in payloadDescriptor objects to provide context
+to associated payloads. For example:</p>
+<p>payloadDescriptor</p>
+<pre><code class="hljs language-json"><span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">&quot;payloadType&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;USAGE&quot;</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-attr">&quot;readingType&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;DIRECT_READ&quot;</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-attr">&quot;units&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;KWH&quot;</span>
+<span class="hljs-punctuation">}</span>
+</code></pre>
+<p>valuesMap</p>
+<pre><code class="hljs language-json"><span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">&quot;type&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;USAGE&quot;</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-attr">&quot;values&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span> <span class="hljs-number">0.17</span> <span class="hljs-punctuation">]</span>
+<span class="hljs-punctuation">}</span>
+</code></pre>
+<p><strong>Figure 11. Example Reading Types as used in reportPayloadDescriptor
+and in report payload</strong></p>
+<p><strong>Table 3. Reading Type Enumerations</strong></p>
+<!-- schema-descriptions id="reading-types-enumeration" schemahref="/home/david/Projects/openadr/openapi-3.0.0/enumerations/reading-types.schema.yaml"></schema-descriptions -->
+<p><strong>Reading type</strong> <strong>Definition</strong></p>
+<hr>
+<p>DIRECT_READ      Payload values have been determined by direct
+measurement from a resource.</p>
+<p>ESTIMATED        Payload value is an estimate where no Direct Read was
+available for the interval, but sufficient other data
+exist to make a reasonable estimate.</p>
+<p>SUMMED           Payload value is the sum of multiple data sources.</p>
+<p>MEAN             Payload value represents the mean measurements over an
+interval.</p>
+<p>PEAK             Payload value represents the highest measurement over
+an interval.</p>
+<p>FORECAST         Payload value is a forecast of future values, not a
+measurement or estimate of actual data.</p>
+<p>AVERAGE          Payload value represents the average of measurements
+over an interval.</p>
+<hr>
+<h2>Operating State Enumerations</h2>
+<p>These definitions characterize the operating state of a resource under
+control of a VEN.</p>
+<p><strong>Table 4. Operating State Enumerations</strong></p>
+<p><strong>TODO</strong> - No schema was made for this?</p>
+<hr>
+<p><strong>Operating State</strong>   <strong>Definition</strong></p>
+<hr>
+<p>NORMAL                Resource is operating normally. No Demand Response
+directives are currently being followed.</p>
+<p>ERROR                 Resource has self-reported an error or is not
+addressable by VEN.</p>
+<p>IDLE_NORMAL           CTA-2045 device &quot;Indicates that no demand response
+event is in effect and the SGD has
+no/insignificant energy consumption.&quot;</p>
+<p>RUNNING_NORMAL        CTA-2045 device &quot;Indicates that no demand response
+event is in effect and the SGD has significant
+energy consumption.&quot;</p>
+<p>RUNNING_CURTAILED     CTA-2045 device &quot;Indicates that a curtailment type
+demand response event is in effect and the SGD has
+significant energy consumption.&quot;</p>
+<p>RUNNING_HEIGHTENED    CTA-2045 device &quot;Indicates that a
+heightened-operation type of demand response event
+is in effect and the SGD has significant energy
+consumption.&quot;</p>
+<p>IDLE_CURTAILED        CTA-2045 device &quot;Indicates that a curtailment type
+demand response event is in effect and the SGD has
+no/insignificant energy consumption.&quot;</p>
+<p>SGD_ERROR_CONDITION   CTA-2045 device &quot;Indicates that the SGD is not
+operating because it needs maintenance support or
+is in some way disabled (i.e. no response to the
+grid).&quot;</p>
+<p>IDLE_HEIGHTENED       CTA-2045 device &quot;Indicates that a
+heightened-operation type of demand response event
+is in effect and the SGD has no/insignificant
+energy consumption.&quot;</p>
+<p>IDLE_OPTED_OUT        CTA-2045 device &quot;Indicates that the SGD is
+presently opted out of any demand response events
+and the SGD has no/insignificant energy
+consumption.&quot;</p>
+<p>RUNNING_OPTED_OUT     CTA-2045 device &quot;Indicates that the SGD is
+presently opted out of any demand response events
+and the SGD has significant energy consumption.&quot;</p>
+<hr>
+<h2>ResourceName Enumerations</h2>
+<p><strong>Table 5. resourceName Enumeration</strong></p>
+<hr>
+<p>AGGREGATED_REPORT   A report contains a list of resources, each of which
+may contain a list of intervals containing reporting
+data. Each item in the resource list contains a
+resourceName attribute. This resourceName indicates
+the interval data is the aggregate of data from more
+than one resource.</p>
+<hr>
+<hr>
+<h2>Data Quality Enumerations</h2>
+<p>These can be used to qualify report payloads, to indicate the status of
+individual interval values. These are values that may be used in
+payloads of type DATA_QUALITY.</p>
+<pre><code class="hljs language-json"><span class="hljs-punctuation">{</span>
+  \...\
+  <span class="hljs-attr">&quot;intervals&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+    <span class="hljs-punctuation">{</span>
+      <span class="hljs-attr">&quot;payloads&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+        <span class="hljs-punctuation">{</span>
+          <span class="hljs-attr">&quot;type&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;USAGE&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;values&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span> <span class="hljs-number">0</span> <span class="hljs-punctuation">]</span>
+        <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-punctuation">{</span>
+          <span class="hljs-attr">&quot;type&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;DATA_QUALITY&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;values&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span> <span class="hljs-string">&quot;MISSING&quot;</span> <span class="hljs-punctuation">]</span>
+        <span class="hljs-punctuation">}</span>
+      <span class="hljs-punctuation">]</span>
+    <span class="hljs-punctuation">}</span>
+  <span class="hljs-punctuation">]</span>
+<span class="hljs-punctuation">}</span>
+</code></pre>
+<p><strong>Figure 12. Example Data Quality as used in a Report</strong></p>
+<p><strong>Table 6. Data Quality Enumerations</strong></p>
+<hr>
+<p><strong>Data        <strong>Definition</strong>
+quality<br>
+values</strong></p>
+<hr>
+<p>OK            There are no known reasons to doubt the validity of the
+data.</p>
+<p>MISSING       The data item is unavailable for this interval.</p>
+<p>ESTIMATED     This data item has been estimated from other relevant
+information such as adjacent intervals.</p>
+<p>BAD           There is a data item but it is known or suspected to be
+erroneous.</p>
+<hr>
+<h2>Target Enumerations</h2>
+<p>VENs, resources, subscriptions, events and programs may include a
+targets array, each element defining a targeting type and a set of
+appropriate values. Targeting values may be used to selectively read a
+subset of objects.</p>
+<p>target</p>
+<pre><code class="hljs language-json"><span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">&quot;type&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;VEN_NAME&quot;</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-attr">&quot;values&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span> <span class="hljs-string">&quot;VEN-999&quot;</span> <span class="hljs-punctuation">]</span>
+<span class="hljs-punctuation">}</span>
+</code></pre>
+<p><strong>Figure 13. Example Target</strong></p>
+<p><strong>Table 7. Target Enumerations</strong></p>
+<p><table id="target-types-enumeration">
+    <tr><td>POWER_SERVICE_LOCATION</td><td>A Power Service Location is a utility named specific location in geography or
+the distribution system, usually the point of service to a customer site.
+</td></tr><tr><td>SERVICE_AREA</td><td>A Service Area is a utility named geographic region. Target values array
+contains a string representing a service area name.
+</td></tr><tr><td>GROUP</td><td>Target values array contains a string representing a group.
+</td></tr><tr><td>RESOURCE_NAME</td><td>Target values array contains a string representing a resource name.
+</td></tr><tr><td>VEN_NAME</td><td>Target values array contains a string representing a VEN name.
+</td></tr><tr><td>EVENT_NAME</td><td>Target values array contains a string representing an event name.
+</td></tr><tr><td>PROGRAM_NAME</td><td>Target values array contains a string representing a program name.
+</td>
+</tr></table>
+</p>
+<hr>
+<p><strong>label</strong>                <strong>description</strong></p>
+<hr>
+<p>POWER_SERVICE_LOCATION   A Power Service Location is a utility named specific
+location in geography or the distribution system,
+usually the point of service to a customer site.</p>
+<p>SERVICE_AREA             A Service Area is a utility named geographic region.
+Target values array contains a string representing a
+service area name.</p>
+<p>GROUP                    Target values array contains a string representing a
+group.</p>
+<p>RESOURCE_NAME            Target values array contains a string representing a
+resource name.</p>
+<p>VEN_NAME                 Target values array contains a string representing a
+VEN name.</p>
+<p>EVENT_NAME               Target values array contains a string representing an
+event name.</p>
+<p>PROGRAM_NAME             Target values array contains a string representing a
+program name.</p>
+<hr>
+<h2>Attribute Enumerations</h2>
+<p class="mark">[VEN and resource representations may include a list of attributes,
+based on the valueMap object&#xa0;]</p>
+<p>attribute</p>
+<pre><code class="hljs language-json"><span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">&quot;type&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;LOCATION&quot;</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-attr">&quot;values&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span> <span class="hljs-number">40.57</span><span class="hljs-punctuation">,</span> <span class="hljs-number">-73.96</span> <span class="hljs-punctuation">]</span>
+<span class="hljs-punctuation">}</span>
+</code></pre>
+<p><strong>Figure 14. Example Attribute</strong></p>
+<p><strong>Table 8. Attribute Enumerations</strong></p>
+<p><table id="ven-resource-attributes-enumeration">
+    <tr><td>LOCATION</td><td>Describes a single geographic point. Values[] contains 2 floats, generally
+representing longitude and latitude. Demand Response programs may define
+their own use of these fields.
+</td></tr><tr><td>AREA</td><td>Describes a geographic area. Values[] contains application specific data.
+Demand Response programs may define their own use of these fields, such
+as GeoJSON polygon data.
+</td></tr><tr><td>MAX_POWER_CONSUMPTION</td><td>Values contains a floating point number describing the maximum
+consumption, in kiloWatts.
+</td></tr><tr><td>MAX_POWER_EXPORT</td><td>Values contains a floating point number describing the maximum power the
+device can export, in kiloWatts.
+</td></tr><tr><td>DESCRIPTION</td><td>Free-form text tersely describing a ven or resource.
+</td>
+</tr></table>
+</p>
+<hr>
+<p><strong>label</strong>               <strong>description</strong></p>
+<hr>
+<p class="mark">LOCATION                [Describes a single geographic point. Values[]
+contains 2 floats, generally representing longitude
+and latitude. Demand Response programs may define
+their own use of these fields.]</p>
+<p class="mark">AREA                    [Describes a geographic area. Values[] contains
+application specific data. Demand Response programs
+may define their own use of these fields, such as
+GeoJSON polygon data.]</p>
+<p>MAX_POWER_CONSUMPTION   Values contains a floating point number describing
+the maximum consumption, in kiloWatts.</p>
+<p>MAX_POWER_EXPORT        Values contains a floating point number describing
+the maximum power the device can export, in
+kiloWatts.</p>
+<h2>DESCRIPTION             Free-form text tersely describing a ven or resource.</h2>
+<h2>Unit Enumerations</h2>
+<p>Units are used in payloadDescriptor objects to provide context to
+associated payloads.</p>
+<p>eventPayloadDescriptor</p>
+<pre><code class="hljs language-json"><span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">&quot;payloadType&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;PRICE&quot;</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-attr">&quot;units&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;KWH&quot;</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-attr">&quot;currency&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;USD&quot;</span>
+<span class="hljs-punctuation">}</span>
+</code></pre>
+<p>valuesMap</p>
+<pre><code class="hljs language-json"><span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">&quot;type&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;PRICE&quot;</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-attr">&quot;values&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span> <span class="hljs-number">0.17</span> <span class="hljs-punctuation">]</span>
+<span class="hljs-punctuation">}</span>
+</code></pre>
+<p><strong>Figure 15. Example Units used in eventPayloadDescriptor and payload</strong></p>
+<p><strong>Table 9. Unit Enumerations</strong></p>
+<!-- schema-descriptions id="units-enumeration" schemahref="/home/david/Projects/openadr/openapi-3.0.0/enumerations/units.schema.yaml"></schema-descriptions -->
+<hr>
+<p><strong>label</strong>      <strong>description</strong></p>
+<hr>
+<p>KWH            kilowatt-hours (kWh)</p>
+<p>GHG            Greenhouse gas emissions: g/kWh</p>
+<p>VOLTS          volts (V)</p>
+<p>AMPS           Current (A)</p>
+<p>CELSIUS        Temperature (C)</p>
+<p>FAHRENHEIT     Temperature (F)</p>
+<p>PERCENT        %</p>
+<p>KW             kilowatts (kW)</p>
+<p>KVAH           kilovolt-ampere hours (kVAh)</p>
+<p>KVARH          kilovolt-amperes reactive hours (kVARh)</p>
+<p>KVA            kilovolt-amperes (kVA)</p>
+<h2>KVAR           kilovolt-amperes reactive (kVAR)</h2>
+<h2>Currency Enumerations</h2>
+<p>Currency is used in payloadDescriptor objects to provide context to
+associated payloads. See example above in the section titled &quot;Units
+Enumerations&quot;.</p>
+<p>Currency denominations adhere to the ISO 4217 standard [ISO 4217].
+Also available on the web section [ISO 4217] - Currency Code
+Maintenance: Get the Correct Currency Code under &quot;List One (XLS)&quot;.</p>
+<h2 id="binding-enumerations" class="unnumbered">10.12. Binding Enumerations</h2>
+<hr>
+<p><strong>label</strong>                           <strong>description</strong></p>
+<hr>
+<p>MQTT                                The binding specified is for the
+MQTT protocol</p>
+<hr>
+<h2 id="serialization-enumerations" class="unnumbered">10.13. Serialization Enumerations</h2>
+<hr>
+<p><strong>label</strong>                           <strong>description</strong></p>
+<hr>
+<p>JSON                                Messages published to the topic are
+JSON</p>
+<hr>
+<h2 id="message-broker-auth-enumerations" class="unnumbered">10.14. Message Broker Auth Enumerations</h2>
+<hr>
+<p><strong>label</strong>            <strong>description</strong></p>
+<hr>
+<p>anonymous            No authentication to message broker</p>
+<p>clientID-token       Use clientID as username and token as password</p>
+<p>cert                 Use strings provided in the certs object as the
+client certificate</p>
+<hr>
+<h1>Security</h1>
+<p>Security in OpenADR addresses the Authentication and Authorization of
+client requests to the VTN server. Common REST API best practices are
+followed, and the Oauth2 client credential flow describes the mechanism
+to secure the API.</p>
+<h2>Security objectives</h2>
+<p>The overall approach to security in OpenADR 3.0 is based on the
+following three pillars.</p>
+<ul>
+<li><strong>Authentication.</strong> A client request is Authenticated with a VTN in order to access resources[^1]. REST servers are &apos;stateless&apos; and do not maintain session state, therefore every API request must contain some token or credential to allow the VTN server to authenticate the identity of the requestor.</li>
+<li><strong>Authorization.</strong> Within the context of a given program, a VEN will be authorized to access some set of resources and associated operations. The VTN server will limit access to resources and associated operations to those authorized to a requestor, based on the identity of the requestor. See Authentication above.</li>
+<li><strong>Common (well known and widely implemented) Security Model</strong>. OADR REST adopts common industry approaches to Authentication and Authorization. [REST-API-Best_Practices]</li>
+</ul>
+<h2>Assumptions</h2>
+<p>The following specific assumptions underlie the OpenADR 3.0 security
+model.</p>
+<ul>
+<li>VTN security must meet stringent requirements. Client requests must be able to be authenticated and access to API resources and operations must be able to be authorized.
+<ul>
+<li>VTNs are software applications that do not directly interface with any element of the grid. As an information service provided by a utility retailer, the VTN provides APIs to allow the retailer to &apos;publish&apos; information it deems appropriate toshare with customers and other interested parties. There is no mechanism by which a VTN (if restricted to implement only its function as a resource server) or its clients may interact with other components of a utility&apos;s systems.</li>
+</ul>
+</li>
+<li>VTN clients include utility Business Logic and VENs; therefore a security solution must work for both scenarios.
+<ul>
+<li>Client requests must be associated with a client role, and roles define what operations on what API objects a given client may perform. For example, a Business Logic client may create an event, but a VEN cannot. Both can read an event, but a VEN can only read events associated with the programs it is entitled to access.</li>
+</ul>
+</li>
+<li>VENs may be implemented within on-site customer devices such as a water heater, external hardware controllers, or a central device. VENs may also be implemented in servers in the cloud.
+<ul>
+<li>This implies that certifying devices and provisioning x.509 certs or other PKI (Public Key Infrastructure) as detailed in OpenADR 2.0b is daunting at best, or simply not supportable.</li>
+<li>A REST API requires some form of application level credential exchange to authenticate and authorize client requests. Even where PKI may be required, it is not sufficient to address access control of API objects.</li>
+</ul>
+</li>
+<li>Devices (OpenADR &apos;resources&apos;) represented by VENs are owned by a utility customer, who has a customer account with the utility.
+<ul>
+<li>A utility may require that for a customer to participate in a DR program they enroll their account in the program, and may need to register their &apos;resources&apos; or devices into the program.</li>
+</ul>
+</li>
+<li>VENs must be manually provisioned with a VTN address that has been provided by the utility retailer.
+<ul>
+<li>This implies that there is no plug-n-play scenario in which a customer owned device simply begins to participate in a conventional demand response program without some manual configuration. Therefore, the device should present a web UI or other interface to a customer. (Much like a home router presents a web app at a known address).</li>
+<li>A typical means to acquire a VTN address would be for a customer to login in to their utility account and obtain the address as part of the enrollment and registration flow described in the bullet above.</li>
+<li>Methods to automate and standardize this are under consideration by the OpenADR Alliance but separate from the OpenADR 3.0 standard itself. This could be particularly applicable for automated discovery of price servers with only the identity of a retailer or tariff, or completely automated discovery of a price server local to a customer site.</li>
+</ul>
+</li>
+<li>Business Logic and VEN clients must be provisioned with client secrets or other credentials prior to accessing a VTN.</li>
+<li>A VTN may be configured to allow &apos;unregistered&apos; VENs to access the API. This model is particularly applicable for the subset of programs that are tariffs and so the information involved is freely available.
+<ul>
+<li>A customer device may be minimally configured, e.g. just a VTN address that includes the retailer and tariff ID, to read price and related events. In this scenario, the VEN may present some sort of generic credential (perhaps an OpenADR token provided at certification) which the VTN accepts for read access to some programs.</li>
+<li>Such a VTN may limit such access only to a subset of programs.</li>
+</ul>
+</li>
+</ul>
+<h2>Client Scenarios</h2>
+<p>The choice of security protocol(s) depends in part on what client
+scenarios are anticipated.</p>
+<p>A protocol that is difficult and error prone for end users to support
+represents a security threat in itself; it is anticipated that humans
+may be engaged in creating accounts, obtaining credentials and tokens,
+and so on. What can be supported by the average customer is less complex
+than what IT professionals could support.</p>
+<p>OpenADR 2.0b relies on x509 certificates provisioned into the OS of VTNs
+and VENs. This is most appropriate for commercial server to server
+communications, as acquiring, provisioning, and maintaining such certs
+is generally considered overly complex for use in consumer owned
+devices. X509 certs may also be useful in scenarios where a consumer
+device has factory installed certs.</p>
+<p>VEN client platforms include:</p>
+<ul>
+<li>Cloud-based applications managed by IT professionals, e.g. a DER aggregator, product manufacturer, or other cloud-based service provider. Public cloud environments do not lend themselves to device-level authentication as per x.509 as installing and managing such certs is impractical.</li>
+<li>Commercial servers on site managed by IT professionals, e.g. a building or energy management system, or even a device as simple as a Wi-Fi access point.</li>
+<li>External control device for a single customer device such as a gateway device of some sort. Such environments do not lend themselves to device-level authentication as per x.509 as installing and managing such certs is impractical.</li>
+<li>Appliance or other customer device such as a water heater, refrigerator, in-home battery, or EV. These may be provisioned with security certificates or otherwise configured before installation at a customer site, or provisioned remotely by an IT professional.</li>
+</ul>
+<p>Note that a VEN may directly control a device, may translate grid
+signals into device control signals that it passes on, or may pass along
+grid signals with a subsidiary VTN/VEN relationship or via another
+in-building protocol (e.g. BacNET or Matter).</p>
+<h2>Non-Authenticated Clients</h2>
+<p>A VTN may adopt a security position that responds to all incoming
+requests and ignore the specified OAuth2 client credential flow and lack
+of bearer tokens in requests. This provision allows programs to offer
+public information, such as public pricing schedules to any software
+client that makes a request. This scenario introduces security risks and
+is intended only for program offerings, and associated VTNs that accept
+these risks or mitigate them through unspecified means.</p>
+<h2>HTTPS/TLS</h2>
+<p>VTN should use &apos;HTTP over TLS&apos;, or HTTPS. Transport Layer Security
+[TLS] is required to encrypt all messages &apos;on the wire&apos;. Because of
+the wide variety of platforms that may host a VEN and the user
+experience issues that could inhibit provisioning of client certs in
+every scenario, server-side certs are required, but client-side certs
+are not.</p>
+<p>TLS 1.2 is required. TLS 1.3 or later is optional. As technology
+progresses, these requirements may be updated.</p>
+<p>It is the responsibility of the service provider hosting a VTN to
+maintain a secure web platform. This includes updating TLS ciphers when
+appropriate.</p>
+<h2 id="mqttstls" class="unnumbered">11.6. MQTTS/TLS</h2>
+<p>MQTT brokers and clients must support MQTT version 5 (or later)</p>
+<p>Clients must use MQTT over TLS (MQTTS) to connect to a VTN message
+broker.</p>
+<h2>API Gateway</h2>
+<p>A production VTN might deploy with an API gateway to implement rate
+limiting and perhaps other features. Rate limiting blocks requests after
+a certain number within a given time period from a given IP address,
+thus mitigating Denial of Service attacks.</p>
+<h2>OAuth 2.0 client credential flow</h2>
+<p>Certified VEN clients must implement the OAuth2 [OAuth] client
+credential flow in which an out of band (from the REST interactions)
+process provides a clientID and secret to the VEN and associates the VEN
+with a role and associated Access Controls in the VTN. At runtime the
+VEN trades the clientID/secret for a short-lived token, which the VTN
+uses to Authenticate the client, and therefore Authorize access to
+certain resources. The VTN uses the token to determine which programs or
+tariffs may be accessed by the VEN.</p>
+<p>OAuth2 Client Credentials Flow [Oauth2 Client Flow] is designed to
+help facilitate Authentication &amp; Authorization for a Machine To Machine
+application. While OAuth itself does not specify the format of the
+Access Token, the most common format used is a JSON Web Token (JWT
+[JWT]) and this is advantageous for use in OpenADR 3.0.</p>
+<p>The Authentication / Authorization process is as follows:</p>
+<ul>
+<li>A client is provided a client ID and secret via an out-of-band process. In the case of a VEN, a utility customer may engage with their energy retailer via web flow or other process to obtain these values, and then provision the VEN with them.</li>
+<li>The client makes a call to an Authorization server with a ClientId and ClientSecret.</li>
+<li>The client receives a short-lived API access token.</li>
+<li>The VEN client then makes a request to VTN API resource with the access token (in header &quot;Authorization: Bearer &lt;token&gt;&quot;)</li>
+<li>The VTN verifies the token and returns an Unauthorized response if invalid or expired.</li>
+<li>The VTN determines the client role from the API token and applies fine-grained access control. For example, a VEN client not being allowed to create event objects.</li>
+</ul>
+<p>The following is a simplified view of the client credential flow for
+VENs. This does not include details such as coordinating the
+Authentication server with Business Logic web flow to share client IDs
+and secrets or illustrate a similar process for Business Logic clients
+of VTN. [Client Flow Overview]</p>
+<p><img src="media/image2.png" alt="Picture 1">{width=&quot;6.5in&quot;
+height=&quot;4.360416666666667in&quot;}</p>
+<p><strong>Figure 16: OAuth2 client credential flow</strong></p>
+<h2>OpenAPI Specification</h2>
+<p>OpenADR 3.0 is defined by an OpenAPI (aka swaggerdoc) YAML file. The
+OpenAPI platform provides mechanisms to define security objects and use
+them to assign scopes to operations [OpenAPI Auth]. In this manner the
+specification defines which clients can perform which operations on
+which objects. For example, Business logic clients can create events,
+but VENs cannot.</p>
+<p>Each endpoint operation definition includes a security attribute, with a
+child attribute of oAuth2ClientCredentials that specifies what
+permissions are required for the operation. For example,</p>
+<pre><code class="hljs">  <span class="hljs-attribute">/programs</span><span class="hljs-punctuation">:</span>
+  <span class="hljs-attribute">\...\
+  get</span><span class="hljs-punctuation">:</span>
+  <span class="hljs-attribute">\...\
+  security</span><span class="hljs-punctuation">:</span>
+  <span class="hljs-bullet">-</span> <span class="hljs-string">oAuth2ClientCredentials: [read_all]</span>
+
+</code></pre>
+<p>The &apos;read_all&apos; scope is defined in the oAuth2ClientCredentials
+securitySchemes: section of the OpenAPI document, as are other scopes.</p>
+<h2>Bearer tokens</h2>
+<p>A VTN is responsible for issuing bearer tokens, and it is an
+implementation detail what format to use, what features are encoded in
+the token, and how the token is used at runtime besides the role-based
+operation access control described above.</p>
+<p>For example, a token may encode and be used to filter the events a VEN
+can read to only those associated with certain programs.</p>
+<h2 id="webhooks" class="unnumbered">11.10. Webhooks</h2>
+<p>When working with webhooks there are multiple potential security
+concerns, such as infiltrating and probing the VTN internal network
+(SSRF)<a href="https://owasp.org/www-community/attacks/Server_Side_Request_Forgery">^2</a>, etc. These can arise on the sender end (the VTN). On the
+receiver end (the VEN), the client needs to verify that the data coming
+into their webhook endpoint (the endpoint that accepts webhook
+notifications) is actually from the correct application, the VTN, and
+has not been spoofed/corrupted in transit.</p>
+<p>To strengthen the webhooks security, the following requirements are to
+be met:</p>
+<ul>
+<li>The VEN client MUST use HTTPS for the webhook callback URL. The VTN MUST validate that an HTTPS schema is used for the callback URL of the webhook subscription that is created and/or updated.</li>
+<li>The VTN MUST verify the webhook callback URL is active and belongs to the requestor. To achieve this, the VTN MUST send a GET request to the provided callback URL that includes a challenge, a query string parameter named &apos;echo&apos;, with random generated string value. When the VEN receives this request on the callback URL, it MUST respond with 200 OK response and include the query string parameter value in the body of the response. The VTN MUST verify that the echo parameter value that was sent back is the same as the one that was initially sent. In case when the validation fails, the VTN MUST NOT allow creation of the subscription.</li>
+</ul>
+<p>11.9.1 Additional guidelines</p>
+<p>Following are a few guidelines that can be taken into consideration in
+relation with the webhooks in order to ensure even better security and
+reliability.</p>
+<ul>
+<li><em>Configure timeouts</em>. The VTN should configure a timeout when making requests to the VEN client as a webhook consumer. The nature of webhooks suggests that they execute relatively quickly, therefore it is recommended that a VTN configure a timeout period between 10 and 30 seconds.</li>
+<li><em>Check for private IPs and reserved IPs</em>. The VTN should check if users are creating subscriptions with a webhook callback URL to <code>http://127.0.0.1</code> or attempting to use URLs that resolve to private ranges. As a potential attack vector are domains that resolve to private IPs. For example, an attacker could set up <code>http://foo.com</code>&gt; which resolves to a private IP.</li>
+<li><em>Redirects to private IPs</em>. If the VTN HTTP client library follows redirects, the attacker can set up a webhook callback URL endpoint that redirects to a private IP. It is recommended that a VTN does not follow redirects.</li>
+<li><em>Sign webhook payloads</em>. A VEN client may verify the source of a VTN request when a VTN signs the webhook payload with a secret key. One way to do this is symmetrically by using HMAC cryptography algorithm. The VTN signs the webhook payloads with a symmetrical secret key and sends the signature in the request header for the VEN client to verify it.</li>
+<li><em>List the origin IPs</em>. A VTN may list and communicate out of band the IP origins of the sent requests to VEN clients. This information allows developers to implement IP policies in their VEN clients for additional security.</li>
+<li><em>Error handling and backing off</em>. The VTN sends POST requests to VEN clients endpoints but some of them will inevitably fail (DNS issues, incorrect routing, etc.). VTN may retry to some degree, but not constantly and not forever. The general practices for handling this should be the following:
+<ul>
+<li>Use fixed delay between retries or even exponential backoff to slowly increase the time between retries.</li>
+<li>If an endpoint hasn&apos;t been responding for a while, mark it as &quot;broken&quot; and stop sending requests to it.</li>
+<li>Once an endpoint is marked as broken, send a notification (e.g., email) to the developer notifying them that the VTN has been unable to reach the endpoint and they need to fix it.</li>
+</ul>
+</li>
+</ul>
+<h1>Reference Implementation</h1>
+<p>The OpenADR Alliance provides an open source Reference Implementation
+(RI) [OADR3-RI] which includes a simple implementation of the client
+credential flow.</p>
+<p>Using constructs available in OpenAPI and the swaggerhub auto-generated
+python VTN server, the RI provides an <code>&lt;base_url&gt;/auth/token</code> endpoint
+that clients use to exchange pre-allocated clientID and secret
+credentials for an access token. The token is included as a bearer token
+header in each subsequent API request. The server framework resolves the
+token to a set of scopes which are used to enforce access control to
+each endpoint operation. These steps are described below:</p>
+<h2>Step 1: Trade clientID/clientSecret for access token</h2>
+<p>CURL is a command line tool for making http requests. The example here
+illustrates an http GET request to obtain an access token. ClientID and
+clientSecret are included as headers, per best practice.</p>
+<pre><code class="hljs language-shell"><span class="hljs-meta prompt_">&#x24; </span><span class="language-bash">curl http://localhost:8080/openadr3/OADR-3.0.0/1.0.0/auth/token \
+  -H <span class="hljs-string">&apos;clientID: ven_client&apos;</span> -H <span class="hljs-string">&apos;clientSecret: 999&apos;</span></span>
+</code></pre>
+<p>The RI hardcodes clientIDs and clientSecrets and tokens. On requests to
+the auth/token endpoint the endpoint handler (fetch_token()) interprets
+the clientID and clientSecret headers in the request and returns one of
+&apos;ven_token&apos;, &apos;bl_token&apos;, or &apos;bad_token&apos;.</p>
+<p>In a production environment, the entity that grants clientIDs and
+clientSecrets populates a service or database with an association
+between those credentials and a token and set of scopes, such that Step
+3 below can be performed.</p>
+<h2>Step 2: Include access token in API requests</h2>
+<p>The token obtained from Step 1 is used in a Bearer token header in API
+requests, as illustrated below:</p>
+<pre><code class="hljs language-shell"><span class="hljs-meta prompt_">&#x24; </span><span class="language-bash">curl http://localhost:8080/openadr3/OADR-3.0.0/1.0.0/programs \
+  -H <span class="hljs-string">&quot;Authorization: Bearer ven_token&quot;</span></span>
+</code></pre>
+<h2>Step 3: Resolve token to scopes</h2>
+<p>A scope is a string associated with an endpoint operation that the
+server framework checks to ensure an incoming request is permitted. See
+section above titled <strong>OpenAPI Specification</strong> for an example.</p>
+<p class="mark">On every API request (except <code>&lt;base_url&gt;/auth/token</code>) the server
+framework invokes the authorization_controller.[check_oAuth2ClientCredentials() method to
+resolve a token to a set of scopes.]</p>
+<p class="mark">[The RI hardcodes the association between tokens and scopes.]</p>
+<p class="mark">[In a production environment, the association between tokens and scopes
+is dynamically maintained by service or database.]</p>
+<h2>Step 4: Enforce Access Control</h2>
+<p class="mark">On every API request (except <code>&lt;base_url&gt;/auth/token</code>), after a token as
+been resolved to scopes, the server framework invokes the
+authorization_controller.[validate_scope_oAuth2ClientCredentials()
+method to ensure the request has been granted the required scopes for
+the requested operation. If the required scopes have not been granted an
+http 403 status code will be returned.]</p>
+<p>[^1]: Note that VTNs may provide some endpoints with no access
+restrictions for freely available information such as prices for
+common tariffs.</p>
+
+</article>
+<section id="right" class="col-md-2">
+<p>right sidebar</p>
+<!-- <tag-cloud/> -->
+</section>
+</div>
+<div class="row">
+<footer class="col-md-12">
+<!-- footer -->
+</footer>
+</div>
+</div>
+<!-- JavaScript at the bottom for fast page loading -->
+<script src="vendor/jquery/jquery.min.js"></script><script src="vendor/popper.js/umd/popper.min.js"></script><script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<!-- <ak-footerJavaScript></ak-footerJavaScript> -->
+</body>
+</html>

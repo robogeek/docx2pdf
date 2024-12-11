@@ -1,0 +1,143 @@
+
+tt, code {
+    font-family: monospace, serif;
+    _font-family: 'courier new', monospace;
+    font-size: 1em;
+}
+
+
+body {
+	padding-top: 70px;
+}
+
+img {
+	max-width: 100%;
+}
+
+blockquote {
+    background: #f9f9f9;
+    border-left: 10px solid #ccc;
+    margin: 1.5em 10px;
+    padding: 0.5em 10px;
+}
+
+blockquote:before {
+    color: #ccc;
+    content: open-quote;
+    font-size: 4em;
+    line-height: 0.1em;
+    margin-right: 0.25em;
+    vertical-align: -0.4em;
+}
+
+blockquote p {
+    display: inline;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+/* Not sure why this was added.  However, one effect was to make
+ * an <a> tag used as a Bootstrap button to be unreadable.  This was
+ * because the text color switched to this shade of purple, and the
+ * button background was also purple.
+ *
+article a, 
+article a:hover, 
+article a:visited {
+  color: #5e00ea; /* #ef0505; /* was  #800000; *
+} */
+
+article {
+    h1, h2, h3, h4, h5, h6 {
+        margin-top: 15px;
+        margin-bottom: 10px;
+        border-bottom: 1px solid #444;
+    }
+
+    article-heading {
+        padding: 10px 15px;
+    }
+
+    article-title {
+        font-size: 24px;
+    }
+
+    article-body {
+        padding: 10px 15px;
+    }
+
+}
+
+/* tables */
+
+div.table, table {
+    margin: 10px auto !important;
+    max-width: 95%;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+div.table, div.informaltable {
+    page-break-inside: avoid;
+}
+
+tr {
+    border-bottom: 1px solid #c3c3c3;
+}
+
+tr th {
+    border-bottom: #777 2px solid !important;
+    // border-top: #9d9d9d 2px solid !important;
+}
+
+tr:nth-of-type(even) {
+    background-color: #f1f6fc;
+}
+
+th {
+    font-family: "Open Sans Bold", sans-serif;
+    color: #000;
+    font-weight: bold;
+}
+
+td, th {
+    padding: 0.3em;
+    text-align: left;
+    vertical-align: baseline;
+    /* font-size: 80%; */
+}
+
+div.informaltable table {
+    margin: 10px auto !important;
+}
+
+div.informaltable table {
+    margin: 10px auto !important;
+}
+
+div.informaltable table tr {
+    border-bottom: none;
+}
+
+div.informaltable table tr:nth-of-type(even) {
+    background-color: transparent;
+}
+
+div.informaltable td, div.informaltable th {
+    border: #9d9d9d 1px solid;
+}
+
+div.table p.title {
+    font-weight: normal;
+    font-style: italic;
+    font-family: "Open Sans Italic", sans-serif;
+    margin: 20px 0 0 0 !important;
+    text-align: center;
+    padding: 0;
+}
+
+table code {
+    font-size: smaller;
+}
