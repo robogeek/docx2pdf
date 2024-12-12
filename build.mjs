@@ -12,7 +12,7 @@ let results = await akasha.render(config);
 // Initialization comes from 
 // https://apitemplate.io/blog/tips-for-generating-pdfs-with-puppeteer/
 const browser = await puppeteer.launch({
-    headless: false,
+    headless: true,
     userDataDir: './tmp',
     args: [   '--disable-features=IsolateOrigins',
               '--disable-site-isolation-trials',

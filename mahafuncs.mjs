@@ -61,3 +61,10 @@ export class SchemaDescriptions extends mahabhuta.CustomElement {
             });
     }
 }
+
+// style='page-break-before: always'
+// .page_break { page-break-before: always; }
+// div.page_break + div.page_break{
+//    page-break-before: always;
+// }
+// <div class="page_break"></div>

@@ -100,36 +100,29 @@
 
 <link rel="canonical" href="https://example.akashacms.com/Definition.html">
 
-<!-- <ak-header-metatags></ak-header-metatags> -->
-<link rel="sitemap" type="application/xml" href="sitemap.xml">
 
 
-<!--
-<xml-sitemap></xml-sitemap>
-<site-verification></site-verification>
-<ak-header-linkreltags></ak-header-linkreltags>
--->
 <link rel="stylesheet" type="text/css" href="akasha/epub-website/style.css"><link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css"><link rel="stylesheet" type="text/css" href="style.css">
-<!-- ak-stylesheets></ak-stylesheets -->
 
-<!-- ak-headerJavaScript></ak-headerJavaScript -->
-
-<meta name="og:image" content="https://example.akashacms.com/media/image4.png"><meta name="og:image" content="https://example.akashacms.com/media/image3.png"><meta name="og:image" content="https://example.akashacms.com/media/image2.png"></head>
+</head>
 <body>
-<h1>OpenADR 3.1.0 Definition</h1>
 <div class="container" role="main">
 <div class="row">
 <!-- include our document's content -->
-<article class="col-md-10">
-<div id="breadcrumbs"><breadcrumb-trail></breadcrumb-trail></div>
-<p><small>Tags: <tags-for-document></tags-for-document></small></p>
-<p><authors-byline></authors-byline></p>
+<article class="col-md-12">
+<div id="title-page">
+<figure data-type="image" tabindex="1"><img src="./img/openadr-logo.png" alt="OpenADR Logo" class="logo-image"></figure>
+<div class="text-right font-weight-bolder">
 <p><strong>OpenADR 3.0</strong></p>
 <p><strong>OpenADR 3.1.0 Definitions</strong></p>
+</div>
+<div class="text-right">
 <p>Updated 9/16/2024</p>
 <p>Revision Number: 3.1.0</p>
 <p>Document Status: <strong>Final</strong> <strong>Specification</strong></p>
 <p>Document Number: 20231118-X</p>
+</div>
+<div class="text-right">
 <table>
 <thead>
 <tr>
@@ -192,94 +185,15 @@
 </tbody>
 </table>
 <p>Please send general questions and comments about the specification to
-[comments@openadr.org]{.underline}(<a href="mailto:comments@openadr.org">mailto:comments@openadr.org</a>).</p>
-<h2>CONTENTS</h2>
-<p><a href="#introduction"><strong>1. Introduction 3</strong></a></p>
-<p><a href="#revision-3.0.2-introduction">1.1 Revision 3.0.2 Introduction 3</a></p>
-<p><a href="#normative-references"><strong>2. Normative References 3</strong></a></p>
-<p><a href="#informative-references"><strong>3. Informative References 4</strong></a></p>
-<p><a href="#terms-and-definitions"><strong>4. Terms and Definitions 4</strong></a></p>
-<blockquote class="blockquote">
-<p><a href="#messaging-protocol-terms-and-definitions">4.1 Messaging Protocol Terms and Definitions
-5</a></p>
-</blockquote>
-<p><a href="#overview"><strong>5. Overview 5</strong></a></p>
-<blockquote class="blockquote">
-<p><a href="#system-architecture">5.1. System Architecture 5</a></p>
-<p><a href="#local-scenarios">5.2. Local Scenarios 7</a></p>
-<p><a href="#ven-enrollment">5.3. VEN enrollment 7</a></p>
-</blockquote>
-<p><a href="#general-usage"><strong>6. General Usage 8</strong></a></p>
-<blockquote class="blockquote">
-<p><a href="#vtn-provided-fields">6.1. VTN provided fields 8</a></p>
-<p><a href="#required-and-optional-properties">6.2. Required and optional properties
-8</a></p>
-<p><a href="#response-codes-and-errors">6.3. Response Codes and Errors 8</a></p>
-<p><a href="#problem">6.3.1. Problem 9</a></p>
-<p><a href="#post-and-put">6.4. POST and PUT 9</a></p>
-<p><a href="#compression">6.5. Compression 9</a></p>
-<p><a href="#support-for-strongly-typed-languages">6.6. Support for Strongly Typed languages
-10</a></p>
-<p><a href="#message-validation">6.7. Message validation 10</a></p>
-<p><a href="#subscriptions">6.8. Subscriptions 10</a></p>
-<p><a href="#subscription-and-notification-via-messaging-protocols">6.8.1 Subscription and Notification via Messaging Protocols
-12</a></p>
-<p><a href="#response-filtering">6.9. Response Filtering 13</a></p>
-<p><a href="#object-names">6.10. Object names 14</a></p>
-</blockquote>
-<p><a href="#information-model"><strong>7. Information Model 14</strong></a></p>
-<p><a href="#endpoints"><strong>8. EndPoints 18</strong></a></p>
-<p><a href="#revision"><strong>9. Revision 22</strong></a></p>
-<p><a href="#extensibility"><strong>9. Extensibility 22</strong></a></p>
-<blockquote class="blockquote">
-<p><a href="#model-extension">9.1. Model Extension 22</a></p>
-<p><a href="#private-strings">9.2. Private Strings 22</a></p>
-</blockquote>
-<p><a href="#enumerations"><strong>10. Enumerations 23</strong></a></p>
-<blockquote class="blockquote">
-<p><a href="#introduction-1">10.1. Introduction 23</a></p>
-<p><a href="#event-payload-enumerations">10.2. Event Payload Enumerations 23</a></p>
-<p><a href="#report-enumerations">10.3. Report Enumerations 26</a></p>
-<p><a href="#reading-type-enumerations">10.4. Reading Type Enumerations 29</a></p>
-<p><a href="#operating-state-enumerations">10.5. Operating State Enumerations 29</a></p>
-<p><a href="#resourcename-enumerations">10.6. ResourceName Enumerations 30</a></p>
-<p><a href="#data-quality-enumerations">10.7. Data Quality Enumerations 30</a></p>
-<p><a href="#target-enumerations">10.8. Target Enumerations 31</a></p>
-<p><a href="#attribute-enumerations">10.9. Attribute Enumerations 32</a></p>
-<p><a href="#unit-enumerations">10.10. Unit Enumerations 32</a></p>
-<p><a href="#currency-enumerations">10.11. Currency Enumerations 33</a></p>
-<p><a href="#binding-enumerations">10.12. Binding Enumerations 33</a></p>
-<p><a href="#serialization-enumerations">10.13. Serialization Enumerations 34</a></p>
-<p><a href="#message-broker-auth-enumerations">10.14. Message Broker Auth Enumerations
-34</a></p>
-</blockquote>
-<p><a href="#security"><strong>11. Security 34</strong></a></p>
-<blockquote class="blockquote">
-<p><a href="#security-objectives">11.1. Security objectives 34</a></p>
-<p><a href="#assumptions">11.2. Assumptions 34</a></p>
-<p><a href="#client-scenarios">11.3. Client Scenarios 35</a></p>
-<p><a href="#non-authenticated-clients">11.4. Non-Authenticated Clients 36</a></p>
-<p><a href="#httpstls">11.5. HTTPS/TLS 36</a></p>
-<p><a href="#mqttstls">11.6. MQTTS/TLS 36</a></p>
-<p><a href="#api-gateway">11.6. API Gateway 37</a></p>
-<p><a href="#oauth-2.0-client-credential-flow">11.7. OAuth 2.0 client credential flow
-37</a></p>
-<p><a href="#openapi-specification">11.8. OpenAPI Specification 38</a></p>
-<p><a href="#bearer-tokens">11.9. Bearer tokens 39</a></p>
-<p><a href="#webhooks">11.10. Webhooks 39</a></p>
-</blockquote>
-<p><a href="#reference-implementation"><strong>12. Reference Implementation 40</strong></a></p>
-<blockquote class="blockquote">
-<p><a href="#step-1-trade-clientidclientsecret-for-access-token">12.1. Step 1: Trade clientID/clientSecret for access token
-40</a></p>
-<p><a href="#step-2-include-access-token-in-api-requests">12.2. Step 2: Include access token in API requests
-41</a></p>
-<p><a href="#step-3-resolve-token-to-scopes">12.3. Step 3: Resolve token to scopes
-41</a></p>
-<p><a href="#step-4-enforce-access-control">12.4. Step 4: Enforce Access Control
-41</a></p>
-</blockquote>
-<h1>Introduction</h1>
+<a href="mailto:comments@openadr.org" class="underline">comments@openadr.org</a>.</p>
+</div>
+</div>
+<section class="page_break" id="contents" tabindex="-1">
+<h1 class="page_break" tabindex="-1">CONTENTS</h1>
+<div class="table-of-contents"><ul><li><a href="#contents">CONTENTS</a></li><li><a href="#introduction">Introduction</a><ul><li><a href="#1.1-revision-3.0.2-introduction">1.1 Revision 3.0.2 Introduction</a></li></ul></li><li><a href="#normative-references">Normative References</a></li><li><a href="#informative-references">Informative References</a></li><li><a href="#terms-and-definitions">Terms and Definitions</a><ul><li><a href="#4.1-messaging-protocol-terms-and-definitions">4.1 Messaging Protocol Terms and Definitions</a></li></ul></li><li><a href="#overview">Overview</a><ul><li><a href="#system-architecture">System Architecture</a></li><li><a href="#local-scenarios">Local Scenarios</a></li><li><a href="#ven-enrollment">VEN enrollment</a></li></ul></li><li><a href="#general-usage">General Usage</a><ul><li><a href="#vtn-provided-fields">VTN provided fields</a></li><li><a href="#required-and-optional-properties">Required and optional properties</a></li><li><a href="#response-codes-and-errors">Response Codes and Errors</a></li><li><a href="#post-and-put">POST and PUT</a></li><li><a href="#compression">Compression</a></li><li><a href="#support-for-strongly-typed-languages">Support for Strongly Typed languages</a></li><li><a href="#message-validation">Message validation</a></li><li><a href="#subscriptions">Subscriptions</a></li><li><a href="#6.8.1-subscription-and-notification-via-messaging-protocols">6.8.1 Subscription and Notification via Messaging Protocols</a></li><li><a href="#response-filtering">Response Filtering</a></li><li><a href="#object-names">Object names</a></li></ul></li><li><a href="#information-model">Information Model</a></li><li><a href="#endpoints">EndPoints</a></li><li><a href="#revision">Revision</a></li><li><a href="#extensibility">Extensibility</a><ul><li><a href="#model-extension">Model Extension</a></li><li><a href="#private-strings">Private Strings</a></li></ul></li><li><a href="#enumerations">Enumerations</a><ul><li><a href="#introduction">Introduction</a></li><li><a href="#event-payload-enumerations">Event Payload Enumerations</a></li><li><a href="#report-enumerations">Report Enumerations</a></li><li><a href="#reading-type-enumerations">Reading Type Enumerations</a></li><li><a href="#operating-state-enumerations">Operating State Enumerations</a></li><li><a href="#resourcename-enumerations">ResourceName Enumerations</a></li><li><a href="#data-quality-enumerations">Data Quality Enumerations</a></li><li><a href="#target-enumerations">Target Enumerations</a></li><li><a href="#attribute-enumerations">Attribute Enumerations</a></li><li><a href="#description-free-form-text-tersely-describing-a-ven-or-resource.">DESCRIPTION             Free-form text tersely describing a ven or resource.</a></li><li><a href="#unit-enumerations">Unit Enumerations</a></li><li><a href="#kvar-kilovolt-amperes-reactive-(kvar)">KVAR           kilovolt-amperes reactive (kVAR)</a></li><li><a href="#currency-enumerations">Currency Enumerations</a></li><li><a href="#10.12.-binding-enumerations">10.12. Binding Enumerations</a></li><li><a href="#10.13.-serialization-enumerations">10.13. Serialization Enumerations</a></li><li><a href="#10.14.-message-broker-auth-enumerations">10.14. Message Broker Auth Enumerations</a></li></ul></li><li><a href="#security">Security</a><ul><li><a href="#security-objectives">Security objectives</a></li><li><a href="#assumptions">Assumptions</a></li><li><a href="#client-scenarios">Client Scenarios</a></li><li><a href="#non-authenticated-clients">Non-Authenticated Clients</a></li><li><a href="#https%2Ftls">HTTPS/TLS</a></li><li><a href="#11.6.-mqtts%2Ftls">11.6. MQTTS/TLS</a></li><li><a href="#api-gateway">API Gateway</a></li><li><a href="#oauth-2.0-client-credential-flow">OAuth 2.0 client credential flow</a></li><li><a href="#openapi-specification">OpenAPI Specification</a></li><li><a href="#bearer-tokens">Bearer tokens</a></li><li><a href="#11.10.-webhooks">11.10. Webhooks</a></li></ul></li><li><a href="#reference-implementation">Reference Implementation</a><ul><li><a href="#step-1%3A-trade-clientid%2Fclientsecret-for-access-token">Step 1: Trade clientID/clientSecret for access token</a></li><li><a href="#step-2%3A-include-access-token-in-api-requests">Step 2: Include access token in API requests</a></li><li><a href="#step-3%3A-resolve-token-to-scopes">Step 3: Resolve token to scopes</a></li><li><a href="#step-4%3A-enforce-access-control">Step 4: Enforce Access Control</a></li></ul></li></ul></div>
+</section>
+<section class="page_break" id="introduction" tabindex="-1">
+<h1 class="page_break" tabindex="-1">Introduction</h1>
 <p>This document describes the third major iteration of the OpenADR
 protocol. It serves as a near functional equivalent of its predecessor,
 OpenADR 2.0b, but departs from the 2.0b SOAP-like web service design and
@@ -295,66 +209,59 @@ OpenADR REST concepts. Additional normative content can be found in the
 Normative References section, including the OpenADR 3.0 OpenAPI
 document.]{.mark} [OADR-3.0-Specification] which is the authoritative
 specification of the interface between VTN and clients.</p>
-<h2 id="revision-3.0.2-introduction" class="unnumbered">1.1 Revision 3.0.2 Introduction</h2>
+<section id="revision-3.0.2-introduction" class="unnumbered" tabindex="-1">
+<h2 class="unnumbered" tabindex="-1">1.1 Revision 3.0.2 Introduction</h2>
 <p>The 3.0 revision supported a single mechanism (webhooks, via HTTP) for
 the Virtual Top Node (VTN) to push notifications to clients (resulting
 from Subscriptions), this revision adds support for notification event
 delivery via standard messaging protocols, with MQTT being the first
 such messaging protocol defined.</p>
-<h1>Normative References</h1>
+</section>
+</section>
+<section id="normative-references" tabindex="-1">
+<h1 tabindex="-1">Normative References</h1>
 <p>[OADR-3.0-Specification] OpenADR 3.0 OpenAPI YAML (SwaggerDoc)
-Specification,
-<a href="https://github.com/oadr3/openapi-3.0.0">[https://github.com/oadr3/openapi-3.0.0]{.underline}</a></p>
-<p>[ISO 8601] ISO date and time format.
-<a href="https://www.iso.org/iso-8601-date-and-time-format.html">https://www.iso.org/iso-8601-date-and-time-format.html</a></p>
+Specification, <a href="https://github.com/oadr3/openapi-3.0.0" class="underline">[https://github.com/oadr3/openapi-3.0.0]</a></p>
+<p>[ISO 8601] ISO date and time format. <a href="https://www.iso.org/iso-8601-date-and-time-format.html">https://www.iso.org/iso-8601-date-and-time-format.html</a></p>
 <p>[ISO 4217] ISO 4217 Currency Codes:
-<a href="https://www.six-group.com/en/products-services/financial-information/data-standards.html%23scrollTo=maintenance-agency">[https://www.six-group.com/en/products-services/financial-information/data-standards.html#scrollTo=maintenance-agency]{.underline}</a></p>
-<p>[MQTT] MQTT Version 5.0:</p>
-<p><a href="https://docs.oasis-open.org/mqtt/mqtt/v5.0/mqtt-v5.0.html">[https://docs.oasis-open.org/mqtt/mqtt/v5.0/mqtt-v5.0.html]{.underline}</a></p>
-<h1>Informative References</h1>
+<a href="https://www.six-group.com/en/products-services/financial-information/data-standards.html%23scrollTo=maintenance-agency" class="underline">[https://www.six-group.com/en/products-services/financial-information/data-standards.html#scrollTo=maintenance-agency]</a></p>
+<p>[MQTT] MQTT Version 5.0:
+<a href="https://docs.oasis-open.org/mqtt/mqtt/v5.0/mqtt-v5.0.html" class="underline">[https://docs.oasis-open.org/mqtt/mqtt/v5.0/mqtt-v5.0.html]</a></p>
+</section>
+<section id="informative-references" tabindex="-1">
+<h1 tabindex="-1">Informative References</h1>
 <p>[OADR-3.0-User_Guide] OpenADR 3.0 User Guide, Draft April 17, 2023</p>
-<p>[OADR-3.0-Introduction] OpenADR 3.0 Introducing OpenADR 3.0, Draft
-April 17, 2023</p>
-<p>[OADR-3.0-Reference_Implementation] OpenADR 3.0 Reference
-Implementation
-<a href="https://github.com/oadr3/RI-3.0.0">[https://github.com/oadr3/RI-3.0.0]{.underline}</a></p>
-<p>[REST_Best_Practice] RESTful web API design (website)
-<a href="https://docs.microsoft.com/en-us/azure/architecture/best-practices/api-design">[https://docs.microsoft.com/en-us/azure/architecture/best-practices/api-design]{.underline}</a></p>
-<p>[CTA-2045-B] Modular Communications Interface for Energy Management,
-November 2020</p>
-<p>[OpenAPI Auth] Authentication in OpenAPI
-<a href="https://swagger.io/docs/specification/authentication/">[https://swagger.io/docs/specification/authentication/]{.underline}</a></p>
-<p>[REST-API-Best_Practices] REST API Security Essentials.
-<a href="https://dzone.com/refcardz/rest-api-security-1">[https://dzone.com/refcardz/rest-api-security-1]{.underline}</a></p>
-<p>[OAuth] The OAuth 2.0 Authorization Framework, 2012.
-<a href="https://www.rfc-editor.org/rfc/rfc6749">[https://www.rfc-editor.org/rfc/rfc6749]{.underline}</a></p>
-<p>[JWT] JSON Web Token (JWT), 2015.
-<a href="https://www.rfc-editor.org/rfc/rfc7519">[https://www.rfc-editor.org/rfc/rfc7519]{.underline}</a></p>
-<p>[Oauth2 Client Flow] OAuth 2.0 Client Credentials Grant.
-<a href="https://oauth.net/2/grant-types/client-credentials">[https://oauth.net/2/grant-types/client-credentials]{.underline}</a></p>
-<p>[Client Flow Overview] Client Credentials Flow.
-<a href="https://auth0.com/docs/get-started/authentication-and-authorization-flow/client-credentials-flow">[https://auth0.com/docs/get-started/authentication-and-authorization-flow/client-credentials-flow]{.underline}</a></p>
-<p>[SEMVER] Semantic Versioning
-<a href="https://semver.org">[https://semver.org]{.underline}</a></p>
-<p>[TLS] How SSL and TLS provide identification, authentication,
-confidentiality, and integrity,</p>
-<p><a href="https://www.ibm.com/docs/en/ibm-mq/7.5?topic=ssl-how-tls-provide-authentication-confidentiality-integrity">[https://www.ibm.com/docs/en/ibm-mq/7.5?topic=ssl-how-tls-provide-authentication-confidentiality-integrity]{.underline}</a></p>
-<p>[URI] Uniform Resource Identifier (URI): Generic Syntax</p>
-<p><a href="https://www.rfc-editor.org/rfc/rfc3986">[https://www.rfc-editor.org/rfc/rfc3986]{.underline}</a></p>
-<h1>Terms and Definitions</h1>
+<p>[OADR-3.0-Introduction] OpenADR 3.0 Introducing OpenADR 3.0, Draft April 17, 2023</p>
+<p>[OADR-3.0-Reference_Implementation] OpenADR 3.0 Reference Implementation <a href="https://github.com/oadr3/RI-3.0.0">[https://github.com/oadr3/RI-3.0.0]</a></p>
+<p>[REST_Best_Practice] RESTful web API design (website) <a href="https://docs.microsoft.com/en-us/azure/architecture/best-practices/api-design" class="underline">[https://docs.microsoft.com/en-us/azure/architecture/best-practices/api-design]</a></p>
+<p>[CTA-2045-B] Modular Communications Interface for Energy Management, November 2020</p>
+<p>[OpenAPI Auth] Authentication in OpenAPI <a href="https://swagger.io/docs/specification/authentication/">[https://swagger.io/docs/specification/authentication/]</a></p>
+<p>[REST-API-Best_Practices] REST API Security Essentials. <a href="https://dzone.com/refcardz/rest-api-security-1">[https://dzone.com/refcardz/rest-api-security-1]</a></p>
+<p>[OAuth] The OAuth 2.0 Authorization Framework, 2012. <a href="https://www.rfc-editor.org/rfc/rfc6749">[https://www.rfc-editor.org/rfc/rfc6749]</a></p>
+<p>[JWT] JSON Web Token (JWT), 2015. <a href="https://www.rfc-editor.org/rfc/rfc7519">[https://www.rfc-editor.org/rfc/rfc7519]</a></p>
+<p>[Oauth2 Client Flow] OAuth 2.0 Client Credentials Grant. <a href="https://oauth.net/2/grant-types/client-credentials">[https://oauth.net/2/grant-types/client-credentials]z</a></p>
+<p>[Client Flow Overview] Client Credentials Flow. <a href="https://auth0.com/docs/get-started/authentication-and-authorization-flow/client-credentials-flow">[https://auth0.com/docs/get-started/authentication-and-authorization-flow/client-credentials-flow]</a>
+[SEMVER] Semantic Versioning <a href="https://semver.org">[https://semver.org]</a></p>
+<p>[TLS] How SSL and TLS provide identification, authentication, confidentiality, and integrity,</p>
+<p><a href="https://www.ibm.com/docs/en/ibm-mq/7.5?topic=ssl-how-tls-provide-authentication-confidentiality-integrity">[https://www.ibm.com/docs/en/ibm-mq/7.5?topic=ssl-how-tls-provide-authentication-confidentiality-integrity]</a></p>
+<p>[URI] Uniform Resource Identifier (URI): Generic Syntax <a href="https://www.rfc-editor.org/rfc/rfc3986">[https://www.rfc-editor.org/rfc/rfc3986]</a></p>
+</section>
+<section id="terms-and-definitions" tabindex="-1">
+<h1 tabindex="-1">Terms and Definitions</h1>
 <p>OpenADR 3.0 adopts many terms from 2.0b directly, such as Event and
 Report. Terms that are new or modified are:</p>
 <ul>
-<li><strong>Program -</strong> The business context for a given usage of the VTN. May be a Demand Response program, tariff, or other business construct.</li>
+<li><strong>Program</strong> - The business context for a given usage of the VTN. May be a Demand Response program, tariff, or other business construct.</li>
 <li><strong>ProgramName</strong> - A unique name for a program or tariff. May be used by customers.</li>
-<li><strong>[Program Description]{.mark} -</strong> A human readable document provided out-of-band by a Business Logic entity that specifies a usage of the OpenADR 3.0 object model and configuration details such as VTN address, program names, applicable customer types, etc.</li>
-<li><strong>Tariff -</strong> A type of program that defines the basic agreement between a retailer and a customer, such as an electricity pricing structure, as opposed to optional programs offered on top of a tariff.</li>
-<li><strong>Virtual Top Node (VTN) -</strong> An application that implements the OpenADR 3.0 APIs. This is a Resource Server in REST parlance.</li>
+<li><strong>[Program Description]</strong> - A human readable document provided out-of-band by a Business Logic entity that specifies a usage of the OpenADR 3.0 object model and configuration details such as VTN address, program names, applicable customer types, etc.</li>
+<li><strong>Tariff</strong> - A type of program that defines the basic agreement between a retailer and a customer, such as an electricity pricing structure, as opposed to optional programs offered on top of a tariff.</li>
+<li><strong>Virtual Top Node (VTN)</strong> - An application that implements the OpenADR 3.0 APIs. This is a Resource Server in REST parlance.</li>
 <li><strong>Virtual End Node (VEN)</strong> - A software application that consumes events, generates reports, and directly or indirectly causes changes in energy consumption patterns. This is a client of a VTN.</li>
 <li><strong>Business Logic (BL)</strong> - Application logic embodied in one or more software applications deployed by a utility, retailer, or other &apos;program owner&apos; of the VTN that typically produces events and consumes reports. It may be incorporated into the VTN resource server such that the business logic application exposes the OpenADR 3.0 API. We use the term here to refer to a client of a VTN.</li>
 <li><strong>Customer Logic (CL)</strong> - Application logic that requests and responds to program and event objects, produces reports, and may provide human facing features to support configuration and monitoring. May be incorporated into or interface with a VEN client.</li>
 </ul>
-<h2 id="messaging-protocol-terms-and-definitions" class="unnumbered">4.1 Messaging Protocol Terms and Definitions</h2>
+<section id="messaging-protocol-terms-and-definitions" class="unnumbered" tabindex="-1">
+<h2 class="unnumbered" tabindex="-1">4.1 Messaging Protocol Terms and Definitions</h2>
 <ul>
 <li><strong>Broker</strong> - The standard term for the &quot;server&quot; component of a messaging protocol system. VTNs implementing an additional messaging protocol would include at least one messaging broker.</li>
 <li><strong>Topic</strong> - A category used to organize messages. Each topic has a name that is unique to the broker.</li>
@@ -364,8 +271,12 @@ Report. Terms that are new or modified are:</p>
 <li><strong>Binding</strong> - A specification (and implementation) of a specific messaging protocol technology to the OpenADR 3.0.2 Messaging Protocol endpoints/extensions. This revision specifies the binding to the MQTT protocol. Future revisions may specify additional bindings, one potential future binding may be to Kafka.</li>
 <li><strong>Subscribe-able Object</strong> - An OpenADR 3 object that can be subscribed to, resulting in subsequent notifications of changes to the subscribed object are sent to the subscriber. OpenADR 3 subscribe-able objects include: PROGRAM, EVENT, REPORT, SUBSCRIPTION, VEN, and RESOURCE.</li>
 </ul>
-<h1>Overview</h1>
-<h2>System Architecture</h2>
+</section>
+</section>
+<section id="overview" tabindex="-1">
+<h1 tabindex="-1">Overview</h1>
+<section id="system-architecture" tabindex="-1">
+<h2 tabindex="-1">System Architecture</h2>
 <p>REST systems are composed of a Resource Server exposing a set of HTTP
 APIs and multiple clients of the API. An OpenADR 3.0 VTN is a Resource
 Server, and like an OpenADR 2.0b VTN it provides a mechanism for
@@ -378,6 +289,7 @@ Resource Server (VTN) provides a mechanism for business logic and energy
 consumers to exchange events and reports. Figure 1 illustrates the
 canonical REST paradigm of server and clients, and how OpenADR terms are
 applied to these constructs.</p>
+<figure data-type="image" tabindex="2"><img src="./img/defs-fig-1-rest-architecture.drawio.png" alt="REST and its application to OpenADR" class="margin-left-auto margin-right-auto"><figcaption>Figure 1. REST and its application to OpenADR</figcaption></figure>
 <p><strong>Figure 1. REST and its application to OpenADR</strong></p>
 <p>Business Logic (BL) is application software hosted by an energy retailer
 that integrates to the retailers backend systems and interfaces with a
@@ -401,16 +313,16 @@ connection information, and the topic names available for subscribable
 object notifications. A VTN will include a broker for each supported
 messaging protocol, if any. The relationships between the VTN&apos;s REST and
 message protocol broker, and potential clients are shown in Figure 1.5</p>
-<p><img src="media/image4.png" alt>{width=&quot;3.463542213473316in&quot;
-height=&quot;4.299569116360455in&quot;}</p>
+<figure data-type="image" tabindex="3"><img src="./img/defs-fig-1-5-flow.drawio.png" alt="OpenADR data flow"><figcaption>Figure 1.5</figcaption></figure>
 <p><strong>Figure 1.5</strong></p>
 <p>A tiered hierarchy of VTNs and VENs may also be supported, in which an
 entity acts as a VEN to interact with a VTN, and then presents its own
 VTN to &apos;downstream&apos; VENs. This is shown in Figure 2.</p>
-<p><img src="media/image3.png" alt="image1.png">{width=&quot;4.998214129483815in&quot;
-height=&quot;2.8125in&quot;}</p>
+<figure data-type="image" tabindex="4"><img src="./img/defs-fig-2-implementation-scenarios.png" alt="OpenADR example implementation scenarios"><figcaption>Figure 2. OpenADR 3.0 example implementation scenarios</figcaption></figure>
 <p><strong>Figure 2. OpenADR 3.0 example implementation scenarios</strong></p>
-<h2>Local Scenarios</h2>
+</section>
+<section id="local-scenarios" tabindex="-1">
+<h2 tabindex="-1">Local Scenarios</h2>
 <p>A common expected future usage of OpenADR will be for a central device
 in a building to receive OpenADR events as a VEN, then rebroadcast
 these - possibly modified - to local flexible loads and other devices.
@@ -439,7 +351,9 @@ demand.</p>
 <p>It is not anticipated that the OpenADR standard needs to be modified in
 any way to fully support local operation, but any changes would be
 supplementary capabilities.</p>
-<h2>VEN enrollment</h2>
+</section>
+<section id="ven-enrollment" tabindex="-1">
+<h2 tabindex="-1">VEN enrollment</h2>
 <p>OpenADR relies on an out-of-band process by which Business Logic (BL)
 entities (e.g. utilities) and VENs/Customer Logic agree on the specifics
 of a &apos;program&apos; or &apos;tariff&apos;. A &apos;program description&apos; may be provided by
@@ -459,8 +373,12 @@ assignment or selection of a tariff is the out-of-band process for a
 customer that will then want to receive the prices for that tariff.
 Tariffs also have a program description as other demand response
 coordination mechanisms have, though it is usually simpler.</p>
-<h1>General Usage</h1>
-<h2>VTN provided fields</h2>
+</section>
+</section>
+<section id="general-usage" tabindex="-1">
+<h1 tabindex="-1">General Usage</h1>
+<section id="vtn-provided-fields" tabindex="-1">
+<h2 tabindex="-1">VTN provided fields</h2>
 <p>On object creation of programs, events, reports, subscriptions, vens,
 and ven resources, client representations provided to the VTN on POST
 requests are incomplete, as clients do not have the context to provide
@@ -481,7 +399,9 @@ accurate or meaningful values for the following attributes:</p>
 </ul>
 <p>A VTN SHALL populate object representations with the above fields on
 object creation.</p>
-<h2>Required and optional properties</h2>
+</section>
+<section id="required-and-optional-properties" tabindex="-1">
+<h2 tabindex="-1">Required and optional properties</h2>
 <p>The specification is purposefully sparse of required fields so that
 clients may create and modify objects by creating requests with minimal
 effort.</p>
@@ -499,7 +419,9 @@ be.</p>
 <p>If a representation includes a property that is not defined by an
 object&apos;s schema, a VTN may create a corresponding resource without the
 additional property, effectively ignoring the additional content.</p>
-<h2>Response Codes and Errors</h2>
+</section>
+<section id="response-codes-and-errors" tabindex="-1">
+<h2 tabindex="-1">Response Codes and Errors</h2>
 <p>A VTN SHALL support the following standard codes:</p>
 <p>GET</p>
 <p>200 - OK</p>
@@ -529,7 +451,8 @@ additional property, effectively ignoring the additional content.</p>
 <p>500 - Internal Server Error</p>
 <p>Servers may implement other response codes, but VENs might not recognize
 them.</p>
-<h3>Problem</h3>
+<section id="problem" tabindex="-1">
+<h3 tabindex="-1">Problem</h3>
 <p>On 40x and 500 responses, a VTN SHALL respond with a <em>problem</em> object
 that contains details of the error. The problem object is intended to
 help clients determine what caused a particular response, such as Bad
@@ -543,12 +466,17 @@ Request, Unauthorized, Forbidden, etc.</p>
 <span class="hljs-punctuation">}</span>
 </code></pre>
 <p><strong>Figure 3. Problem Example</strong></p>
-<h2>POST and PUT</h2>
+</section>
+</section>
+<section id="post-and-put" tabindex="-1">
+<h2 tabindex="-1">POST and PUT</h2>
 <p>POST is used to create new objects, and PUT is used to update an
 existing object. A VTN SHALL ignore objectID, createdDateTime,
 modificationDateTime, and objectType values included in representations
 used in POST and PUT requests.</p>
-<h2>Compression</h2>
+</section>
+<section id="compression" tabindex="-1">
+<h2 tabindex="-1">Compression</h2>
 <p>In some circumstances the size of responses should be minimized, such as
 over bandwidth-constrained connections.</p>
 <p>The HTTP protocol allows a client to request encoding using one of
@@ -563,7 +491,9 @@ configuration of the HTTP/REST framework used for OpenADR clients and
 servers.</p>
 <p>Support for a given compression format is optional for VTNs, although
 gzip is encouraged.</p>
-<h2>Support for Strongly Typed languages</h2>
+</section>
+<section id="support-for-strongly-typed-languages" tabindex="-1">
+<h2 tabindex="-1">Support for Strongly Typed languages</h2>
 <p>Certain OpenAPI construct, such as oneOf and anyOf are not suited to
 code-generation of client or server stubs in strongly typed languages
 like Java and C#. Code generators could operate if such constructs
@@ -571,7 +501,9 @@ explicitly included a super class with the alternative schemas modeled
 as subclasses, but this is not implemented in OpenADR 3.0. Where OpenADR
 3.0. uses oneOf and anyOf , classes should be manually created in some
 languages.</p>
-<h2>Message validation</h2>
+</section>
+<section id="message-validation" tabindex="-1">
+<h2 tabindex="-1">Message validation</h2>
 <p>A VTN SHALL reject request bodies that do not contain required fields.
 Content that is not described by a message schema MAY be ignored. (See
 Section 9.1 Model Extension). Validation of content by a VTN content is
@@ -579,7 +511,9 @@ outside the scope of this specification and is considered an
 implementation detail.</p>
 <p>Content validation is the responsibility of clients and therefore
 outside the scope of this specification.</p>
-<h2>Subscriptions</h2>
+</section>
+<section id="subscriptions" tabindex="-1">
+<h2 tabindex="-1">Subscriptions</h2>
 <p>OpenADR 3.0 supports both pull and push interactions. Pull interactions
 are initiated by a client and are implemented with HTTP GET, POST, PUT,
 and DELETE.</p>
@@ -666,7 +600,9 @@ resource object.</p>
 <span class="hljs-punctuation">}</span>
 </code></pre>
 <p><strong>Figure 6. Notification Example</strong></p>
-<h2 id="subscription-and-notification-via-messaging-protocols" class="unnumbered">6.8.1 Subscription and Notification via Messaging Protocols</h2>
+</section>
+<section id="subscription-and-notification-via-messaging-protocols" class="unnumbered" tabindex="-1">
+<h2 class="unnumbered" tabindex="-1">6.8.1 Subscription and Notification via Messaging Protocols</h2>
 <p>As an alternative to object Subscriptions via REST and resulting
 Notifications via webhooks, revision 3.0.2 defines an alternate
 mechanism based on standard messaging protocols, initially MQTT only.</p>
@@ -729,7 +665,9 @@ client to ignore/filter events to which it is not interested.</p>
 will be the same as the existing notification JSON response format
 specified in OpenADR 3.0 (which is also the same as what is returned
 when the message is obtained via an OpenADR 3.0 REST GET request).</p>
-<h2>Response Filtering</h2>
+</section>
+<section id="response-filtering" tabindex="-1">
+<h2 tabindex="-1">Response Filtering</h2>
 <p>A VTN may support large numbers of objects, such as vens and associated
 resources. In order to reduce potentially large responses that might
 include object representations of no interest to a client, clients may
@@ -760,7 +698,9 @@ match every filter term.</p>
 <p>Future versions of OpenADR3 may provide other features that facilitate
 massive scalability or operation under extremely bandwidth or memory
 constrained environments.</p>
-<h2>Object names</h2>
+</section>
+<section id="object-names" tabindex="-1">
+<h2 tabindex="-1">Object names</h2>
 <p>Some objects have name attributes that can be used as query parameters
 to retrieve them. This requires uniqueness with given scopes.</p>
 <ul>
@@ -769,7 +709,10 @@ to retrieve them. This requires uniqueness with given scopes.</p>
 <li><code>ven.resource.resourceName</code> - must be unique to its associated ven.</li>
 </ul>
 <p>event and report names are not required to be unique.</p>
-<h1>Information Model</h1>
+</section>
+</section>
+<section id="information-model" tabindex="-1">
+<h1 tabindex="-1">Information Model</h1>
 <p>An Information Model is a conceptual representation of entities and
 relationships to facilitate human communication; to be useful for
 machines it is translated to a data model. [OADR-3.0-Specification] is
@@ -1027,7 +970,9 @@ subscribe-able object.</li>
 <li><strong>ALL:</strong> Topic name string for all/any operations on the subscribe-able
 object.</li>
 </ul>
-<h1>EndPoints</h1>
+</section>
+<section id="endpoints" tabindex="-1">
+<h1 tabindex="-1">EndPoints</h1>
 <p>A REST API provides URLs that clients use to perform CRUD operations on
 &apos;resources&apos;; this is a URL path but usually called an &apos;endpoint&apos;. Object
 instances of the items described by the Information Model above are
@@ -1225,7 +1170,9 @@ programID&apos;s subscriptions</p>
 <p>description: Return topic names to subscribe to all vens operations
 specified by venID</p>
 <p>security: [read_all]</p>
-<h1>Revision</h1>
+</section>
+<section id="revision" tabindex="-1">
+<h1 tabindex="-1">Revision</h1>
 <p>REST APIs may be designed to be revised and preserve backwards
 compatibility. Typically, the base URL will contain a version number,
 e.g. <code>https://myAPI/1.0/</code>, with 1.0
@@ -1244,7 +1191,9 @@ incremented as follows:</p>
 <li>MINOR version when you add functionality in a backwards compatible manner</li>
 <li>PATCH version when you make backwards compatible bug fixes</li>
 </ol>
-<h1>Extensibility</h1>
+</section>
+<section id="extensibility" tabindex="-1">
+<h1 tabindex="-1">Extensibility</h1>
 <p>The OpenADR 3.0 protocol allows servers and clients to interoperate
 without custom integration. It is intended to provide a functional
 footprint that is sufficient to accommodate all common demand response
@@ -1254,7 +1203,8 @@ the specification, or could be expressed in a better form with an
 extension.</p>
 <p>There are two extension mechanisms offered by OpenADR 3.0: model
 extensions, and private strings.</p>
-<h2>Model Extension</h2>
+<section id="model-extension" tabindex="-1">
+<h2 tabindex="-1">Model Extension</h2>
 <p>A VTN and clients might agree to private model extensions by adding
 constructs to the standard models. VTNs that are ignorant of such
 private extensions may simply ignore such content and underlying
@@ -1271,7 +1221,9 @@ that do not recognize it.</p>
 <span class="hljs-punctuation">}</span>
 </code></pre>
 <p><strong>Figure 7. Example Event object</strong></p>
-<h2>Private Strings</h2>
+</section>
+<section id="private-strings" tabindex="-1">
+<h2 tabindex="-1">Private Strings</h2>
 <p>The standard provides enumerated values for a number of object fields.
 These enumerations have defined semantics. A VTN and clients may agree
 on additional values that can be supplied in these fields.</p>
@@ -1287,8 +1239,12 @@ agreed upon strings.</p>
 <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
 </code></pre>
 <p><strong>Figure 8. Example Private String</strong></p>
-<h1>Enumerations</h1>
-<h2>Introduction</h2>
+</section>
+</section>
+<section id="enumerations" tabindex="-1">
+<h1 tabindex="-1">Enumerations</h1>
+<section id="introduction-1" tabindex="-1">
+<h2 tabindex="-1">Introduction</h2>
 <p>A critical feature of OpenADR is the use of enumerations that provide
 context to payload values. For example, a payload value of &apos;0.17&apos; is
 associated with context in order for a client to know that it is a
@@ -1309,7 +1265,9 @@ include useful information and context.</p>
 lists, and not in the computer science sense of mapping numbers to
 names. There is no utility in OpenADR to assign numeric values to the
 strings defined here as enumerations.</p>
-<h2>Event Payload Enumerations</h2>
+</section>
+<section id="event-payload-enumerations" tabindex="-1">
+<h2 tabindex="-1">Event Payload Enumerations</h2>
 <p>The following defined names and types inform a VEN on how to interpret
 values in an event interval payload. The enumerations may be assigned to
 the payloadType attribute of a payload included in an interval included
@@ -1625,7 +1583,9 @@ Override. See [CTA-2045B].
 | CTA2045</em>            | Pass through CTA-2045 Override status: 0 = No  |
 | SET_OVERRIDE_STATUS | Override, 1 = Override. See [CTA-2045B].     |
 +---------------------+------------------------------------------------+</p>
-<h2>Report Enumerations</h2>
+</section>
+<section id="report-enumerations" tabindex="-1">
+<h2 tabindex="-1">Report Enumerations</h2>
 <p>The following enumerations may be assigned to the payloadType attribute
 of a payload included in an interval included in a report. For example:</p>
 <pre><code class="hljs language-json"><span class="hljs-punctuation">{</span>
@@ -1814,7 +1774,9 @@ payloadDescriptor.
 |                | Payload value is a float with currency defined in   |
 |                | payloadDescriptor.                                  |
 +----------------+-----------------------------------------------------+</p>
-<h2>Reading Type Enumerations</h2>
+</section>
+<section id="reading-type-enumerations" tabindex="-1">
+<h2 tabindex="-1">Reading Type Enumerations</h2>
 <p>These labels are qualifiers to report name labels, to indicate the
 nature of the reported value. DIRECT_READ is the default, if the
 qualifier is absent. Note that these apply to the data source in
@@ -1855,7 +1817,9 @@ measurement or estimate of actual data.</p>
 <p>AVERAGE          Payload value represents the average of measurements
 over an interval.</p>
 <hr>
-<h2>Operating State Enumerations</h2>
+</section>
+<section id="operating-state-enumerations" tabindex="-1">
+<h2 tabindex="-1">Operating State Enumerations</h2>
 <p>These definitions characterize the operating state of a resource under
 control of a VEN.</p>
 <p><strong>Table 4. Operating State Enumerations</strong></p>
@@ -1899,7 +1863,9 @@ consumption.&quot;</p>
 presently opted out of any demand response events
 and the SGD has significant energy consumption.&quot;</p>
 <hr>
-<h2>ResourceName Enumerations</h2>
+</section>
+<section id="resourcename-enumerations" tabindex="-1">
+<h2 tabindex="-1">ResourceName Enumerations</h2>
 <p><strong>Table 5. resourceName Enumeration</strong></p>
 <hr>
 <p>AGGREGATED_REPORT   A report contains a list of resources, each of which
@@ -1910,7 +1876,9 @@ the interval data is the aggregate of data from more
 than one resource.</p>
 <hr>
 <hr>
-<h2>Data Quality Enumerations</h2>
+</section>
+<section id="data-quality-enumerations" tabindex="-1">
+<h2 tabindex="-1">Data Quality Enumerations</h2>
 <p>These can be used to qualify report payloads, to indicate the status of
 individual interval values. These are values that may be used in
 payloads of type DATA_QUALITY.</p>
@@ -1947,7 +1915,9 @@ information such as adjacent intervals.</p>
 <p>BAD           There is a data item but it is known or suspected to be
 erroneous.</p>
 <hr>
-<h2>Target Enumerations</h2>
+</section>
+<section id="target-enumerations" tabindex="-1">
+<h2 tabindex="-1">Target Enumerations</h2>
 <p>VENs, resources, subscriptions, events and programs may include a
 targets array, each element defining a targeting type and a set of
 appropriate values. Targeting values may be used to selectively read a
@@ -1993,7 +1963,9 @@ event name.</p>
 <p>PROGRAM_NAME             Target values array contains a string representing a
 program name.</p>
 <hr>
-<h2>Attribute Enumerations</h2>
+</section>
+<section id="attribute-enumerations" tabindex="-1">
+<h2 tabindex="-1">Attribute Enumerations</h2>
 <p class="mark">[VEN and resource representations may include a list of attributes,
 based on the valueMap object&#xa0;]</p>
 <p>attribute</p>
@@ -2035,8 +2007,12 @@ the maximum consumption, in kiloWatts.</p>
 <p>MAX_POWER_EXPORT        Values contains a floating point number describing
 the maximum power the device can export, in
 kiloWatts.</p>
-<h2>DESCRIPTION             Free-form text tersely describing a ven or resource.</h2>
-<h2>Unit Enumerations</h2>
+</section>
+<section id="description-free-form-text-tersely-describing-a-ven-or-resource." tabindex="-1">
+<h2 tabindex="-1">DESCRIPTION             Free-form text tersely describing a ven or resource.</h2>
+</section>
+<section id="unit-enumerations" tabindex="-1">
+<h2 tabindex="-1">Unit Enumerations</h2>
 <p>Units are used in payloadDescriptor objects to provide context to
 associated payloads.</p>
 <p>eventPayloadDescriptor</p>
@@ -2069,29 +2045,39 @@ associated payloads.</p>
 <p>KVAH           kilovolt-ampere hours (kVAh)</p>
 <p>KVARH          kilovolt-amperes reactive hours (kVARh)</p>
 <p>KVA            kilovolt-amperes (kVA)</p>
-<h2>KVAR           kilovolt-amperes reactive (kVAR)</h2>
-<h2>Currency Enumerations</h2>
+</section>
+<section id="kvar-kilovolt-amperes-reactive-(kvar)" tabindex="-1">
+<h2 tabindex="-1">KVAR           kilovolt-amperes reactive (kVAR)</h2>
+</section>
+<section id="currency-enumerations" tabindex="-1">
+<h2 tabindex="-1">Currency Enumerations</h2>
 <p>Currency is used in payloadDescriptor objects to provide context to
 associated payloads. See example above in the section titled &quot;Units
 Enumerations&quot;.</p>
 <p>Currency denominations adhere to the ISO 4217 standard [ISO 4217].
 Also available on the web section [ISO 4217] - Currency Code
 Maintenance: Get the Correct Currency Code under &quot;List One (XLS)&quot;.</p>
-<h2 id="binding-enumerations" class="unnumbered">10.12. Binding Enumerations</h2>
+</section>
+<section id="binding-enumerations" class="unnumbered" tabindex="-1">
+<h2 class="unnumbered" tabindex="-1">10.12. Binding Enumerations</h2>
 <hr>
 <p><strong>label</strong>                           <strong>description</strong></p>
 <hr>
 <p>MQTT                                The binding specified is for the
 MQTT protocol</p>
 <hr>
-<h2 id="serialization-enumerations" class="unnumbered">10.13. Serialization Enumerations</h2>
+</section>
+<section id="serialization-enumerations" class="unnumbered" tabindex="-1">
+<h2 class="unnumbered" tabindex="-1">10.13. Serialization Enumerations</h2>
 <hr>
 <p><strong>label</strong>                           <strong>description</strong></p>
 <hr>
 <p>JSON                                Messages published to the topic are
 JSON</p>
 <hr>
-<h2 id="message-broker-auth-enumerations" class="unnumbered">10.14. Message Broker Auth Enumerations</h2>
+</section>
+<section id="message-broker-auth-enumerations" class="unnumbered" tabindex="-1">
+<h2 class="unnumbered" tabindex="-1">10.14. Message Broker Auth Enumerations</h2>
 <hr>
 <p><strong>label</strong>            <strong>description</strong></p>
 <hr>
@@ -2100,12 +2086,16 @@ JSON</p>
 <p>cert                 Use strings provided in the certs object as the
 client certificate</p>
 <hr>
-<h1>Security</h1>
+</section>
+</section>
+<section id="security" tabindex="-1">
+<h1 tabindex="-1">Security</h1>
 <p>Security in OpenADR addresses the Authentication and Authorization of
 client requests to the VTN server. Common REST API best practices are
 followed, and the Oauth2 client credential flow describes the mechanism
 to secure the API.</p>
-<h2>Security objectives</h2>
+<section id="security-objectives" tabindex="-1">
+<h2 tabindex="-1">Security objectives</h2>
 <p>The overall approach to security in OpenADR 3.0 is based on the
 following three pillars.</p>
 <ul>
@@ -2113,7 +2103,9 @@ following three pillars.</p>
 <li><strong>Authorization.</strong> Within the context of a given program, a VEN will be authorized to access some set of resources and associated operations. The VTN server will limit access to resources and associated operations to those authorized to a requestor, based on the identity of the requestor. See Authentication above.</li>
 <li><strong>Common (well known and widely implemented) Security Model</strong>. OADR REST adopts common industry approaches to Authentication and Authorization. [REST-API-Best_Practices]</li>
 </ul>
-<h2>Assumptions</h2>
+</section>
+<section id="assumptions" tabindex="-1">
+<h2 tabindex="-1">Assumptions</h2>
 <p>The following specific assumptions underlie the OpenADR 3.0 security
 model.</p>
 <ul>
@@ -2153,7 +2145,9 @@ model.</p>
 </ul>
 </li>
 </ul>
-<h2>Client Scenarios</h2>
+</section>
+<section id="client-scenarios" tabindex="-1">
+<h2 tabindex="-1">Client Scenarios</h2>
 <p>The choice of security protocol(s) depends in part on what client
 scenarios are anticipated.</p>
 <p>A protocol that is difficult and error prone for end users to support
@@ -2178,7 +2172,9 @@ device has factory installed certs.</p>
 signals into device control signals that it passes on, or may pass along
 grid signals with a subsidiary VTN/VEN relationship or via another
 in-building protocol (e.g. BacNET or Matter).</p>
-<h2>Non-Authenticated Clients</h2>
+</section>
+<section id="non-authenticated-clients" tabindex="-1">
+<h2 tabindex="-1">Non-Authenticated Clients</h2>
 <p>A VTN may adopt a security position that responds to all incoming
 requests and ignore the specified OAuth2 client credential flow and lack
 of bearer tokens in requests. This provision allows programs to offer
@@ -2186,7 +2182,9 @@ public information, such as public pricing schedules to any software
 client that makes a request. This scenario introduces security risks and
 is intended only for program offerings, and associated VTNs that accept
 these risks or mitigate them through unspecified means.</p>
-<h2>HTTPS/TLS</h2>
+</section>
+<section id="https%2Ftls" tabindex="-1">
+<h2 tabindex="-1">HTTPS/TLS</h2>
 <p>VTN should use &apos;HTTP over TLS&apos;, or HTTPS. Transport Layer Security
 [TLS] is required to encrypt all messages &apos;on the wire&apos;. Because of
 the wide variety of platforms that may host a VEN and the user
@@ -2198,16 +2196,22 @@ progresses, these requirements may be updated.</p>
 <p>It is the responsibility of the service provider hosting a VTN to
 maintain a secure web platform. This includes updating TLS ciphers when
 appropriate.</p>
-<h2 id="mqttstls" class="unnumbered">11.6. MQTTS/TLS</h2>
+</section>
+<section id="mqttstls" class="unnumbered" tabindex="-1">
+<h2 class="unnumbered" tabindex="-1">11.6. MQTTS/TLS</h2>
 <p>MQTT brokers and clients must support MQTT version 5 (or later)</p>
 <p>Clients must use MQTT over TLS (MQTTS) to connect to a VTN message
 broker.</p>
-<h2>API Gateway</h2>
+</section>
+<section id="api-gateway" tabindex="-1">
+<h2 tabindex="-1">API Gateway</h2>
 <p>A production VTN might deploy with an API gateway to implement rate
 limiting and perhaps other features. Rate limiting blocks requests after
 a certain number within a given time period from a given IP address,
 thus mitigating Denial of Service attacks.</p>
-<h2>OAuth 2.0 client credential flow</h2>
+</section>
+<section id="oauth-2.0-client-credential-flow" tabindex="-1">
+<h2 tabindex="-1">OAuth 2.0 client credential flow</h2>
 <p>Certified VEN clients must implement the OAuth2 [OAuth] client
 credential flow in which an out of band (from the REST interactions)
 process provides a clientID and secret to the VEN and associates the VEN
@@ -2235,10 +2239,11 @@ VENs. This does not include details such as coordinating the
 Authentication server with Business Logic web flow to share client IDs
 and secrets or illustrate a similar process for Business Logic clients
 of VTN. [Client Flow Overview]</p>
-<p><img src="media/image2.png" alt="Picture 1">{width=&quot;6.5in&quot;
-height=&quot;4.360416666666667in&quot;}</p>
+<figure data-type="image" tabindex="5"><img src="./img/defs-fig-16-oath-client-credential-flow.png" alt="OAuth2 client credential flow"><figcaption>Figure 16: OAuth2 client credential flow</figcaption></figure>
 <p><strong>Figure 16: OAuth2 client credential flow</strong></p>
-<h2>OpenAPI Specification</h2>
+</section>
+<section id="openapi-specification" tabindex="-1">
+<h2 tabindex="-1">OpenAPI Specification</h2>
 <p>OpenADR 3.0 is defined by an OpenAPI (aka swaggerdoc) YAML file. The
 OpenAPI platform provides mechanisms to define security objects and use
 them to assign scopes to operations [OpenAPI Auth]. In this manner the
@@ -2258,14 +2263,18 @@ permissions are required for the operation. For example,</p>
 </code></pre>
 <p>The &apos;read_all&apos; scope is defined in the oAuth2ClientCredentials
 securitySchemes: section of the OpenAPI document, as are other scopes.</p>
-<h2>Bearer tokens</h2>
+</section>
+<section id="bearer-tokens" tabindex="-1">
+<h2 tabindex="-1">Bearer tokens</h2>
 <p>A VTN is responsible for issuing bearer tokens, and it is an
 implementation detail what format to use, what features are encoded in
 the token, and how the token is used at runtime besides the role-based
 operation access control described above.</p>
 <p>For example, a token may encode and be used to filter the events a VEN
 can read to only those associated with certain programs.</p>
-<h2 id="webhooks" class="unnumbered">11.10. Webhooks</h2>
+</section>
+<section id="webhooks" class="unnumbered" tabindex="-1">
+<h2 class="unnumbered" tabindex="-1">11.10. Webhooks</h2>
 <p>When working with webhooks there are multiple potential security
 concerns, such as infiltrating and probing the VTN internal network
 (SSRF)<a href="https://owasp.org/www-community/attacks/Server_Side_Request_Forgery">^2</a>, etc. These can arise on the sender end (the VTN). On the
@@ -2297,7 +2306,10 @@ reliability.</p>
 </ul>
 </li>
 </ul>
-<h1>Reference Implementation</h1>
+</section>
+</section>
+<section id="reference-implementation" tabindex="-1">
+<h1 tabindex="-1">Reference Implementation</h1>
 <p>The OpenADR Alliance provides an open source Reference Implementation
 (RI) [OADR3-RI] which includes a simple implementation of the client
 credential flow.</p>
@@ -2308,7 +2320,8 @@ credentials for an access token. The token is included as a bearer token
 header in each subsequent API request. The server framework resolves the
 token to a set of scopes which are used to enforce access control to
 each endpoint operation. These steps are described below:</p>
-<h2>Step 1: Trade clientID/clientSecret for access token</h2>
+<section id="step-1%3A-trade-clientid%2Fclientsecret-for-access-token" tabindex="-1">
+<h2 tabindex="-1">Step 1: Trade clientID/clientSecret for access token</h2>
 <p>CURL is a command line tool for making http requests. The example here
 illustrates an http GET request to obtain an access token. ClientID and
 clientSecret are included as headers, per best practice.</p>
@@ -2323,13 +2336,17 @@ the clientID and clientSecret headers in the request and returns one of
 clientSecrets populates a service or database with an association
 between those credentials and a token and set of scopes, such that Step
 3 below can be performed.</p>
-<h2>Step 2: Include access token in API requests</h2>
+</section>
+<section id="step-2%3A-include-access-token-in-api-requests" tabindex="-1">
+<h2 tabindex="-1">Step 2: Include access token in API requests</h2>
 <p>The token obtained from Step 1 is used in a Bearer token header in API
 requests, as illustrated below:</p>
 <pre><code class="hljs language-shell"><span class="hljs-meta prompt_">&#x24; </span><span class="language-bash">curl http://localhost:8080/openadr3/OADR-3.0.0/1.0.0/programs \
   -H <span class="hljs-string">&quot;Authorization: Bearer ven_token&quot;</span></span>
 </code></pre>
-<h2>Step 3: Resolve token to scopes</h2>
+</section>
+<section id="step-3%3A-resolve-token-to-scopes" tabindex="-1">
+<h2 tabindex="-1">Step 3: Resolve token to scopes</h2>
 <p>A scope is a string associated with an endpoint operation that the
 server framework checks to ensure an incoming request is permitted. See
 section above titled <strong>OpenAPI Specification</strong> for an example.</p>
@@ -2339,7 +2356,9 @@ resolve a token to a set of scopes.]</p>
 <p class="mark">[The RI hardcodes the association between tokens and scopes.]</p>
 <p class="mark">[In a production environment, the association between tokens and scopes
 is dynamically maintained by service or database.]</p>
-<h2>Step 4: Enforce Access Control</h2>
+</section>
+<section id="step-4%3A-enforce-access-control" tabindex="-1">
+<h2 tabindex="-1">Step 4: Enforce Access Control</h2>
 <p class="mark">On every API request (except <code>&lt;base_url&gt;/auth/token</code>), after a token as
 been resolved to scopes, the server framework invokes the
 authorization_controller.[validate_scope_oAuth2ClientCredentials()
@@ -2349,12 +2368,10 @@ http 403 status code will be returned.]</p>
 <p>[^1]: Note that VTNs may provide some endpoints with no access
 restrictions for freely available information such as prices for
 common tariffs.</p>
+</section>
+</section>
 
 </article>
-<section id="right" class="col-md-2">
-<p>right sidebar</p>
-<!-- <tag-cloud/> -->
-</section>
 </div>
 <div class="row">
 <footer class="col-md-12">
@@ -2362,8 +2379,6 @@ common tariffs.</p>
 </footer>
 </div>
 </div>
-<!-- JavaScript at the bottom for fast page loading -->
 <script src="vendor/jquery/jquery.min.js"></script><script src="vendor/popper.js/umd/popper.min.js"></script><script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-<!-- <ak-footerJavaScript></ak-footerJavaScript> -->
 </body>
 </html>

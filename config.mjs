@@ -10,7 +10,11 @@ import YAML from 'js-yaml';
 import { default as MarkdownITPlantUML } from 'markdown-it-plantuml';
 import { default as MarkdownITHighlightJS } from 'markdown-it-highlightjs';
 import { default as MarkdownItAttrs } from 'markdown-it-attrs';
-import { default as MarkdownItContainer } from 'markdown-it-container';
+import { default as MarkdownItDiv } from 'markdown-it-div';
+import { default as MarkdownItAnchor } from 'markdown-it-anchor';
+import { default as MarkdownItTOC } from 'markdown-it-table-of-contents';
+import { default as MarkdownItSections } from 'markdown-it-header-sections';
+import { default as MarkdownItImageFigures } from 'markdown-it-image-figures';
 
 import { ThemeBootstrapPlugin } from '@akashacms/theme-bootstrap';
 import { BasePlugin } from '@akashacms/plugins-base';
@@ -44,11 +48,31 @@ config.findRendererName('.html.md')
     .use(MarkdownItAttrs, {
         allowedAttributes: [ 'id', 'class' ]
     })
-    .use(MarkdownItContainer);
+    .use(MarkdownItDiv)
+    .use(MarkdownItAnchor)
+    .use(MarkdownItTOC)
+    .use(MarkdownItSections)
+    .use(MarkdownItImageFigures, {
+        dataType: true,
+        figcaption: true,
+        tabindex: true
+    });
     // .use(require('markdown-it-expand-tabs'), { tabWidth: 4 });
 
 config
     // .addAssetsDir('assets')
+    .addAssetsDir({
+        src: 'node_modules/bootstrap/dist',
+        dest: 'vendor/bootstrap'
+    })
+   .addAssetsDir({
+        src: 'node_modules/jquery/dist',
+        dest: 'vendor/jquery'
+    })
+    .addAssetsDir({
+        src: 'node_modules/popper.js/dist',
+        dest: 'vendor/popper.js'
+    })
     .addLayoutsDir('layouts')
     .addDocumentsDir('documents')
     .addPartialsDir('partials')

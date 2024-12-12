@@ -100,31 +100,18 @@
 
 <link rel="canonical" href="https://example.akashacms.com/User_Guide.html">
 
-<!-- <ak-header-metatags></ak-header-metatags> -->
-<link rel="sitemap" type="application/xml" href="sitemap.xml">
 
 
-<!--
-<xml-sitemap></xml-sitemap>
-<site-verification></site-verification>
-<ak-header-linkreltags></ak-header-linkreltags>
--->
 <link rel="stylesheet" type="text/css" href="akasha/epub-website/style.css"><link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css"><link rel="stylesheet" type="text/css" href="style.css">
-<!-- ak-stylesheets></ak-stylesheets -->
 
-<!-- ak-headerJavaScript></ak-headerJavaScript -->
-
-<meta name="og:image" content="https://example.akashacms.com/./images/workflow.png"></head>
+</head>
 <body>
-<h1>OpenADR 3.1.0 User Guide</h1>
 <div class="container" role="main">
 <div class="row">
 <!-- include our document's content -->
-<article class="col-md-10">
-<div id="breadcrumbs"><breadcrumb-trail></breadcrumb-trail></div>
-<p><small>Tags: <tags-for-document></tags-for-document></small></p>
-<p><authors-byline></authors-byline></p>
-<h1>OpenADR 3.1.0 User Guide</h1>
+<article class="col-md-12">
+<section id="openadr-3.1.0-user-guide" tabindex="-1">
+<h1 tabindex="-1">OpenADR 3.1.0 User Guide</h1>
 <p>(non-normative)</p>
 <p>Updated 09/16/2024</p>
 <p>Revision Number: 3.1.0</p>
@@ -132,30 +119,40 @@
 <p>Document Number: 20231118-X</p>
 <p>Please send general questions and comments about the documentation to</p>
 <p>CONTENTS</p>
-<h2>Normative References</h2>
+<section id="normative-references" tabindex="-1">
+<h2 tabindex="-1">Normative References</h2>
 <p>[OADR-3.0.1-Specification] OpenADR 3.0.1 OpenAPI YAML (SwaggerDoc) Specification. Available at <a href="http://openadr.org">openadr.org</a>.</p>
 <p>[ISO 8601] ISO date and time format.</p>
 <p>[MQTT] MQTT Version 5.0:</p>
-<h2>Informative References</h2>
+</section>
+<section id="informative-references" tabindex="-1">
+<h2 tabindex="-1">Informative References</h2>
 <p>[OADR-3.0-Reference_Implementation] OpenADR 3.0 Reference Implementation <a href="https://github.com/oadr3-org/openadr3-vtn-reference-implementation">https://github.com/oadr3-org/openadr3-vtn-reference-implementation</a></p>
 <p>[OADR-2.0b-Program_Guide] OpenADR 2.0 Demand Response Program Implementation Guide, Revision Number: 1.1.2, 2017 (1.0 from 2016)</p>
 <p>[REST_Best_Practice] RESTful web API design (website)</p>
 <p>[swaggerhub] API tools</p>
 <p>[URI] Uniform Resource Identifier (URI): Generic Syntax</p>
-<h2>Introduction</h2>
+</section>
+<section id="introduction" tabindex="-1">
+<h2 tabindex="-1">Introduction</h2>
 <p>This document describes a number of common user scenarios of OpenADR 3.0, providing examples of program, event, reports, and endpoint usage. These examples are not prescriptive or normative but are provided as illustrations of how one might use the API.</p>
 <p>This document has a similar purpose as the OpenADR 2.0b Program Guide [OADR-2.0b-Program_Guide].</p>
 <p>See [OADR-3.0.1-Specification]  and [OADR-3.0.1-Definition] for formal specification of the OpenADR platform.</p>
-<h2>Design Principles</h2>
+</section>
+<section id="design-principles" tabindex="-1">
+<h2 tabindex="-1">Design Principles</h2>
 <p>OpenADR 3.0 was designed with the following goals and principles in mind.</p>
-<h3>Business objectives</h3>
+<section id="business-objectives" tabindex="-1">
+<h3 tabindex="-1">Business objectives</h3>
 <p>Lower barriers to entry for new entrants.</p>
 <p>REST is a more common approach for web services today than SOAP-like interfaces as embodied in OpenADR 2.0b. Therefore more programmers are familiar with more tools to work with REST APIs. It is anticipated that OpenADR will be adopted more quickly by more entities with a simple REST definition as an alternative.</p>
 <p>Simpler Implementation.</p>
 <p>REST interfaces are less verbose than SOAP equivalents and therefore reduce network utilization, memory footprint, and message latency. REST/JSON is easier to develop and debug than SOAP equivalents. This is particularly important for flexible loads that have a modest overall software footprint.</p>
 <p>Coexistence with OpenADR 2.0b.</p>
 <p>A REST format of OpenADR is significantly different from 2.0b and the formats are incompatible. It is envisioned that new entrants will develop to the REST format and therefore a growing population of 3.0 VTNs and VENs will emerge. Existing 2.0b VENs may add support for 3.0 to interoperate with newer 3.0 VTNs, and existing 2.0b VTNs may add support for REST and therefore support both 2.0b and 3.0 VENs. It is conceivable that real-time translators between the formats will be developed.</p>
-<h3>Design Goals</h3>
+</section>
+<section id="design-goals" tabindex="-1">
+<h3 tabindex="-1">Design Goals</h3>
 <p>Functional equivalence with 2.0b.</p>
 <p>OpenADR 3.0 supports most, if not all, use cases supported by 2.0b and in use today. OpenADR 3.0 drops support for some use cases that are not currently or likely to be used.</p>
 <p>Forward Compatibility.</p>
@@ -164,9 +161,13 @@
 <p>A pure REST implementation does not support a PUSH model, as it relies only on HTTP requests from a client, which requires clients to poll the API. In order to deliver events to clients in a low latency application, OpenADR 3.0 defines a PUSH model based on webhooks.  OpenADR 3.1 defines an alternate PUSH model based on standard messaging protocols (initially MQTT), in order to simplify the transmission of notification messages from a VTN to VENs behind common Internet firewalls.</p>
 <p>Best Practices.</p>
 <p>Numerous sources publish REST best practices, and while there is no authoritative guide, [REST_Best_Practice] is a good starting point.</p>
-<h2>User Stories</h2>
+</section>
+</section>
+<section id="user-stories" tabindex="-1">
+<h2 tabindex="-1">User Stories</h2>
 <p>A User Story is a single sentence in the form of &#x201c;As an [actor,] I [want to], [so that]&#x201d;. This makes explicit which entity is doing what action and the value they receive. Typically a User Story represents an action of a human, but many of these interactions are conducted automatically by software agents.</p>
-<h3>Actors</h3>
+<section id="actors" tabindex="-1">
+<h3 tabindex="-1">Actors</h3>
 <p>Business entity: an electricity provider or other business entity that provides back-end services that support a Business Logic client.</p>
 <p>Business Logic (BL): a software client of a VTN that performs operations on behalf of an energy or energy service provider.</p>
 <p>VTN: OpenADR3 resource server</p>
@@ -175,52 +176,76 @@
 <p>Customer Logic (CL): a software entity that embodies the functional logic within a VEN. A VEN is the software that communicates via the OpenADR 3.0 protocol, and the CL is the software, embodied within the VEN or separated via a VEN specific interface, that in turn interfaces with a set of energy resources.</p>
 <p>Resource. A device or system that performs operations as informed by program and events obtained by a VEN and provides data for VEN reports.</p>
 <p>Figure 1. Actors</p>
-<h3>BL User Stories</h3>
+</section>
+<section id="bl-user-stories" tabindex="-1">
+<h3 tabindex="-1">BL User Stories</h3>
 <p>As BL, I want to create, read, update, and delete program objects, so that I can implement my Demand Response (DR) programs.</p>
 <p>As BL, I want to create, read, update, and delete events, so that I can influence customer energy resource behavior.</p>
 <p>As BL, I want to request reports, and read and delete reports, so that I can measure and manage a DR program.</p>
 <p>As BL, I want to register a callback and receive a notification when a report is created, so that I can measure and manage a DR program.</p>
-<h3>Customer User Stories</h3>
+</section>
+<section id="customer-user-stories" tabindex="-1">
+<h3 tabindex="-1">Customer User Stories</h3>
 <p>As a Customer, I want to receive a &#x2018;Program Description&#x2019; from a BL entity, so that I can configure my VEN to interoperate with a set of programs and events available from a BL entity.</p>
 <p>As a Customer, I want to receive the baseURL of the appropriate VTN from a BL entity, so that I can access the VTN to obtain programs and events and perform operations on energy resources.</p>
 <p>As a Customer, I want to receive a client ID from a BL entity, so that I can use the VTN to obtain programs and events and perform operations on energy resources.</p>
 <p>As a Customer, I want to receive API credentials from a BL entity, so that I can use the VTN to obtain programs and events and perform operations on energy resources.</p>
 <p>As a Customer, I want to receive energy resources IDs from a BL entity, so that I can report energy resource data to a VTN..</p>
-<h3>CL User Stories</h3>
+</section>
+<section id="cl-user-stories" tabindex="-1">
+<h3 tabindex="-1">CL User Stories</h3>
 <p>As CL, I want to read a list of programs or an individual program, so that I have the context necessary to understand what DR programs exist, or select the one appropriate to me.</p>
 <p>As CL, I want to register a callback and receive a notification when a program is created, deleted, or updated, so that I have the context necessary to respond to a DR program.</p>
 <p>As CL, I want to read a list of events or an individual event, so that I may respond to DR events within a program.</p>
 <p>As CL, I want to register a callback and receive a notification when an event is created, updated or deleted, so that I may respond to DR events within a program.</p>
 <p>As CL, I want to create and update reports, so that I can inform BL of energy resource status and behavior in response to events.</p>
-<h2>Scenarios</h2>
+</section>
+</section>
+<section id="scenarios" tabindex="-1">
+<h2 tabindex="-1">Scenarios</h2>
 <p>The following are a set of scenarios that illustrate common interactions. In the sequence diagrams, a dashed line indicates that time has passed. Solid lines indicate actions that occur close in time.</p>
-<h3>High Level Workflow</h3>
+<section id="high-level-workflow" tabindex="-1">
+<h3 tabindex="-1">High Level Workflow</h3>
 <p>A VEN client generally requires security credentials to access the VTN API, therefore it is presumed that a Business Logic entity provides an onboarding process for VENs to access the API and participate in a DR program. Once the onboarding process is complete, the typical interaction pattern is for BL to create program and event resources in the VTN, and for VENs to subsequently read these resources and then generate reports. Finally, BL reads reports from the VTN. Figure 1 illustrates a typical expected sequence of interactions.</p>
 <img src="./images/workflow.png" alt="High level workflow">
 <p>Figure 2. High Level Workflow</p>
 <p>An exception to this process is for programs that are available to anyone, without a security credential. The most common case for this is ordinary tariffs, in which there is no reason to keep private the prices they include. In this case, the workflow is mostly the same except that there is no initial &#x2018;enroll&#x2019; activity, and generally no use of reports (since the VEN is not known to the VTN). The CL does need to configure the VEN with the URL for the VTN, possibly the identity of the retailer (this may be the same for the entire VTN), and the tariff the customer is on (locational tariffs can be implemented with a simple suffix on the program ID).</p>
-<h3>Enrollment Scenarios</h3>
+</section>
+<section id="enrollment-scenarios" tabindex="-1">
+<h3 tabindex="-1">Enrollment Scenarios</h3>
 <p>OpenADR 3.0 assumes an enrollment process has happened prior to interactions of a VEN with a VTN, in order to provision security credentials and otherwise onboard a VEN into a energy provider&#x2019;s set of programs. The OpenADR 3.0 standard does not define how this process is implemented. It is addressed here as background information as every energy provider must develop their own process and mechanisms to support enrollment. Figure 2 illustrates what might be expected from a typical out-of-band, unspecified enrollment flow. Note that &#x2018;register resources&#x2019; and &#x2018;provide resource IDs&#x2019; are optional.</p>
 <p>Figure 3. Enrollment Scenario</p>
-<h3>Subscription scenarios</h3>
-<h4>6.3.1     Subscription via REST and notification via webhook</h4>
+</section>
+<section id="subscription-scenarios" tabindex="-1">
+<h3 tabindex="-1">Subscription scenarios</h3>
+<section id="6.3.1-subscription-via-rest-and-notification-via-webhook" tabindex="-1">
+<h4 tabindex="-1">6.3.1     Subscription via REST and notification via webhook</h4>
 <p>In order to support a PUSH model, the API provides a mechanism for a client to register interest in (&#x201c;subscribe to&#x201d;) operations on resources and receive a &#x2018;callback&#x2019;. This pattern is known as a &#x2018;webhook&#x2019;.</p>
 <p>A client creates a subscription indicating a callback URL and a list of the operations and resources it is interested in. For example, a VEN client may wish to receive a callback whenever an event is created, or whenever it is created, modified, or deleted. A BL may set a subscription for reports created by VENs to be notified when a new report is created.</p>
 <p>Figure 4. Subscription scenario</p>
-<h4>6.3.2     Subscription and notification via messaging protocol</h4>
+</section>
+<section id="6.3.2-subscription-and-notification-via-messaging-protocol" tabindex="-1">
+<h4 tabindex="-1">6.3.2     Subscription and notification via messaging protocol</h4>
 <p>As an alternative to webhook based notification, the API provides a mechanism for a client to query for supported message brokers, and if supported, make subsequent queries to obtain the topic names for object operations the client may subscribe to, and subsequently receive messages regarding operations on those objects.&#x200b;&#x200b;</p>
-<h3>Program Scenarios</h3>
+</section>
+</section>
+<section id="program-scenarios" tabindex="-1">
+<h3 tabindex="-1">Program Scenarios</h3>
 <p>A program is a Demand Response offering of an energy provider. In OpenADR 3.0, a tariff is simply a type of program. Metadata about a program is represented by a program object in OpenADR 3.0 (there is no similar construct in 2.0b). Program metadata usually changes infrequently, perhaps once a year or less. Some fields in the program object may be displayed to persons using a VEN via a VEN provided user interface, but this feature is not required.</p>
 <p>A program may declare a set of events and report types needed to meet the business objectives of the program. Every event and report is associated with exactly one program. A provider might offer several programs at the same time, such as a dynamic pricing program that executes concurrently with a load shed program. A single customer may be enrolled in multiple programs simultaneously, e.g. a battery program and an EV program.</p>
 <p>Prior to creating events, the BL will create a program in the VTN, which VENs can query for. A VEN can also create a subscription for events, and then receive notifications of new events with a webhook. Webhooks support a &#x2018;push&#x2019; model whereby a VEN may register a callback URL with the VTN to receive notifications, or subscription/notification via message protocol provides an alternate mechanism for VENs to receive event notifications. In practice, VENs may find that simple polling, or a &#x2018;pull&#x2019; model is sufficient for receiving prices that are updated on a regular schedule, but utilize subscriptions for alerts or other events with no particular schedule. This observation applies to the other scenarios described below.</p>
 <p>Figure 5. Program Scenario</p>
-<h3>Event Scenarios</h3>
+</section>
+<section id="event-scenarios" tabindex="-1">
+<h3 tabindex="-1">Event Scenarios</h3>
 <p>The OpenADR framework supports a number of different Demand Response scenarios. A representative sample is documented here to ensure that OpenADR 3.0 fully supports a range of common use cases. For background see [OADR-2.0b-Program_Guide].</p>
 <p>Episodic Demand Response: As BL I want to communicate a Demand Response signal to participating VENs. In this scenario, the event communicates a single start and duration pair. VENs are expected to be pre-programmed, according to an associated Program Description, to interpret the signal, manage associated resources, and generate a corresponding set of reports. Examples include Direct Load Control and Load Shed.</p>
 <p>Continuous Demand Response. As a VTN I want to communicate Dynamic Pricing signals to participating VENs. In this scenario, an event communicates a set of start and duration pairs with associated price values. A representative example is sending day-ahead variable pricing for each hour of the following day. VENs are expected to interpret the event(s) and to generate a corresponding set of reports. EV (Electric Vehicle), TOU (Time of Use), CPP (Critical Peak Price), and VPP (Variable Peak Price) prices can be readily encoded as can more continuous prices such as hourly or smaller time periods.</p>
 <p>BL will create events in the VTN, which VENs can query for, or receive notification of if they have previously registered a subscription (via either the Subscription/webhook or message protocol subscription mechanisms).  With day-ahead prices, they are fixed once announced and the intervals are never duplicated. With more real-time pricing, there may be a 24-hour forecast announced with each hour, but in subsequent hours, future prices may be adjusted as the forecast changes. It is assumed that a final price for each interval is announced before that interval begins.</p>
 <p>Figure 6. Event Scenario</p>
-<h3>Report Scenarios</h3>
+</section>
+<section id="report-scenarios" tabindex="-1">
+<h3 tabindex="-1">Report Scenarios</h3>
 <p>OpenADR 3.0 defines mechanisms to enable Business Logic clients to request reports via events and VENs to respond with the appropriate reports. A catalogue of enumerated report types and qualifiers specified in [OADR-3.0.1-Definition] define a range of typical reports. This list can be privately extended..</p>
 <p>Reports may be requested by events. The data structures for events and reports are as identical as practical. This design allows VENs to determine how and when to send reports, and BL to unambiguously associate data included in reports to event elements. Example reports are:</p>
 <p>Hourly prices and usage</p>
@@ -233,16 +258,24 @@
 <p>In response to report requests in events, VENs will create reports in the VTN, which Business Logic can query for or receive notification of via subscription.</p>
 <p>Figure 6. Report Scenario</p>
 <p>Figure 7. Report Scenario</p>
-<h3>VEN and Resource Scenarios</h3>
+</section>
+<section id="ven-and-resource-scenarios" tabindex="-1">
+<h3 tabindex="-1">VEN and Resource Scenarios</h3>
 <p>In order to assign VENs and resources to groups for the purposes of targeting, the API provides mechanisms for clients to create VEN objects, and VEN&#x2019;s may include a list of resource objects. Each of these objects contains a list of group labels that can be modified over time.</p>
 <p>Figure 8. VEN and Resource Scenario</p>
-<h2>Feature Examples</h2>
+</section>
+</section>
+<section id="feature-examples" tabindex="-1">
+<h2 tabindex="-1">Feature Examples</h2>
 <p>The following subsections illustrate some of the features of OpenADR 3.0. This is not exhaustive and other features are illustrated by specific use cases below.</p>
 <p>The descriptions here apply to content, and therefore do not imply requirements on a VTN, as a VTN does not operate on content except for schema validation. If the content guidelines provided here are not followed, client behavior may be unpredictable.</p>
 <p>The JSON examples provided here represent message payloads a client sends to the VTN or returned by the VTN. POST examples can be used in a request to a VTN.</p>
-<h3>Event Priority</h3>
+<section id="event-priority" tabindex="-1">
+<h3 tabindex="-1">Event Priority</h3>
 <p>Event priority can be used if there is the possibility of events overlapping time and they conflict (events can overlap and not conflict e.g. prices and GHG values, or prices and alerts). Lower numbers have a higher priority, and the highest priority is zero. If two events conflict and they have the same priority, the resulting behavior is not specified by OpenADR.</p>
-<h3>Object References</h3>
+</section>
+<section id="object-references" tabindex="-1">
+<h3 tabindex="-1">Object References</h3>
 <p>OpenADR 3.0 objects may make reference to other addressable objects. For example, an event object is required to include a reference to an associated program. An addressable object is one that can be accessed directly via the API and is populated with an objectID by the VTN on creation. Addressable objects are:</p>
 <p>program</p>
 <p>event</p>
@@ -264,7 +297,9 @@
 <p>POST minimal report</p>
 <p>GET report</p>
 <p>Figure 10. Report Example</p>
-<h3>Event and Interval Timing</h3>
+</section>
+<section id="event-and-interval-timing" tabindex="-1">
+<h3 tabindex="-1">Event and Interval Timing</h3>
 <p>OpenADR 2.0b introduced events and lists of intervals included in events. OpenADR 3.0 maintains these constructs but adapts them to fit the REST model.</p>
 <p>Events must include a list of one or more intervals, each of which defines a temporal window, and includes one or more payloads, such as a price value.</p>
 <p>Reports are created by VENs in response to report requests made by events, via reportDescriptors, and generally explicitly refer to the intervals within the associated event.</p>
@@ -273,13 +308,17 @@
 <p>An event on the VTN whose intervals have all transpired is effectively expired.</p>
 <p>The use of an intervalPeriod at the event level with duration = &#x201c;P9999Y&#x201d; is a special case that denotes that the event&apos;s intervals continue into the future until the event is deleted or modified. This is useful for requesting a continuous stream of reports for example. However, since duration in this case does not indicate the duration of individual intervals, each interval in the event&#x2019;s interval list must include an intervalPeriod definition with the duration field. For example, in the case of a 48 hour rolling forecast, 48 intervals would be defined, each including a definition for intervalPeriod.duration of 1 hour.</p>
 <p>The ISO 8601 compliant duration value  &#x201c;P9999Y&#x201d; represents infinity in this specification [OADR-3.0.1-Specification], as &#x2018;agreed to by communicating parties&#x201d; in ISO 8601 parlance. In this notation &#x201c;P&#x201d; represents &#x2018;period&#x2019;, &#x201c;Y&#x201d; represents year.</p>
-<h3>Variable duration intervals</h3>
+</section>
+<section id="variable-duration-intervals" tabindex="-1">
+<h3 tabindex="-1">Variable duration intervals</h3>
 <p>To create intervals of unequal duration, or to have them overlap or have temporal gaps, each interval can include its own intervalPeriod. If an intervalPeriod is present in the event, it defines default values that are overridden by any intervalPeriods at the interval level.</p>
 <p>If an intervalPeriod is not present in the event, then one must be present in every interval.</p>
 <p>The example below shows an event with a set of intervals with the same duration, as specified by the intervalPeriod construct in the event, except the second interval which defines its own duration. In this example, a start of &#x201c;0000-00-00&#x201d; indicates the real-time start of the interval is the end of the previous interval. It is present as it is a required field.</p>
 <p>POST event</p>
 <p>Figure 12. Variable Duration Interval Event</p>
-<h3>Report Management</h3>
+</section>
+<section id="report-management" tabindex="-1">
+<h3 tabindex="-1">Report Management</h3>
 <p>An event may include one or more reportDescriptors to request reports from VENs. The reportDescriptor  timing attributes described here work along with Intervals to fully manage reporting behavior.</p>
 <p>Intervals in an event are used to specify the timing of reporting, and a report will include intervals matching those in an event. The reportDescriptor timing attributes described here refer to intervals and not timing parameters.</p>
 <p>The reportDescriptor timing attributes are:</p>
@@ -307,31 +346,45 @@
 <p>The following diagrams provide examples of the reportDescriptor reporting attributes.</p>
 <p>Figure 11. reportDescriptor Examples</p>
 <p>Several examples are provided in the Use Cases section below to illustrate how reporting can be managed.</p>
-<h3>payloadDescriptors</h3>
+</section>
+<section id="payloaddescriptors" tabindex="-1">
+<h3 tabindex="-1">payloadDescriptors</h3>
 <p>Events and reports generally contain one or more intervals, each of which may contain one or more payload objects. The payload object is purposely kept simple, just type and values attributes, to avoid duplicating static data across a potentially large series of intervals. The payloadDescriptor provides full context for a payload. For example, the values in payload with type of PRICE are simply numbers, and an accompanying payloadDescriptor supplies the units and currency information necessary to fully interpret the price values.</p>
 <p>A payloadDescriptor contains a payloadType attribute which associates it to payloads of the same type within the associated intervals.</p>
 <p>Note that events do not have a type. The type of an event is implicit in the type of contents that it contains. For example, an event with prices and GHG values can be thought of as a price event, but in OpenADR 3.0, there is no manifestation of this other than the contents of payloadDescriptors and associated payloads. Similarly, reports contain payloadDescriptors but are not otherwise typed.</p>
 <p>POST event</p>
 <p>Figure 13. payloadDescriptors Event</p>
 <p>A payloadDescriptor list may also be included in a program object. This provides default values for all events associated with a program.</p>
-<h3>Aggregated Report</h3>
+</section>
+<section id="aggregated-report" tabindex="-1">
+<h3 tabindex="-1">Aggregated Report</h3>
 <p>Where a VEN aggregates data from a number of resources, it may provide a single resource entry in the resources list of a report and set the resourceName to AGGREGATED_REPORT. Aggregation means the data from a set of resources are summed.</p>
-<h4>Event</h4>
+<section id="event" tabindex="-1">
+<h4 tabindex="-1">Event</h4>
 <p>The event in this example requests an aggregate report by setting reportDescriptors[0].aggregate = true.</p>
 <p>POST event</p>
 <p>Figure 14. Aggregated Report Request Event</p>
-<h4>Report</h4>
+</section>
+<section id="report" tabindex="-1">
+<h4 tabindex="-1">Report</h4>
 <p>GET report</p>
 <p>Figure 15. Aggregated Report Example</p>
-<h3>Data Quality</h3>
+</section>
+</section>
+<section id="data-quality" tabindex="-1">
+<h3 tabindex="-1">Data Quality</h3>
 <p>When there is a need to characterize the data quality of a report payload value, a payload of type DATA_QUALITY can be added to a payload array.</p>
 <p>POST report</p>
 <p>Figure 16. Data Quality Report</p>
 <p>This approach is limited to payload lists that would normally contain a single entry so that the data quality payload is unambiguously associated with that payload. For example, if the payload list contained payloads for usage and GHG data, there is currently not a way to describe the data quality of one specifically, or both. In such a case, one could create additional intervals, with identical intervalPeriods, for each payload type, or additional events.</p>
-<h3>Event Cancellation</h3>
+</section>
+<section id="event-cancellation" tabindex="-1">
+<h3 tabindex="-1">Event Cancellation</h3>
 <p>There is no specific mechanism to alter the status or otherwise cancel an event. An event&#x2019;s start and duration may be set to zero (&#x201c;0000-00-00&#x201d; and &#x201c;PT0S&#x201d; respectively) to make its temporal window be of no duration and at some theoretical time in the past. This mechanism is also used to fire a &#x2018;do-it-now&#x201d; event. Another approach is to simply delete an event.</p>
 <p>A client could subscribe to event notification to learn that a previously received event has been deleted and therefore implicitly cancelled.</p>
-<h3>Dynamic Targeting</h3>
+</section>
+<section id="dynamic-targeting" tabindex="-1">
+<h3 tabindex="-1">Dynamic Targeting</h3>
 <p>For programs that require VENs or their resources be assigned targeting labels at runtime, the API supports representations of VENs and resources with targetValues as attributes.</p>
 <p>VENs and BL may create a ven object, and each ven object may be populated with a list of resource objects. Each of these objects may be created and updated with target values. BL may target programs, events and report requests to these target strings.</p>
 <p>A client may create a VEN object by POSTing a VEN representation to &lt;&gt;/vens/</p>
@@ -348,40 +401,63 @@
 <p>PUT resource</p>
 <p>Figure 23. Dynamic Targeting Resource with targets</p>
 <p>Target values in programs and reports are strings, not objectIds, as targeting is a high level application feature and not an object reference feature.</p>
-<h3>API explorer</h3>
+</section>
+<section id="api-explorer" tabindex="-1">
+<h3 tabindex="-1">API explorer</h3>
 <p>[OADR-3.0-Reference_Implementation] provides an online view of the API specification [OADR-3.0.1-Specification] and interactive features to view and explore every operation on every resource. One may also use tools provided by [swaggerhub] to view and explore the API.</p>
-<h2>Use Cases</h2>
+</section>
+</section>
+<section id="use-cases" tabindex="-1">
+<h2 tabindex="-1">Use Cases</h2>
 <p>This section describes demand response Use Cases that are specifically supported by OpenADR. These are not formally defined as some Use Case templates require, but are intended as informative material for readers. This is not an exhaustive list as the protocol is flexible to accommodate many other uses than described here.</p>
-<h3>Alert</h3>
+<section id="alert" tabindex="-1">
+<h3 tabindex="-1">Alert</h3>
 <p>An Alert is an asynchronous message that generally occurs between a few times per year to only every few years. They are non-financial (do not themselves indicate a change in the customer&#x2019;s bill) and are most commonly used for some sort of emergency or other anomalous condition. BL generates alerts as it deems fit. As they are asynchronous, they are well suited to subscriptions rather than polling.</p>
 <p>An Alert is of a type (e.g. &#x2018;Grid Emergency&#x2019;) suitable for use by devices, and a free text string intended to be shared with any human involved with the customer site. For many alerts, the distribution system may be damaged interrupting power supply, and devices and humans may change their operation in response to this and other impacts of the alerts.</p>
 <p>POST event</p>
 <p>Figure 25. Alert Event</p>
-<h3>Load Shed</h3>
+</section>
+<section id="load-shed" tabindex="-1">
+<h3 tabindex="-1">Load Shed</h3>
 <p>A BL logic entity wishes to provide ad-hoc events to VENs to signal resources of an upcoming Load Shed &#x2018;event&#x2019;. Traditionally, resources have enrolled in an energy retailer&#x2019;s load shed offering and await a signal indicating a temporal window during which to modify energy consumption. Specific examples following this pattern are critical peak prices, direct load control, and simple shed events, as from [OADR-2.0b-Program_Guide].</p>
-<h4>Critical Peak Pricing Program (CPP, VPP)</h4>
+<section id="critical-peak-pricing-program-(cpp%2C-vpp)" tabindex="-1">
+<h4 tabindex="-1">Critical Peak Pricing Program (CPP, VPP)</h4>
 <p>This use case employs the SIMPLE event type to communicate Load Shed windows based on high wholesale market prices or power system emergency conditions. This can be extended to a Variable Peak Pricing Program (VPP) of up to three different high prices with the SIMPLE event type.</p>
-<h4>Direct Load Control/Thermostat Program</h4>
+</section>
+<section id="direct-load-control%2Fthermostat-program" tabindex="-1">
+<h4 tabindex="-1">Direct Load Control/Thermostat Program</h4>
 <p>A Demand Response event directly modifies the behavior of load shedding resources, without a layer of abstraction between receipt of the signal and the specific load shedding action taken. Direct Load Control is not typically implemented using OpenADR, but this use case is included as an example of how it might be used in the case of a Thermostat.</p>
-<h4>Events</h4>
+</section>
+<section id="events" tabindex="-1">
+<h4 tabindex="-1">Events</h4>
 <p>As indicated in the payloadDescriptors list, events contain payloads of type SIMPLE. A SIMPLE payload contains a value of 0, 1, 2, or 3 indicating a resource-defined load shed level. In this example, the event contains an intervalPeriod with a specific start time and a duration of  4 hours.</p>
 <p>POST event</p>
 <p>Figure 26. SIMPLE Event</p>
-<h4>Reports</h4>
+</section>
+<section id="reports" tabindex="-1">
+<h4 tabindex="-1">Reports</h4>
 <p>No reports are required for this basic scenario.</p>
-<h3>Day Ahead Prices with Usage Report</h3>
+</section>
+</section>
+<section id="day-ahead-prices-with-usage-report" tabindex="-1">
+<h3 tabindex="-1">Day Ahead Prices with Usage Report</h3>
 <p>Energy retailers may wish to provide dynamic pricing to encourage load shaping by flexible load resources. In other words, a fluctuating price encourages resources to consume more during periods of relatively low prices and less in the high price periods.</p>
-<h4>Program</h4>
+<section id="program" tabindex="-1">
+<h4 tabindex="-1">Program</h4>
 <p>The configuration of a program object may contain a payloadDescriptors list indicating the event type PRICE and report type USAGE. Note that payload type values do not indicate whether they are event or report payloads as the definition of the value fully describes their usage. Note also the inclusion of &#x2018;units&#x2019; and &#x2018;currency&#x2019; attributes; these are included in order for consumers of PRICE events to fully interpret a price value.</p>
 <p>POST program</p>
 <p>Figure 27. Price Program</p>
-<h4>Events</h4>
+</section>
+<section id="events-1" tabindex="-1">
+<h4 tabindex="-1">Events</h4>
 <p>As indicated in the program payloadDescriptors list, events are expected to contain payloads of type PRICE.</p>
 <p>A PRICE payload contains a float value. In the example, the event contains an intervalPeriod with a specific start time and a duration of 1 hour. This indicates that every interval spans 1 hour, therefore 24 intervals describe 24 hours.</p>
 <p>This event contains a reportDescriptor that indicates the VEN is expected to create a USAGE report of reading type DIRECT_READ once the last interval has transpired.</p>
 <p>POST event</p>
 <p>Figure 28. Usage Report Request Event</p>
-<h4>Reports</h4>
+</section>
+<section id="reports-1" tabindex="-1">
+<h4 tabindex="-1">Reports</h4>
 <p>As indicated in the event reportDescriptor, the VEN will generate a USAGE report when the last interval has transpired. A USAGE report is expected to include an identical number of intervals, with identical IDs, start times, and durations, as the associated event.</p>
 <p>&quot;startInterval&quot;:		-1 (default) indicates that a report should be generated after the last
 interval has transpired.</p>
@@ -398,41 +474,66 @@ have transpired.</p>
 <p>The report contains a list of resource objects to provide usage data for separate resources under control of the VEN.</p>
 <p>POST report</p>
 <p>Figure 30. Usage Report</p>
-<h3>Inverter Management</h3>
+</section>
+</section>
+<section id="inverter-management" tabindex="-1">
+<h3 tabindex="-1">Inverter Management</h3>
 <p>Energy retailers may wish to coordinate inverters (or other devices) to adjust their behavior over time based on fluctuating values, such as Volt-VAR settings.</p>
-<h4>Program</h4>
+<section id="program-1" tabindex="-1">
+<h4 tabindex="-1">Program</h4>
 <p>A program object is expected to contain a payloadDescriptors list indicating the event type CURVE. Other attributes of the program are program-specific.</p>
 <p>POST program</p>
 <p>Figure 31. Inverter Management Program</p>
-<h4>Events</h4>
+</section>
+<section id="events-2" tabindex="-1">
+<h4 tabindex="-1">Events</h4>
 <p>As indicated in the program payloadDescriptors list, events are expected to contain payloads of type CURVE. A CURVE payload contains a list of float values. In this example, the event contains an intervalPeriod with a specific start time and a duration of 1 hour.</p>
 <p>This event example does not contain a reportDescriptor, therefore a VEN will not be expected to generate a report based on resource behavior in response to this event.</p>
 <p>POST event</p>
 <p>Figure 32. Inverter Management Event</p>
-<h4>Reports</h4>
+</section>
+<section id="reports-2" tabindex="-1">
+<h4 tabindex="-1">Reports</h4>
 <p>None required in this example</p>
-<h3>Load Control</h3>
+</section>
+</section>
+<section id="load-control" tabindex="-1">
+<h3 tabindex="-1">Load Control</h3>
 <p>Send day ahead LOAD_DISPATCH event signal targeted to one or many aggregators, with the aggregator managing the load profile of behind the meter batteries, water heaters, &#x2018;BYOD&#x2019; thermostats, and EV.</p>
 <p>POST event</p>
 <p>Figure 33. Load Control Event</p>
 <p>No reporting example.</p>
-<h3>State of Charge Reporting</h3>
+</section>
+<section id="state-of-charge-reporting" tabindex="-1">
+<h3 tabindex="-1">State of Charge Reporting</h3>
 <p>A grid entity seeks to have situational awareness of the energy state of storage based devices such as Electric Vehicles and Battery Storage. In this example, an event is used to request information about storage resources.</p>
 <p>Events are required to contain an intervals attribute as they typically communicate payload information to VENs, even though in this use case it is not used. The example describes a minimal intervals block, with minimal children.</p>
-<h4>Event</h4>
+<section id="event-1" tabindex="-1">
+<h4 tabindex="-1">Event</h4>
 <p>Figure 34. State of Charge Reporting Event</p>
-<h4>Report</h4>
+</section>
+<section id="report-1" tabindex="-1">
+<h4 tabindex="-1">Report</h4>
 <p>POST report</p>
 <p>Figure 35. State of Charge Report</p>
-<h3>Capability Forecast Reporting</h3>
+</section>
+</section>
+<section id="capability-forecast-reporting" tabindex="-1">
+<h3 tabindex="-1">Capability Forecast Reporting</h3>
 <p>Receive a rolling forecast of the aggregated load flexibility so that the BL is aware of how much load shed or generation can be dispatched up to 48 hours in the future.</p>
-<h4>Event</h4>
+<section id="event-2" tabindex="-1">
+<h4 tabindex="-1">Event</h4>
 <p>Post event</p>
 <p>Figure 36. Capability Forecast Reporting Event</p>
-<h4>Report</h4>
+</section>
+<section id="report-2" tabindex="-1">
+<h4 tabindex="-1">Report</h4>
 <p>POST report</p>
 <p>Figure 37. Capability Forecast Report</p>
-<h3>Operational Forecast Reporting</h3>
+</section>
+</section>
+<section id="operational-forecast-reporting" tabindex="-1">
+<h3 tabindex="-1">Operational Forecast Reporting</h3>
 <p>Receive a forecast of the aggregated resource load utilization or generation taking into account planned price and event optimizations and other operational considerations so that the upstream VTN&#x2019;s application layer is aware of how much load utilization is likely to occur over the reporting period.</p>
 <p>POST event</p>
 <p>Figure 38. Operational Forecast Reporting Event</p>
@@ -449,18 +550,25 @@ which is not defined as the event duration is -1. Repeat automatically
 increments the virtual startInterval by frequency amount.</p>
 <p>POST report</p>
 <p>Figure 39. Operational Forecast Report</p>
-<h3>2.0b Program Guide Use cases</h3>
+</section>
+<section id="2.0b-program-guide-use-cases" tabindex="-1">
+<h3 tabindex="-1">2.0b Program Guide Use cases</h3>
 <p>The following use cases are detailed in the [OADR-2.0b-Program_Guide] and are referenced here to ensure OpenADR 3.0 has feature parity with 2.0b.</p>
 <p>Italicized text are paraphrased quotes of the descriptions of events and reports from [OpenADR-2.0b-PG] . Where SIMPLE signals are described, this generally indicates compatibility with OpenADR 2.0a.</p>
-<h4>Critical Peak Pricing</h4>
+<section id="critical-peak-pricing" tabindex="-1">
+<h4 tabindex="-1">Critical Peak Pricing</h4>
 <p>Event Signals: If the deployment supports B profile VENs, in addition to the SIMPLE signal, an ELECTRICITY_PRICE signal may be included in the payload with a type of priceRelative, priceAbsolute, or priceMultiplier depending on the nature of the program.</p>
 <p>Reporting Services: Telemetry reporting is typically not used as it is not absolutely necessary for CPP programs.</p>
 <p>This Use Case is addressed above in the section titled &#x201c;Day Ahead Prices with Usage report&#x201d;. Note that prices in OpenADR 3.0 are always absolute and the type is simply PRICE.</p>
-<h4>Thermostat Program</h4>
+</section>
+<section id="thermostat-program" tabindex="-1">
+<h4 tabindex="-1">Thermostat Program</h4>
 <p>Event Signals: A LOAD_CONTROL signal may be included in the payload with a type of x-loadControlLevelOffset or x-loadControlCapacity to specify the desired temperature setpoint offset or thermostatic cycling percentage respectively. It is recommended that a unit type of &quot;temperature&quot; be used in payloads utilizing the x- loadControlLevelOffset signalType to indicate Celsius or Fahrenheit for the offset.</p>
 <p>Reporting Services: Telemetry status reports for small commercial Thermostat programs may be required, reporting at a minimum current setpoint offset of the thermostats which control the load shedding resources, as well as online/override status.</p>
 <p>This Use Case is partially addressed above in the section titled &#x201c;Load Shed&#x201d;. Detailed reporting items are not directly supported. OpenADR 3.0 has a type of CONTROL_SETPOINT but does not support a thermostatic cycling percentage.</p>
-<h4>Fast DR Dispatch</h4>
+</section>
+<section id="fast-dr-dispatch" tabindex="-1">
+<h4 tabindex="-1">Fast DR Dispatch</h4>
 <p>Event Signals: A dispatch in the form of a LOAD_DISPATCH signal may be included in the payload with signal types of setpoint or delta, and units of powerReal. This signal represents the desired &#x201c;operating point&#x201d; of the load and can be expressed either as an absolute amount of mW (i.e. setpoint) or some relative number of mW (i.e. delta) from the resource&apos;s current operating point.</p>
 <p>Reporting Services: In some cases the telemetry may include other data points such as voltage readings and charge state (i.e. energy) in the case where the resource is some form of storage. In some cases the reporting frequency may be as high as every 2 seconds.</p>
 <p>These are two use cases; one to set the absolute setpoint of a resource with DISPATCH_SETPOINT and one to set a relative setpoint with CONTROL_SETPOINT. Each is illustrated below:</p>
@@ -475,22 +583,32 @@ increments the virtual startInterval by frequency amount.</p>
 <p>With the resulting report:</p>
 <p>POST report</p>
 <p>Figure 43. Another Dispatch Setpoint Report</p>
-<h4>Residential EV Time of Use</h4>
+</section>
+<section id="residential-ev-time-of-use" tabindex="-1">
+<h4 tabindex="-1">Residential EV Time of Use</h4>
 <p>Event Signals: ELECTRICITY_PRICE signals</p>
 <p>Reporting Services: No reporting needed, all data can come from the meter.</p>
 <p>This Use Case is addressed above in the section titled &#x201c;Day Ahead Prices with Usage report&#x201d;.</p>
-<h4>Public Station EV Real-Time Pricing</h4>
+</section>
+<section id="public-station-ev-real-time-pricing" tabindex="-1">
+<h4 tabindex="-1">Public Station EV Real-Time Pricing</h4>
 <p>Event Signals: ELECTRICITY_PRICE signals with prices.</p>
 <p>Reporting Services: No reporting needed, but can be used if desired.</p>
 <p>This Use Case is addressed above in the section titled &#x201c;Day Ahead Prices with Usage report&#x201d;.</p>
-<h4>DER DR</h4>
+</section>
+<section id="der-dr" tabindex="-1">
+<h4 tabindex="-1">DER DR</h4>
 <p>Event Signals: ELECTRICITY_PRICE signals with 24 one hour intervals of prices over a 24 hour period.</p>
 <p>Reporting Services: No reporting needed</p>
 <p>This Use Case is addressed above in the section titled &#x201c;Day Ahead Prices with Usage report&#x201d;.</p>
-<h3>Capacity Management</h3>
+</section>
+</section>
+<section id="capacity-management" tabindex="-1">
+<h3 tabindex="-1">Capacity Management</h3>
 <p>Until recently, electric utility practice has been to allow any customer to import or export power at a level up to the line rating of the customer service at any time. This was not burdensome as the times when individual customers imported or exported at anomalously high levels were infrequent and not coordinated. The advent of excess PV export and vehicle charging have both changed that assumption. The options now available are to deny new customer DER connections (PV and EV) for the possibility of worst case scenarios violating limits, reducing customer capacity below their line limits &#x2013; or, introducing digital management of capacity.</p>
 <p>How best to manage capacity is still an open question and can be expected to evolve in the coming years, but two mechanisms are included &#x2013; one based on announcing limits and the other based on subscriptions for lower levels and permission-based increases in that level.</p>
-<h4>Dynamic Operating Envelopes</h4>
+<section id="dynamic-operating-envelopes" tabindex="-1">
+<h4 tabindex="-1">Dynamic Operating Envelopes</h4>
 <p>Dynamic Operating Envelopes (DOE) are an alternative mechanism for managing site capacity limits implemented in some jurisdictions (see DER Management Envelope as per Section 9 title in CSIP-AUS (SA HB 218:2023) SA HB 218:2023 | Standards Australia). They communicate a schedule of available site-level import and/or export capacity, the operating envelope. The duration and interval length of the schedule will vary by application. When a new flexible load, such as an EV or stationary battery, wants to import power, it must restrict its consumption so that it does not contribute to an exceedance of the customer IMPORT_CAPACITY_LIMIT. Conversely for distributed generation, such as rooftop PV, that wants to export power, it must restrict its generation so that it does not contribute to an exceedance of the EXPORT_CAPACITY_LIMIT.</p>
 <p>When a VEN connects to a VTN, the VTN will announce the customer&#x2019;s dynamic operating envelope schedule with a payload element of IMPORT_CAPACITY_LIMIT and/or EXPORT_CAPACITY_LIMIT if applicable), in units of kW, with an event interval commonly days-long. A new dynamic operating envelope schedule may be announced at any time, including many times per day.</p>
 <p>A common usage is for each event to request a report on site operational parameters such as voltage, site-level active and reactive power demand as shown in the example below.</p>
@@ -498,7 +616,9 @@ increments the virtual startInterval by frequency amount.</p>
 <p>Figure 44. Dynamic Operating Envelope with Site Parameters Event</p>
 <p>The above example illustrates 2 contiguous 30 minute intervals; additional intervals would cover additional time, e.g 48 30 minute intervals would define limits for an entire day.</p>
 <p>Should an extended communications interruption occur and the scheduled IMPORT/EXPORT_CAPACITY_LIMIT enumeration values be exhausted, the VEN will utilise the IMPORT/EXPORT_CAPACITY_SUBSCRIPTION enumeration values as default limits. This would typically be announced from the VTN to the VEN on startup, with an event interval that could be years-long, and can be re-announced as needed with a new interval. Following a grid power outage, the VEN must disregard all existing IMPORT/EXPORT_CAPACITY_LIMIT, revert to the IMPORT/EXPORT_CAPACITY_SUBSCRIPTION and re-poll the VTN to establish if an updated IMPORT/EXPORT_CAPACITY_LIMIT schedule has been published.</p>
-<h4>Dynamic Capacity Management</h4>
+</section>
+<section id="dynamic-capacity-management" tabindex="-1">
+<h4 tabindex="-1">Dynamic Capacity Management</h4>
 <p>Dynamic Capacity Management is a mechanism for addressing capacity constraints in the distribution system by creating a permission-based system of limiting customer power capacity. In a basic use case, customers subscribe to a capacity level that they normally never exceed for their &#x2018;traditional&#x2019; end uses. When a new device, such as an EV or stationary battery, wants to import power, it can always do so at the difference between the rate of the import subscription level and the consumption of the balance of the system; to import power at a higher rate, a import reservation is required. Conversely for distributed generation, such as rooftop PV, that wants to export power, it can always generate at the total of the export subscription level and the consumption of the balance of the system; to export power at a higher rate, an export reservation is required. In both cases the coordination is with the customer site as a whole.</p>
 <p>When a VEN connects to a VTN, the VTN will announce the customer&#x2019;s subscribed capacity with a payload element of IMPORT_CAPACITY_SUBSCRIPTION (and/or EXPORT_CAPACITY_SUBSCRIPTION if applicable), in units of kW, with an event interval commonly years-long. If this is changed (through a process out of band of OpenADR) then a new subscription level is announced. The subscription should also include a report request that the VEN uses to request reservations.</p>
 <p>At any time the customer may submit a request with a report including payload elements of IMPORT_CAPACITY_RESERVATION and IMPORT_CAPACITY_RESERVATION_FEE (and/or EXPORT_CAPACITY_RESERVATION and EXPORT_CAPACITY_RESERVATION_FEE), in units of kW and currency/kW (e.g. &#x24;/kW) respectively; this report can have multiple intervals, each of which generates an independent request. This is the additional capacity requested and the fee the customer is willing to pay. The customer will commonly begin with a fee of zero. The VTN will generate an event based on this to announce the customer&#x2019;s upcoming reservations -- a combination of any past reservations that have not expired and successful new ones. To be a successful request, the requested capacity must be available and if the fee request must be sufficient. If multiple requests are submitted simultaneously, it is possible that some will be successful and some not. If the VEN submits a request with a fee higher than is required, the reservation fee is only the required amount. The upcoming reservations are announced with the IMPORT_CAPACITY_RESERVATION and IMPORT_CAPACITY_RESERVATION_FEE payload elements, similarly announced in units of kW and currency/kW). Finally, at the same time the VTN will send out an announcement of future capacity that can be reserved with the IMPORT_CAPACITY_AVAILABLE and IMPORT_CAPACITY_AVAILABLE_FEE payload elements with the same units. All of these four payload elements have counterparts for export which can be used in combination with or instead of import payloads. The VTN may reject reservations if the timing intervals do not match what the VTN expects. For example, the VTN may expect reservations to be on 15-minute intervals and so reject ones that have start times or durations that don&#x2019;t match this.</p>
@@ -523,15 +643,17 @@ increments the virtual startInterval by frequency amount.</p>
 <p>Figure 48. capacity reservation event</p>
 <p>POST event</p>
 <p>Figure 49. capacity available event</p>
-<h3>OpenADR and CTA-2045</h3>
+</section>
+</section>
+<section id="openadr-and-cta-2045" tabindex="-1">
+<h3 tabindex="-1">OpenADR and CTA-2045</h3>
 <p>OpenADR 3.0 is well suited to be a standard external protocol for CTA-2045B, which is a standard for an external module on a flexible load or other device to provide replaceable interface devices with different communication and computation capabilities. For many capabilities of CTA-2045, e.g. sending prices, an emergency signal, or reporting energy use, there are existing mechanisms in OpenADR that implement the functionality. For a few capabilities, enumeration values specific to CTA-2045 have been added. A document that describes unambiguous mapping between the two standards is forthcoming.</p>
 <p>End of Document</p>
+</section>
+</section>
+</section>
 
 </article>
-<section id="right" class="col-md-2">
-<p>right sidebar</p>
-<!-- <tag-cloud/> -->
-</section>
 </div>
 <div class="row">
 <footer class="col-md-12">
@@ -539,8 +661,6 @@ increments the virtual startInterval by frequency amount.</p>
 </footer>
 </div>
 </div>
-<!-- JavaScript at the bottom for fast page loading -->
 <script src="vendor/jquery/jquery.min.js"></script><script src="vendor/popper.js/umd/popper.min.js"></script><script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-<!-- <ak-footerJavaScript></ak-footerJavaScript> -->
 </body>
 </html>

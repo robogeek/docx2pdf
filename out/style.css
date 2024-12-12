@@ -70,6 +70,28 @@ article {
 
 }
 
+img.logo-image {
+
+  display: block;
+  margin-left: auto;
+  margin-right: 0;
+  width: 50%;
+}
+
+#title-page .right {
+  position: absolute;
+  right: 0px;
+  width: 70%;
+  border: 3px solid #73AD21;
+  padding: 10px;
+}
+
+/* https://stackoverflow.com/questions/22746958/dompdf-adding-a-new-page-to-pdf */
+
+div.page_break {
+    page-break-before: always;
+}
+
 /* tables */
 
 div.table, table {

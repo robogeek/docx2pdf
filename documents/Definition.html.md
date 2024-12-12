@@ -3,11 +3,17 @@ layout: default.html.ejs
 title: OpenADR 3.1.0 Definition
 ---
 
+::: #title-page
+![OpenADR Logo](./img/openadr-logo.png){.logo-image}
 
+
+::: .text-right .font-weight-bolder
 **OpenADR 3.0**
 
 **OpenADR 3.1.0 Definitions**
+:::
 
+::: .text-right 
 Updated 9/16/2024
 
 Revision Number: 3.1.0
@@ -15,6 +21,9 @@ Revision Number: 3.1.0
 Document Status: **Final** **Specification**
 
 Document Number: 20231118-X
+:::
+
+::: .text-right
 
 | Contact:              | Editors:               | Technical Director OpenADR Alliance:          |
 |-----------------------|------------------------|--------------------|
@@ -30,143 +39,18 @@ Document Number: 20231118-X
 | <info@openadr.org>    |                        |                    |
 
 Please send general questions and comments about the specification to
-[comments@openadr.org]{.underline}(mailto:comments@openadr.org).
+[comments@openadr.org](mailto:comments@openadr.org){.underline}.
 
-## CONTENTS
+:::
 
-[**1. Introduction 3**](#introduction)
+:::
 
-   [1.1 Revision 3.0.2 Introduction 3](#revision-3.0.2-introduction)
+# CONTENTS {.page_break}
 
-[**2. Normative References 3**](#normative-references)
+[[toc]]
 
-[**3. Informative References 4**](#informative-references)
 
-[**4. Terms and Definitions 4**](#terms-and-definitions)
-
-> [4.1 Messaging Protocol Terms and Definitions
-> 5](#messaging-protocol-terms-and-definitions)
-
-[**5. Overview 5**](#overview)
-
-> [5.1. System Architecture 5](#system-architecture)
-> 
-> [5.2. Local Scenarios 7](#local-scenarios)
-> 
-> [5.3. VEN enrollment 7](#ven-enrollment)
-
-[**6. General Usage 8**](#general-usage)
-
-> [6.1. VTN provided fields 8](#vtn-provided-fields)
-> 
-> [6.2. Required and optional properties
-> 8](#required-and-optional-properties)
-> 
-> [6.3. Response Codes and Errors 8](#response-codes-and-errors)
-> 
-> [6.3.1. Problem 9](#problem)
-> 
-> [6.4. POST and PUT 9](#post-and-put)
-> 
-> [6.5. Compression 9](#compression)
-> 
-> [6.6. Support for Strongly Typed languages
-> 10](#support-for-strongly-typed-languages)
-> 
-> [6.7. Message validation 10](#message-validation)
-> 
-> [6.8. Subscriptions 10](#subscriptions)
-> 
-> [6.8.1 Subscription and Notification via Messaging Protocols
-> 12](#subscription-and-notification-via-messaging-protocols)
-> 
-> [6.9. Response Filtering 13](#response-filtering)
-> 
-> [6.10. Object names 14](#object-names)
-
-[**7. Information Model 14**](#information-model)
-
-[**8. EndPoints 18**](#endpoints)
-
-[**9. Revision 22**](#revision)
-
-[**9. Extensibility 22**](#extensibility)
-
-> [9.1. Model Extension 22](#model-extension)
-> 
-> [9.2. Private Strings 22](#private-strings)
-
-[**10. Enumerations 23**](#enumerations)
-
-> [10.1. Introduction 23](#introduction-1)
-> 
-> [10.2. Event Payload Enumerations 23](#event-payload-enumerations)
-> 
-> [10.3. Report Enumerations 26](#report-enumerations)
-> 
-> [10.4. Reading Type Enumerations 29](#reading-type-enumerations)
-> 
-> [10.5. Operating State Enumerations 29](#operating-state-enumerations)
-> 
-> [10.6. ResourceName Enumerations 30](#resourcename-enumerations)
-> 
-> [10.7. Data Quality Enumerations 30](#data-quality-enumerations)
-> 
-> [10.8. Target Enumerations 31](#target-enumerations)
-> 
-> [10.9. Attribute Enumerations 32](#attribute-enumerations)
-> 
-> [10.10. Unit Enumerations 32](#unit-enumerations)
-> 
-> [10.11. Currency Enumerations 33](#currency-enumerations)
-> 
-> [10.12. Binding Enumerations 33](#binding-enumerations)
-> 
-> [10.13. Serialization Enumerations 34](#serialization-enumerations)
-> 
-> [10.14. Message Broker Auth Enumerations
-> 34](#message-broker-auth-enumerations)
-
-[**11. Security 34**](#security)
-
-> [11.1. Security objectives 34](#security-objectives)
-> 
-> [11.2. Assumptions 34](#assumptions)
-> 
-> [11.3. Client Scenarios 35](#client-scenarios)
-> 
-> [11.4. Non-Authenticated Clients 36](#non-authenticated-clients)
-> 
-> [11.5. HTTPS/TLS 36](#httpstls)
-> 
-> [11.6. MQTTS/TLS 36](#mqttstls)
-> 
-> [11.6. API Gateway 37](#api-gateway)
-> 
-> [11.7. OAuth 2.0 client credential flow
-> 37](#oauth-2.0-client-credential-flow)
-> 
-> [11.8. OpenAPI Specification 38](#openapi-specification)
-> 
-> [11.9. Bearer tokens 39](#bearer-tokens)
-> 
-> [11.10. Webhooks 39](#webhooks)
-
-[**12. Reference Implementation 40**](#reference-implementation)
-
-> [12.1. Step 1: Trade clientID/clientSecret for access token
-> 40](#step-1-trade-clientidclientsecret-for-access-token)
-> 
-> [12.2. Step 2: Include access token in API requests
-> 41](#step-2-include-access-token-in-api-requests)
-> 
-> [12.3. Step 3: Resolve token to scopes
-> 41](#step-3-resolve-token-to-scopes)
-> 
-> [12.4. Step 4: Enforce Access Control
-> 41](#step-4-enforce-access-control)
-
-# Introduction
+# Introduction {.page_break}
 
 This document describes the third major iteration of the OpenADR
 protocol. It serves as a near functional equivalent of its predecessor,
@@ -195,77 +79,58 @@ such messaging protocol defined.
 
 # Normative References
 
-\[OADR-3.0-Specification\] OpenADR 3.0 OpenAPI YAML (SwaggerDoc)
-Specification,
-[[https://github.com/oadr3/openapi-3.0.0]{.underline}](https://github.com/oadr3/openapi-3.0.0)
+[OADR-3.0-Specification] OpenADR 3.0 OpenAPI YAML (SwaggerDoc)
+Specification, [[https://github.com/oadr3/openapi-3.0.0]](https://github.com/oadr3/openapi-3.0.0){.underline}
 
-\[ISO 8601\] ISO date and time format.
-https://www.iso.org/iso-8601-date-and-time-format.html
+[ISO 8601] ISO date and time format. https://www.iso.org/iso-8601-date-and-time-format.html
 
-\[ISO 4217\] ISO 4217 Currency Codes:
-[[https://www.six-group.com/en/products-services/financial-information/data-standards.html#scrollTo=maintenance-agency]{.underline}](https://www.six-group.com/en/products-services/financial-information/data-standards.html%23scrollTo=maintenance-agency)
+[ISO 4217] ISO 4217 Currency Codes:
+[[https://www.six-group.com/en/products-services/financial-information/data-standards.html#scrollTo=maintenance-agency]](https://www.six-group.com/en/products-services/financial-information/data-standards.html%23scrollTo=maintenance-agency){.underline}
 
-\[MQTT\] MQTT Version 5.0:
-
-[[https://docs.oasis-open.org/mqtt/mqtt/v5.0/mqtt-v5.0.html]{.underline}](https://docs.oasis-open.org/mqtt/mqtt/v5.0/mqtt-v5.0.html)
+[MQTT] MQTT Version 5.0:
+[[https://docs.oasis-open.org/mqtt/mqtt/v5.0/mqtt-v5.0.html]](https://docs.oasis-open.org/mqtt/mqtt/v5.0/mqtt-v5.0.html){.underline}
 
 # Informative References
 
-\[OADR-3.0-User_Guide\] OpenADR 3.0 User Guide, Draft April 17, 2023
+[OADR-3.0-User_Guide] OpenADR 3.0 User Guide, Draft April 17, 2023
 
-\[OADR-3.0-Introduction\] OpenADR 3.0 Introducing OpenADR 3.0, Draft
-April 17, 2023
+[OADR-3.0-Introduction] OpenADR 3.0 Introducing OpenADR 3.0, Draft April 17, 2023
 
-\[OADR-3.0-Reference_Implementation\] OpenADR 3.0 Reference
-Implementation
-[[https://github.com/oadr3/RI-3.0.0]{.underline}](https://github.com/oadr3/RI-3.0.0)
+[OADR-3.0-Reference_Implementation] OpenADR 3.0 Reference Implementation [[https://github.com/oadr3/RI-3.0.0]](https://github.com/oadr3/RI-3.0.0)
 
-\[REST_Best_Practice\] RESTful web API design (website)
-[[https://docs.microsoft.com/en-us/azure/architecture/best-practices/api-design]{.underline}](https://docs.microsoft.com/en-us/azure/architecture/best-practices/api-design)
+[REST_Best_Practice] RESTful web API design (website) [[https://docs.microsoft.com/en-us/azure/architecture/best-practices/api-design]](https://docs.microsoft.com/en-us/azure/architecture/best-practices/api-design){.underline}
 
-\[CTA-2045-B\] Modular Communications Interface for Energy Management,
-November 2020
+[CTA-2045-B] Modular Communications Interface for Energy Management, November 2020
 
-\[OpenAPI Auth\] Authentication in OpenAPI
-[[https://swagger.io/docs/specification/authentication/]{.underline}](https://swagger.io/docs/specification/authentication/)
+[OpenAPI Auth] Authentication in OpenAPI [[https://swagger.io/docs/specification/authentication/]](https://swagger.io/docs/specification/authentication/)
 
-\[REST-API-Best_Practices\] REST API Security Essentials.
-[[https://dzone.com/refcardz/rest-api-security-1]{.underline}](https://dzone.com/refcardz/rest-api-security-1)
+[REST-API-Best_Practices] REST API Security Essentials. [[https://dzone.com/refcardz/rest-api-security-1]](https://dzone.com/refcardz/rest-api-security-1)
 
-\[OAuth\] The OAuth 2.0 Authorization Framework, 2012.
-[[https://www.rfc-editor.org/rfc/rfc6749]{.underline}](https://www.rfc-editor.org/rfc/rfc6749)
+[OAuth] The OAuth 2.0 Authorization Framework, 2012. [[https://www.rfc-editor.org/rfc/rfc6749]](https://www.rfc-editor.org/rfc/rfc6749)
 
-\[JWT\] JSON Web Token (JWT), 2015.
-[[https://www.rfc-editor.org/rfc/rfc7519]{.underline}](https://www.rfc-editor.org/rfc/rfc7519)
+[JWT] JSON Web Token (JWT), 2015. [[https://www.rfc-editor.org/rfc/rfc7519]](https://www.rfc-editor.org/rfc/rfc7519)
 
-\[Oauth2 Client Flow\] OAuth 2.0 Client Credentials Grant.
-[[https://oauth.net/2/grant-types/client-credentials]{.underline}](https://oauth.net/2/grant-types/client-credentials)
+[Oauth2 Client Flow] OAuth 2.0 Client Credentials Grant. [[https://oauth.net/2/grant-types/client-credentials]z](https://oauth.net/2/grant-types/client-credentials)
 
-\[Client Flow Overview\] Client Credentials Flow.
-[[https://auth0.com/docs/get-started/authentication-and-authorization-flow/client-credentials-flow]{.underline}](https://auth0.com/docs/get-started/authentication-and-authorization-flow/client-credentials-flow)
+[Client Flow Overview] Client Credentials Flow. [[https://auth0.com/docs/get-started/authentication-and-authorization-flow/client-credentials-flow]](https://auth0.com/docs/get-started/authentication-and-authorization-flow/client-credentials-flow)
+[SEMVER] Semantic Versioning [[https://semver.org]](https://semver.org)
 
-\[SEMVER\] Semantic Versioning
-[[https://semver.org]{.underline}](https://semver.org)
+[TLS] How SSL and TLS provide identification, authentication, confidentiality, and integrity,
 
-\[TLS\] How SSL and TLS provide identification, authentication,
-confidentiality, and integrity,
+[[https://www.ibm.com/docs/en/ibm-mq/7.5?topic=ssl-how-tls-provide-authentication-confidentiality-integrity]](https://www.ibm.com/docs/en/ibm-mq/7.5?topic=ssl-how-tls-provide-authentication-confidentiality-integrity)
 
-[[https://www.ibm.com/docs/en/ibm-mq/7.5?topic=ssl-how-tls-provide-authentication-confidentiality-integrity]{.underline}](https://www.ibm.com/docs/en/ibm-mq/7.5?topic=ssl-how-tls-provide-authentication-confidentiality-integrity)
-
-\[URI\] Uniform Resource Identifier (URI): Generic Syntax
-
-[[https://www.rfc-editor.org/rfc/rfc3986]{.underline}](https://www.rfc-editor.org/rfc/rfc3986)
+[URI] Uniform Resource Identifier (URI): Generic Syntax [[https://www.rfc-editor.org/rfc/rfc3986]](https://www.rfc-editor.org/rfc/rfc3986)
 
 # Terms and Definitions
 
 OpenADR 3.0 adopts many terms from 2.0b directly, such as Event and
 Report. Terms that are new or modified are:
 
-- **Program -** The business context for a given usage of the VTN. May be a Demand Response program, tariff, or other business construct.
+- **Program** - The business context for a given usage of the VTN. May be a Demand Response program, tariff, or other business construct.
 - **ProgramName** - A unique name for a program or tariff. May be used by customers.
-- **[Program Description]{.mark} -** A human readable document provided out-of-band by a Business Logic entity that specifies a usage of the OpenADR 3.0 object model and configuration details such as VTN address, program names, applicable customer types, etc.
-- **Tariff -** A type of program that defines the basic agreement between a retailer and a customer, such as an electricity pricing structure, as opposed to optional programs offered on top of a tariff.
-- **Virtual Top Node (VTN) -** An application that implements the OpenADR 3.0 APIs. This is a Resource Server in REST parlance.
+- **[Program Description]** - A human readable document provided out-of-band by a Business Logic entity that specifies a usage of the OpenADR 3.0 object model and configuration details such as VTN address, program names, applicable customer types, etc.
+- **Tariff** - A type of program that defines the basic agreement between a retailer and a customer, such as an electricity pricing structure, as opposed to optional programs offered on top of a tariff.
+- **Virtual Top Node (VTN)** - An application that implements the OpenADR 3.0 APIs. This is a Resource Server in REST parlance.
 - **Virtual End Node (VEN)** - A software application that consumes events, generates reports, and directly or indirectly causes changes in energy consumption patterns. This is a client of a VTN.
 - **Business Logic (BL)** - Application logic embodied in one or more software applications deployed by a utility, retailer, or other 'program owner' of the VTN that typically produces events and consumes reports. It may be incorporated into the VTN resource server such that the business logic application exposes the OpenADR 3.0 API. We use the term here to refer to a client of a VTN.
 - **Customer Logic (CL)** - Application logic that requests and responds to program and event objects, produces reports, and may provide human facing features to support configuration and monitoring. May be incorporated into or interface with a VEN client.
@@ -298,6 +163,8 @@ consumers to exchange events and reports. Figure 1 illustrates the
 canonical REST paradigm of server and clients, and how OpenADR terms are
 applied to these constructs.
 
+![REST and its application to OpenADR](./img/defs-fig-1-rest-architecture.drawio.png "Figure 1. REST and its application to OpenADR"){.margin-left-auto .margin-right-auto}
+
 **Figure 1. REST and its application to OpenADR**
 
 Business Logic (BL) is application software hosted by an energy retailer
@@ -326,8 +193,7 @@ object notifications. A VTN will include a broker for each supported
 messaging protocol, if any. The relationships between the VTN's REST and
 message protocol broker, and potential clients are shown in Figure 1.5
 
-![](media/image4.png){width="3.463542213473316in"
-height="4.299569116360455in"}
+![OpenADR data flow](./img/defs-fig-1-5-flow.drawio.png "Figure 1.5")
 
 **Figure 1.5**
 
@@ -335,8 +201,7 @@ A tiered hierarchy of VTNs and VENs may also be supported, in which an
 entity acts as a VEN to interact with a VTN, and then presents its own
 VTN to 'downstream' VENs. This is shown in Figure 2.
 
-![image1.png](media/image3.png){width="4.998214129483815in"
-height="2.8125in"}
+![OpenADR example implementation scenarios](./img/defs-fig-2-implementation-scenarios.png "Figure 2. OpenADR 3.0 example implementation scenarios")
 
 **Figure 2. OpenADR 3.0 example implementation scenarios**
 
@@ -2450,8 +2315,7 @@ Authentication server with Business Logic web flow to share client IDs
 and secrets or illustrate a similar process for Business Logic clients
 of VTN. \[Client Flow Overview\]
 
-![Picture 1](media/image2.png){width="6.5in"
-height="4.360416666666667in"}
+![OAuth2 client credential flow](./img/defs-fig-16-oath-client-credential-flow.png "Figure 16: OAuth2 client credential flow")
 
 **Figure 16: OAuth2 client credential flow**
 
