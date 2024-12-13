@@ -61,8 +61,16 @@ const pdf = await page.pdf({
     format: 'A4',
     margin: { top: '20mm', right: '20mm', bottom: '20mm', left: '20mm' },
     displayHeaderFooter: true,
-    headerTemplate: '<div class="title">TITLE GOES HERE</div>',
-    footerTemplate: '<div>Page <span class="pageNumber"></span> of <span class="totalPages"></span></div>',
+    headerTemplate: `
+        <div class="text-center title" style="margin-left: auto; margin-right: auto; font-size: 12px;">TITLE GOES HERE</div>
+    `,
+    // headerTemplate: `
+    //     <div class="text-center title" style="margin: 0 15mm 5mm; font-size: 12px;">TITLE GOES HERE</div>
+    // `,
+    footerTemplate: `
+        <div class="text-left"  style="margin: 0 auto 0 20mm; text-align: left; font-size: 12px;">Copyright © OpenADR Alliance (2023-24). All Rights Reserved</div>
+        <div class="text-right" style="margin: 0 20mm 0 auto; text-align: right; font-size: 12px;">Page <span class="pageNumber"></span> of <span class="totalPages"></span></div>
+    `,
     printBackground: true
 });
 
@@ -78,8 +86,16 @@ const pdf2 = await page2.pdf({
     format: 'A4',
     margin: { top: '20mm', right: '20mm', bottom: '20mm', left: '20mm' },
     displayHeaderFooter: true,
-    headerTemplate: '<div class="title">TITLE GOES HERE</div>',
-    footerTemplate: '<div>Page <span class="pageNumber"></span> of <span class="totalPages"></span></div>'
+    headerTemplate: `
+        <div class="text-center title" style="margin-left: auto; margin-right: auto; font-size: 12px;">TITLE GOES HERE</div>
+    `,
+    // headerTemplate: `
+    //     <div class="text-center title" style="margin: 0 15mm 5mm; font-size: 12px;">TITLE GOES HERE</div>
+    // `,
+    footerTemplate: `
+        <div class="text-left"  style="margin: 0 auto 0 20mm; text-align: left; font-size: 12px;">Copyright © OpenADR Alliance (2023-24). All Rights Reserved</div>
+        <div class="text-right" style="margin: 0 20mm 0 auto; text-align: right; font-size: 12px;">Page <span class="pageNumber"></span> of <span class="totalPages"></span></div>
+    `,
 });
 
 // Write PDF to file
@@ -94,8 +110,16 @@ const pdf3 = await page3.pdf({
     format: 'A4',
     margin: { top: '20mm', right: '20mm', bottom: '20mm', left: '20mm' },
     displayHeaderFooter: true,
-    headerTemplate: '<div class="title">TITLE GOES HERE</div>',
-    footerTemplate: '<div>Page <span class="pageNumber"></span> of <span class="totalPages"></span></div>'
+    headerTemplate: `
+        <div class="text-center title" style="margin-left: auto; margin-right: auto; font-size: 12px;">TITLE GOES HERE</div>
+    `,
+    // headerTemplate: `
+    //     <div class="text-center title" style="margin: 0 15mm 5mm; font-size: 12px;">TITLE GOES HERE</div>
+    // `,
+    footerTemplate: `
+        <div class="text-left"  style="margin: 0 auto 0 20mm; text-align: left; font-size: 12px;">Copyright © OpenADR Alliance (2023-24). All Rights Reserved</div>
+        <div class="text-right" style="margin: 0 20mm 0 auto; text-align: right; font-size: 12px;">Page <span class="pageNumber"></span> of <span class="totalPages"></span></div>
+    `,
 });
 
 // Write PDF to file

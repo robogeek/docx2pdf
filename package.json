@@ -42,6 +42,7 @@
     "chai": "^4.3.x",
     "epub-website": "akashacms/epub-website#0.9",
     "jquery": "^3.6.x",
+    "jspdf": "^2.5.2",
     "markdown-it-anchor": "^9.2.0",
     "markdown-it-attrs": "^4.3.0",
     "markdown-it-div": "^1.1.0",
