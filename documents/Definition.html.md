@@ -23,7 +23,7 @@ Document Status: **Final** **Specification**
 Document Number: 20231118-X
 :::
 
-::: .text-right
+TODO: This table does not align to the right, but is centered.
 
 | Contact:              | Editors:               | Technical Director OpenADR Alliance:          |
 |-----------------------|------------------------|--------------------|
@@ -38,14 +38,17 @@ Document Number: 20231118-X
 |                       |                        |                    |
 | <info@openadr.org>    |                        |                    |
 
-Please send general questions and comments about the specification to
-[comments@openadr.org](mailto:comments@openadr.org){.underline}.
+<p class="text-right">Please send general questions and comments about the specification to
+[comments@openadr.org](mailto:comments@openadr.org).</p>
 
-:::
 
 :::
 
 # CONTENTS {.page_break}
+
+TODO: The Table of Contents  should have a page break before and after?
+
+TODO: Automatic numbering of ToC items?
 
 [[toc]]
 
@@ -62,11 +65,11 @@ version as a complement to 2.0b is to lower the barriers of entry for
 new implementers and thereby encourage more widespread adoption of the
 standard.
 
-[This document contains normative and non-normative content and may
+This document contains normative and non-normative content and may
 contain simplifications for the purpose of conveying the underlying
 OpenADR REST concepts. Additional normative content can be found in the
 Normative References section, including the OpenADR 3.0 OpenAPI
-document.]{.mark} \[OADR-3.0-Specification\] which is the authoritative
+document. [OADR-3.0-Specification] which is the authoritative
 specification of the interface between VTN and clients.
 
 ## 1.1 Revision 3.0.2 Introduction {#revision-3.0.2-introduction .unnumbered}
@@ -79,16 +82,15 @@ such messaging protocol defined.
 
 # Normative References
 
-[OADR-3.0-Specification] OpenADR 3.0 OpenAPI YAML (SwaggerDoc)
-Specification, [[https://github.com/oadr3/openapi-3.0.0]](https://github.com/oadr3/openapi-3.0.0){.underline}
+[OADR-3.0-Specification] OpenADR 3.0 OpenAPI YAML (SwaggerDoc) Specification, [[https://github.com/oadr3/openapi-3.0.0]](https://github.com/oadr3/openapi-3.0.0)
 
 [ISO 8601] ISO date and time format. https://www.iso.org/iso-8601-date-and-time-format.html
 
 [ISO 4217] ISO 4217 Currency Codes:
-[[https://www.six-group.com/en/products-services/financial-information/data-standards.html#scrollTo=maintenance-agency]](https://www.six-group.com/en/products-services/financial-information/data-standards.html%23scrollTo=maintenance-agency){.underline}
+[[https://www.six-group.com/en/products-services/financial-information/data-standards.html#scrollTo=maintenance-agency]](https://www.six-group.com/en/products-services/financial-information/data-standards.html%23scrollTo=maintenance-agency)
 
 [MQTT] MQTT Version 5.0:
-[[https://docs.oasis-open.org/mqtt/mqtt/v5.0/mqtt-v5.0.html]](https://docs.oasis-open.org/mqtt/mqtt/v5.0/mqtt-v5.0.html){.underline}
+[[https://docs.oasis-open.org/mqtt/mqtt/v5.0/mqtt-v5.0.html]](https://docs.oasis-open.org/mqtt/mqtt/v5.0/mqtt-v5.0.html)
 
 # Informative References
 
@@ -98,7 +100,7 @@ Specification, [[https://github.com/oadr3/openapi-3.0.0]](https://github.com/oad
 
 [OADR-3.0-Reference_Implementation] OpenADR 3.0 Reference Implementation [[https://github.com/oadr3/RI-3.0.0]](https://github.com/oadr3/RI-3.0.0)
 
-[REST_Best_Practice] RESTful web API design (website) [[https://docs.microsoft.com/en-us/azure/architecture/best-practices/api-design]](https://docs.microsoft.com/en-us/azure/architecture/best-practices/api-design){.underline}
+[REST_Best_Practice] RESTful web API design (website) [[https://docs.microsoft.com/en-us/azure/architecture/best-practices/api-design]](https://docs.microsoft.com/en-us/azure/architecture/best-practices/api-design)
 
 [CTA-2045-B] Modular Communications Interface for Energy Management, November 2020
 
