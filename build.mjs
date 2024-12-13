@@ -62,7 +62,8 @@ const pdf = await page.pdf({
     margin: { top: '20mm', right: '20mm', bottom: '20mm', left: '20mm' },
     displayHeaderFooter: true,
     headerTemplate: '<div class="title">TITLE GOES HERE</div>',
-    footerTemplate: '<div>Page <span class="pageNumber"></span> of <span class="totalPages"></span></div>'
+    footerTemplate: '<div>Page <span class="pageNumber"></span> of <span class="totalPages"></span></div>',
+    printBackground: true
 });
 
 // Write PDF to file
@@ -83,6 +84,22 @@ const pdf2 = await page2.pdf({
 
 // Write PDF to file
 fs.writeFileSync('PDF/User_Guide.pdf', pdf2);
+
+
+const page3 = await browser.newPage();
+await page3.goto(`file://${__dirname}/out/Markdown-Formatting-Guide.html`, { waitUntil: 'networkidle0' });
+
+// Generate PDF at default resolution
+const pdf3 = await page3.pdf({
+    format: 'A4',
+    margin: { top: '20mm', right: '20mm', bottom: '20mm', left: '20mm' },
+    displayHeaderFooter: true,
+    headerTemplate: '<div class="title">TITLE GOES HERE</div>',
+    footerTemplate: '<div>Page <span class="pageNumber"></span> of <span class="totalPages"></span></div>'
+});
+
+// Write PDF to file
+fs.writeFileSync('PDF/Markdown-Formatting-Guide.pdf', pdf3);
 
 
 await browser.close();
