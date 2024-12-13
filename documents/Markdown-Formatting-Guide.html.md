@@ -367,14 +367,20 @@ The `headerTemplate` and `footerTemplate` shown above does not make visible head
 ```js
 
     headerTemplate: `
-        <div class="text-center title" style="margin-left: auto; margin-right: auto; font-size: 12px;">TITLE GOES HERE</div>
+        <div class="text-center title" style="margin-left: auto; margin-right: auto; font-size: 12px;">
+            TITLE GOES HERE
+        </div>
     `,
     // headerTemplate: `
     //     <div class="text-center title" style="margin: 0 15mm 5mm; font-size: 12px;">TITLE GOES HERE</div>
     // `,
     footerTemplate: `
-        <div class="text-left"  style="margin: 0 auto 0 20mm; text-align: left; font-size: 12px;">Copyright © OpenADR Alliance (2023-24). All Rights Reserved</div>
-        <div class="text-right" style="margin: 0 20mm 0 auto; text-align: right; font-size: 12px;">Page <span class="pageNumber"></span> of <span class="totalPages"></span></div>
+        <div class="text-left"  style="margin: 0 auto 0 20mm; text-align: left; font-size: 12px;">
+            Copyright © OpenADR Alliance (2023-24). All Rights Reserved
+        </div>
+        <div class="text-right" style="margin: 0 20mm 0 auto; text-align: right; font-size: 12px;">
+            Page <span class="pageNumber"></span> of <span class="totalPages"></span>
+        </div>
     `,
 ```
 
@@ -383,5 +389,5 @@ These templates do the following
 * Header has the document title, centered
 * Footer has an OpenADR copyright statment on the left, and the page number on the right.
 
-
+Also note that Puppeteer looks for the `class` attribute to find places to inject values.  The `<span class="pageNumber">` therefore is injected with the page number.
 

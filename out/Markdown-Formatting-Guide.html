@@ -254,6 +254,30 @@ fs.<span class="hljs-title function_">writeFileSync</span>(<span class="hljs-str
 
 <span class="hljs-keyword">await</span> browser.<span class="hljs-title function_">close</span>();
 </code></pre>
-<p>TODO: The headers and footers feature are not working at this moment.</p>
+<p>The <code>headerTemplate</code> and <code>footerTemplate</code> shown above does not make visible headers and footers.  After a lot of searching, entries in the Puppeteer issue queue said that the context where headers and footers are render have zero CSS styles, and therefore it&apos;s necessary to add more styling.</p>
+<pre><code class="hljs language-js">
+    <span class="hljs-attr">headerTemplate</span>: <span class="hljs-string">`
+        &lt;div class=&quot;text-center title&quot; style=&quot;margin-left: auto; margin-right: auto; font-size: 12px;&quot;&gt;
+            TITLE GOES HERE
+        &lt;/div&gt;
+    `</span>,
+    <span class="hljs-comment">// headerTemplate: `</span>
+    <span class="hljs-comment">//     &lt;div class=&quot;text-center title&quot; style=&quot;margin: 0 15mm 5mm; font-size: 12px;&quot;&gt;TITLE GOES HERE&lt;/div&gt;</span>
+    <span class="hljs-comment">// `,</span>
+    <span class="hljs-attr">footerTemplate</span>: <span class="hljs-string">`
+        &lt;div class=&quot;text-left&quot;  style=&quot;margin: 0 auto 0 20mm; text-align: left; font-size: 12px;&quot;&gt;
+            Copyright &#xa9; OpenADR Alliance (2023-24). All Rights Reserved
+        &lt;/div&gt;
+        &lt;div class=&quot;text-right&quot; style=&quot;margin: 0 20mm 0 auto; text-align: right; font-size: 12px;&quot;&gt;
+            Page &lt;span class=&quot;pageNumber&quot;&gt;&lt;/span&gt; of &lt;span class=&quot;totalPages&quot;&gt;&lt;/span&gt;
+        &lt;/div&gt;
+    `</span>,
+</code></pre>
+<p>These templates do the following</p>
+<ul>
+<li>Header has the document title, centered</li>
+<li>Footer has an OpenADR copyright statment on the left, and the page number on the right.</li>
+</ul>
+<p>Also note that Puppeteer looks for the <code>class</code> attribute to find places to inject values.  The <code>&lt;span class=&quot;pageNumber&quot;&gt;</code> therefore is injected with the page number.</p>
 </section>
 </section>
