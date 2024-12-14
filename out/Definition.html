@@ -110,7 +110,7 @@
 <div class="row">
 <!-- include our document's content -->
 <article class="col-md-12">
-<div id="title-page">
+<div id="title-page" class="cover">
 <figure data-type="image" tabindex="1"><img src="./img/openadr-logo.png" alt="OpenADR Logo" class="logo-image"></figure>
 <div class="text-right font-weight-bolder">
 <p><strong>OpenADR 3.0</strong></p>
@@ -187,13 +187,10 @@
 <p class="text-right">Please send general questions and comments about the specification to
 [comments@openadr.org](mailto:comments@openadr.org).</p>
 </div>
-<!-- div style="page-break-before: always; page-break-after: always;"> <!-- Your page Content -->
-<section id="contents" class="page_break" tabindex="-1">
-<h1 class="page_break" tabindex="-1">CONTENTS</h1>
-<p>TODO: The Table of Contents  should have a page break before and after?</p>
-<p>TODO: Automatic numbering of ToC items?</p>
+<section id="contents" class="header-title" tabindex="-1">
+<h1 class="header-title" tabindex="-1">CONTENTS</h1>
+<p>TODO the numbering is here but it is incorrect.  The H1 CONTENTS is not numbered in the text, because of the <code>.header-title</code> class, but is numbered in the ToC.</p>
 <div class="table-of-contents"><ul><li><a href="#contents">CONTENTS</a></li><li><a href="#introduction">Introduction</a><ul><li><a href="#1.1-revision-3.0.2-introduction">1.1 Revision 3.0.2 Introduction</a></li></ul></li><li><a href="#normative-references">Normative References</a></li><li><a href="#informative-references">Informative References</a></li><li><a href="#terms-and-definitions">Terms and Definitions</a><ul><li><a href="#4.1-messaging-protocol-terms-and-definitions">4.1 Messaging Protocol Terms and Definitions</a></li></ul></li><li><a href="#overview">Overview</a><ul><li><a href="#system-architecture">System Architecture</a></li><li><a href="#local-scenarios">Local Scenarios</a></li><li><a href="#ven-enrollment">VEN enrollment</a></li></ul></li><li><a href="#general-usage">General Usage</a><ul><li><a href="#vtn-provided-fields">VTN provided fields</a></li><li><a href="#required-and-optional-properties">Required and optional properties</a></li><li><a href="#response-codes-and-errors">Response Codes and Errors</a></li><li><a href="#post-and-put">POST and PUT</a></li><li><a href="#compression">Compression</a></li><li><a href="#support-for-strongly-typed-languages">Support for Strongly Typed languages</a></li><li><a href="#message-validation">Message validation</a></li><li><a href="#subscriptions">Subscriptions</a></li><li><a href="#6.8.1-subscription-and-notification-via-messaging-protocols">6.8.1 Subscription and Notification via Messaging Protocols</a></li><li><a href="#response-filtering">Response Filtering</a></li><li><a href="#object-names">Object names</a></li></ul></li><li><a href="#information-model">Information Model</a></li><li><a href="#endpoints">EndPoints</a></li><li><a href="#revision">Revision</a></li><li><a href="#extensibility">Extensibility</a><ul><li><a href="#model-extension">Model Extension</a></li><li><a href="#private-strings">Private Strings</a></li></ul></li><li><a href="#enumerations">Enumerations</a><ul><li><a href="#introduction">Introduction</a></li><li><a href="#event-payload-enumerations">Event Payload Enumerations</a></li><li><a href="#report-enumerations">Report Enumerations</a></li><li><a href="#reading-type-enumerations">Reading Type Enumerations</a></li><li><a href="#operating-state-enumerations">Operating State Enumerations</a></li><li><a href="#resourcename-enumerations">ResourceName Enumerations</a></li><li><a href="#data-quality-enumerations">Data Quality Enumerations</a></li><li><a href="#target-enumerations">Target Enumerations</a></li><li><a href="#attribute-enumerations">Attribute Enumerations</a></li><li><a href="#description-free-form-text-tersely-describing-a-ven-or-resource.">DESCRIPTION             Free-form text tersely describing a ven or resource.</a></li><li><a href="#unit-enumerations">Unit Enumerations</a></li><li><a href="#kvar-kilovolt-amperes-reactive-(kvar)">KVAR           kilovolt-amperes reactive (kVAR)</a></li><li><a href="#currency-enumerations">Currency Enumerations</a></li><li><a href="#10.12.-binding-enumerations">10.12. Binding Enumerations</a></li><li><a href="#10.13.-serialization-enumerations">10.13. Serialization Enumerations</a></li><li><a href="#10.14.-message-broker-auth-enumerations">10.14. Message Broker Auth Enumerations</a></li></ul></li><li><a href="#security">Security</a><ul><li><a href="#security-objectives">Security objectives</a></li><li><a href="#assumptions">Assumptions</a></li><li><a href="#client-scenarios">Client Scenarios</a></li><li><a href="#non-authenticated-clients">Non-Authenticated Clients</a></li><li><a href="#https%2Ftls">HTTPS/TLS</a></li><li><a href="#11.6.-mqtts%2Ftls">11.6. MQTTS/TLS</a></li><li><a href="#api-gateway">API Gateway</a></li><li><a href="#oauth-2.0-client-credential-flow">OAuth 2.0 client credential flow</a></li><li><a href="#openapi-specification">OpenAPI Specification</a></li><li><a href="#bearer-tokens">Bearer tokens</a></li><li><a href="#11.10.-webhooks">11.10. Webhooks</a></li></ul></li><li><a href="#reference-implementation">Reference Implementation</a><ul><li><a href="#step-1%3A-trade-clientid%2Fclientsecret-for-access-token">Step 1: Trade clientID/clientSecret for access token</a></li><li><a href="#step-2%3A-include-access-token-in-api-requests">Step 2: Include access token in API requests</a></li><li><a href="#step-3%3A-resolve-token-to-scopes">Step 3: Resolve token to scopes</a></li><li><a href="#step-4%3A-enforce-access-control">Step 4: Enforce Access Control</a></li></ul></li></ul></div>
-<!-- /div -->
 </section>
 <section class="page_break" id="introduction" tabindex="-1">
 <h1 class="page_break" tabindex="-1">Introduction</h1>
@@ -223,6 +220,7 @@ such messaging protocol defined.</p>
 </section>
 <section id="normative-references" tabindex="-1">
 <h1 tabindex="-1">Normative References</h1>
+<p>TODO there should be (?) linking between these markers and any reference to the marker....?  That is, is it useful when reading the document to be able to click on the marker and see the reference?</p>
 <p>[OADR-3.0-Specification] OpenADR 3.0 OpenAPI YAML (SwaggerDoc) Specification, <a href="https://github.com/oadr3/openapi-3.0.0">[https://github.com/oadr3/openapi-3.0.0]</a></p>
 <p>[ISO 8601] ISO date and time format. <a href="https://www.iso.org/iso-8601-date-and-time-format.html">https://www.iso.org/iso-8601-date-and-time-format.html</a></p>
 <p>[ISO 4217] ISO 4217 Currency Codes:
@@ -386,30 +384,17 @@ and ven resources, client representations provided to the VTN on POST
 requests are incomplete, as clients do not have the context to provide
 accurate or meaningful values for the following attributes:</p>
 <ul>
-<li>
-<p>objectID</p>
-</li>
-<li>
-<p>createdDataTime</p>
-</li>
-<li>
-<p>modificationDateTime</p>
-</li>
-<li>
-<p>objectType</p>
-</li>
+<li>objectID</li>
+<li>createdDataTime</li>
+<li>modificationDateTime</li>
+<li>objectType</li>
 </ul>
-<p>A VTN SHALL populate object representations with the above fields on
-object creation.</p>
+<p>A VTN SHALL populate object representations with the above fields on object creation.</p>
 </section>
 <section id="required-and-optional-properties" tabindex="-1">
 <h2 tabindex="-1">Required and optional properties</h2>
-<p>The specification is purposefully sparse of required fields so that
-clients may create and modify objects by creating requests with minimal
-effort.</p>
-<p>If a representation sent to the VTN lacks a required property, a VTN
-SHALL return a 400, Bad Request response. A resource is not created or
-updated. Required fields do not have default values.</p>
+<p>The specification is purposefully sparse of required fields so that clients may create and modify objects by creating requests with minimal effort.</p>
+<p>If a representation sent to the VTN lacks a required property, a VTN SHALL return a 400, Bad Request response. A resource is not created or updated. Required fields do not have default values.</p>
 <p>A representation provided in a write request (PUT, POST) to the VTN may
 exclude optional fields. The VTN may create a corresponding object with
 such excluded fields set to default values.</p>
@@ -425,42 +410,41 @@ additional property, effectively ignoring the additional content.</p>
 <section id="response-codes-and-errors" tabindex="-1">
 <h2 tabindex="-1">Response Codes and Errors</h2>
 <p>A VTN SHALL support the following standard codes:</p>
-<p>GET</p>
-<p>200 - OK</p>
-<p>400 - Bad Request</p>
-<p>403 - Forbidden</p>
-<p>404 - Not Found</p>
-<p>500 - Internal Server Error</p>
-<p>POST</p>
-<p>201 - Created</p>
-<p>400 - Bad Request</p>
-<p>403 - Forbidden</p>
-<p>404 - Not Found</p>
-<p>409 - Conflict (item already exists)</p>
-<p>500 - Internal Server Error</p>
-<p>PUT</p>
-<p>200 - OK</p>
-<p>400 - Bad Request</p>
-<p>403 - Forbidden</p>
-<p>404 - Not Found</p>
-<p>409 - Conflict</p>
-<p>500 - Internal Server Error</p>
-<p>DELETE</p>
-<p>200 - OK</p>
-<p>400 - Bad Request</p>
-<p>403 - Forbidden</p>
-<p>404 - Not Found</p>
-<p>500 - Internal Server Error</p>
-<p>Servers may implement other response codes, but VENs might not recognize
-them.</p>
+<pre><code class="hljs"><span class="hljs-keyword">GET</span>
+  <span class="hljs-number">200</span> - OK
+  <span class="hljs-number">400</span> - Bad Request
+  <span class="hljs-number">403</span> - Forbidden
+  <span class="hljs-number">404</span> - <span class="hljs-keyword">Not</span> <span class="hljs-built_in">Found</span>
+  <span class="hljs-number">500</span> - <span class="hljs-type">Internal</span> <span class="hljs-keyword">Server</span> Error
+
+POST
+  <span class="hljs-number">201</span> - Created
+  <span class="hljs-number">400</span> - Bad Request
+  <span class="hljs-number">403</span> - Forbidden
+  <span class="hljs-number">404</span> - <span class="hljs-keyword">Not</span> <span class="hljs-built_in">Found</span>
+  <span class="hljs-number">409</span> - <span class="hljs-keyword">Conflict</span> (item already <span class="hljs-keyword">exists</span>)
+  <span class="hljs-number">500</span> - <span class="hljs-type">Internal</span> <span class="hljs-keyword">Server</span> Error
+
+PUT
+  <span class="hljs-number">200</span> - OK
+  <span class="hljs-number">400</span> - Bad Request
+  <span class="hljs-number">403</span> - Forbidden
+  <span class="hljs-number">404</span> - <span class="hljs-keyword">Not</span> <span class="hljs-built_in">Found</span>
+  <span class="hljs-number">409</span> - <span class="hljs-keyword">Conflict</span>
+  <span class="hljs-number">500</span> - <span class="hljs-type">Internal</span> <span class="hljs-keyword">Server</span> Error
+
+<span class="hljs-keyword">DELETE</span>
+  <span class="hljs-number">200</span> - OK
+  <span class="hljs-number">400</span> - Bad Request
+  <span class="hljs-number">403</span> - Forbidden
+  <span class="hljs-number">404</span> - <span class="hljs-keyword">Not</span> <span class="hljs-built_in">Found</span>
+  <span class="hljs-number">500</span> - <span class="hljs-type">Internal</span> <span class="hljs-keyword">Server</span> Error
+</code></pre>
+<p>Servers may implement other response codes, but VENs might not recognize them.</p>
 <section id="problem" tabindex="-1">
 <h3 tabindex="-1">Problem</h3>
-<p>On 40x and 500 responses, a VTN SHALL respond with a <em>problem</em> object
-that contains details of the error. The problem object is intended to
-help clients determine what caused a particular response, such as Bad
-Request, Unauthorized, Forbidden, etc.</p>
+<p>On 40x and 500 responses, a VTN SHALL respond with a <em>problem</em> object that contains details of the error. The problem object is intended to help clients determine what caused a particular response, such as Bad Request, Unauthorized, Forbidden, etc.</p>
 <p>For example:</p>
-<p>problem</p>
 <pre><code class="hljs language-json"><span class="hljs-punctuation">{</span>
   <span class="hljs-attr">&quot;title&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Not Found&quot;</span><span class="hljs-punctuation">,</span>
   <span class="hljs-attr">&quot;status&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">404</span><span class="hljs-punctuation">,</span>
@@ -529,7 +513,7 @@ new event.</p>
 new subscription object, which contains the webhook callback URL, and a
 description of the objects and operations that will trigger a request to
 the callback URL.</p>
-<p>POST subscription</p>
+<p><code>POST subscription</code></p>
 <pre><code class="hljs language-json"><span class="hljs-punctuation">{</span>
   <span class="hljs-attr">&quot;clientName&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;myClient&quot;</span><span class="hljs-punctuation">,</span>
   <span class="hljs-attr">&quot;programID&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;44&quot;</span><span class="hljs-punctuation">,</span>
@@ -553,7 +537,7 @@ resource types the client requests to be notified about.</p>
 <p>A client may provide multiple resourceOperation entries to provide
 different callbackUrls to catch notifications of different resources and
 operations.</p>
-<p>POST subscription</p>
+<p><code>POST subscription</code></p>
 <pre><code class="hljs language-json"><span class="hljs-punctuation">{</span>
   <span class="hljs-attr">&quot;clientName&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;myClient&quot;</span><span class="hljs-punctuation">,</span>
   <span class="hljs-attr">&quot;programID&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;44&quot;</span><span class="hljs-punctuation">,</span>
@@ -587,7 +571,7 @@ met per the objectOperations registered subscriptions. The callback
 request body is a Notifications object that indicates the object type of
 the resource, the operation that provoked the request, and the relevant
 resource object.</p>
-<p>Notification</p>
+<p><code>Notification</code></p>
 <pre><code class="hljs language-json"><span class="hljs-punctuation">{</span>
   <span class="hljs-attr">&quot;objectType&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;PROGRAM&quot;</span><span class="hljs-punctuation">,</span>
   <span class="hljs-attr">&quot;operation&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;POST&quot;</span><span class="hljs-punctuation">,</span>
@@ -610,7 +594,7 @@ Notifications via webhooks, revision 3.0.2 defines an alternate
 mechanism based on standard messaging protocols, initially MQTT only.</p>
 <p>A client may request information about supported messaging protocol
 brokers via the GET /brokers request:</p>
-<p>GET /brokers</p>
+<p><code>GET /brokers</code></p>
 <pre><code class="hljs language-json"><span class="hljs-punctuation">{</span>
   <span class="hljs-attr">&quot;bindings&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
     <span class="hljs-attr">&quot;mqtt&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
@@ -639,7 +623,7 @@ endpoints:</p>
 <li><code>GET /brokers/mqtt/topics/vens/{venID}/resources</code></li>
 </ul>
 <p>An example request and response:</p>
-<p>GET /brokers/mqtt/topics/programs</p>
+<p><code>GET /brokers/mqtt/topics/programs</code></p>
 <pre><code class="hljs language-json"><span class="hljs-punctuation">{</span>
   <span class="hljs-attr">&quot;request&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;brokers/mqtt/topics/programs&quot;</span><span class="hljs-punctuation">,</span>
   <span class="hljs-attr">&quot;topics&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
@@ -651,8 +635,7 @@ endpoints:</p>
   <span class="hljs-attr">&quot;binding&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;mqtt&quot;</span>
 <span class="hljs-punctuation">}</span>
 </code></pre>
-<p>The response from the VTN is a JSON object, containing the following
-keys:</p>
+<p>The response from the VTN is a JSON object, containing the following keys:</p>
 <ul>
 <li>request - A copy of the request URL path, with no leading &quot;/&quot;</li>
 <li>topics - A JSON object, each key being the operation on the object, and the value of that key is the topic-name for that operation</li>
@@ -739,238 +722,247 @@ objectID, and creation and modification timestamps. These attributes are
 populated by the VTN on object creation and modification.</p>
 <p>In the listing below, any default value is listed in brackets after the
 definition.</p>
-<p><strong>TODO</strong> LOTS OF CLEAN UP REQUIRED -- THis is obviously several object types crammed into one list.</p>
+<p><strong>TODO</strong> Perhaps this should be autogenerated from the specification.  The wrinkle is the <code>&#x24;ref</code> definitions.</p>
 <ul>
-<li><strong>program</strong>: Provides program specific metadata from VTN to VEN.</li>
-<li><strong>Id</strong>: VTN provisioned ID of this object instance.</li>
+<li>
+<p><strong>program</strong>: Provides program specific metadata from VTN to VEN.</p>
+<ul>
+<li><strong>id</strong>: VTN provisioned ID of this object instance.</li>
 <li><strong>createdDateTime</strong>: Creation time for object, e.g.
 &quot;2023-06-15T12:58:08.000Z&quot;.</li>
-<li><strong>modificationDateTime</strong>: Modification time for object, e.g.
-&quot;2023-06-16T12:58:08.000Z&quot;.</li>
-<li><strong>objectType:</strong> Used as discriminator. PROGRAM</li>
-<li><strong>programName</strong>: Name of program with which this event is associated,
-e.g. &quot;ResTOU&quot;.</li>
-<li><strong>programLongName</strong>: User provided ID, e.g. &quot;Residential Time of
-Use-A&quot;.</li>
+<li><strong>modificationDateTime</strong>: Modification time for object, e.g. &quot;2023-06-16T12:58:08.000Z&quot;.</li>
+<li><strong>objectType:</strong> Used as discriminator. [PROGRAM]</li>
+<li><strong>programName</strong>: Name of program with which this event is associated, e.g. &quot;ResTOU&quot;.</li>
+<li><strong>programLongName</strong>: User provided ID, e.g. &quot;Residential Time of Use-A&quot;.</li>
 <li><strong>retailerName</strong>: Program defined ID, e.g. &quot;ACME&quot;.</li>
 <li><strong>retailerLongName</strong>: Program defined ID, e.g. &quot;ACME Electric Inc.&quot;.</li>
-<li><strong>programType</strong>: User defined string categorizing the program, e.g.
-&quot;PRICING_TARIFF&quot;.</li>
+<li><strong>programType</strong>: User defined string categorizing the program, e.g. &quot;PRICING_TARIFF&quot;.</li>
 <li><strong>country</strong>: Alpha-2 code per ISO 3166-1, e.g. &quot;US&quot;.</li>
-<li><strong>principalSubdivision</strong>: Coding per ISO 3166-2. E.g. state in US, e.g.
-&quot;CO&quot;.</li>
-<li><strong>timeZoneOffset</strong>: An ISO 8601 duration that is to added to all
-interval.start values.</li>
-<li><strong>intervalPeriod</strong>: The temporal span of the program, could be years
-long.</li>
-<li><strong>programDescriptions</strong>: List of URLs to human and/or machine-readable
-content, e.g. &quot;mple: <a href="http://www.myCorporation.com/myProgramDescription">www.myCorporation.com/myProgramDescription</a>&quot;.</li>
-<li><strong>bindingEvents</strong>: True if events can be expected to not be modified.
-[false]</li>
-<li><strong>localPrice</strong>: True if events have been adapted from a grid event.
-[false]</li>
-<li><strong>payloadDescriptors</strong>: An optional list of objects that provide context
-to payload types.</li>
+<li><strong>principalSubdivision</strong>: Coding per ISO 3166-2. E.g. state in US, e.g. &quot;CO&quot;.</li>
+<li><strong>timeZoneOffset</strong>: An ISO 8601 duration that is to added to all interval.start values.</li>
+<li><strong>intervalPeriod</strong>: The temporal span of the program, could be years long.</li>
+<li><strong>programDescriptions</strong>: List of URLs to human and/or machine-readable content, e.g. &quot;mple: <a href="http://www.myCorporation.com/myProgramDescription">www.myCorporation.com/myProgramDescription</a>&quot;.</li>
+<li><strong>bindingEvents</strong>: True if events can be expected to not be modified. [false]</li>
+<li><strong>localPrice</strong>: True if events have been adapted from a grid event. [false]</li>
+<li><strong>payloadDescriptors</strong>: An optional list of objects that provide context to payload types.</li>
 <li><strong>targets</strong>: An optional list of valuesMap objects.</li>
-<li><strong>report</strong>: report object.</li>
+</ul>
+</li>
+<li>
+<p><strong>report</strong>: report object.</p>
+<ul>
 <li><strong>id</strong>: VTN provisioned ID of this object instance.</li>
-<li><strong>createdDateTime</strong>: server provisions timestamp on object creation,
-e.g. &quot;2023-06-15T12:58:08.000Z.</li>
-<li><strong>modificationDateTime</strong>: server provisions timestamp on object
-modification, e.g. &quot;2023-06-16T12:58:08.000Z&quot;.</li>
+<li><strong>createdDateTime</strong>: server provisions timestamp on object creation, e.g. &quot;2023-06-15T12:58:08.000Z.</li>
+<li><strong>modificationDateTime</strong>: server provisions timestamp on object modification, e.g. &quot;2023-06-16T12:58:08.000Z&quot;.</li>
 <li><strong>objectType:</strong> Used as discriminator. REPORT</li>
-<li><strong>programID</strong>: ID attribute of program object this report is associated
-with.</li>
-<li><strong>eventID</strong>: ID attribute of event object this report is associated
-with.</li>
-<li><strong>clientName</strong>: String ID of client, may be VEN ID provisioned during
-program enrollment.</li>
-<li><strong>reportName</strong>: User defined string for use in debugging or UI, e.g.
-&quot;Battery_usage_04112023&quot;.</li>
-<li><strong>payloadDescriptors</strong>: An optional list of objects that provide context
-to payload types.</li>
-<li><strong>resources</strong>: An array of objects containing report data for a set of
-resources.</li>
+<li><strong>programID</strong>: ID attribute of program object this report is associated with.</li>
+<li><strong>eventID</strong>: ID attribute of event object this report is associated with.</li>
+<li><strong>clientName</strong>: String ID of client, may be VEN ID provisioned during program enrollment.</li>
+<li><strong>reportName</strong>: User defined string for use in debugging or UI, e.g. &quot;Battery_usage_04112023&quot;.</li>
+<li><strong>payloadDescriptors</strong>: An optional list of objects that provide context to payload types.</li>
+<li><strong>resources</strong>: An array of objects containing report data for a set of resources.</li>
 <li><strong>resourceName</strong>: User generated identifier. A value of
-AGGREGATED_REPORT indicates an aggregation of more than one resource&apos;s
-data.</li>
+AGGREGATED_REPORT indicates an aggregation of more than one resource&apos;s data.</li>
 <li><strong>intervalPeriod</strong>: Defines temporal aspects of intervals.</li>
-<li><strong>intervals</strong>: An object defining a temporal window and a list of
-payloads.</li>
-<li><strong>event</strong>: Event object to communicate a Demand Response request to VEN.</li>
+<li><strong>intervals</strong>: An object defining a temporal window and a list of payloads.</li>
+</ul>
+</li>
+<li>
+<p><strong>event</strong>: Event object to communicate a Demand Response request to VEN.</p>
+<ul>
 <li><strong>id</strong>: VTN provisioned ID of this object instance.</li>
-<li><strong>createdDateTime</strong>: server provisions timestamp on object creation,
-e.g. &quot;2023-06-15T12:58:08.000Z&quot;.</li>
-<li><strong>modificationDateTime</strong>: server provisions timestamp on object
-modification,<br>
-e.g. &quot;2023-06-16T12:58:08.000Z&quot;.</li>
+<li><strong>createdDateTime</strong>: server provisions timestamp on object creation, e.g. &quot;2023-06-15T12:58:08.000Z&quot;.</li>
+<li><strong>modificationDateTime</strong>: server provisions timestamp on object modification, e.g. &quot;2023-06-16T12:58:08.000Z&quot;.</li>
 <li><strong>objectType:</strong> Used as discriminator. EVENT</li>
-<li><strong>programID</strong>: ID attribute of program object this event is associated
-with.</li>
-<li><strong>eventName</strong>: User defined string for use in debugging or UI, e.g.
-&quot;price event 11-18-2022&quot;.</li>
-<li><strong>priority</strong>: relative priority of event. A lower number is a higher
-priority.</li>
+<li><strong>programID</strong>: ID attribute of program object this event is associated with.</li>
+<li><strong>eventName</strong>: User defined string for use in debugging or UI, e.g. &quot;price event 11-18-2022&quot;.</li>
+<li><strong>priority</strong>: relative priority of event. A lower number is a higher priority.</li>
 <li><strong>targets</strong>: An array of valuesMap objects.</li>
-<li><strong>reportDescriptors</strong>: An array of reportDescriptor objects. Used to
-request reports from VEN.</li>
+<li><strong>reportDescriptors</strong>: An array of reportDescriptor objects. Used to request reports from VEN.</li>
 <li><strong>payloadDescriptors</strong>: An array of payloadDescriptor objects.</li>
 <li><strong>intervalPeriod</strong>: Defines default start and durations of intervals.</li>
 <li><strong>intervals</strong>: An array of interval objects</li>
-<li><strong>subscription</strong>: An object created by a client to receive notification
-of operations on objects.</li>
+</ul>
+</li>
+<li>
+<p><strong>subscription</strong>: An object created by a client to receive notification of operations on objects.</p>
+<ul>
 <li><strong>id</strong>: VTN provisioned ID of this object instance.</li>
-<li><strong>createdDateTime</strong>: server provisions timestamp on object creation,
-e.g. &quot;2023-06-15T12:58:08.000Z&quot;.</li>
-<li><strong>modificationDateTime</strong>: server provisions timestamp on object
-modification, e.g. &quot;2023-06-16T12:58:08.000Z&quot;.</li>
+<li><strong>createdDateTime</strong>: server provisions timestamp on object creation, e.g. &quot;2023-06-15T12:58:08.000Z&quot;.</li>
+<li><strong>modificationDateTime</strong>: server provisions timestamp on object modification, e.g. &quot;2023-06-16T12:58:08.000Z&quot;.</li>
 <li><strong>objectType:</strong> Used as discriminator. SUBSCRIPTION</li>
 <li><strong>clientName</strong>: User generated identifier</li>
-<li><strong>programID</strong>: ID attribute of program object this subscription is
-associated with.</li>
+<li><strong>programID</strong>: ID attribute of program object this subscription is associated with.</li>
 <li><strong>objectOperations</strong>: list of objects and operations to subscribe to.</li>
 <li><strong>objects:</strong> List of objects to subscribe to.</li>
 <li><strong>operations:</strong> list of operations to subscribe to.</li>
 <li><strong>callbackUrl:</strong> User provided webhook URL.</li>
 <li><strong>bearerToken</strong>: User provided token.</li>
-<li><strong>ven</strong>: Ven represents a client with the ven role.</li>
+</ul>
+</li>
+<li>
+<p><strong>ven</strong>: Ven represents a client with the ven role.</p>
+<ul>
 <li><strong>id</strong>: VTN provisioned ID of this object instance.</li>
-<li><strong>createdDateTime</strong>: server provisions timestamp on object creation,
-e.g. &quot;2023-06-15T12:58:08.000Z&quot;.</li>
-<li><strong>modificationDateTime</strong>: server provisions timestamp on object
-modification, e.g. &quot;2023-06-16T12:58:08.000Z&quot;.</li>
+<li><strong>createdDateTime</strong>: server provisions timestamp on object creation,  e.g. &quot;2023-06-15T12:58:08.000Z&quot;.</li>
+<li><strong>modificationDateTime</strong>: server provisions timestamp on object   modification, e.g. &quot;2023-06-16T12:58:08.000Z&quot;.</li>
 <li><strong>objectType:</strong> Used as discriminator. VEN</li>
-<li><strong>venName</strong>: String identifier for VEN. VEN may be configured with ID
-out-of-band.</li>
+<li><strong>venName</strong>: String identifier for VEN. VEN may be configured with ID   out-of-band.</li>
 <li><strong>attributes</strong>: A list of valuesMap objects describing attributes.</li>
 <li><strong>targets</strong>: An array of valuesMap objects.</li>
-<li><strong>resources</strong>: A list of resource objects representing end-devices or
-systems.</li>
-<li><strong>resource</strong>: a resource is an energy device or system subject to
-control by a VEN.</li>
+<li><strong>resources</strong>: A list of resource objects representing end-devices or systems.</li>
+</ul>
+</li>
+<li>
+<p><strong>resource</strong>: a resource is an energy device or system subject to control by a VEN.</p>
+<ul>
 <li><strong>id</strong>: VTN provisioned ID of this object instance.</li>
-<li><strong>createdDateTime</strong>: server provisions timestamp on object creation,
-e.g. &quot;2023-06-15T12:58:08.000Z&quot;.</li>
-<li><strong>modificationDateTime</strong>: server provisions timestamp on object
-modification,<br>
-e.g. &quot;2023-06-16T12:58:08.000Z&quot;.</li>
+<li><strong>createdDateTime</strong>: server provisions timestamp on object creation,   e.g. &quot;2023-06-15T12:58:08.000Z&quot;.</li>
+<li><strong>modificationDateTime</strong>: server provisions timestamp on object   modification,   e.g. &quot;2023-06-16T12:58:08.000Z&quot;.</li>
 <li><strong>objectType:</strong> Used as discriminator. RESOURCE</li>
-<li><strong>resourceName</strong>: String identifier for resource. resource may be
-configured with ID out-of-band.</li>
+<li><strong>resourceName</strong>: String identifier for resource. resource may be   configured with ID out-of-band.</li>
 <li><strong>venID:</strong> VTN provisioned on object creation based on path</li>
 <li><strong>attributes</strong>: A list of valuesMap objects describing attributes.</li>
 <li><strong>targets</strong>: An array of valuesMap objects.</li>
-<li><strong>interval</strong>: An object defining a temporal window and a list of
-payloads.</li>
-<li><strong>id</strong>: A client generated number assigned an interval object. Not a
-sequence number. [0]</li>
-<li><strong>intervalPeriod</strong>: Defines temporal aspects of intervals.</li>
+</ul>
+</li>
+<li>
+<p><strong>interval</strong>: An object defining a temporal window and a list of payloads.</p>
+<ul>
+<li><strong>id</strong>: A client generated number assigned an interval object. Not a sequence number. [0]</li>
+</ul>
+</li>
+<li>
+<p><strong>intervalPeriod</strong>: Defines temporal aspects of intervals.</p>
+<ul>
 <li><strong>payloads</strong>: An array of payload objects.</li>
 <li><strong>intervalPeriod</strong>: Defines temporal aspects of intervals.</li>
-<li><strong>start</strong>: The start time of an interval or set of intervals, e.g.
-&quot;2023-06-15T12:58:08.000Z&quot;.</li>
-<li><strong>duration</strong>: The duration of an interval or set of intervals, e.g.
-&quot;PT1H&quot;.</li>
-<li><strong>randomizeStart</strong>: Indicates a randomization time that may be applied
-to start, e.g. &quot;PT5M&quot;.</li>
-<li><strong>valuesMap</strong>: Represents one or more values associated with a type.</li>
-<li><strong>type</strong>: Enumerated or private string signifying the nature of values,
-e.g. &quot;PRICE&quot;.</li>
-<li><strong>values</strong>: : A sequence of data points. Most often a singular value
-such as a price. [None]</li>
-<li><strong>point</strong>: A pair of floats typically used as a point on a 2 dimensional
-grid.</li>
+<li><strong>start</strong>: The start time of an interval or set of intervals, e.g.   &quot;2023-06-15T12:58:08.000Z&quot;.</li>
+<li><strong>duration</strong>: The duration of an interval or set of intervals, e.g.   &quot;PT1H&quot;.</li>
+<li><strong>randomizeStart</strong>: Indicates a randomization time that may be applied to start, e.g. &quot;PT5M&quot;.</li>
+</ul>
+</li>
+<li>
+<p><strong>valuesMap</strong>: Represents one or more values associated with a type.</p>
+<ul>
+<li><strong>type</strong>: Enumerated or private string signifying the nature of values, e.g. &quot;PRICE&quot;.</li>
+<li><strong>values</strong>: : A sequence of data points. Most often a singular value such as a price. [None]</li>
+</ul>
+</li>
+<li>
+<p><strong>point</strong>: A pair of floats typically used as a point on a 2 dimensional
+grid.</p>
+<ul>
 <li><strong>x</strong>: a value on an x axis</li>
 <li><strong>y</strong>: a value on a y axis</li>
-<li><strong>eventPayloadDescriptor</strong>: Contextual information used to interpret
-event payload values.</li>
-<li><strong>payloadType</strong>: Enumerated or private string signifying the nature of
-values, e.g. &quot;PRICE&quot;.</li>
+</ul>
+</li>
+<li>
+<p><strong>eventPayloadDescriptor</strong>: Contextual information used to interpret
+event payload values.</p>
+<ul>
+<li><strong>payloadType</strong>: Enumerated or private string signifying the nature of values, e.g. &quot;PRICE&quot;.</li>
 <li><strong>units</strong>: units of measure, e.g. &quot;KWH&quot;.</li>
 <li><strong>currency</strong>: currency of price payload, e.g. &quot;USD&quot;.</li>
-<li><strong>reportPayloadDescriptor</strong>: Contextual information used to interpret
-report payload values.</li>
-<li><strong>payloadType</strong>: Enumerated or private string signifying the nature of
-values, e.g. &quot;USAGE&quot;.</li>
-<li><strong>readingType</strong>: Enumerated or private string signifying the type of
-reading,<br>
-e.g. &quot;DIRECT_READ&quot;. [&quot;DIRECT_READ&quot;]</li>
+</ul>
+</li>
+<li>
+<p><strong>reportPayloadDescriptor</strong>: Contextual information used to interpret report payload values.</p>
+<ul>
+<li><strong>payloadType</strong>: Enumerated or private string signifying the nature of values, e.g. &quot;USAGE&quot;.</li>
+<li><strong>readingType</strong>: Enumerated or private string signifying the type of reading, e.g. &quot;DIRECT_READ&quot;. [&quot;DIRECT_READ&quot;]</li>
 <li><strong>units</strong>: units of measure, e.g. &quot;KWH&quot;.</li>
 <li><strong>accuracy</strong>: a quantification of the accuracy of a set of payload
 values.</li>
-<li><strong>confidence</strong>: a quantification of the confidence in a set of payload
-values.</li>
-<li><strong>reportDescriptor</strong>: An object that may be used to request a report
-from a VEN.</li>
-<li><strong>payloadType</strong>: Enumerated or private string signifying the nature of
-values, e.g. &quot;USAGE&quot;.</li>
-<li><strong>readingType</strong>: Enumerated or private string signifying the type of
-reading, e.g. &quot;DIRECT_READ&quot;.</li>
+<li><strong>confidence</strong>: a quantification of the confidence in a set of payload values.</li>
+</ul>
+</li>
+<li>
+<p><strong>reportDescriptor</strong>: An object that may be used to request a report from a VEN.</p>
+<ul>
+<li><strong>payloadType</strong>: Enumerated or private string signifying the nature of   values, e.g. &quot;USAGE&quot;.</li>
+<li><strong>readingType</strong>: Enumerated or private string signifying the type of   reading, e.g. &quot;DIRECT_READ&quot;.</li>
 <li><strong>units</strong>: units of measure, e.g. &quot;KWH&quot;.</li>
 <li><strong>targets</strong>: An array of valuesMap objects.</li>
-<li><strong>aggregate</strong>: True if report should aggregate results from all targeted
-resources [false]</li>
+<li><strong>aggregate</strong>: True if report should aggregate results from all targeted   resources [false]</li>
 <li><strong>startInterval</strong>: The interval on which to generate a report. [-1]</li>
 <li><strong>numIntervals</strong>: The number of intervals to include in a report. [-1]</li>
-<li><strong>historical</strong>: True indicates report on intervals preceding
-startInterval. [true]</li>
+<li><strong>historical</strong>: True indicates report on intervals preceding   startInterval. [true]</li>
 <li><strong>frequency</strong>: Number of intervals that elapse between reports. [-1]</li>
 <li><strong>repeat</strong>: Number of times to repeat a report. [1]</li>
-<li><strong>objectID</strong>: URL safe VTN assigned object ID.</li>
-<li><strong>notification</strong>: the object that is the subject of the notification.</li>
-<li><strong>objectType</strong>: type of object being returned, i.e. PROGRAM, EVENT,
-REPORT, e.g. &quot;EVENT&quot;.</li>
-<li><strong>operation</strong>: the operation on on object that triggered the
-notification, e.g. &quot;POST&quot;.</li>
+</ul>
+</li>
+<li>
+<p><strong>objectID</strong>: URL safe VTN assigned object ID.</p>
+</li>
+<li>
+<p><strong>notification</strong>: the object that is the subject of the notification.</p>
+<ul>
+<li><strong>objectType</strong>: type of object being returned, i.e. PROGRAM, EVENT,   REPORT, e.g. &quot;EVENT&quot;.</li>
+<li><strong>operation</strong>: the operation on on object that triggered the   notification, e.g. &quot;POST&quot;.</li>
 <li><strong>object</strong>: the object that is the subject of the notification.</li>
-<li><strong>objectTypes</strong>: Types of objects addressable through API.</li>
-<li><strong>dateTime</strong>: datetime in ISO 8601 format</li>
-<li><strong>duration</strong>: duration in ISO 8601 format</li>
-<li><strong>problem</strong>: reusable error response. From
-<a href="https://opensource.zalando.com/problem/schema.yaml">https://opensource.zalando.com/problem/schema.yaml</a></li>
-<li><strong>type</strong>: An absolute URI that identifies the problem type. When
-dereferenced, it SHOULD provide human-readable documentation for the problem type (e.g., using HTML). e.g. &quot;&apos;<a href="https://zalando.github.io/problem/constraint-violation%5C">https://zalando.github.io/problem/constraint-violation\</a>&apos;&quot;. [&apos;about:blank&apos;]</li>
-<li><strong>title</strong>: A short summary of the problem type. Written in english and
-readable, e.g. &quot;&quot;.</li>
-<li><strong>status</strong>: The HTTP status code generated by the origin server for this
-occurrence.</li>
-<li><strong>detail</strong>: A human readable explanation specific to this occurrence of
-the problem,<br>
-e.g. &quot;Connection to database timed out&quot;.</li>
-<li><strong>instance</strong>: An absolute URI that identifies the specific occurrence of
-the problem, e.g. &quot;&quot;.</li>
-<li><strong>bindings</strong>: An object detailing the supported messaging protocol
-bindings supported by the VTN.</li>
-<li><strong>binding:</strong> An object detailing a specific message protocol binding.</li>
+</ul>
+</li>
+<li>
+<p><strong>objectTypes</strong>: Types of objects addressable through API.</p>
+</li>
+<li>
+<p><strong>dateTime</strong>: datetime in ISO 8601 format</p>
+</li>
+<li>
+<p><strong>duration</strong>: duration in ISO 8601 format</p>
+</li>
+<li>
+<p><strong>problem</strong>: reusable error response. From
+<a href="https://opensource.zalando.com/problem/schema.yaml">https://opensource.zalando.com/problem/schema.yaml</a></p>
+<ul>
+<li><strong>type</strong>: An absolute URI that identifies the problem type. When dereferenced, it SHOULD provide human-readable documentation for the problem type (e.g., using HTML). e.g. &quot;&apos;<a href="https://zalando.github.io/problem/constraint-violation%5C">https://zalando.github.io/problem/constraint-violation\</a>&apos;&quot;. [&apos;about:blank&apos;]</li>
+<li><strong>title</strong>: A short summary of the problem type. Written in english and readable, e.g. &quot;&quot;.</li>
+<li><strong>status</strong>: The HTTP status code generated by the origin server for this occurrence.</li>
+<li><strong>detail</strong>: A human readable explanation specific to this occurrence of the problem, e.g. &quot;Connection to database timed out&quot;.</li>
+<li><strong>instance</strong>: An absolute URI that identifies the specific occurrence of the problem</li>
+</ul>
+</li>
+<li>
+<p><strong>bindings</strong>: An object detailing the supported messaging protocol bindings supported by the VTN.</p>
+</li>
+<li>
+<p><strong>binding:</strong> An object detailing a specific message protocol binding.</p>
+<ul>
 <li><strong>connectionURI</strong>: The URI providing message broker connection details.</li>
-<li><strong>serialization</strong>: Enumerated string specifying the serialization format
-of the notification messages.</li>
-<li><strong>auth</strong>: Enumerated string specifying the authentication method
-required by the broker.</li>
-<li><strong>certs</strong>: An object providing the strings required for the client to
-connect with a certificate.</li>
-<li><strong>certs</strong>: An object providing the cert strings required to connect to
-the message broker.</li>
+<li><strong>serialization</strong>: Enumerated string specifying the serialization format of the notification messages.</li>
+<li><strong>auth</strong>: Enumerated string specifying the authentication method required by the broker.</li>
+<li><strong>certs</strong>: An object providing the strings required for the client to connect with a certificate.</li>
+</ul>
+</li>
+<li>
+<p><strong>certs</strong>: An object providing the cert strings required to connect to the message broker.</p>
+<ul>
 <li><strong>ca_crt</strong>: String containing the Certificate Authority certificate.</li>
 <li><strong>client_crt:</strong> String containing the client certificate.</li>
 <li><strong>client_key:</strong> String containing the client private key.</li>
-<li><strong>topicNames:</strong> An object providing topic names (per operation).</li>
-<li><strong>request:</strong> A string containing the object(s) associated with the topic
-names.</li>
-<li><strong>topics:</strong> An object providing the topic names for operations on the
-subscribe-able object.</li>
-<li><strong>binding:</strong> An enumerated string describing the binding associated with
-the topic names.</li>
-<li><strong>topics:</strong> An object providing the topic names for operations on the
-subscribe-able object.</li>
+</ul>
+</li>
+<li>
+<p><strong>topicNames:</strong> An object providing topic names (per operation).</p>
+<ul>
+<li><strong>request:</strong> A string containing the object(s) associated with the topic names.</li>
+<li><strong>topics:</strong> An object providing the topic names for operations on the subscribe-able object.</li>
+<li><strong>binding:</strong> An enumerated string describing the binding associated with the topic names.</li>
+</ul>
+</li>
+<li>
+<p><strong>topics:</strong> An object providing the topic names for operations on the subscribe-able object.</p>
+<ul>
 <li><strong>CREATE:</strong> Topic name string for create operations on the
 subscribe-able object.</li>
 <li><strong>UPDATE:</strong> Topic name string for update operations on the
 subscribe-able object.</li>
 <li><strong>DELETE:</strong> Topic name string for delete operations on the
 subscribe-able object.</li>
-<li><strong>ALL:</strong> Topic name string for all/any operations on the subscribe-able
-object.</li>
+<li><strong>ALL:</strong> Topic name string for all/any operations on the subscribe-able object.</li>
+</ul>
+</li>
 </ul>
 </section>
 <section id="endpoints" tabindex="-1">
@@ -999,179 +991,375 @@ associated operation. Scopes are discussed elsewhere.</p>
 access permissions required to perform an operation. From the
 specification:</p>
 <p><strong>TODO</strong> Develop scripting to read this information out of the specification</p>
-<p>read_all: VENs and BL can read all resources</p>
-<p>write_programs: only BL can write to programs</p>
-<p>write_events: only BL can write to events</p>
-<p>write_reports: only VENs can write reports</p>
-<p>write_subscriptions: only VENs can write subscriptions</p>
-<p>write_vens: VENS and BL can write to vens and resources</p>
-<p>/programs:</p>
-<p>get:</p>
-<p>description: List all programs known to the server.</p>
-<p>security: [read_all]</p>
-<p>query parameters: targetType targetValues skip limit</p>
-<p>post:</p>
-<p>description: Create a new program in the server.</p>
-<p>security: [write_programs]</p>
-<p>requestBody: program</p>
-<p>/programs/{programID}:</p>
-<p>get:</p>
-<p>description: Fetch the program specified by the programID in path.</p>
-<p>security: [read_all]</p>
-<p>put:</p>
-<p>description: Update an existing program with the programID in path.</p>
-<p>security: [write_programs]</p>
-<p>requestBody: program</p>
-<p>delete:</p>
-<p>description: Delete an existing program with the programID in path.</p>
-<p>security: [write_programs]</p>
-<p>/reports:</p>
-<p>get:</p>
-<p>description: List all reports known to the server.</p>
-<p>security: [read_all]</p>
-<p>query parameters: programID clientName skip limit</p>
-<p>post:</p>
-<p>description: Create a new report on the server.</p>
-<p>security: [write_reports]</p>
-<p>requestBody: report</p>
-<p>/reports/{reportID}:</p>
-<p>get:</p>
-<p>description: Fetch the report specified by the reportID in path.</p>
-<p>security: [read_all]</p>
-<p>put:</p>
-<p>description: Update the report specified by the reportID in path.</p>
-<p>security: [write_reports]</p>
-<p>requestBody: report</p>
-<p>delete:</p>
-<p>description: Delete the program specified by the reportID in path.</p>
-<p>security: [write_reports]</p>
-<p>/events:</p>
-<p>get:</p>
-<p>description: List all events known to the server. May filter results by
-programID query param.</p>
-<p>security: [read_all]</p>
-<p>query parameters: programID targetType targetValues skip limit</p>
-<p>post:</p>
-<p>description: Create a new event in the server.</p>
-<p>security: [write_events]</p>
-<p>requestBody: event</p>
-<p>/events/{eventID}:</p>
-<p>get:</p>
-<p>description: Fetch event associated with the eventID in path.</p>
-<p>security: [read_all]</p>
-<p>put:</p>
-<p>description: Update the event specified by the eventID in path.</p>
-<p>security: [write_events]</p>
-<p>requestBody: event</p>
-<p>delete:</p>
-<p>description: Delete the event specified by the eventID in path.</p>
-<p>security: [write_events]</p>
-<p>/subscriptions:</p>
-<p>get:</p>
-<p>description: List all subscriptions.</p>
-<p>security: [read_all]</p>
-<p>query parameters: programID clientName targetType targetValues
-objectTypes skip limit</p>
-<p>post:</p>
-<p>description: Create a new subscription.</p>
-<p>security: [write_subscriptions]</p>
-<p>requestBody: subscription</p>
-<p>/subscriptions/{subscriptionID}:</p>
-<p>get:</p>
-<p>description: Return the subscription specified by subscriptionID
-specified in path.</p>
-<p>security: [read_all]</p>
-<p>put:</p>
-<p>description: Update the subscription specified by subscriptionID
-specified in path.</p>
-<p>security: [write_subscriptions]</p>
-<p>delete:</p>
-<p>description: Delete the subscription specified by subscriptionID
-specified in path.</p>
-<p>security: [write_subscriptions]</p>
-<p>/vens:</p>
-<p>get:</p>
-<p>description: List all vens.</p>
-<p>security: [read_all]</p>
-<p>query parameters: targetType targetValues skip limit</p>
-<p>post:</p>
-<p>description: Create a new ven.</p>
-<p>security: [write_vens]</p>
-<p>requestBody: ven</p>
-<p>/vens/{venID}:</p>
-<p>get:</p>
-<p>description: Return the ven specified by venID specified in path.</p>
-<p>security: [read_all]</p>
-<p>put:</p>
-<p>description: Update the ven specified by venID specified in path.</p>
-<p>security: [write_vens]</p>
-<p>delete:</p>
-<p>description: Delete the ven specified by venID specified in path.</p>
-<p>security: [write_vens]</p>
-<p>/vens/{venID}/resources:</p>
-<p>get:</p>
-<p>description: Return the ven resources specified by venID specified in
-path.</p>
-<p>security: [read_all]</p>
-<p>query parameters: targetType targetValues skip limit</p>
-<p>post:</p>
-<p>description: Create a new resource.</p>
-<p>security: [write_vens]</p>
-<p>requestBody: resource</p>
-<p>/vens/{venID}/resources/{resourceID}:</p>
-<p>get:</p>
-<p>description: Return the ven resource specified by venID and resourceID
-specified in path.</p>
-<p>security: [read_all]</p>
-<p>put:</p>
-<p>description: Update the ven resource specified by venID and resourceID
-specified in path.</p>
-<p>security: [write_vens]</p>
-<p>delete:</p>
-<p>description: Delete the ven resource specified by venID and resourceID
-specified in path.</p>
-<p>security: [write_vens]</p>
-<p>/auth/token:</p>
-<p>get:</p>
-<p>description: client ID to exchange for bearer token.</p>
-<p>query parameters: clientID clientSecret</p>
-<p>/brokers:</p>
-<p>get:</p>
-<p>description: Return all message protocol bindings supported by VTN</p>
-<p>security: [read_all]</p>
-<p>/brokers/{bindingName}/topics/programs</p>
-<p>get:</p>
-<p>description: Return topic names to subscribe to all programs operations</p>
-<p>security: [read_all]</p>
-<p>/brokers/{bindingName}/topics/programs/</p>
-<p>get:</p>
-<p>description: Return topic names to subscribe to program operations
-specified by programID</p>
-<p>security: [read_all]</p>
-<p>/brokers/{bindingName}/topics/programs/{programID}/events</p>
-<p>get:</p>
-<p>description: Return topic names to subscribe to the program specified by
-programID&apos;s events</p>
-<p>security: [read_all]</p>
-<p>/brokers/{bindingName}/topics/programs/{programID}/reports</p>
-<p>get:</p>
-<p>description: Return topic names to subscribe to the program specified by
-programID&apos;s reports</p>
-<p>security: [read_all]</p>
-<p>/brokers/{bindingName}/topics/programs/{programID}/subscriptions</p>
-<p>get:</p>
-<p>description: Return topic names to subscribe to the program specified by
-programID&apos;s subscriptions</p>
-<p>security: [read_all]</p>
-<p>/brokers/{bindingName}/topics/vens</p>
-<p>get:</p>
-<p>description: Return topic names to subscribe to all vens operations</p>
-<p>security: [read_all]</p>
-<p>/brokers/{bindingName}/topics/vens/{venID}/resources</p>
-<p>get:</p>
-<p>description: Return topic names to subscribe to all vens operations
-specified by venID</p>
-<p>security: [read_all]</p>
+<table>
+<thead>
+<tr>
+<th>Scope</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>read_all:</code></td>
+<td>VENs and BL can read all resources</td>
+</tr>
+<tr>
+<td><code>write_programs:</code></td>
+<td>only BL can write to programs</td>
+</tr>
+<tr>
+<td><code>write_events:</code></td>
+<td>only BL can write to events</td>
+</tr>
+<tr>
+<td><code>write_reports:</code></td>
+<td>only VENs can write reports</td>
+</tr>
+<tr>
+<td><code>write_subscriptions:</code></td>
+<td>only VENs can write subscriptions</td>
+</tr>
+<tr>
+<td><code>write_vens:</code></td>
+<td>VENS and BL can write to vens and resources</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>/programs:</code>
+<ul>
+<li><code>get:</code>
+<ul>
+<li>description: List all programs known to the server.</li>
+<li>security: [read_all]</li>
+<li>query parameters: targetType targetValues skip limit</li>
+</ul>
+</li>
+<li>post:
+<ul>
+<li>description: Create a new program in the server.</li>
+<li>security: [write_programs]</li>
+<li>requestBody: program</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>/programs/{programID}:
+<ul>
+<li>get:
+<ul>
+<li>description: Fetch the program specified by the programID in path.</li>
+<li>security: [read_all]</li>
+</ul>
+</li>
+<li>put:
+<ul>
+<li>description: Update an existing program with the programID in path.</li>
+<li>security: [write_programs]</li>
+<li>requestBody: program</li>
+</ul>
+</li>
+<li>delete:
+<ul>
+<li>description: Delete an existing program with the programID in path.</li>
+<li>security: [write_programs]</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>/reports:
+<ul>
+<li>get:
+<ul>
+<li>description: List all reports known to the server.</li>
+<li>security: [read_all]</li>
+<li>query parameters: programID clientName skip limit</li>
+</ul>
+</li>
+<li>post:
+<ul>
+<li>description: Create a new report on the server.</li>
+<li>security: [write_reports]</li>
+<li>requestBody: report</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>/reports/{reportID}:
+<ul>
+<li>get:
+<ul>
+<li>description: Fetch the report specified by the reportID in path.</li>
+<li>security: [read_all]</li>
+</ul>
+</li>
+<li>put:
+<ul>
+<li>description: Update the report specified by the reportID in path.</li>
+<li>security: [write_reports]</li>
+<li>requestBody: report</li>
+</ul>
+</li>
+<li>delete:
+<ul>
+<li>description: Delete the program specified by the reportID in path.</li>
+<li>security: [write_reports]</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>/events:
+<ul>
+<li>get:
+<ul>
+<li>description: List all events known to the server. May filter results by programID query param.</li>
+<li>security: [read_all]</li>
+<li>query parameters: programID targetType targetValues skip limit</li>
+</ul>
+</li>
+<li>post:
+<ul>
+<li>description: Create a new event in the server.</li>
+<li>security: [write_events]</li>
+<li>requestBody: event</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>/events/{eventID}:
+<ul>
+<li>get:
+<ul>
+<li>description: Fetch event associated with the eventID in path.</li>
+<li>security: [read_all]</li>
+</ul>
+</li>
+<li>put:
+<ul>
+<li>description: Update the event specified by the eventID in path.</li>
+<li>security: [write_events]</li>
+<li>requestBody: event</li>
+</ul>
+</li>
+<li>delete:
+<ul>
+<li>description: Delete the event specified by the eventID in path.</li>
+<li>security: [write_events]</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>/subscriptions:
+<ul>
+<li>get:
+<ul>
+<li>description: List all subscriptions.</li>
+<li>security: [read_all]</li>
+<li>query parameters: programID clientName targetType targetValues objectTypes skip limit</li>
+</ul>
+</li>
+<li>post:
+<ul>
+<li>description: Create a new subscription.</li>
+<li>security: [write_subscriptions]</li>
+<li>requestBody: subscription</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>/subscriptions/{subscriptionID}:
+<ul>
+<li>get:
+<ul>
+<li>description: Return the subscription specified by subscriptionID specified in path.</li>
+<li>security: [read_all]</li>
+</ul>
+</li>
+<li>put:
+<ul>
+<li>description: Update the subscription specified by subscriptionID specified in path.</li>
+<li>security: [write_subscriptions]</li>
+</ul>
+</li>
+<li>delete:
+<ul>
+<li>description: Delete the subscription specified by subscriptionID specified in path.</li>
+<li>security: [write_subscriptions]</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>/vens:
+<ul>
+<li>get:
+<ul>
+<li>description: List all vens.</li>
+<li>security: [read_all]</li>
+<li>query parameters: targetType targetValues skip limit</li>
+</ul>
+</li>
+<li>post:
+<ul>
+<li>description: Create a new ven.</li>
+<li>security: [write_vens]</li>
+<li>requestBody: ven</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>/vens/{venID}:
+<ul>
+<li>get:
+<ul>
+<li>description: Return the ven specified by venID specified in path.</li>
+<li>security: [read_all]</li>
+</ul>
+</li>
+<li>put:
+<ul>
+<li>description: Update the ven specified by venID specified in path.</li>
+<li>security: [write_vens]</li>
+</ul>
+</li>
+<li>delete:
+<ul>
+<li>description: Delete the ven specified by venID specified in path.</li>
+<li>security: [write_vens]</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>/vens/{venID}/resources:
+<ul>
+<li>get:
+<ul>
+<li>description: Return the ven resources specified by venID specified in path.</li>
+<li>security: [read_all]</li>
+<li>query parameters: targetType targetValues skip limit</li>
+</ul>
+</li>
+<li>post:
+<ul>
+<li>description: Create a new resource.</li>
+<li>security: [write_vens]</li>
+<li>requestBody: resource</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>/vens/{venID}/resources/{resourceID}:
+<ul>
+<li>get:
+<ul>
+<li>description: Return the ven resource specified by venID and resourceID specified in path.</li>
+<li>security: [read_all]</li>
+</ul>
+</li>
+<li>put:
+<ul>
+<li>description: Update the ven resource specified by venID and resourceID specified in path.</li>
+<li>security: [write_vens]</li>
+</ul>
+</li>
+<li>delete:
+<ul>
+<li>description: Delete the ven resource specified by venID and resourceID specified in path.</li>
+<li>security: [write_vens]</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>/auth/token:
+<ul>
+<li>get:
+<ul>
+<li>description: client ID to exchange for bearer token.</li>
+<li>query parameters: clientID clientSecret</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>/brokers:
+<ul>
+<li>get:
+<ul>
+<li>description: Return all message protocol bindings supported by VTN</li>
+<li>security: [read_all]</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>/brokers/{bindingName}/topics/programs
+<ul>
+<li>get:
+<ul>
+<li>description: Return topic names to subscribe to all programs operations</li>
+<li>security: [read_all]</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>/brokers/{bindingName}/topics/programs/
+<ul>
+<li>get:
+<ul>
+<li>description: Return topic names to subscribe to program operations specified by programID</li>
+<li>security: [read_all]</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>/brokers/{bindingName}/topics/programs/{programID}/events
+<ul>
+<li>get:
+<ul>
+<li>description: Return topic names to subscribe to the program specified by programID&apos;s events</li>
+<li>security: [read_all]</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>/brokers/{bindingName}/topics/programs/{programID}/reports
+<ul>
+<li>get:
+<ul>
+<li>description: Return topic names to subscribe to the program specified by programID&apos;s reports</li>
+<li>security: [read_all]</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>/brokers/{bindingName}/topics/programs/{programID}/subscriptions
+<ul>
+<li>get:
+<ul>
+<li>description: Return topic names to subscribe to the program specified by programID&apos;s subscriptions</li>
+<li>security: [read_all]</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>/brokers/{bindingName}/topics/vens
+<ul>
+<li>get:
+<ul>
+<li>description: Return topic names to subscribe to all vens operations</li>
+<li>security: [read_all]</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>/brokers/{bindingName}/topics/vens/{venID}/resources
+<ul>
+<li>get:
+<ul>
+<li>description: Return topic names to subscribe to all vens operations specified by venID</li>
+<li>security: [read_all]</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 </section>
 <section id="revision" tabindex="-1">
 <h1 tabindex="-1">Revision</h1>
@@ -1403,188 +1591,6 @@ Override. See [CTA-2045B].
 </td>
 </tr></table>
 </p>
-<p>| <strong>Event payload type</strong>     |  <strong>Definition</strong>                         |
-|=====================|================================================|
-| SIMPLE              | An indication of the level of a basic demand   |
-|                     | response signal. Payload value is an integer   |
-|                     | of 0, 1, 2, or 3.                              |
-|                     |                                                |
-|                     | Note: An example mapping is normal operations, |
-|                     | moderate load shed, high load shed, and        |
-|                     | emergency load shed.                           |
-+---------------------+------------------------------------------------+
-| PRICE               | The price of energy. Payload value is a float. |
-|                     | Units and currency defined in associated       |
-|                     | eventPayloadDescriptor.\                       |
-|                     | Note: Can be used for any form of energy.      |
-+---------------------+------------------------------------------------+
-| CH                  | The state of charge of an energy storage       |
-| ARGE_STATE_SETPOINT | resource. Payload value is indicated by units  |
-|                     | in associated eventPayloadDescriptor.          |
-|                     |                                                |
-|                     | Note: Common units are percentage and kWh.     |
-+---------------------+------------------------------------------------+
-| DISPATCH_SETPOINT   | The absolute amount of consumption by a        |
-|                     | resource. Payload value is a float and is      |
-|                     | indicated by units in associated               |
-|                     | eventPayloadDescriptor.\                       |
-|                     | Note: This is used to dispatch resources.      |
-+---------------------+------------------------------------------------+
-| DISPATC             | The relative change of consumption by a        |
-| H_SETPOINT_RELATIVE | resource. Payload value is a float and is      |
-|                     | indicated by units in associated               |
-|                     | eventPayloadDescriptor.\                       |
-|                     | Note: This is used to dispatch a resource&apos;s    |
-|                     | load.                                          |
-+---------------------+------------------------------------------------+
-| CONTROL_SETPOINT    | Resource dependent setting. Payload value type |
-|                     | depends on application.                        |
-+---------------------+------------------------------------------------+
-| EXPORT_PRICE        | The price of energy exported (usually to the   |
-|                     | grid). Payload value is float and units and    |
-|                     | currency are defined in associated             |
-|                     | eventPayloadDescriptor.\                       |
-|                     | Note: Can be used for any form of energy.      |
-+---------------------+------------------------------------------------+
-| GHG                 | An estimate of marginal GreenHouse Gas         |
-|                     | emissions, in g/kWh. Payload value is float.   |
-+---------------------+------------------------------------------------+
-| CURVE               | Payload values array contains a series of one  |
-|                     | or more pairs of floats representing a 2D      |
-|                     | point.                                         |
-|                     |                                                |
-|                     | Note: May be used to represent a curve of      |
-|                     | values, e.g. VoltVar values.                   |
-+---------------------+------------------------------------------------+
-| OLS                 | Optimum Load Shape. Payload values array       |
-|                     | contains a list of values 0.0 to 1.0           |
-|                     | representing percentage of usage over the set  |
-|                     | of intervals in the event.                     |
-|                     |                                                |
-|                     | Note: See ANSI-SCTE 267.                       |
-+---------------------+------------------------------------------------+
-| IMPORT_CA           | The amount of import capacity a customer has   |
-| PACITY_SUBSCRIPTION | subscribed to in advance. Payload is a float,  |
-|                     | and meaning is indicated by units in           |
-|                     | associated eventPayloadDescriptor.             |
-+---------------------+------------------------------------------------+
-| IMPORT_C            | The amount of additional import capacity that  |
-| APACITY_RESERVATION | a customer has been granted by the VTN.        |
-|                     | Payload is a float, and meaning is indicated   |
-|                     | by units in associated eventPayloadDescriptor. |
-+---------------------+------------------------------------------------+
-| IMPORT_CAPAC        | The cost per unit of power of extra import     |
-| ITY_RESERVATION_FEE | capacity available for reservation. Payload is |
-|                     | a float, and meaning is indicated by units in  |
-|                     | associated eventPayloadDescriptor.             |
-+---------------------+------------------------------------------------+
-| IMPORT              | The amount of extra import capacity available  |
-| _CAPACITY_AVAILABLE | for reservation to the customer. Payload is a  |
-|                     | float, and meaning is indicated by units in    |
-|                     | associated eventPayloadDescriptor.             |
-+---------------------+------------------------------------------------+
-| IMPORT_CAPAC        | The cost per unit of power of extra import     |
-| ITY_AVAILABLE_PRICE | capacity available for reservation. Payload is |
-|                     | a float, and meaning is indicated by units in  |
-|                     | associated eventPayloadDescriptor.             |
-+---------------------+------------------------------------------------+
-| EXPORT_CA           | The amount of export capacity a customer has   |
-| PACITY_SUBSCRIPTION | subscribed to in advance. Payload is a float,  |
-|                     | and meaning is indicated by units in           |
-|                     | associated eventPayloadDescriptor.             |
-+---------------------+------------------------------------------------+
-| EXPORT_C            | The amount of additional export capacity that  |
-| APACITY_RESERVATION | a customer has been granted by the VTN.        |
-|                     | Payload is a float, and meaning is indicated   |
-|                     | by units in associated eventPayloadDescriptor. |
-+---------------------+------------------------------------------------+
-| EXPORT_CAPAC        | The cost per unit of power of extra export     |
-| ITY_RESERVATION_FEE | capacity available for reservation. Payload is |
-|                     | a float, and meaning is indicated by units in  |
-|                     | associated eventPayloadDescriptor.             |
-+---------------------+------------------------------------------------+
-| EXPORT              | The amount of extra export capacity available  |
-| <em>CAPACITY_AVAILABLE | for reservation to the customer. Payload is a  |
-|                     | float, and meaning is indicated by units in    |
-|                     | associated eventPayloadDescriptor.             |
-+---------------------+------------------------------------------------+
-| EXPORT_CAPAC        | The cost per unit of power of extra export     |
-| ITY_AVAILABLE_PRICE | capacity available for reservation. Payload is |
-|                     | a float, and meaning is indicated by units in  |
-|                     | associated eventPayloadDescriptor.             |
-+---------------------+------------------------------------------------+
-| IM                  | The maximum import level for the site. Payload |
-| PORT_CAPACITY_LIMIT | is a float and meaning is indicated by units   |
-|                     | in associated eventPayloadDescriptor.          |
-+---------------------+------------------------------------------------+
-| EX                  | The maximum export level for the site. Payload |
-| PORT_CAPACITY_LIMIT | is a float and meaning is indicated by units   |
-|                     | in associated eventPayloadDescriptor.          |
-+---------------------+------------------------------------------------+
-| A                   | There is an imminent risk of the grid failing  |
-| LERT_GRID_EMERGENCY | to continue supplying power to some customers, |
-|                     | maintaining operational parameters (e.g.       |
-|                     | voltage), or ceasing to operate at all.        |
-|                     | Payload value contains a human-readable string |
-|                     | describing the alert.                          |
-+---------------------+------------------------------------------------+
-| ALERT_BLACK_START   | The grid is in the process of resuming full    |
-|                     | operation. Devices should minimize electricity |
-|                     | use until the event is cleared. Payload value  |
-|                     | contains a human-readable string describing    |
-|                     | the alert.                                     |
-+---------------------+------------------------------------------------+
-| AL                  | Customers may lose grid power in the coming    |
-| ERT_POSSIBLE_OUTAGE | hours or days.\                                |
-|                     | Note: An example of this from California is    |
-|                     | Public Service Power Shutoffs (usually from    |
-|                     | fire risk). Payload value contains a           |
-|                     | human-readable string describing the alert.    |
-+---------------------+------------------------------------------------+
-| ALERT_FLEX_ALERT    | Power supply will be scarce during the event.  |
-|                     | Devices should seek to shift load to times     |
-|                     | before or after the event. Devices that can    |
-|                     | shed should do so during the event. Payload    |
-|                     | value contains a human-readable string         |
-|                     | describing the alert.                          |
-|                     |                                                |
-|                     | Note: See: <a href="http://flexalert.org">flexalert.org</a>                       |
-+---------------------+------------------------------------------------+
-| ALERT_FIRE          | There is a substantial risk of fire in the     |
-|                     | area which could interrupt electricity supply  |
-|                     | in addition to being a danger to life and      |
-|                     | property. Payload value contains a             |
-|                     | human-readable string describing the alert.    |
-+---------------------+------------------------------------------------+
-| ALERT_FREEZING      | There is (or is forecast to be) temperatures   |
-|                     | low enough to be of concern. Payload value     |
-|                     | contains a human-readable string describing    |
-|                     | the alert.                                     |
-+---------------------+------------------------------------------------+
-| ALERT_WIND          | There is (or is forecast to be) wind speeds    |
-|                     | high enough to be of concern. Includes         |
-|                     | hurricanes. Payload value contains a           |
-|                     | human-readable string describing the alert.    |
-+---------------------+------------------------------------------------+
-| ALERT_TSUNAMI       | Tsunami waves expected to hit the coastline.   |
-|                     | Payload value contains a human-readable string |
-|                     | describing the alert.                          |
-+---------------------+------------------------------------------------+
-| ALERT_AIR_QUALITY   | Air quality is or is forecast to be. Payload   |
-|                     | value contains a human-readable string         |
-|                     | describing the alert.                          |
-+---------------------+------------------------------------------------+
-| ALERT_OTHER         | No specific definition. See associated text    |
-|                     | data element. Payload value contains a         |
-|                     | human-readable string describing the alert.    |
-+---------------------+------------------------------------------------+
-| CTA2045_REBOOT      | Pass through for resources that support        |
-|                     | [CTA-2045B]<em>.</em> Payload value 0 = SOFT, 1 =   |
-|                     | HARD. See [CTA-2045B] for definitions.       |
-+---------------------+------------------------------------------------+
-| CTA2045</em>            | Pass through CTA-2045 Override status: 0 = No  |
-| SET_OVERRIDE_STATUS | Override, 1 = Override. See [CTA-2045B].     |
-+---------------------+------------------------------------------------+</p>
 </section>
 <section id="report-enumerations" tabindex="-1">
 <h2 tabindex="-1">Report Enumerations</h2>
@@ -1668,114 +1674,6 @@ payloadDescriptor.
 </td>
 </tr></table>
 </p>
-<p>+----------------+-----------------------------------------------------+
-| <strong>Report       | &gt; <strong>Definition</strong>                                    |
-| payload Type</strong> |                                                     |
-+================+=====================================================+
-| READING        | An instantaneous data point, as from a meter. Same  |
-|                | as pulse count. Payload value is a float and units  |
-|                | are defined in payloadDescriptor.                   |
-+----------------+-----------------------------------------------------+
-| USAGE          | Energy usage over an interval. Payload value is a   |
-|                | float and units are defined in payloadDescriptor.   |
-+----------------+-----------------------------------------------------+
-| DEMAND         | Power usage for an interval, i.e. Real Power.       |
-|                | Payload value is a float, units defined in          |
-|                | payloadDescriptor. Reading type indicates MEAN,     |
-|                | PEAK, FORECAST.                                     |
-+----------------+-----------------------------------------------------+
-| SETPOINT       | Current control setpoint of a resource, see         |
-|                | CONTROL_SETPOINT event payloadType above. Payload   |
-|                | values are determined by application.               |
-+----------------+-----------------------------------------------------+
-| DELTA_USAGE    | Change in usage as compared to a baseline. Payload  |
-|                | value is a float and units are defined in           |
-|                | payloadDescriptor.                                  |
-+----------------+-----------------------------------------------------+
-| BASELINE       | Indicates energy or power consumption in the        |
-|                | absence of load control. Payload value is           |
-|                | determined by reading type which may indicate usage |
-|                | or demand.                                          |
-+----------------+-----------------------------------------------------+
-| O              | Payload values array includes a list of operating   |
-| PERATING_STATE | state enumerations, see below.                      |
-+----------------+-----------------------------------------------------+
-| UP_REGULA      | Up Regulation capacity available for dispatch, in   |
-| TION_AVAILABLE | real power. Payload value is a float, units defined |
-|                | in payloadDescriptor. Reading type indicates MEAN,  |
-|                | PEAK, FORECAST.                                     |
-+----------------+-----------------------------------------------------+
-| DOWN_REGULA    | Down Regulation capacity available for dispatch, in |
-| TION_AVAILABLE | real power. Payload value is a float, units defined |
-|                | in payloadDescriptor. Reading type indicates MEAN,  |
-|                | PEAK, FORECAST.                                     |
-+----------------+-----------------------------------------------------+
-| REGUL          | Regulation setpoint as instructed as part of        |
-| ATION_SETPOINT | regulation services. Payload value is a float,      |
-|                | units defined in payloadDescriptor. Reading type    |
-|                | indicates MEAN, PEAK, FORECAST.                     |
-+----------------+-----------------------------------------------------+
-| STORAGE_U      | Usable energy that the storage device can hold when |
-| SABLE_CAPACITY | fully charged. Payload value is a float, units of   |
-|                | energy defined in payloadDescriptor.                |
-+----------------+-----------------------------------------------------+
-| STORAG         | Current storage charge level expressed as a         |
-| E_CHARGE_LEVEL | percentage, where 0% is empty and 100% is full.     |
-|                | Payload value is a float, units of PERCENT defined  |
-|                | in payloadDescriptor.                               |
-+----------------+-----------------------------------------------------+
-| STORAGE_MAX_D  | The maximum sustainable power that can be           |
-| ISCHARGE_POWER | discharged into an electricity network (injection). |
-|                | Payload value is a float, units of power defined in |
-|                | payloadDescriptor.                                  |
-+----------------+-----------------------------------------------------+
-| STORAGE_MA     | The maximum sustainable power that can be charged   |
-| X_CHARGE_POWER | from an electricity network (load). Payload value   |
-|                | is a float, units of power defined in               |
-|                | payloadDescriptor.                                  |
-+----------------+-----------------------------------------------------+
-| SIMPLE_LEVEL   | Simple level that a VEN resource is operating at    |
-|                | for each Interval. Payload value is an integer 0,   |
-|                | 1, 2, 3 corresponding to values in SIMPLE events.   |
-+----------------+-----------------------------------------------------+
-| USAGE_FORECAST | Payload values array contains a single float        |
-|                | indicating expected resource usage for the          |
-|                | associated interval. Units of energy defined in     |
-|                | payloadDescriptor.                                  |
-+----------------+-----------------------------------------------------+
-| STORAGE_DIS    | Payload values array contains a single float        |
-| PATCH_FORECAST | indicating expected stored energy that could be     |
-|                | dispatched for the associated interval.             |
-+----------------+-----------------------------------------------------+
-| LOAD_SHED_D    | Payload values array contains a single float        |
-| ELTA_AVAILABLE | indicating expected increase or decrease in load by |
-|                | a resource for the associated interval.             |
-+----------------+-----------------------------------------------------+
-| GENERATION_D   | Payload values array contains a single float        |
-| ELTA_AVAILABLE | indicating expected generation by a resource for    |
-|                | the associated interval.                            |
-+----------------+-----------------------------------------------------+
-| DATA_QUALITY   | Payload values array contains a string indicating   |
-|                | data quality of companion report payload in the     |
-|                | same interval. Strings may be one of enumerated     |
-|                | Data Quality enumerations.                          |
-+----------------+-----------------------------------------------------+
-| IMPORT_RESERV  | Amount of additional import capacity requested.     |
-| ATION_CAPACITY | Payload values are a float.                         |
-+----------------+-----------------------------------------------------+
-| IMPORT_R       | Amount per unit of import capacity that the VEN is  |
-| ESERVATION_FEE | willing to pay for the requested reservation.       |
-|                | Payload value is a float with currency defined in   |
-|                | payloadDescriptor.                                  |
-+----------------+-----------------------------------------------------+
-| EXPORT_RESERV  | Amount of additional export capacity requested.     |
-| ATION_CAPACITY | Payload values are a float.                         |
-+----------------+-----------------------------------------------------+
-| EXPORT_R       | Amount per unit of export capacity that the VEN is  |
-| ESERVATION_FEE | willing to pay for the requested reservation.       |
-|                | Payload value is a float with currency defined in   |
-|                | payloadDescriptor.                                  |
-+----------------+-----------------------------------------------------+</p>
 </section>
 <section id="reading-type-enumerations" tabindex="-1">
 <h2 tabindex="-1">Reading Type Enumerations</h2>
@@ -1945,26 +1843,6 @@ contains a string representing a service area name.
 </td>
 </tr></table>
 </p>
-<hr>
-<p><strong>label</strong>                <strong>description</strong></p>
-<hr>
-<p>POWER_SERVICE_LOCATION   A Power Service Location is a utility named specific
-location in geography or the distribution system,
-usually the point of service to a customer site.</p>
-<p>SERVICE_AREA             A Service Area is a utility named geographic region.
-Target values array contains a string representing a
-service area name.</p>
-<p>GROUP                    Target values array contains a string representing a
-group.</p>
-<p>RESOURCE_NAME            Target values array contains a string representing a
-resource name.</p>
-<p>VEN_NAME                 Target values array contains a string representing a
-VEN name.</p>
-<p>EVENT_NAME               Target values array contains a string representing an
-event name.</p>
-<p>PROGRAM_NAME             Target values array contains a string representing a
-program name.</p>
-<hr>
 </section>
 <section id="attribute-enumerations" tabindex="-1">
 <h2 tabindex="-1">Attribute Enumerations</h2>
@@ -1993,22 +1871,6 @@ device can export, in kiloWatts.
 </td>
 </tr></table>
 </p>
-<hr>
-<p><strong>label</strong>               <strong>description</strong></p>
-<hr>
-<p class="mark">LOCATION                [Describes a single geographic point. Values[]
-contains 2 floats, generally representing longitude
-and latitude. Demand Response programs may define
-their own use of these fields.]</p>
-<p class="mark">AREA                    [Describes a geographic area. Values[] contains
-application specific data. Demand Response programs
-may define their own use of these fields, such as
-GeoJSON polygon data.]</p>
-<p>MAX_POWER_CONSUMPTION   Values contains a floating point number describing
-the maximum consumption, in kiloWatts.</p>
-<p>MAX_POWER_EXPORT        Values contains a floating point number describing
-the maximum power the device can export, in
-kiloWatts.</p>
 </section>
 <section id="description-free-form-text-tersely-describing-a-ven-or-resource." tabindex="-1">
 <h2 tabindex="-1">DESCRIPTION             Free-form text tersely describing a ven or resource.</h2>

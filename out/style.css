@@ -86,10 +86,21 @@ img.logo-image {
   padding: 10px;
 }
 
+// #title-page {
+//     page-break-after: always;
+// }
+// #contents {
+//     page-break-after: always;
+// }
 section#contents {
     page-break-after:  always;
     page-break-before: always;
+    page-break-inside: avoid !important;
 }
+
+// .table-of-contents {
+//     page-break-inside: auto !important;
+// }
 
 /* https://stackoverflow.com/questions/22746958/dompdf-adding-a-new-page-to-pdf */
 
@@ -169,3 +180,68 @@ table code {
     font-size: smaller;
 }
 
+
+// The following magically numbers both the Hn tags
+// but also the Table of Contents
+// https://gist.github.com/rodolfoap/6cd714a65a891c6fe699ab91f0d22384
+
+// DISABLED - the idea has too many failures
+// https://github.com/oadr3-org/specification/issues/207#issuecomment-2543342626
+
+// body {
+//     counter-reset: h1
+// }
+
+// h1 {
+//     counter-reset: h2
+// }
+
+// h2 {
+//     counter-reset: h3
+// }
+
+// h3 {
+//     counter-reset: h4
+// }
+
+// h1:not(.header-title)::before {
+//     counter-increment: h1;
+//     content: counter(h1) ". "
+// }
+
+// h2:before {
+//     counter-increment: h2;
+//     content: counter(h1) "." counter(h2) ". "
+// }
+
+// h3:before {
+//     counter-increment: h3;
+//     content: counter(h1) "." counter(h2) "." counter(h3) ". "
+// }
+
+// h4:before {
+//     counter-increment: h4;
+//     content: counter(h1) "." counter(h2) "." counter(h3) "." counter(h4) ". "
+// }
+
+// ul {
+//   counter-reset: section;
+//   list-style-type: none;
+// }
+
+// ul li {
+//   position: relative;
+// }
+
+// ul li::before {
+//   counter-increment: section;
+//   content: counters(section, ".") ". ";
+// }
+
+// ul ul li::before {
+//   content: counters(section, ".") ". ";
+// }
+
+// ul ul {
+//   counter-reset: section;
+// }

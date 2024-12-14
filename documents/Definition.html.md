@@ -3,7 +3,7 @@ layout: default.html.ejs
 title: OpenADR 3.1.0 Definition
 ---
 
-::: #title-page
+::: #title-page .cover
 ![OpenADR Logo](./img/openadr-logo.png){.logo-image}
 
 
@@ -44,17 +44,11 @@ TODO: This table does not align to the right, but is centered.
 
 :::
 
-<!-- div style="page-break-before: always; page-break-after: always;"> <!-- Your page Content -->
+# CONTENTS { #contents .header-title }
 
-# CONTENTS { #contents .page_break}
-
-TODO: The Table of Contents  should have a page break before and after?
-
-TODO: Automatic numbering of ToC items?
+TODO the numbering is here but it is incorrect.  The H1 CONTENTS is not numbered in the text, because of the `.header-title` class, but is numbered in the ToC.
 
 [[toc]]
-
-<!-- /div -->
 
 # Introduction {.page_break}
 
@@ -84,6 +78,8 @@ delivery via standard messaging protocols, with MQTT being the first
 such messaging protocol defined.
 
 # Normative References
+
+TODO there should be (?) linking between these markers and any reference to the marker....?  That is, is it useful when reading the document to be able to click on the marker and see the reference?
 
 [OADR-3.0-Specification] OpenADR 3.0 OpenAPI YAML (SwaggerDoc) Specification, [[https://github.com/oadr3/openapi-3.0.0]](https://github.com/oadr3/openapi-3.0.0)
 
@@ -276,26 +272,18 @@ and ven resources, client representations provided to the VTN on POST
 requests are incomplete, as clients do not have the context to provide
 accurate or meaningful values for the following attributes:
 
-- objectID
+* objectID
+* createdDataTime
+* modificationDateTime
+* objectType
 
-- createdDataTime
-
-- modificationDateTime
-
-- objectType
-
-A VTN SHALL populate object representations with the above fields on
-object creation.
+A VTN SHALL populate object representations with the above fields on object creation.
 
 ## Required and optional properties
 
-The specification is purposefully sparse of required fields so that
-clients may create and modify objects by creating requests with minimal
-effort.
+The specification is purposefully sparse of required fields so that clients may create and modify objects by creating requests with minimal effort.
 
-If a representation sent to the VTN lacks a required property, a VTN
-SHALL return a 400, Bad Request response. A resource is not created or
-updated. Required fields do not have default values.
+If a representation sent to the VTN lacks a required property, a VTN SHALL return a 400, Bad Request response. A resource is not created or updated. Required fields do not have default values.
 
 A representation provided in a write request (PUT, POST) to the VTN may
 exclude optional fields. The VTN may create a corresponding object with
@@ -316,71 +304,45 @@ additional property, effectively ignoring the additional content.
 
 A VTN SHALL support the following standard codes:
 
+```
 GET
-
-200 - OK
-
-400 - Bad Request
-
-403 - Forbidden
-
-404 - Not Found
-
-500 - Internal Server Error
+  200 - OK
+  400 - Bad Request
+  403 - Forbidden
+  404 - Not Found
+  500 - Internal Server Error
 
 POST
-
-201 - Created
-
-400 - Bad Request
-
-403 - Forbidden
-
-404 - Not Found
-
-409 - Conflict (item already exists)
-
-500 - Internal Server Error
+  201 - Created
+  400 - Bad Request
+  403 - Forbidden
+  404 - Not Found
+  409 - Conflict (item already exists)
+  500 - Internal Server Error
 
 PUT
-
-200 - OK
-
-400 - Bad Request
-
-403 - Forbidden
-
-404 - Not Found
-
-409 - Conflict
-
-500 - Internal Server Error
+  200 - OK
+  400 - Bad Request
+  403 - Forbidden
+  404 - Not Found
+  409 - Conflict
+  500 - Internal Server Error
 
 DELETE
+  200 - OK
+  400 - Bad Request
+  403 - Forbidden
+  404 - Not Found
+  500 - Internal Server Error
+```
 
-200 - OK
-
-400 - Bad Request
-
-403 - Forbidden
-
-404 - Not Found
-
-500 - Internal Server Error
-
-Servers may implement other response codes, but VENs might not recognize
-them.
+Servers may implement other response codes, but VENs might not recognize them.
 
 ### Problem
 
-On 40x and 500 responses, a VTN SHALL respond with a *problem* object
-that contains details of the error. The problem object is intended to
-help clients determine what caused a particular response, such as Bad
-Request, Unauthorized, Forbidden, etc.
+On 40x and 500 responses, a VTN SHALL respond with a *problem* object that contains details of the error. The problem object is intended to help clients determine what caused a particular response, such as Bad Request, Unauthorized, Forbidden, etc.
 
 For example:
-
-problem
 
 ```json
 {
@@ -458,7 +420,7 @@ new subscription object, which contains the webhook callback URL, and a
 description of the objects and operations that will trigger a request to
 the callback URL.
 
-POST subscription
+`POST subscription`
 
 ```json
 {
@@ -488,7 +450,7 @@ A client may provide multiple resourceOperation entries to provide
 different callbackUrls to catch notifications of different resources and
 operations.
 
-POST subscription
+`POST subscription`
 
 ```json
 {
@@ -527,7 +489,7 @@ request body is a Notifications object that indicates the object type of
 the resource, the operation that provoked the request, and the relevant
 resource object.
 
-Notification
+`Notification`
 
 ```json
 {
@@ -555,7 +517,7 @@ mechanism based on standard messaging protocols, initially MQTT only.
 A client may request information about supported messaging protocol
 brokers via the GET /brokers request:
 
-GET /brokers
+`GET /brokers`
 
 ```json
 {
@@ -589,7 +551,7 @@ endpoints:
 
 An example request and response:
 
-GET /brokers/mqtt/topics/programs
+`GET /brokers/mqtt/topics/programs`
 
 ```json
 {
@@ -604,8 +566,7 @@ GET /brokers/mqtt/topics/programs
 }
 ```
 
-The response from the VTN is a JSON object, containing the following
-keys:
+The response from the VTN is a JSON object, containing the following keys:
 
 * request - A copy of the request URL path, with no leading "/"
 * topics - A JSON object, each key being the operation on the object, and the value of that key is the topic-name for that operation
@@ -703,238 +664,197 @@ populated by the VTN on object creation and modification.
 In the listing below, any default value is listed in brackets after the
 definition.
 
-**TODO** LOTS OF CLEAN UP REQUIRED -- THis is obviously several object types crammed into one list.
+**TODO** Perhaps this should be autogenerated from the specification.  The wrinkle is the `$ref` definitions.
 
 * **program**: Provides program specific metadata from VTN to VEN.
-* **Id**: VTN provisioned ID of this object instance.
-* **createdDateTime**: Creation time for object, e.g.
-\"2023-06-15T12:58:08.000Z\".
-* **modificationDateTime**: Modification time for object, e.g.
-\"2023-06-16T12:58:08.000Z\".
-* **objectType:** Used as discriminator. PROGRAM
-* **programName**: Name of program with which this event is associated,
-e.g. \"ResTOU\".
-* **programLongName**: User provided ID, e.g. \"Residential Time of
-Use-A\".
-* **retailerName**: Program defined ID, e.g. \"ACME\".
-* **retailerLongName**: Program defined ID, e.g. \"ACME Electric Inc.\".
-* **programType**: User defined string categorizing the program, e.g.
-\"PRICING_TARIFF\".
-* **country**: Alpha-2 code per ISO 3166-1, e.g. \"US\".
-* **principalSubdivision**: Coding per ISO 3166-2. E.g. state in US, e.g.
-\"CO\".
-* **timeZoneOffset**: An ISO 8601 duration that is to added to all
-interval.start values.
-* **intervalPeriod**: The temporal span of the program, could be years
-long.
-* **programDescriptions**: List of URLs to human and/or machine-readable
-content, e.g. \"mple: www.myCorporation.com/myProgramDescription\".
-* **bindingEvents**: True if events can be expected to not be modified.
-\[false\]
-* **localPrice**: True if events have been adapted from a grid event.
-\[false\]
-* **payloadDescriptors**: An optional list of objects that provide context
-to payload types.
-* **targets**: An optional list of valuesMap objects.
+  * **id**: VTN provisioned ID of this object instance.
+  * **createdDateTime**: Creation time for object, e.g.
+  "2023-06-15T12:58:08.000Z".
+  * **modificationDateTime**: Modification time for object, e.g. "2023-06-16T12:58:08.000Z".
+  * **objectType:** Used as discriminator. [PROGRAM]
+  * **programName**: Name of program with which this event is associated, e.g. "ResTOU".
+  * **programLongName**: User provided ID, e.g. "Residential Time of Use-A".
+  * **retailerName**: Program defined ID, e.g. "ACME".
+  * **retailerLongName**: Program defined ID, e.g. "ACME Electric Inc.".
+  * **programType**: User defined string categorizing the program, e.g. "PRICING_TARIFF".
+  * **country**: Alpha-2 code per ISO 3166-1, e.g. "US".
+  * **principalSubdivision**: Coding per ISO 3166-2. E.g. state in US, e.g. "CO".
+  * **timeZoneOffset**: An ISO 8601 duration that is to added to all interval.start values.
+  * **intervalPeriod**: The temporal span of the program, could be years long.
+  * **programDescriptions**: List of URLs to human and/or machine-readable content, e.g. "mple: www.myCorporation.com/myProgramDescription".
+  * **bindingEvents**: True if events can be expected to not be modified. [false]
+  * **localPrice**: True if events have been adapted from a grid event. [false]
+  * **payloadDescriptors**: An optional list of objects that provide context to payload types.
+  * **targets**: An optional list of valuesMap objects.
+
+
 * **report**: report object.
-* **id**: VTN provisioned ID of this object instance.
-* **createdDateTime**: server provisions timestamp on object creation,
-e.g. \"2023-06-15T12:58:08.000Z.
-* **modificationDateTime**: server provisions timestamp on object
-modification, e.g. \"2023-06-16T12:58:08.000Z\".
-* **objectType:** Used as discriminator. REPORT
-* **programID**: ID attribute of program object this report is associated
-with.
-* **eventID**: ID attribute of event object this report is associated
-with.
-* **clientName**: String ID of client, may be VEN ID provisioned during
-program enrollment.
-* **reportName**: User defined string for use in debugging or UI, e.g.
-\"Battery_usage_04112023\".
-* **payloadDescriptors**: An optional list of objects that provide context
-to payload types.
-* **resources**: An array of objects containing report data for a set of
-resources.
-* **resourceName**: User generated identifier. A value of
-AGGREGATED_REPORT indicates an aggregation of more than one resource\'s
-data.
-* **intervalPeriod**: Defines temporal aspects of intervals.
-* **intervals**: An object defining a temporal window and a list of
-payloads.
+  * **id**: VTN provisioned ID of this object instance.
+  * **createdDateTime**: server provisions timestamp on object creation, e.g. \"2023-06-15T12:58:08.000Z.
+  * **modificationDateTime**: server provisions timestamp on object modification, e.g. \"2023-06-16T12:58:08.000Z\".
+  * **objectType:** Used as discriminator. REPORT
+  * **programID**: ID attribute of program object this report is associated with.
+  * **eventID**: ID attribute of event object this report is associated with.
+  * **clientName**: String ID of client, may be VEN ID provisioned during program enrollment.
+  * **reportName**: User defined string for use in debugging or UI, e.g. \"Battery_usage_04112023\".
+  * **payloadDescriptors**: An optional list of objects that provide context to payload types.
+  * **resources**: An array of objects containing report data for a set of resources.
+  * **resourceName**: User generated identifier. A value of
+  AGGREGATED_REPORT indicates an aggregation of more than one resource\'s data.
+  * **intervalPeriod**: Defines temporal aspects of intervals.
+  * **intervals**: An object defining a temporal window and a list of payloads.
+
+
+
 * **event**: Event object to communicate a Demand Response request to VEN.
-* **id**: VTN provisioned ID of this object instance.
-* **createdDateTime**: server provisions timestamp on object creation,
-e.g. \"2023-06-15T12:58:08.000Z\".
-* **modificationDateTime**: server provisions timestamp on object
-modification,\
-e.g. \"2023-06-16T12:58:08.000Z\".
-* **objectType:** Used as discriminator. EVENT
-* **programID**: ID attribute of program object this event is associated
-with.
-* **eventName**: User defined string for use in debugging or UI, e.g.
-\"price event 11-18-2022\".
-* **priority**: relative priority of event. A lower number is a higher
-priority.
-* **targets**: An array of valuesMap objects.
-* **reportDescriptors**: An array of reportDescriptor objects. Used to
-request reports from VEN.
-* **payloadDescriptors**: An array of payloadDescriptor objects.
-* **intervalPeriod**: Defines default start and durations of intervals.
-* **intervals**: An array of interval objects
-* **subscription**: An object created by a client to receive notification
-of operations on objects.
-* **id**: VTN provisioned ID of this object instance.
-* **createdDateTime**: server provisions timestamp on object creation,
-e.g. \"2023-06-15T12:58:08.000Z\".
-* **modificationDateTime**: server provisions timestamp on object
-modification, e.g. \"2023-06-16T12:58:08.000Z\".
-* **objectType:** Used as discriminator. SUBSCRIPTION
-* **clientName**: User generated identifier
-* **programID**: ID attribute of program object this subscription is
-associated with.
-* **objectOperations**: list of objects and operations to subscribe to.
-* **objects:** List of objects to subscribe to.
-* **operations:** list of operations to subscribe to.
-* **callbackUrl:** User provided webhook URL.
-* **bearerToken**: User provided token.
+  * **id**: VTN provisioned ID of this object instance.
+  * **createdDateTime**: server provisions timestamp on object creation, e.g. \"2023-06-15T12:58:08.000Z\".
+  * **modificationDateTime**: server provisions timestamp on object modification, e.g. \"2023-06-16T12:58:08.000Z\".
+  * **objectType:** Used as discriminator. EVENT
+  * **programID**: ID attribute of program object this event is associated with.
+  * **eventName**: User defined string for use in debugging or UI, e.g. \"price event 11-18-2022\".
+  * **priority**: relative priority of event. A lower number is a higher priority.
+  * **targets**: An array of valuesMap objects.
+  * **reportDescriptors**: An array of reportDescriptor objects. Used to request reports from VEN.
+  * **payloadDescriptors**: An array of payloadDescriptor objects.
+  * **intervalPeriod**: Defines default start and durations of intervals.
+  * **intervals**: An array of interval objects
+
+
+* **subscription**: An object created by a client to receive notification of operations on objects.
+  * **id**: VTN provisioned ID of this object instance.
+  * **createdDateTime**: server provisions timestamp on object creation, e.g. \"2023-06-15T12:58:08.000Z\".
+  * **modificationDateTime**: server provisions timestamp on object modification, e.g. \"2023-06-16T12:58:08.000Z\".
+  * **objectType:** Used as discriminator. SUBSCRIPTION
+  * **clientName**: User generated identifier
+  * **programID**: ID attribute of program object this subscription is associated with.
+  * **objectOperations**: list of objects and operations to subscribe to.
+  * **objects:** List of objects to subscribe to.
+  * **operations:** list of operations to subscribe to.
+  * **callbackUrl:** User provided webhook URL.
+  * **bearerToken**: User provided token.
+
 * **ven**: Ven represents a client with the ven role.
-* **id**: VTN provisioned ID of this object instance.
-* **createdDateTime**: server provisions timestamp on object creation,
-e.g. \"2023-06-15T12:58:08.000Z\".
-* **modificationDateTime**: server provisions timestamp on object
-modification, e.g. \"2023-06-16T12:58:08.000Z\".
-* **objectType:** Used as discriminator. VEN
-* **venName**: String identifier for VEN. VEN may be configured with ID
-out-of-band.
-* **attributes**: A list of valuesMap objects describing attributes.
-* **targets**: An array of valuesMap objects.
-* **resources**: A list of resource objects representing end-devices or
-systems.
-* **resource**: a resource is an energy device or system subject to
-control by a VEN.
-* **id**: VTN provisioned ID of this object instance.
-* **createdDateTime**: server provisions timestamp on object creation,
-e.g. \"2023-06-15T12:58:08.000Z\".
-* **modificationDateTime**: server provisions timestamp on object
-modification,\
-e.g. \"2023-06-16T12:58:08.000Z\".
-* **objectType:** Used as discriminator. RESOURCE
-* **resourceName**: String identifier for resource. resource may be
-configured with ID out-of-band.
-* **venID:** VTN provisioned on object creation based on path
-* **attributes**: A list of valuesMap objects describing attributes.
-* **targets**: An array of valuesMap objects.
-* **interval**: An object defining a temporal window and a list of
-payloads.
-* **id**: A client generated number assigned an interval object. Not a
-sequence number. \[0\]
+  * **id**: VTN provisioned ID of this object instance.
+  * **createdDateTime**: server provisions timestamp on object creation,  e.g. \"2023-06-15T12:58:08.000Z\".
+  * **modificationDateTime**: server provisions timestamp on object   modification, e.g. \"2023-06-16T12:58:08.000Z\".
+  * **objectType:** Used as discriminator. VEN
+  * **venName**: String identifier for VEN. VEN may be configured with ID   out-of-band.
+  * **attributes**: A list of valuesMap objects describing attributes.
+  * **targets**: An array of valuesMap objects.
+  * **resources**: A list of resource objects representing end-devices or systems.
+
+* **resource**: a resource is an energy device or system subject to control by a VEN.
+  * **id**: VTN provisioned ID of this object instance.
+  * **createdDateTime**: server provisions timestamp on object creation,   e.g. \"2023-06-15T12:58:08.000Z\".
+  * **modificationDateTime**: server provisions timestamp on object   modification,   e.g. \"2023-06-16T12:58:08.000Z\".
+  * **objectType:** Used as discriminator. RESOURCE
+  * **resourceName**: String identifier for resource. resource may be   configured with ID out-of-band.
+  * **venID:** VTN provisioned on object creation based on path
+  * **attributes**: A list of valuesMap objects describing attributes.
+  * **targets**: An array of valuesMap objects.
+
+
+* **interval**: An object defining a temporal window and a list of payloads.
+  * **id**: A client generated number assigned an interval object. Not a sequence number. \[0\]
+
+
 * **intervalPeriod**: Defines temporal aspects of intervals.
-* **payloads**: An array of payload objects.
-* **intervalPeriod**: Defines temporal aspects of intervals.
-* **start**: The start time of an interval or set of intervals, e.g.
-\"2023-06-15T12:58:08.000Z\".
-* **duration**: The duration of an interval or set of intervals, e.g.
-\"PT1H\".
-* **randomizeStart**: Indicates a randomization time that may be applied
-to start, e.g. \"PT5M\".
+  * **payloads**: An array of payload objects.
+  * **intervalPeriod**: Defines temporal aspects of intervals.
+  * **start**: The start time of an interval or set of intervals, e.g.   "2023-06-15T12:58:08.000Z".
+  * **duration**: The duration of an interval or set of intervals, e.g.   "PT1H".
+  * **randomizeStart**: Indicates a randomization time that may be applied to start, e.g. "PT5M".
+
+
 * **valuesMap**: Represents one or more values associated with a type.
-* **type**: Enumerated or private string signifying the nature of values,
-e.g. \"PRICE\".
-* **values**: : A sequence of data points. Most often a singular value
-such as a price. \[None\]
+  * **type**: Enumerated or private string signifying the nature of values, e.g. "PRICE".
+  * **values**: : A sequence of data points. Most often a singular value such as a price. [None]
+
+
 * **point**: A pair of floats typically used as a point on a 2 dimensional
 grid.
-* **x**: a value on an x axis
-* **y**: a value on a y axis
+  * **x**: a value on an x axis
+  * **y**: a value on a y axis
+
 * **eventPayloadDescriptor**: Contextual information used to interpret
 event payload values.
-* **payloadType**: Enumerated or private string signifying the nature of
-values, e.g. \"PRICE\".
-* **units**: units of measure, e.g. \"KWH\".
-* **currency**: currency of price payload, e.g. \"USD\".
-* **reportPayloadDescriptor**: Contextual information used to interpret
-report payload values.
-* **payloadType**: Enumerated or private string signifying the nature of
-values, e.g. \"USAGE\".
-* **readingType**: Enumerated or private string signifying the type of
-reading,\
-e.g. \"DIRECT_READ\". \[\"DIRECT_READ\"\]
-* **units**: units of measure, e.g. \"KWH\".
-* **accuracy**: a quantification of the accuracy of a set of payload
-values.
-* **confidence**: a quantification of the confidence in a set of payload
-values.
-* **reportDescriptor**: An object that may be used to request a report
-from a VEN.
-* **payloadType**: Enumerated or private string signifying the nature of
-values, e.g. \"USAGE\".
-* **readingType**: Enumerated or private string signifying the type of
-reading, e.g. \"DIRECT_READ\".
-* **units**: units of measure, e.g. \"KWH\".
-* **targets**: An array of valuesMap objects.
-* **aggregate**: True if report should aggregate results from all targeted
-resources \[false\]
-* **startInterval**: The interval on which to generate a report. \[-1\]
-* **numIntervals**: The number of intervals to include in a report. \[-1\]
-* **historical**: True indicates report on intervals preceding
-startInterval. \[true\]
-* **frequency**: Number of intervals that elapse between reports. \[-1\]
-* **repeat**: Number of times to repeat a report. \[1\]
+  * **payloadType**: Enumerated or private string signifying the nature of values, e.g. "PRICE".
+  * **units**: units of measure, e.g. "KWH".
+  * **currency**: currency of price payload, e.g. "USD".
+
+
+* **reportPayloadDescriptor**: Contextual information used to interpret report payload values.
+  * **payloadType**: Enumerated or private string signifying the nature of values, e.g. "USAGE".
+  * **readingType**: Enumerated or private string signifying the type of reading, e.g. "DIRECT_READ". ["DIRECT_READ"]
+  * **units**: units of measure, e.g. "KWH".
+  * **accuracy**: a quantification of the accuracy of a set of payload
+  values.
+  * **confidence**: a quantification of the confidence in a set of payload values.
+
+
+* **reportDescriptor**: An object that may be used to request a report from a VEN.
+  * **payloadType**: Enumerated or private string signifying the nature of   values, e.g. \"USAGE\".
+  * **readingType**: Enumerated or private string signifying the type of   reading, e.g. \"DIRECT_READ\".
+  * **units**: units of measure, e.g. \"KWH\".
+  * **targets**: An array of valuesMap objects.
+  * **aggregate**: True if report should aggregate results from all targeted   resources \[false\]
+  * **startInterval**: The interval on which to generate a report. \[-1\]
+  * **numIntervals**: The number of intervals to include in a report. \[-1\]
+  * **historical**: True indicates report on intervals preceding   startInterval. \[true\]
+  * **frequency**: Number of intervals that elapse between reports. \[-1\]
+  * **repeat**: Number of times to repeat a report. \[1\]
+
+
 * **objectID**: URL safe VTN assigned object ID.
+
 * **notification**: the object that is the subject of the notification.
-* **objectType**: type of object being returned, i.e. PROGRAM, EVENT,
-REPORT, e.g. \"EVENT\".
-* **operation**: the operation on on object that triggered the
-notification, e.g. \"POST\".
-* **object**: the object that is the subject of the notification.
+  * **objectType**: type of object being returned, i.e. PROGRAM, EVENT,   REPORT, e.g. \"EVENT\".
+  * **operation**: the operation on on object that triggered the   notification, e.g. \"POST\".
+  * **object**: the object that is the subject of the notification.
+
 * **objectTypes**: Types of objects addressable through API.
+
 * **dateTime**: datetime in ISO 8601 format
+
 * **duration**: duration in ISO 8601 format
+
 * **problem**: reusable error response. From
 https://opensource.zalando.com/problem/schema.yaml
-* **type**: An absolute URI that identifies the problem type. When
-dereferenced, it SHOULD provide human-readable documentation for the problem type (e.g., using HTML). e.g. \"\'https://zalando.github.io/problem/constraint-violation\'\". \[\'about:blank\'\]
-* **title**: A short summary of the problem type. Written in english and
-readable, e.g. \"\".
-* **status**: The HTTP status code generated by the origin server for this
-occurrence.
-* **detail**: A human readable explanation specific to this occurrence of
-the problem,\
-e.g. \"Connection to database timed out\".
-* **instance**: An absolute URI that identifies the specific occurrence of
-the problem, e.g. \"\".
-* **bindings**: An object detailing the supported messaging protocol
-bindings supported by the VTN.
+  * **type**: An absolute URI that identifies the problem type. When dereferenced, it SHOULD provide human-readable documentation for the problem type (e.g., using HTML). e.g. \"\'https://zalando.github.io/problem/constraint-violation\'\". \[\'about:blank\'\]
+  * **title**: A short summary of the problem type. Written in english and readable, e.g. \"\".
+  * **status**: The HTTP status code generated by the origin server for this occurrence.
+  * **detail**: A human readable explanation specific to this occurrence of the problem, e.g. \"Connection to database timed out\".
+  * **instance**: An absolute URI that identifies the specific occurrence of the problem
+
+* **bindings**: An object detailing the supported messaging protocol bindings supported by the VTN.
+
 * **binding:** An object detailing a specific message protocol binding.
-* **connectionURI**: The URI providing message broker connection details.
-* **serialization**: Enumerated string specifying the serialization format
-of the notification messages.
-* **auth**: Enumerated string specifying the authentication method
-required by the broker.
-* **certs**: An object providing the strings required for the client to
-connect with a certificate.
-* **certs**: An object providing the cert strings required to connect to
-the message broker.
-* **ca_crt**: String containing the Certificate Authority certificate.
-* **client_crt:** String containing the client certificate.
-* **client_key:** String containing the client private key.
+  * **connectionURI**: The URI providing message broker connection details.
+  * **serialization**: Enumerated string specifying the serialization format of the notification messages.
+  * **auth**: Enumerated string specifying the authentication method required by the broker.
+  * **certs**: An object providing the strings required for the client to connect with a certificate.
+
+
+* **certs**: An object providing the cert strings required to connect to the message broker.
+  * **ca_crt**: String containing the Certificate Authority certificate.
+  * **client_crt:** String containing the client certificate.
+  * **client_key:** String containing the client private key.
+
 * **topicNames:** An object providing topic names (per operation).
-* **request:** A string containing the object(s) associated with the topic
-names.
-* **topics:** An object providing the topic names for operations on the
-subscribe-able object.
-* **binding:** An enumerated string describing the binding associated with
-the topic names.
-* **topics:** An object providing the topic names for operations on the
-subscribe-able object.
-* **CREATE:** Topic name string for create operations on the
-subscribe-able object.
-* **UPDATE:** Topic name string for update operations on the
-subscribe-able object.
-* **DELETE:** Topic name string for delete operations on the
-subscribe-able object.
-* **ALL:** Topic name string for all/any operations on the subscribe-able
-object.
+  * **request:** A string containing the object(s) associated with the topic names.
+  * **topics:** An object providing the topic names for operations on the subscribe-able object.
+  * **binding:** An enumerated string describing the binding associated with the topic names.
+
+
+* **topics:** An object providing the topic names for operations on the subscribe-able object.
+  * **CREATE:** Topic name string for create operations on the
+  subscribe-able object.
+  * **UPDATE:** Topic name string for update operations on the
+  subscribe-able object.
+  * **DELETE:** Topic name string for delete operations on the
+  subscribe-able object.
+  * **ALL:** Topic name string for all/any operations on the subscribe-able object.
 
 # EndPoints
 
@@ -968,337 +888,168 @@ specification:
 
 **TODO** Develop scripting to read this information out of the specification
 
-read_all: VENs and BL can read all resources
-
-write_programs: only BL can write to programs
-
-write_events: only BL can write to events
-
-write_reports: only VENs can write reports
-
-write_subscriptions: only VENs can write subscriptions
-
-write_vens: VENS and BL can write to vens and resources
-
-/programs:
-
-get:
-
-description: List all programs known to the server.
-
-security: \[read_all\]
-
-query parameters: targetType targetValues skip limit
-
-post:
-
-description: Create a new program in the server.
-
-security: \[write_programs\]
-
-requestBody: program
-
-/programs/{programID}:
-
-get:
-
-description: Fetch the program specified by the programID in path.
-
-security: \[read_all\]
-
-put:
-
-description: Update an existing program with the programID in path.
-
-security: \[write_programs\]
-
-requestBody: program
-
-delete:
-
-description: Delete an existing program with the programID in path.
-
-security: \[write_programs\]
-
-/reports:
-
-get:
-
-description: List all reports known to the server.
-
-security: \[read_all\]
-
-query parameters: programID clientName skip limit
-
-post:
-
-description: Create a new report on the server.
-
-security: \[write_reports\]
-
-requestBody: report
-
-/reports/{reportID}:
-
-get:
-
-description: Fetch the report specified by the reportID in path.
-
-security: \[read_all\]
-
-put:
-
-description: Update the report specified by the reportID in path.
-
-security: \[write_reports\]
-
-requestBody: report
-
-delete:
-
-description: Delete the program specified by the reportID in path.
-
-security: \[write_reports\]
-
-/events:
-
-get:
-
-description: List all events known to the server. May filter results by
-programID query param.
-
-security: \[read_all\]
-
-query parameters: programID targetType targetValues skip limit
-
-post:
-
-description: Create a new event in the server.
-
-security: \[write_events\]
-
-requestBody: event
-
-/events/{eventID}:
-
-get:
-
-description: Fetch event associated with the eventID in path.
-
-security: \[read_all\]
-
-put:
-
-description: Update the event specified by the eventID in path.
-
-security: \[write_events\]
-
-requestBody: event
-
-delete:
-
-description: Delete the event specified by the eventID in path.
-
-security: \[write_events\]
-
-/subscriptions:
-
-get:
-
-description: List all subscriptions.
-
-security: \[read_all\]
-
-query parameters: programID clientName targetType targetValues
-objectTypes skip limit
-
-post:
-
-description: Create a new subscription.
-
-security: \[write_subscriptions\]
-
-requestBody: subscription
-
-/subscriptions/{subscriptionID}:
-
-get:
-
-description: Return the subscription specified by subscriptionID
-specified in path.
-
-security: \[read_all\]
-
-put:
-
-description: Update the subscription specified by subscriptionID
-specified in path.
-
-security: \[write_subscriptions\]
-
-delete:
-
-description: Delete the subscription specified by subscriptionID
-specified in path.
-
-security: \[write_subscriptions\]
-
-/vens:
-
-get:
-
-description: List all vens.
-
-security: \[read_all\]
-
-query parameters: targetType targetValues skip limit
-
-post:
-
-description: Create a new ven.
-
-security: \[write_vens\]
-
-requestBody: ven
-
-/vens/{venID}:
-
-get:
-
-description: Return the ven specified by venID specified in path.
-
-security: \[read_all\]
-
-put:
-
-description: Update the ven specified by venID specified in path.
-
-security: \[write_vens\]
-
-delete:
-
-description: Delete the ven specified by venID specified in path.
-
-security: \[write_vens\]
-
-/vens/{venID}/resources:
-
-get:
-
-description: Return the ven resources specified by venID specified in
-path.
-
-security: \[read_all\]
-
-query parameters: targetType targetValues skip limit
-
-post:
-
-description: Create a new resource.
-
-security: \[write_vens\]
-
-requestBody: resource
-
-/vens/{venID}/resources/{resourceID}:
-
-get:
-
-description: Return the ven resource specified by venID and resourceID
-specified in path.
-
-security: \[read_all\]
-
-put:
-
-description: Update the ven resource specified by venID and resourceID
-specified in path.
-
-security: \[write_vens\]
-
-delete:
-
-description: Delete the ven resource specified by venID and resourceID
-specified in path.
-
-security: \[write_vens\]
-
-/auth/token:
-
-get:
-
-description: client ID to exchange for bearer token.
-
-query parameters: clientID clientSecret
-
-/brokers:
-
-get:
-
-description: Return all message protocol bindings supported by VTN
-
-security: \[read_all\]
-
-/brokers/{bindingName}/topics/programs
-
-get:
-
-description: Return topic names to subscribe to all programs operations
-
-security: \[read_all\]
-
-/brokers/{bindingName}/topics/programs/{programID}
-
-get:
-
-description: Return topic names to subscribe to program operations
-specified by programID
-
-security: \[read_all\]
-
-/brokers/{bindingName}/topics/programs/{programID}/events
-
-get:
-
-description: Return topic names to subscribe to the program specified by
-programID's events
-
-security: \[read_all\]
-
-/brokers/{bindingName}/topics/programs/{programID}/reports
-
-get:
-
-description: Return topic names to subscribe to the program specified by
-programID's reports
-
-security: \[read_all\]
-
-/brokers/{bindingName}/topics/programs/{programID}/subscriptions
-
-get:
-
-description: Return topic names to subscribe to the program specified by
-programID's subscriptions
-
-security: \[read_all\]
-
-/brokers/{bindingName}/topics/vens
-
-get:
-
-description: Return topic names to subscribe to all vens operations
-
-security: \[read_all\]
-
-/brokers/{bindingName}/topics/vens/{venID}/resources
-
-get:
-
-description: Return topic names to subscribe to all vens operations
-specified by venID
-
-security: \[read_all\]
+| Scope       | Description |
+|-------------|------------------------------------|
+| `read_all:` | VENs and BL can read all resources |
+| `write_programs:` | only BL can write to programs |
+| `write_events:` | only BL can write to events |
+| `write_reports:` | only VENs can write reports |
+| `write_subscriptions:` | only VENs can write subscriptions |
+| `write_vens:` | VENS and BL can write to vens and resources |
+
+* `/programs:`
+  * `get:`
+    * description: List all programs known to the server.
+    * security: \[read_all\]
+    * query parameters: targetType targetValues skip limit
+  * post:
+    * description: Create a new program in the server.
+    * security: \[write_programs\]
+    * requestBody: program
+* /programs/{programID}:
+  * get:
+    * description: Fetch the program specified by the programID in path.
+    * security: \[read_all\]
+  * put:
+    * description: Update an existing program with the programID in path.
+    * security: \[write_programs\]
+    * requestBody: program
+  * delete:
+    * description: Delete an existing program with the programID in path.
+    * security: \[write_programs\]
+* /reports:
+  * get:
+    * description: List all reports known to the server.
+    * security: \[read_all\]
+    * query parameters: programID clientName skip limit
+  * post:
+    * description: Create a new report on the server.
+    * security: \[write_reports\]
+    * requestBody: report
+* /reports/{reportID}:
+  * get:
+    * description: Fetch the report specified by the reportID in path.
+    * security: \[read_all\]
+  * put:
+    * description: Update the report specified by the reportID in path.
+    * security: \[write_reports\]
+    * requestBody: report
+  * delete:
+    * description: Delete the program specified by the reportID in path.
+    * security: \[write_reports\]
+* /events:
+  * get:
+    * description: List all events known to the server. May filter results by programID query param.
+    * security: \[read_all\]
+    * query parameters: programID targetType targetValues skip limit
+  * post:
+    * description: Create a new event in the server.
+    * security: \[write_events\]
+    * requestBody: event
+* /events/{eventID}:
+  * get:
+    * description: Fetch event associated with the eventID in path.
+    * security: \[read_all\]
+  * put:
+    * description: Update the event specified by the eventID in path.
+    * security: \[write_events\]
+    * requestBody: event
+  * delete:
+    * description: Delete the event specified by the eventID in path.
+    * security: \[write_events\]
+* /subscriptions:
+  * get:
+    * description: List all subscriptions.
+    * security: \[read_all\]
+    * query parameters: programID clientName targetType targetValues objectTypes skip limit
+  * post:
+    * description: Create a new subscription.
+    * security: \[write_subscriptions\]
+    * requestBody: subscription
+* /subscriptions/{subscriptionID}:
+  * get:
+    * description: Return the subscription specified by subscriptionID specified in path.
+    * security: \[read_all\]
+  * put:
+    * description: Update the subscription specified by subscriptionID specified in path.
+    * security: \[write_subscriptions\]
+  * delete:
+    * description: Delete the subscription specified by subscriptionID specified in path.
+    * security: \[write_subscriptions\]
+* /vens:
+  * get:
+    * description: List all vens.
+    * security: \[read_all\]
+    * query parameters: targetType targetValues skip limit
+  * post:
+    * description: Create a new ven.
+    * security: \[write_vens\]
+    * requestBody: ven
+* /vens/{venID}:
+  * get:
+    * description: Return the ven specified by venID specified in path.
+    * security: \[read_all\]
+  * put:
+    * description: Update the ven specified by venID specified in path.
+    * security: \[write_vens\]
+  * delete:
+    * description: Delete the ven specified by venID specified in path.
+    * security: \[write_vens\]
+* /vens/{venID}/resources:
+  * get:
+    * description: Return the ven resources specified by venID specified in path.
+    * security: \[read_all\]
+    * query parameters: targetType targetValues skip limit
+  * post:
+    * description: Create a new resource.
+    * security: \[write_vens\]
+    * requestBody: resource
+* /vens/{venID}/resources/{resourceID}:
+  * get:
+    * description: Return the ven resource specified by venID and resourceID specified in path.
+    * security: \[read_all\]
+  * put:
+    * description: Update the ven resource specified by venID and resourceID specified in path.
+    * security: \[write_vens\]
+  * delete:
+    * description: Delete the ven resource specified by venID and resourceID specified in path.
+    * security: \[write_vens\]
+* /auth/token:
+  * get:
+    * description: client ID to exchange for bearer token.
+    * query parameters: clientID clientSecret
+* /brokers:
+  * get:
+    * description: Return all message protocol bindings supported by VTN
+    * security: \[read_all\]
+* /brokers/{bindingName}/topics/programs
+  * get:
+    * description: Return topic names to subscribe to all programs operations
+    * security: \[read_all\]
+* /brokers/{bindingName}/topics/programs/{programID}
+  * get:
+    * description: Return topic names to subscribe to program operations specified by programID
+    * security: \[read_all\]
+* /brokers/{bindingName}/topics/programs/{programID}/events
+  * get:
+    * description: Return topic names to subscribe to the program specified by programID's events
+    * security: \[read_all\]
+* /brokers/{bindingName}/topics/programs/{programID}/reports
+  * get:
+    * description: Return topic names to subscribe to the program specified by programID's reports
+    * security: \[read_all\]
+* /brokers/{bindingName}/topics/programs/{programID}/subscriptions
+  * get:
+    * description: Return topic names to subscribe to the program specified by programID's subscriptions
+    * security: \[read_all\]
+* /brokers/{bindingName}/topics/vens
+  * get:
+    * description: Return topic names to subscribe to all vens operations
+    * security: \[read_all\]
+* /brokers/{bindingName}/topics/vens/{venID}/resources
+  * get:
+    * description: Return topic names to subscribe to all vens operations specified by venID
+    * security: \[read_all\]
 
 # Revision
 
@@ -1446,190 +1197,9 @@ Program. For example:
 
 **TODO** For these Enumeration tables, look into extracting data from the schema files
 
-<schema-descriptions id="event-payload-enumeration" schemahref="/home/david/Projects/openadr/openapi-3.0.0/enumerations/event-interval-payloads.schema.yaml"></schema-descriptions>
+**TODO** The extraction worked for some tables but not others.  EXPLORE
 
-| **Event payload type**     |  **Definition**                         |
-|=====================|================================================|
-| SIMPLE              | An indication of the level of a basic demand   |
-|                     | response signal. Payload value is an integer   |
-|                     | of 0, 1, 2, or 3.                              |
-|                     |                                                |
-|                     | Note: An example mapping is normal operations, |
-|                     | moderate load shed, high load shed, and        |
-|                     | emergency load shed.                           |
-+---------------------+------------------------------------------------+
-| PRICE               | The price of energy. Payload value is a float. |
-|                     | Units and currency defined in associated       |
-|                     | eventPayloadDescriptor.\                       |
-|                     | Note: Can be used for any form of energy.      |
-+---------------------+------------------------------------------------+
-| CH                  | The state of charge of an energy storage       |
-| ARGE_STATE_SETPOINT | resource. Payload value is indicated by units  |
-|                     | in associated eventPayloadDescriptor.          |
-|                     |                                                |
-|                     | Note: Common units are percentage and kWh.     |
-+---------------------+------------------------------------------------+
-| DISPATCH_SETPOINT   | The absolute amount of consumption by a        |
-|                     | resource. Payload value is a float and is      |
-|                     | indicated by units in associated               |
-|                     | eventPayloadDescriptor.\                       |
-|                     | Note: This is used to dispatch resources.      |
-+---------------------+------------------------------------------------+
-| DISPATC             | The relative change of consumption by a        |
-| H_SETPOINT_RELATIVE | resource. Payload value is a float and is      |
-|                     | indicated by units in associated               |
-|                     | eventPayloadDescriptor.\                       |
-|                     | Note: This is used to dispatch a resource's    |
-|                     | load.                                          |
-+---------------------+------------------------------------------------+
-| CONTROL_SETPOINT    | Resource dependent setting. Payload value type |
-|                     | depends on application.                        |
-+---------------------+------------------------------------------------+
-| EXPORT_PRICE        | The price of energy exported (usually to the   |
-|                     | grid). Payload value is float and units and    |
-|                     | currency are defined in associated             |
-|                     | eventPayloadDescriptor.\                       |
-|                     | Note: Can be used for any form of energy.      |
-+---------------------+------------------------------------------------+
-| GHG                 | An estimate of marginal GreenHouse Gas         |
-|                     | emissions, in g/kWh. Payload value is float.   |
-+---------------------+------------------------------------------------+
-| CURVE               | Payload values array contains a series of one  |
-|                     | or more pairs of floats representing a 2D      |
-|                     | point.                                         |
-|                     |                                                |
-|                     | Note: May be used to represent a curve of      |
-|                     | values, e.g. VoltVar values.                   |
-+---------------------+------------------------------------------------+
-| OLS                 | Optimum Load Shape. Payload values array       |
-|                     | contains a list of values 0.0 to 1.0           |
-|                     | representing percentage of usage over the set  |
-|                     | of intervals in the event.                     |
-|                     |                                                |
-|                     | Note: See ANSI-SCTE 267.                       |
-+---------------------+------------------------------------------------+
-| IMPORT_CA           | The amount of import capacity a customer has   |
-| PACITY_SUBSCRIPTION | subscribed to in advance. Payload is a float,  |
-|                     | and meaning is indicated by units in           |
-|                     | associated eventPayloadDescriptor.             |
-+---------------------+------------------------------------------------+
-| IMPORT_C            | The amount of additional import capacity that  |
-| APACITY_RESERVATION | a customer has been granted by the VTN.        |
-|                     | Payload is a float, and meaning is indicated   |
-|                     | by units in associated eventPayloadDescriptor. |
-+---------------------+------------------------------------------------+
-| IMPORT_CAPAC        | The cost per unit of power of extra import     |
-| ITY_RESERVATION_FEE | capacity available for reservation. Payload is |
-|                     | a float, and meaning is indicated by units in  |
-|                     | associated eventPayloadDescriptor.             |
-+---------------------+------------------------------------------------+
-| IMPORT              | The amount of extra import capacity available  |
-| _CAPACITY_AVAILABLE | for reservation to the customer. Payload is a  |
-|                     | float, and meaning is indicated by units in    |
-|                     | associated eventPayloadDescriptor.             |
-+---------------------+------------------------------------------------+
-| IMPORT_CAPAC        | The cost per unit of power of extra import     |
-| ITY_AVAILABLE_PRICE | capacity available for reservation. Payload is |
-|                     | a float, and meaning is indicated by units in  |
-|                     | associated eventPayloadDescriptor.             |
-+---------------------+------------------------------------------------+
-| EXPORT_CA           | The amount of export capacity a customer has   |
-| PACITY_SUBSCRIPTION | subscribed to in advance. Payload is a float,  |
-|                     | and meaning is indicated by units in           |
-|                     | associated eventPayloadDescriptor.             |
-+---------------------+------------------------------------------------+
-| EXPORT_C            | The amount of additional export capacity that  |
-| APACITY_RESERVATION | a customer has been granted by the VTN.        |
-|                     | Payload is a float, and meaning is indicated   |
-|                     | by units in associated eventPayloadDescriptor. |
-+---------------------+------------------------------------------------+
-| EXPORT_CAPAC        | The cost per unit of power of extra export     |
-| ITY_RESERVATION_FEE | capacity available for reservation. Payload is |
-|                     | a float, and meaning is indicated by units in  |
-|                     | associated eventPayloadDescriptor.             |
-+---------------------+------------------------------------------------+
-| EXPORT              | The amount of extra export capacity available  |
-| _CAPACITY_AVAILABLE | for reservation to the customer. Payload is a  |
-|                     | float, and meaning is indicated by units in    |
-|                     | associated eventPayloadDescriptor.             |
-+---------------------+------------------------------------------------+
-| EXPORT_CAPAC        | The cost per unit of power of extra export     |
-| ITY_AVAILABLE_PRICE | capacity available for reservation. Payload is |
-|                     | a float, and meaning is indicated by units in  |
-|                     | associated eventPayloadDescriptor.             |
-+---------------------+------------------------------------------------+
-| IM                  | The maximum import level for the site. Payload |
-| PORT_CAPACITY_LIMIT | is a float and meaning is indicated by units   |
-|                     | in associated eventPayloadDescriptor.          |
-+---------------------+------------------------------------------------+
-| EX                  | The maximum export level for the site. Payload |
-| PORT_CAPACITY_LIMIT | is a float and meaning is indicated by units   |
-|                     | in associated eventPayloadDescriptor.          |
-+---------------------+------------------------------------------------+
-| A                   | There is an imminent risk of the grid failing  |
-| LERT_GRID_EMERGENCY | to continue supplying power to some customers, |
-|                     | maintaining operational parameters (e.g.       |
-|                     | voltage), or ceasing to operate at all.        |
-|                     | Payload value contains a human-readable string |
-|                     | describing the alert.                          |
-+---------------------+------------------------------------------------+
-| ALERT_BLACK_START   | The grid is in the process of resuming full    |
-|                     | operation. Devices should minimize electricity |
-|                     | use until the event is cleared. Payload value  |
-|                     | contains a human-readable string describing    |
-|                     | the alert.                                     |
-+---------------------+------------------------------------------------+
-| AL                  | Customers may lose grid power in the coming    |
-| ERT_POSSIBLE_OUTAGE | hours or days.\                                |
-|                     | Note: An example of this from California is    |
-|                     | Public Service Power Shutoffs (usually from    |
-|                     | fire risk). Payload value contains a           |
-|                     | human-readable string describing the alert.    |
-+---------------------+------------------------------------------------+
-| ALERT_FLEX_ALERT    | Power supply will be scarce during the event.  |
-|                     | Devices should seek to shift load to times     |
-|                     | before or after the event. Devices that can    |
-|                     | shed should do so during the event. Payload    |
-|                     | value contains a human-readable string         |
-|                     | describing the alert.                          |
-|                     |                                                |
-|                     | Note: See: flexalert.org                       |
-+---------------------+------------------------------------------------+
-| ALERT_FIRE          | There is a substantial risk of fire in the     |
-|                     | area which could interrupt electricity supply  |
-|                     | in addition to being a danger to life and      |
-|                     | property. Payload value contains a             |
-|                     | human-readable string describing the alert.    |
-+---------------------+------------------------------------------------+
-| ALERT_FREEZING      | There is (or is forecast to be) temperatures   |
-|                     | low enough to be of concern. Payload value     |
-|                     | contains a human-readable string describing    |
-|                     | the alert.                                     |
-+---------------------+------------------------------------------------+
-| ALERT_WIND          | There is (or is forecast to be) wind speeds    |
-|                     | high enough to be of concern. Includes         |
-|                     | hurricanes. Payload value contains a           |
-|                     | human-readable string describing the alert.    |
-+---------------------+------------------------------------------------+
-| ALERT_TSUNAMI       | Tsunami waves expected to hit the coastline.   |
-|                     | Payload value contains a human-readable string |
-|                     | describing the alert.                          |
-+---------------------+------------------------------------------------+
-| ALERT_AIR_QUALITY   | Air quality is or is forecast to be. Payload   |
-|                     | value contains a human-readable string         |
-|                     | describing the alert.                          |
-+---------------------+------------------------------------------------+
-| ALERT_OTHER         | No specific definition. See associated text    |
-|                     | data element. Payload value contains a         |
-|                     | human-readable string describing the alert.    |
-+---------------------+------------------------------------------------+
-| CTA2045_REBOOT      | Pass through for resources that support        |
-|                     | \[CTA-2045B\]*.* Payload value 0 = SOFT, 1 =   |
-|                     | HARD. See \[CTA-2045B\] for definitions.       |
-+---------------------+------------------------------------------------+
-| CTA2045_            | Pass through CTA-2045 Override status: 0 = No  |
-| SET_OVERRIDE_STATUS | Override, 1 = Override. See \[CTA-2045B\].     |
-+---------------------+------------------------------------------------+
+<schema-descriptions id="event-payload-enumeration" schemahref="/home/david/Projects/openadr/openapi-3.0.0/enumerations/event-interval-payloads.schema.yaml"></schema-descriptions>
 
 ## Report Enumerations
 
@@ -1660,115 +1230,6 @@ of a payload included in an interval included in a report. For example:
 
 <schema-descriptions id="report-payload-enumeration" schemahref="/home/david/Projects/openadr/openapi-3.0.0/enumerations/report-payloads.schema.yaml"></schema-descriptions>
 
-
-+----------------+-----------------------------------------------------+
-| **Report       | > **Definition**                                    |
-| payload Type** |                                                     |
-+================+=====================================================+
-| READING        | An instantaneous data point, as from a meter. Same  |
-|                | as pulse count. Payload value is a float and units  |
-|                | are defined in payloadDescriptor.                   |
-+----------------+-----------------------------------------------------+
-| USAGE          | Energy usage over an interval. Payload value is a   |
-|                | float and units are defined in payloadDescriptor.   |
-+----------------+-----------------------------------------------------+
-| DEMAND         | Power usage for an interval, i.e. Real Power.       |
-|                | Payload value is a float, units defined in          |
-|                | payloadDescriptor. Reading type indicates MEAN,     |
-|                | PEAK, FORECAST.                                     |
-+----------------+-----------------------------------------------------+
-| SETPOINT       | Current control setpoint of a resource, see         |
-|                | CONTROL_SETPOINT event payloadType above. Payload   |
-|                | values are determined by application.               |
-+----------------+-----------------------------------------------------+
-| DELTA_USAGE    | Change in usage as compared to a baseline. Payload  |
-|                | value is a float and units are defined in           |
-|                | payloadDescriptor.                                  |
-+----------------+-----------------------------------------------------+
-| BASELINE       | Indicates energy or power consumption in the        |
-|                | absence of load control. Payload value is           |
-|                | determined by reading type which may indicate usage |
-|                | or demand.                                          |
-+----------------+-----------------------------------------------------+
-| O              | Payload values array includes a list of operating   |
-| PERATING_STATE | state enumerations, see below.                      |
-+----------------+-----------------------------------------------------+
-| UP_REGULA      | Up Regulation capacity available for dispatch, in   |
-| TION_AVAILABLE | real power. Payload value is a float, units defined |
-|                | in payloadDescriptor. Reading type indicates MEAN,  |
-|                | PEAK, FORECAST.                                     |
-+----------------+-----------------------------------------------------+
-| DOWN_REGULA    | Down Regulation capacity available for dispatch, in |
-| TION_AVAILABLE | real power. Payload value is a float, units defined |
-|                | in payloadDescriptor. Reading type indicates MEAN,  |
-|                | PEAK, FORECAST.                                     |
-+----------------+-----------------------------------------------------+
-| REGUL          | Regulation setpoint as instructed as part of        |
-| ATION_SETPOINT | regulation services. Payload value is a float,      |
-|                | units defined in payloadDescriptor. Reading type    |
-|                | indicates MEAN, PEAK, FORECAST.                     |
-+----------------+-----------------------------------------------------+
-| STORAGE_U      | Usable energy that the storage device can hold when |
-| SABLE_CAPACITY | fully charged. Payload value is a float, units of   |
-|                | energy defined in payloadDescriptor.                |
-+----------------+-----------------------------------------------------+
-| STORAG         | Current storage charge level expressed as a         |
-| E_CHARGE_LEVEL | percentage, where 0% is empty and 100% is full.     |
-|                | Payload value is a float, units of PERCENT defined  |
-|                | in payloadDescriptor.                               |
-+----------------+-----------------------------------------------------+
-| STORAGE_MAX_D  | The maximum sustainable power that can be           |
-| ISCHARGE_POWER | discharged into an electricity network (injection). |
-|                | Payload value is a float, units of power defined in |
-|                | payloadDescriptor.                                  |
-+----------------+-----------------------------------------------------+
-| STORAGE_MA     | The maximum sustainable power that can be charged   |
-| X_CHARGE_POWER | from an electricity network (load). Payload value   |
-|                | is a float, units of power defined in               |
-|                | payloadDescriptor.                                  |
-+----------------+-----------------------------------------------------+
-| SIMPLE_LEVEL   | Simple level that a VEN resource is operating at    |
-|                | for each Interval. Payload value is an integer 0,   |
-|                | 1, 2, 3 corresponding to values in SIMPLE events.   |
-+----------------+-----------------------------------------------------+
-| USAGE_FORECAST | Payload values array contains a single float        |
-|                | indicating expected resource usage for the          |
-|                | associated interval. Units of energy defined in     |
-|                | payloadDescriptor.                                  |
-+----------------+-----------------------------------------------------+
-| STORAGE_DIS    | Payload values array contains a single float        |
-| PATCH_FORECAST | indicating expected stored energy that could be     |
-|                | dispatched for the associated interval.             |
-+----------------+-----------------------------------------------------+
-| LOAD_SHED_D    | Payload values array contains a single float        |
-| ELTA_AVAILABLE | indicating expected increase or decrease in load by |
-|                | a resource for the associated interval.             |
-+----------------+-----------------------------------------------------+
-| GENERATION_D   | Payload values array contains a single float        |
-| ELTA_AVAILABLE | indicating expected generation by a resource for    |
-|                | the associated interval.                            |
-+----------------+-----------------------------------------------------+
-| DATA_QUALITY   | Payload values array contains a string indicating   |
-|                | data quality of companion report payload in the     |
-|                | same interval. Strings may be one of enumerated     |
-|                | Data Quality enumerations.                          |
-+----------------+-----------------------------------------------------+
-| IMPORT_RESERV  | Amount of additional import capacity requested.     |
-| ATION_CAPACITY | Payload values are a float.                         |
-+----------------+-----------------------------------------------------+
-| IMPORT_R       | Amount per unit of import capacity that the VEN is  |
-| ESERVATION_FEE | willing to pay for the requested reservation.       |
-|                | Payload value is a float with currency defined in   |
-|                | payloadDescriptor.                                  |
-+----------------+-----------------------------------------------------+
-| EXPORT_RESERV  | Amount of additional export capacity requested.     |
-| ATION_CAPACITY | Payload values are a float.                         |
-+----------------+-----------------------------------------------------+
-| EXPORT_R       | Amount per unit of export capacity that the VEN is  |
-| ESERVATION_FEE | willing to pay for the requested reservation.       |
-|                | Payload value is a float with currency defined in   |
-|                | payloadDescriptor.                                  |
-+----------------+-----------------------------------------------------+
 
 ## Reading Type Enumerations
 
@@ -1988,37 +1449,6 @@ target
 
 <schema-descriptions id="target-types-enumeration" schemahref="/home/david/Projects/openadr/openapi-3.0.0/enumerations/target-types.schema.yaml"></schema-descriptions>
 
-  -------------------------------------------------------------------------------
-
-  **label**                **description**
-
-  ------------------------ ------------------------------------------------------
-
-  POWER_SERVICE_LOCATION   A Power Service Location is a utility named specific
-                           location in geography or the distribution system,
-                           usually the point of service to a customer site.
-
-  SERVICE_AREA             A Service Area is a utility named geographic region.
-                           Target values array contains a string representing a
-                           service area name.
-
-  GROUP                    Target values array contains a string representing a
-                           group.
-
-  RESOURCE_NAME            Target values array contains a string representing a
-                           resource name.
-
-  VEN_NAME                 Target values array contains a string representing a
-                           VEN name.
-
-  EVENT_NAME               Target values array contains a string representing an
-                           event name.
-
-  PROGRAM_NAME             Target values array contains a string representing a
-                           program name.
-
-  -------------------------------------------------------------------------------
-
 ## Attribute Enumerations
 
 [VEN and resource representations may include a list of attributes,
@@ -2038,29 +1468,6 @@ attribute
 **Table 8. Attribute Enumerations**
 
 <schema-descriptions id="ven-resource-attributes-enumeration" schemahref="/home/david/Projects/openadr/openapi-3.0.0/enumerations/ven-resource-attributes.schema.yaml"></schema-descriptions>
-
-  -----------------------------------------------------------------------------
-
-  **label**               **description**
-
-  ----------------------- -----------------------------------------------------
-
-  LOCATION                [Describes a single geographic point. Values\[\]
-                          contains 2 floats, generally representing longitude
-                          and latitude. Demand Response programs may define
-                          their own use of these fields.]{.mark}
-
-  AREA                    [Describes a geographic area. Values\[\] contains
-                          application specific data. Demand Response programs
-                          may define their own use of these fields, such as
-                          GeoJSON polygon data.]{.mark}
-
-  MAX_POWER_CONSUMPTION   Values contains a floating point number describing
-                          the maximum consumption, in kiloWatts.
-
-  MAX_POWER_EXPORT        Values contains a floating point number describing
-                          the maximum power the device can export, in
-                          kiloWatts.
 
 DESCRIPTION             Free-form text tersely describing a ven or resource.
 -----------------------------------------------------------------------------

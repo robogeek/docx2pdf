@@ -11,6 +11,7 @@ const pluginName = 'OpenADR-Specification';
 export function mahabhutaArray(options) {
     let ret = new mahabhuta.MahafuncArray(pluginName, options);
     ret.addMahafunc(new SchemaDescriptions());
+    // ret.addMahafunc(new HnNumbering());
     return ret;
 };
 
@@ -68,3 +69,23 @@ export class SchemaDescriptions extends mahabhuta.CustomElement {
 //    page-break-before: always;
 // }
 // <div class="page_break"></div>
+
+
+class HnNumbering extends mahabhuta.PageProcessor {
+	async process($, metadata, dirty) /* : Promise<string> */ {
+
+        const headers = $("section > h1,h2,h3,h4,h5").get()
+        .map(element => {
+            return {
+                path: metadata.document.path,
+                id: $(element).attr('id'),
+                name: element.tagName,
+                text: $(element).text()
+            };
+        });
+
+        console.log(headers);
+        
+	}
+}
+
