@@ -44,7 +44,9 @@ TODO: This table does not align to the right, but is centered.
 
 :::
 
-# CONTENTS {.page_break}
+<!-- div style="page-break-before: always; page-break-after: always;"> <!-- Your page Content -->
+
+# CONTENTS { #contents .page_break}
 
 TODO: The Table of Contents  should have a page break before and after?
 
@@ -52,6 +54,7 @@ TODO: Automatic numbering of ToC items?
 
 [[toc]]
 
+<!-- /div -->
 
 # Introduction {.page_break}
 

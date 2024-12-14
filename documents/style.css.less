@@ -86,11 +86,16 @@ img.logo-image {
   padding: 10px;
 }
 
-/* https://stackoverflow.com/questions/22746958/dompdf-adding-a-new-page-to-pdf */
-
-div.page_break {
+section#contents {
+    page-break-after:  always;
     page-break-before: always;
 }
+
+/* https://stackoverflow.com/questions/22746958/dompdf-adding-a-new-page-to-pdf */
+
+// div.page_break {
+//     page-break-before: always;
+// }
 
 /* tables */
 
@@ -163,3 +168,4 @@ div.table p.title {
 table code {
     font-size: smaller;
 }
+

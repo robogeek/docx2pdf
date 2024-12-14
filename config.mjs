@@ -93,7 +93,8 @@ config
     .addFooterJavaScript({ href: "/vendor/popper.js/umd/popper.min.js" })
     .addFooterJavaScript({ href: "/vendor/bootstrap/js/bootstrap.min.js" })
     .addStylesheet({ href: "/vendor/bootstrap/css/bootstrap.min.css" })
-    .addStylesheet({       href: "/style.css" });
+    .addStylesheet({       href: "/style.css" })
+    .addStylesheet({       href: "/print.css" });
 
 config.setMahabhutaConfig({
     recognizeSelfClosing: true,
