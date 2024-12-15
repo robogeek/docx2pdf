@@ -1184,12 +1184,6 @@ Program. For example:
 
 **Table 1. Event Enumerations**
 
-
-
-**TODO** For these Enumeration tables, look into extracting data from the schema files
-
-**TODO** The extraction worked for some tables but not others.  EXPLORE
-
 <schema-descriptions id="event-payload-enumeration" schemahref="/home/david/Projects/openadr/openapi-3.0.0/enumerations/event-interval-payloads.schema.yaml"></schema-descriptions>
 
 ## Report Enumerations
