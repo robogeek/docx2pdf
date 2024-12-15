@@ -1,0 +1,28 @@
+
+<table {% if id %}id="{{ id | safe }}"{% endif %}>
+    <tr>
+        <th>Method</th>
+        <th>Path</th>
+        <th>Description</th>
+    </tr>
+    {% for endpoint in endpoints %}
+    <tr>
+        <td class="align-middle"><code>{{ endpoint.method | upper }}</code></td>
+        <td class="align-middle"><code>{{ endpoint.path }}</code></td>
+        <td class="align-middle">
+        {% if endpoint.description %}
+        <p>Description: {{ endpoint.description }}</p>
+        {% endif %}
+        {% if endpoint.security %}
+        <p>Security: {{ endpoint.security }}</p>
+        {% endif %}
+        {% if endpoint.queryParameters %}
+        <p>Query Parameters: {{ endpoint.queryParameters }}</p>
+        {% endif %}
+        {% if endpoint.requestBody %}
+        <p>Request Body: {{ endpoint.requestBody }}</p>
+        {% endif %}
+        </td>
+    </tr>
+    {% endfor %}
+</table>

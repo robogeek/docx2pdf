@@ -1,0 +1,25 @@
+
+<ul {% if id %}id="{{ id | safe }}"{% endif %}>
+    {% for endpoint in endpoints %}
+    <li><code>{{ endpoint.path }}</code>
+        <ul>
+            <li><code>{{ endpoint.method }}</code>
+                <ul>
+                    {% if endpoint.description %}
+                    <li>Description: {{ endpoint.description }}</li>
+                    {% endif %}
+                    {% if endpoint.security %}
+                    <li>Security: {{ endpoint.security }}</li>
+                    {% endif %}
+                    {% if endpoint.queryParameters %}
+                    <li>Query Parameters: {{ endpoint.queryParameters }}</li>
+                    {% endif %}
+                    {% if endpoint.requestBody %}
+                    <li>Request Body: {{ endpoint.requestBody }}</li>
+                    {% endif %}
+                </ul>
+            </li>
+        </ul>
+    </li>
+    {% endfor %}
+</ul>

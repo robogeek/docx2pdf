@@ -79,8 +79,6 @@ such messaging protocol defined.
 
 # Normative References
 
-TODO there should be (?) linking between these markers and any reference to the marker....?  That is, is it useful when reading the document to be able to click on the marker and see the reference?
-
 [OADR-3.0-Specification] OpenADR 3.0 OpenAPI YAML (SwaggerDoc) Specification, [[https://github.com/oadr3/openapi-3.0.0]](https://github.com/oadr3/openapi-3.0.0)
 
 [ISO 8601] ISO date and time format. https://www.iso.org/iso-8601-date-and-time-format.html
@@ -116,16 +114,13 @@ TODO there should be (?) linking between these markers and any reference to the 
 [Client Flow Overview] Client Credentials Flow. [[https://auth0.com/docs/get-started/authentication-and-authorization-flow/client-credentials-flow]](https://auth0.com/docs/get-started/authentication-and-authorization-flow/client-credentials-flow)
 [SEMVER] Semantic Versioning [[https://semver.org]](https://semver.org)
 
-[TLS] How SSL and TLS provide identification, authentication, confidentiality, and integrity,
-
-[[https://www.ibm.com/docs/en/ibm-mq/7.5?topic=ssl-how-tls-provide-authentication-confidentiality-integrity]](https://www.ibm.com/docs/en/ibm-mq/7.5?topic=ssl-how-tls-provide-authentication-confidentiality-integrity)
+[TLS] How SSL and TLS provide identification, authentication, confidentiality, and integrity, [[https://www.ibm.com/docs/en/ibm-mq/7.5?topic=ssl-how-tls-provide-authentication-confidentiality-integrity]](https://www.ibm.com/docs/en/ibm-mq/7.5?topic=ssl-how-tls-provide-authentication-confidentiality-integrity)
 
 [URI] Uniform Resource Identifier (URI): Generic Syntax [[https://www.rfc-editor.org/rfc/rfc3986]](https://www.rfc-editor.org/rfc/rfc3986)
 
 # Terms and Definitions
 
-OpenADR 3.0 adopts many terms from 2.0b directly, such as Event and
-Report. Terms that are new or modified are:
+OpenADR 3.0 adopts many terms from 2.0b directly, such as Event and Report. Terms that are new or modified are:
 
 - **Program** - The business context for a given usage of the VTN. May be a Demand Response program, tariff, or other business construct.
 - **ProgramName** - A unique name for a program or tariff. May be used by customers.
@@ -679,7 +674,7 @@ definition.
   * **programType**: User defined string categorizing the program, e.g. "PRICING_TARIFF".
   * **country**: Alpha-2 code per ISO 3166-1, e.g. "US".
   * **principalSubdivision**: Coding per ISO 3166-2. E.g. state in US, e.g. "CO".
-  * **timeZoneOffset**: An ISO 8601 duration that is to added to all interval.start values.
+  * **timeZoneOffset**: An [ISO 8601] duration that is to added to all interval.start values.
   * **intervalPeriod**: The temporal span of the program, could be years long.
   * **programDescriptions**: List of URLs to human and/or machine-readable content, e.g. "mple: www.myCorporation.com/myProgramDescription".
   * **bindingEvents**: True if events can be expected to not be modified. [false]
@@ -815,9 +810,9 @@ event payload values.
 
 * **objectTypes**: Types of objects addressable through API.
 
-* **dateTime**: datetime in ISO 8601 format
+* **dateTime**: datetime in [ISO 8601] format
 
-* **duration**: duration in ISO 8601 format
+* **duration**: duration in [ISO 8601] format
 
 * **problem**: reusable error response. From
 https://opensource.zalando.com/problem/schema.yaml
@@ -864,9 +859,9 @@ instances of the items described by the Information Model above are
 'resources', and CRUD operations are Create, Read, Update, and Destroy,
 implemented by the HTTP verbs POST, GET, PUT, and DELETE. There is
 copious free information on the web regarding REST APIs. One good
-example for background is \[REST_Best_Practice\].
+example for background is [REST_Best_Practice].
 
-The YAML document \[OADR-3.0-Specification\] provides the authoritative
+The YAML document [OADR-3.0-Specification] provides the authoritative
 and complete definition of the endpoint​​ and operations supported by the
 profile. For programs and events, only the BL will do POST, PUT, and
 DELETE operations. Only VENs will POST and PUT reports and
@@ -882,21 +877,16 @@ summarizes only the essential information for human readability. The
 term 'security' below indicates the scopes necessary to perform the
 associated operation. Scopes are discussed elsewhere.
 
-The security terms below (e.g. "security: \[read_all\]") indicate the
+The security terms below (e.g. "security: [read_all]") indicate the
 access permissions required to perform an operation. From the
 specification:
 
-**TODO** Develop scripting to read this information out of the specification
 
-| Scope       | Description |
-|-------------|------------------------------------|
-| `read_all:` | VENs and BL can read all resources |
-| `write_programs:` | only BL can write to programs |
-| `write_events:` | only BL can write to events |
-| `write_reports:` | only VENs can write reports |
-| `write_subscriptions:` | only VENs can write subscriptions |
-| `write_vens:` | VENS and BL can write to vens and resources |
+<openapi-security-scopes id="security-scopes"></openapi-security-scopes>
 
+<openapi-endpoints id="openadr-endpoints"></openapi-endpoints>
+
+<!--
 * `/programs:`
   * `get:`
     * description: List all programs known to the server.
@@ -1050,6 +1040,7 @@ specification:
   * get:
     * description: Return topic names to subscribe to all vens operations specified by venID
     * security: \[read_all\]
+-->
 
 # Revision
 
@@ -1233,15 +1224,9 @@ of a payload included in an interval included in a report. For example:
 
 ## Reading Type Enumerations
 
-These labels are qualifiers to report name labels, to indicate the
-nature of the reported value. DIRECT_READ is the default, if the
-qualifier is absent. Note that these apply to the data source in
-general, not to specific intervals.
+These labels are qualifiers to report name labels, to indicate the nature of the reported value. DIRECT_READ is the default, if the qualifier is absent. Note that these apply to the data source in general, not to specific intervals.
 
-Reading types are used in payloadDescriptor objects to provide context
-to associated payloads. For example:
-
-payloadDescriptor
+Reading types are used in `payloadDescriptor` objects to provide context to associated payloads. For example, reading type usage in a `payloadDescriptor`:
 
 ```json
 {
@@ -1251,7 +1236,7 @@ payloadDescriptor
 }
 ```
 
-valuesMap
+Reading type usage in a `valuesMap`:
 
 ```json
 {
@@ -1260,127 +1245,73 @@ valuesMap
 }
 ```
 
-**Figure 11. Example Reading Types as used in reportPayloadDescriptor
-and in report payload**
+**Figure 11. Example Reading Types as used in reportPayloadDescriptor and in report payload**
 
 **Table 3. Reading Type Enumerations**
 
 
-<!-- schema-descriptions id="reading-types-enumeration" schemahref="/home/david/Projects/openadr/openapi-3.0.0/enumerations/reading-types.schema.yaml"></schema-descriptions -->
+<!-- 
+
+This enumeration table is a simple "enum".
+Therefore we don't have a JSON table to read
+where there is a KEY and DESCRIPTION as two fields
+of an array of objects.
+
+<--schema-descriptions id="reading-types-enumeration" schemahref="/home/david/Projects/openadr/openapi-3.0.0/enumerations/reading-types.schema.yaml"></schema-descriptions 
+-->
 
 
-  **Reading type** **Definition**
+| **Reading type** | **Definition** |
+-------------------|----------------|
+| DIRECT_READ      | Payload values have been determined by direct measurement from a resource. |
+| ESTIMATED        | Payload value is an estimate where no Direct Read was available for the interval, but sufficient other data exist to make a reasonable estimate. |
+| SUMMED           | Payload value is the sum of multiple data sources. |
+| MEAN             | Payload value represents the mean measurements over an interval. |
+| PEAK             | Payload value represents the highest measurement over an interval. |
+| FORECAST         | Payload value is a forecast of future values, not a measurement or estimate of actual data. | 
+| AVERAGE          | Payload value represents the average of measurements over an interval. |
 
-  ---------------- ------------------------------------------------------
-
-  DIRECT_READ      Payload values have been determined by direct
-                   measurement from a resource.
-
-  ESTIMATED        Payload value is an estimate where no Direct Read was
-                   available for the interval, but sufficient other data
-                   exist to make a reasonable estimate.
-
-  SUMMED           Payload value is the sum of multiple data sources.
-
-  MEAN             Payload value represents the mean measurements over an
-                   interval.
-
-  PEAK             Payload value represents the highest measurement over
-                   an interval.
-
-  FORECAST         Payload value is a forecast of future values, not a
-                   measurement or estimate of actual data.
-
-  AVERAGE          Payload value represents the average of measurements
-                   over an interval.
-
-  -----------------------------------------------------------------------
 
 ## Operating State Enumerations
 
-These definitions characterize the operating state of a resource under
-control of a VEN.
+These definitions characterize the operating state of a resource under control of a VEN.
 
 **Table 4. Operating State Enumerations**
 
-**TODO** - No schema was made for this?
+<!-- As with Reading Type, this is a simple enumeration
+and if there were a schema file it would not
+be useful for constructing this table. -->
 
-  ------------------------------------------------------------------------
-
-  **Operating State**   **Definition**
-
-  --------------------- --------------------------------------------------
-
-  NORMAL                Resource is operating normally. No Demand Response
-                        directives are currently being followed.
-
-  ERROR                 Resource has self-reported an error or is not
-                        addressable by VEN.
-
-  IDLE_NORMAL           CTA-2045 device "Indicates that no demand response
-                        event is in effect and the SGD has
-                        no/insignificant energy consumption."
-
-  RUNNING_NORMAL        CTA-2045 device "Indicates that no demand response
-                        event is in effect and the SGD has significant
-                        energy consumption."
-
-  RUNNING_CURTAILED     CTA-2045 device "Indicates that a curtailment type
-                        demand response event is in effect and the SGD has
-                        significant energy consumption."
-
-  RUNNING_HEIGHTENED    CTA-2045 device "Indicates that a
-                        heightened-operation type of demand response event
-                        is in effect and the SGD has significant energy
-                        consumption."
-
-  IDLE_CURTAILED        CTA-2045 device "Indicates that a curtailment type
-                        demand response event is in effect and the SGD has
-                        no/insignificant energy consumption."
-
-  SGD_ERROR_CONDITION   CTA-2045 device "Indicates that the SGD is not
-                        operating because it needs maintenance support or
-                        is in some way disabled (i.e. no response to the
-                        grid)."
-
-  IDLE_HEIGHTENED       CTA-2045 device "Indicates that a
-                        heightened-operation type of demand response event
-                        is in effect and the SGD has no/insignificant
-                        energy consumption."
-
-  IDLE_OPTED_OUT        CTA-2045 device "Indicates that the SGD is
-                        presently opted out of any demand response events
-                        and the SGD has no/insignificant energy
-                        consumption."
-
-  RUNNING_OPTED_OUT     CTA-2045 device "Indicates that the SGD is
-                        presently opted out of any demand response events
-                        and the SGD has significant energy consumption."
-
-  ------------------------------------------------------------------------
+| **Operating State** |  **Definition** |
+|---------------------|-----------------|
+| NORMAL              | Resource is operating normally. No Demand Response directives are currently being followed. |
+| ERROR               | Resource has self-reported an error or is not addressable by VEN. |
+| IDLE_NORMAL         | CTA-2045 device "Indicates that no demand response event is in effect and the SGD has no/insignificant energy consumption." |
+| RUNNING_NORMAL      | CTA-2045 device "Indicates that no demand response event is in effect and the SGD has significant energy consumption." |
+| RUNNING_CURTAILED   | CTA-2045 device "Indicates that a curtailment type demand response event is in effect and the SGD has significant energy consumption." |
+| RUNNING_HEIGHTENED  | CTA-2045 device "Indicates that a heightened-operation type of demand response event is in effect and the SGD has significant energy consumption." |
+| IDLE_CURTAILED      | CTA-2045 device "Indicates that a curtailment type demand response event is in effect and the SGD has no/insignificant energy consumption." |
+| SGD_ERROR_CONDITION | CTA-2045 device "Indicates that the SGD is not operating because it needs maintenance support or is in some way disabled (i.e. no response to the grid)." |
+| IDLE_HEIGHTENED     | CTA-2045 device "Indicates that a heightened-operation type of demand response event is in effect and the SGD has no/insignificant energy consumption." |
+| IDLE_OPTED_OUT      | CTA-2045 device "Indicates that the SGD is presently opted out of any demand response events and the SGD has no/insignificant energy consumption." |
+| RUNNING_OPTED_OUT   | CTA-2045 device "Indicates that the SGD is presently opted out of any demand response events and the SGD has significant energy consumption." |
 
 ## ResourceName Enumerations
 
-**Table 5. resourceName Enumeration**
+TODO: Is there a description paragraph for this?  Where is this used?
 
-  ------------------------------------------------------------------------
+GUESS: This is in the Report object ... okay, in `report.resources[n].resourceName` there is this description: `description: User generated identifier. A value of AGGREGATED_REPORT indicates an aggregation of more that one resource's data`.  Hence, this section can have a paragraph referring to this.
 
-  AGGREGATED_REPORT   A report contains a list of resources, each of which
-                      may contain a list of intervals containing reporting
-                      data. Each item in the resource list contains a
-                      resourceName attribute. This resourceName indicates
-                      the interval data is the aggregate of data from more
-                      than one resource.
+**Table 5. `resourceName` Enumeration**
 
-  ------------------- ----------------------------------------------------
+| **Label**            | **Description**  |
+|--------------|------------------|
+| AGGREGATED_REPORT   | A report contains a list of resources, each of which may contain a list of intervals containing reporting data. Each item in the resource list contains a resourceName attribute. This resourceName indicates the interval data is the aggregate of data from more than one resource. |
 
-  ------------------------------------------------------------------------
 
 ## Data Quality Enumerations
 
-These can be used to qualify report payloads, to indicate the status of
-individual interval values. These are values that may be used in
-payloads of type DATA_QUALITY.
+These can be used to qualify report payloads, to indicate the status of individual interval values. These are values that may be used in payloads of type DATA_QUALITY.
 
 ```json
 {
@@ -1406,35 +1337,24 @@ payloads of type DATA_QUALITY.
 
 **Table 6. Data Quality Enumerations**
 
-  -----------------------------------------------------------------------
+<!-- Because this is a simple enum of possible values
+for the DATA_QUALITY payload, no schema file can be
+written from which we can autogenerate this table -->
 
-  **Data        **Definition**
-  quality       
-  values**      
 
-  ------------- ---------------------------------------------------------
+| **Data quality values**     |    **Definition** |
+|-----------------------------|------------------|         
+| OK            | There are no known reasons to doubt the validity of the data. |
+| MISSING       | The data item is unavailable for this interval. |
+| ESTIMATED     | This data item has been estimated from other relevant information such as adjacent intervals. |
+| BAD           | There is a data item but it is known or suspected to be erroneous. |
 
-  OK            There are no known reasons to doubt the validity of the
-                data.
-
-  MISSING       The data item is unavailable for this interval.
-
-  ESTIMATED     This data item has been estimated from other relevant
-                information such as adjacent intervals.
-
-  BAD           There is a data item but it is known or suspected to be
-                erroneous.
-
-  -----------------------------------------------------------------------
 
 ## Target Enumerations
 
-VENs, resources, subscriptions, events and programs may include a
-targets array, each element defining a targeting type and a set of
-appropriate values. Targeting values may be used to selectively read a
-subset of objects.
+VENs, resources, subscriptions, events and programs may include a targets array, each element defining a targeting type and a set of appropriate values. Targeting values may be used to selectively read a subset of objects.
 
-target
+Example target array entry:
 
 ```json
 {
@@ -1469,15 +1389,12 @@ attribute
 
 <schema-descriptions id="ven-resource-attributes-enumeration" schemahref="/home/david/Projects/openadr/openapi-3.0.0/enumerations/ven-resource-attributes.schema.yaml"></schema-descriptions>
 
-DESCRIPTION             Free-form text tersely describing a ven or resource.
------------------------------------------------------------------------------
 
 ## Unit Enumerations
 
-Units are used in payloadDescriptor objects to provide context to
-associated payloads.
+Units are used in `payloadDescriptor` objects to provide context to associated payloads.
 
-eventPayloadDescriptor
+Units in an `eventPayloadDescriptor`:
 
 ```json
 {
@@ -1487,7 +1404,7 @@ eventPayloadDescriptor
 }
 ```
 
-valuesMap
+Corresponding payload `valuesMap` showing a `PRICE` of `0.17` USD per kiloWatt-hour:
 
 ```json
 {
@@ -1496,107 +1413,66 @@ valuesMap
 }
 ```
 
-**Figure 15. Example Units used in eventPayloadDescriptor and payload**
+**Figure 15. Example Units used in `eventPayloadDescriptor` and payload**
 
 **Table 9. Unit Enumerations**
 
-<!-- schema-descriptions id="units-enumeration" schemahref="/home/david/Projects/openadr/openapi-3.0.0/enumerations/units.schema.yaml"></schema-descriptions -->
+<!--
+Because this is a simple enumeration, just as
+for some previous enumeration tables, there is
+no matching schema file from which to read
+these descriptions.
+-->
 
-  -----------------------------------------------------------------------
 
-  **label**      **description**
-
-  -------------- --------------------------------------------------------
-
-  KWH            kilowatt-hours (kWh)
-
-  GHG            Greenhouse gas emissions: g/kWh
-
-  VOLTS          volts (V)
-
-  AMPS           Current (A)
-
-  CELSIUS        Temperature (C)
-
-  FAHRENHEIT     Temperature (F)
-
-  PERCENT        \%
-
-  KW             kilowatts (kW)
-
-  KVAH           kilovolt-ampere hours (kVAh)
-
-  KVARH          kilovolt-amperes reactive hours (kVARh)
-
-  KVA            kilovolt-amperes (kVA)
-
-KVAR           kilovolt-amperes reactive (kVAR)
------------------------------------------------------------------------
+| **Label**    | **Description**      |
+|--------------|----------------------|
+| KWH          | kiloWatt-hours (kWh) |
+| GHG          | Greenhouse gas emissions: g/kWh |
+| VOLTS        | volts (V)            |
+| AMPS         | Current (A)          |
+| CELSIUS      | Temperature (C)      |
+| FAHRENHEIT   | Temperature (F)      |
+| PERCENT      | Percentage           |
+| KW           | kilowatts (kW)  |
+| KVAH         | kilovolt-ampere hours (kVAh) |
+| KVARH        | kilovolt-amperes reactive hours (kVARh) |
+| KVA          | kilovolt-amperes (kVA) |
+| KVAR         | kilovolt-amperes reactive (kVAR) |
 
 ## Currency Enumerations
 
-Currency is used in payloadDescriptor objects to provide context to
-associated payloads. See example above in the section titled "Units
-Enumerations".
+Currency is used in `payloadDescriptor` objects to provide context to associated payloads. See example above in the section titled "Units Enumerations".
 
-Currency denominations adhere to the ISO 4217 standard \[ISO 4217\].
-Also available on the web section \[ISO 4217\] - Currency Code
-Maintenance: Get the Correct Currency Code under "List One (XLS)".
+Currency denominations adhere to the ISO 4217 standard [ISO 4217]. Also available on the web section [ISO 4217] - Currency Code Maintenance: Get the Correct Currency Code under "List One (XLS)".
 
 ## 10.12. Binding Enumerations {#binding-enumerations .unnumbered}
 
-  -----------------------------------------------------------------------
-
-  **label**                           **description**
-
-  ----------------------------------- -----------------------------------
-
-  MQTT                                The binding specified is for the
-                                      MQTT protocol
-
-  -----------------------------------------------------------------------
+| **Label**            |  **Description** |
+|----------------------|------------------|
+| MQTT                 | The binding specified is for the MQTT protocol |
 
 ## 10.13. Serialization Enumerations {#serialization-enumerations .unnumbered}
 
-  -----------------------------------------------------------------------
-
-  **label**                           **description**
-
-  ----------------------------------- -----------------------------------
-
-  JSON                                Messages published to the topic are
-                                      JSON
-
-  -----------------------------------------------------------------------
+| **Label**            | **Description**  |
+|----------------------|------------------|
+| JSON                 | Messages published to the topic are in JSON format |
 
 ## 10.14. Message Broker Auth Enumerations {#message-broker-auth-enumerations .unnumbered}
 
-  -----------------------------------------------------------------------
-
-  **label**            **description**
-
-  -------------------- --------------------------------------------------
-
-  anonymous            No authentication to message broker
-
-  clientID-token       Use clientID as username and token as password
-
-  cert                 Use strings provided in the certs object as the
-                       client certificate
-
-  -----------------------------------------------------------------------
+| **Label**            | **Description**  |
+|----------------------|------------------|
+| `anonymous`          | No authentication to message broker |
+| `clientID-token`     | Use clientID as username and token as password |
+| `cert`               | Use strings provided in the certs object as the client certificate |
 
 # Security
 
-Security in OpenADR addresses the Authentication and Authorization of
-client requests to the VTN server. Common REST API best practices are
-followed, and the Oauth2 client credential flow describes the mechanism
-to secure the API.
+Security in OpenADR addresses the Authentication and Authorization of client requests to the VTN server. Common REST API best practices are followed, and the Oauth2 client credential flow describes the mechanism to secure the API.
 
 ## Security objectives
 
-The overall approach to security in OpenADR 3.0 is based on the
-following three pillars.
+The overall approach to security in OpenADR 3.0 is based on the following three pillars.
 
 - **Authentication.** A client request is Authenticated with a VTN in order to access resources[^1]. REST servers are 'stateless' and do not maintain session state, therefore every API request must contain some token or credential to allow the VTN server to authenticate the identity of the requestor.
 - **Authorization.** Within the context of a given program, a VEN will be authorized to access some set of resources and associated operations. The VTN server will limit access to resources and associated operations to those authorized to a requestor, based on the identity of the requestor. See Authentication above.

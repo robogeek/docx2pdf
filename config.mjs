@@ -15,6 +15,7 @@ import { default as MarkdownItAnchor } from 'markdown-it-anchor';
 import { default as MarkdownItTOC } from 'markdown-it-table-of-contents';
 import { default as MarkdownItSections } from 'markdown-it-header-sections';
 import { default as MarkdownItImageFigures } from 'markdown-it-image-figures';
+import { default as MarkdownItMultiMDTable } from 'markdown-it-multimd-table';
 
 import { ThemeBootstrapPlugin } from '@akashacms/theme-bootstrap';
 import { BasePlugin } from '@akashacms/plugins-base';
@@ -56,6 +57,13 @@ config.findRendererName('.html.md')
         dataType: true,
         figcaption: true,
         tabindex: true
+    })
+    .use(MarkdownItMultiMDTable, {
+        multiline:  true,
+        rowspan:    true,
+        headerless: true,
+        multibody:  true,
+        aotolabel:  true,
     });
     // .use(require('markdown-it-expand-tabs'), { tabWidth: 4 });
 
@@ -104,10 +112,22 @@ config.setMahabhutaConfig({
 
 import { mahabhutaArray } from './mahafuncs.mjs';
 
+// Pre-load the specifications for easy reuse
+const OADRspec = await fsp.readFile(
+    `/home/david/Projects/openadr/docx2pdf/../specification/3.1.0/openadr3.yaml`,
+    'utf-8'
+);
+const OADRYAML = YAML.load(OADRspec);
+
 // Pull in the Mahafuncs for this project
 // Make sure to pass the config object in the
 // options object.
-config.addMahabhuta(mahabhutaArray({ config }));
+config.addMahabhuta(mahabhutaArray({ 
+    config,
+    specs: {
+        OADR: OADRYAML
+    }
+}));
 
 
 
