@@ -23,23 +23,18 @@ Document Status: **Final** **Specification**
 Document Number: 20231118-X
 :::
 
-TODO: This table does not align to the right, but is centered.
+| Contact:                 | Editors:                       | Technical Director OpenADR Alliance:          |
+|--------------------------|--------------------------------|--------------------|
+| OpenADR Alliance<br/>    | Frank Sandoval -<br/>          | Rolf Bienert<br/>  | \
+| 111 Deerwood Road,<br/>  | Pajarito Technologies, LLC     | <rolf@openadr.org> | \
+| Suite 200<br/>           |                                |                    | \
+| San Ramon, CA 94583<br/> | Bruce Nordman -- LBNL          |                    | \
+| USA<br/>                 |                                |                    | \
+| <info@openadr.org>       | Other OpenADR Alliance Members |                    | \
+|                          |                                |                    |
 
-| Contact:              | Editors:               | Technical Director OpenADR Alliance:          |
-|-----------------------|------------------------|--------------------|
-| OpenADR Alliance      | Frank Sandoval -       | Rolf Bienert       |
-|                       | Pajarito Technologies  | <rolf@openadr.org> |
-| 111 Deerwood Road,    | LLC                    |  |
-| Suite 200             |                        |                    |
-|                       | Bruce Nordman -- LBNL  |                    |
-| San Ramon, CA 94583   |                        |                    |
-|                       | Other OpenADR Alliance |                    |
-| USA                   | Members                |                    |
-|                       |                        |                    |
-| <info@openadr.org>    |                        |                    |
-
-<p class="text-right">Please send general questions and comments about the specification to
-[comments@openadr.org](mailto:comments@openadr.org).</p>
+Please send general questions and comments about the specification to
+[comments@openadr.org](mailto:comments@openadr.org).
 
 
 :::
