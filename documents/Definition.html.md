@@ -192,7 +192,9 @@ A tiered hierarchy of VTNs and VENs may also be supported, in which an
 entity acts as a VEN to interact with a VTN, and then presents its own
 VTN to 'downstream' VENs. This is shown in Figure 2.
 
-![OpenADR example implementation scenarios](./img/defs-fig-2-implementation-scenarios.png "Figure 2. OpenADR 3.0 example implementation scenarios")
+<!-- ![OpenADR example implementation scenarios](./img/defs-fig-2-implementation-scenarios.png "Figure 2. OpenADR 3.0 example implementation scenarios") -->
+
+![OpenADR example implementation scenarios](./img/oa-3-implementation-scenarios.png "Figure 2. OpenADR 3.0 example implementation scenarios")
 
 **Figure 2. OpenADR 3.0 example implementation scenarios**
 
@@ -1592,7 +1594,9 @@ Authentication server with Business Logic web flow to share client IDs
 and secrets or illustrate a similar process for Business Logic clients
 of VTN. \[Client Flow Overview\]
 
-![OAuth2 client credential flow](./img/defs-fig-16-oath-client-credential-flow.png "Figure 16: OAuth2 client credential flow")
+<!-- ![OAuth2 client credential flow](./img/defs-fig-16-oath-client-credential-flow.png "Figure 16: OAuth2 client credential flow") -->
+
+![OAuth2 client credential flow](./img/oauth-2-client-credential-flow.png "Figure 16: OAuth2 client credential flow")
 
 **Figure 16: OAuth2 client credential flow**
 
