@@ -6,6 +6,17 @@ import akasha from 'akasharender';
 const mahabhuta = akasha.mahabhuta;
 
 
+// Pre-load the specifications for easy reuse
+const OADRspec = await fsp.readFile(
+    `/home/david/Projects/openadr/docx2pdf/../specification/3.1.0/openadr3.yaml`,
+    'utf-8'
+);
+const OADRYAML = YAML.load(OADRspec);
+
+const specs = {
+    OADR: OADRYAML
+};
+
 const pluginName = 'OpenADR-Specification';
 
 export function mahabhutaArray(options) {
@@ -13,6 +24,7 @@ export function mahabhutaArray(options) {
     ret.addMahafunc(new SchemaDescriptions());
     ret.addMahafunc(new OpenAPISecurityScopes());
     ret.addMahafunc(new OpenAPIEndpoints());
+    ret.addMahafunc(new OpenAPIInformationModel());
     return ret;
 };
 
@@ -73,7 +85,7 @@ class OpenAPISecurityScopes extends mahabhuta.CustomElement {
                 : 'openapi-security-scopes.html.njk';
         const id = $element.attr('id');
 
-        const spec = this.array.options.specs.OADR;
+        const spec = specs.OADR;
         const security = spec.components.securitySchemes;
         const scopes = security.oAuth2ClientCredentials.flows.clientCredentials.scopes;
 
@@ -107,7 +119,7 @@ class OpenAPIEndpoints extends mahabhuta.CustomElement {
                 : 'openapi-endpoints-table.html.njk';
         const id = $element.attr('id');
 
-        const spec = this.array.options.specs.OADR;
+        const spec = specs.OADR;
         const paths = spec.paths;
 
         const endpoints = [];
@@ -178,6 +190,78 @@ class OpenAPIEndpoints extends mahabhuta.CustomElement {
             this.array.options.config,
             template, {
                 endpoints, id
+            });
+    }
+}
+
+
+class OpenAPIInformationModel extends mahabhuta.CustomElement {
+    get elementName() { return "openapi-information-model"; }
+    async process($element, metadata, dirty) {
+
+        const template = $element.attr('template')
+                ? $element.attr('template')
+                : 'openapi-information-model.html.njk';
+        const id = $element.attr('id');
+
+        const spec = specs.OADR;
+
+        // This loop controls which of the OpenADR schema objects
+        // are presented in the document, and also controls the order.
+        //
+        // To simply show every item, and not control the order,
+        // the loop control is:
+        //
+        //     for (const schemakey in specs.OADR.components.schemas) {
+        //     }
+        const schemas = [];
+        for (const schemakey of [
+            'program', 'report', 'event', 'subscription',
+            'ven', 'resource', 'interval', 'intervalPeriod',
+            'valuesMap', 'point',
+            'eventPayloadDescriptor',
+            'reportPayloadDescriptor',
+            'reportDescriptor',
+            'objectID', 'notification', 'objectTypes',
+            'dateTime', 'duration', 'problem', 'bindings',
+            'binding', 'certs', 'topicNames', 'topics'
+        ]) {
+            if (!(schemakey in specs.OADR.components.schemas)) {
+                continue;
+            }
+            const schema = specs.OADR.components.schemas[schemakey];
+            const topush = {
+                schema: schemakey,
+                description: schema.description,
+                properties: []
+            };
+            for (const propkey in schema.properties) {
+                const prop = schema.properties[propkey];
+                if ('description' in prop) {
+                    topush.properties.push({
+                        prop: propkey,
+                        description: prop.description
+                    });
+                } else if ('$ref' in prop) {
+                    topush.properties.push({
+                        prop: propkey,
+                        $ref: prop.$ref
+                    });
+                } else {
+                    topush.properties.push({
+                        prop: propkey,
+                        unknown: `No description found in ${util.inspect(prop)}`
+                    });
+                }
+            }
+            schemas.push(topush);
+        }
+        // console.log(YAML.dump({ schemas }, { indent: 4 }));
+
+        return akasha.partial(
+            this.array.options.config,
+            template, {
+                schemas, id
             });
     }
 }

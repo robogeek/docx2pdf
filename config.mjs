@@ -19,10 +19,10 @@ import { default as MarkdownItMultiMDTable } from 'markdown-it-multimd-table';
 
 import { ThemeBootstrapPlugin } from '@akashacms/theme-bootstrap';
 import { BasePlugin } from '@akashacms/plugins-base';
-import { FootnotesPlugin } from '@akashacms/plugins-footnotes';
-import { ExternalLinksPlugin } from '@akashacms/plugins-external-links';
+// import { FootnotesPlugin } from '@akashacms/plugins-footnotes';
+// import { ExternalLinksPlugin } from '@akashacms/plugins-external-links';
 
-import { default as EPUBWebsitePlugin } from 'epub-website';
+// import { default as EPUBWebsitePlugin } from 'epub-website';
 
 const config = new akasha.Configuration();
 
@@ -91,9 +91,9 @@ config
     .use(BasePlugin, {
         generateSitemapFlag: false
     })
-    .use(ExternalLinksPlugin)
-    .use(FootnotesPlugin)
-    .use(EPUBWebsitePlugin)
+    // .use(ExternalLinksPlugin)
+    // .use(FootnotesPlugin)
+    // .use(EPUBWebsitePlugin)
     ;
 
 config

@@ -1,0 +1,22 @@
+<span {% if id %}id="{{ id | safe }}"{% endif %}>
+{% for schema in schemas %}
+    <ul>
+        <li><b>{{ schema.schema }}</b>: {{ schema.description}}
+            {% if schema.properties %}
+            <ul>
+                {% for prop in schema.properties %}
+                <li><span class="information-model-property"><b>{{ prop.prop -}}</b>: </span>
+                    {%- if prop.$ref -%}
+                        <span class="information-model-ref"> {{ prop.$ref }}</span>
+                    {%- endif -%}
+                    {%- if prop.description -%}
+                        <span class="information-model-description"> {{ prop.description }}</span>
+                    {%- endif -%}
+                </li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+        </li>
+    </ul>
+{% endfor %}
+</span>

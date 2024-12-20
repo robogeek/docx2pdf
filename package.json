@@ -17,6 +17,7 @@
   },
   "dependencies": {
     "@akashacms/plugins-base": "akashacms/akashacms-base#0.9",
+    "@akashacms/renderers": "^0.9.10",
     "@akashacms/theme-bootstrap": "akashacms/akashacms-theme-bootstrap",
     "@compodoc/live-server": "^1.2.x",
     "akasharender": "akashacms/akasharender#0.9",

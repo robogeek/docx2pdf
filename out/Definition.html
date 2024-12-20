@@ -102,7 +102,7 @@
 
 
 
-<link rel="stylesheet" type="text/css" href="akasha/epub-website/style.css"><link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css"><link rel="stylesheet" type="text/css" href="style.css"><link rel="stylesheet" type="text/css" href="print.css">
+<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css"><link rel="stylesheet" type="text/css" href="print.css">
 
 </head>
 <body>
@@ -159,7 +159,7 @@ Pajarito Technologies, LLC</p>
 <section id="contents" class="header-title" tabindex="-1">
 <h1 class="header-title" tabindex="-1">CONTENTS</h1>
 <p>TODO the numbering is here but it is incorrect.  The H1 CONTENTS is not numbered in the text, because of the <code>.header-title</code> class, but is numbered in the ToC.</p>
-<div class="table-of-contents"><ul><li><a href="#contents">CONTENTS</a></li><li><a href="#introduction">Introduction</a><ul><li><a href="#1.1-revision-3.0.2-introduction">1.1 Revision 3.0.2 Introduction</a></li></ul></li><li><a href="#normative-references">Normative References</a></li><li><a href="#informative-references">Informative References</a></li><li><a href="#terms-and-definitions">Terms and Definitions</a><ul><li><a href="#4.1-messaging-protocol-terms-and-definitions">4.1 Messaging Protocol Terms and Definitions</a></li></ul></li><li><a href="#overview">Overview</a><ul><li><a href="#system-architecture">System Architecture</a></li><li><a href="#local-scenarios">Local Scenarios</a></li><li><a href="#ven-enrollment">VEN enrollment</a></li></ul></li><li><a href="#general-usage">General Usage</a><ul><li><a href="#vtn-provided-fields">VTN provided fields</a></li><li><a href="#required-and-optional-properties">Required and optional properties</a></li><li><a href="#response-codes-and-errors">Response Codes and Errors</a></li><li><a href="#post-and-put">POST and PUT</a></li><li><a href="#compression">Compression</a></li><li><a href="#support-for-strongly-typed-languages">Support for Strongly Typed languages</a></li><li><a href="#message-validation">Message validation</a></li><li><a href="#subscriptions">Subscriptions</a></li><li><a href="#6.8.1-subscription-and-notification-via-messaging-protocols">6.8.1 Subscription and Notification via Messaging Protocols</a></li><li><a href="#response-filtering">Response Filtering</a></li><li><a href="#object-names">Object names</a></li></ul></li><li><a href="#information-model">Information Model</a></li><li><a href="#endpoints">EndPoints</a></li><li><a href="#revision">Revision</a></li><li><a href="#extensibility">Extensibility</a><ul><li><a href="#model-extension">Model Extension</a></li><li><a href="#private-strings">Private Strings</a></li></ul></li><li><a href="#enumerations">Enumerations</a><ul><li><a href="#introduction">Introduction</a></li><li><a href="#event-payload-enumerations">Event Payload Enumerations</a></li><li><a href="#report-enumerations">Report Enumerations</a></li><li><a href="#reading-type-enumerations">Reading Type Enumerations</a></li><li><a href="#operating-state-enumerations">Operating State Enumerations</a></li><li><a href="#resourcename-enumerations">ResourceName Enumerations</a></li><li><a href="#data-quality-enumerations">Data Quality Enumerations</a></li><li><a href="#target-enumerations">Target Enumerations</a></li><li><a href="#attribute-enumerations">Attribute Enumerations</a></li><li><a href="#unit-enumerations">Unit Enumerations</a></li><li><a href="#currency-enumerations">Currency Enumerations</a></li><li><a href="#10.12.-binding-enumerations">10.12. Binding Enumerations</a></li><li><a href="#10.13.-serialization-enumerations">10.13. Serialization Enumerations</a></li><li><a href="#10.14.-message-broker-auth-enumerations">10.14. Message Broker Auth Enumerations</a></li></ul></li><li><a href="#security">Security</a><ul><li><a href="#security-objectives">Security objectives</a></li><li><a href="#assumptions">Assumptions</a></li><li><a href="#client-scenarios">Client Scenarios</a></li><li><a href="#non-authenticated-clients">Non-Authenticated Clients</a></li><li><a href="#https%2Ftls">HTTPS/TLS</a></li><li><a href="#11.6.-mqtts%2Ftls">11.6. MQTTS/TLS</a></li><li><a href="#api-gateway">API Gateway</a></li><li><a href="#oauth-2.0-client-credential-flow">OAuth 2.0 client credential flow</a></li><li><a href="#openapi-specification">OpenAPI Specification</a></li><li><a href="#bearer-tokens">Bearer tokens</a></li><li><a href="#11.10.-webhooks">11.10. Webhooks</a></li></ul></li><li><a href="#reference-implementation">Reference Implementation</a><ul><li><a href="#step-1%3A-trade-clientid%2Fclientsecret-for-access-token">Step 1: Trade clientID/clientSecret for access token</a></li><li><a href="#step-2%3A-include-access-token-in-api-requests">Step 2: Include access token in API requests</a></li><li><a href="#step-3%3A-resolve-token-to-scopes">Step 3: Resolve token to scopes</a></li><li><a href="#step-4%3A-enforce-access-control">Step 4: Enforce Access Control</a></li></ul></li></ul></div>
+<p>[[toc]]</p>
 </section>
 <section class="page_break" id="introduction" tabindex="-1">
 <h1 class="page_break" tabindex="-1">Introduction</h1>
@@ -689,7 +689,462 @@ objectID, and creation and modification timestamps. These attributes are
 populated by the VTN on object creation and modification.</p>
 <p>In the listing below, any default value is listed in brackets after the
 definition.</p>
-<p><strong>TODO</strong> Perhaps this should be autogenerated from the specification.  The wrinkle is the <code>&#x24;ref</code> definitions.</p>
+<!-- **TODO** Perhaps this should be autogenerated from the specification.  The wrinkle is the `$ref` definitions. -->
+<p><strong>NOTE</strong>: This table was autogenerated from the OpenADR specification.</p>
+<p><span>
+
+    <ul>
+        <li><b>program</b>: Provides program specific metadata from VTN to VEN.
+            
+            <ul>
+                
+                <li><span class="information-model-property"><b>id</b>: </span><span class="information-model-ref"> #/components/schemas/objectID</span></li>
+                
+                <li><span class="information-model-property"><b>createdDateTime</b>: </span><span class="information-model-ref"> #/components/schemas/dateTime</span></li>
+                
+                <li><span class="information-model-property"><b>modificationDateTime</b>: </span><span class="information-model-ref"> #/components/schemas/dateTime</span></li>
+                
+                <li><span class="information-model-property"><b>objectType</b>: </span><span class="information-model-description"> Used as discriminator</span></li>
+                
+                <li><span class="information-model-property"><b>programName</b>: </span><span class="information-model-description"> Short name to uniquely identify program.</span></li>
+                
+                <li><span class="information-model-property"><b>programLongName</b>: </span><span class="information-model-description"> Long name of program for human readability.</span></li>
+                
+                <li><span class="information-model-property"><b>retailerName</b>: </span><span class="information-model-description"> Short name of energy retailer providing the program.</span></li>
+                
+                <li><span class="information-model-property"><b>retailerLongName</b>: </span><span class="information-model-description"> Long name of energy retailer for human readability.</span></li>
+                
+                <li><span class="information-model-property"><b>programType</b>: </span><span class="information-model-description"> A program defined categorization.</span></li>
+                
+                <li><span class="information-model-property"><b>country</b>: </span><span class="information-model-description"> Alpha-2 code per ISO 3166-1.</span></li>
+                
+                <li><span class="information-model-property"><b>principalSubdivision</b>: </span><span class="information-model-description"> Coding per ISO 3166-2. E.g. state in US.</span></li>
+                
+                <li><span class="information-model-property"><b>timeZoneOffset</b>: </span><span class="information-model-ref"> #/components/schemas/duration</span></li>
+                
+                <li><span class="information-model-property"><b>intervalPeriod</b>: </span><span class="information-model-ref"> #/components/schemas/intervalPeriod</span></li>
+                
+                <li><span class="information-model-property"><b>programDescriptions</b>: </span><span class="information-model-description"> A list of programDescriptions</span></li>
+                
+                <li><span class="information-model-property"><b>bindingEvents</b>: </span><span class="information-model-description"> True if events are fixed once transmitted.</span></li>
+                
+                <li><span class="information-model-property"><b>localPrice</b>: </span><span class="information-model-description"> True if events have been adapted from a grid event.</span></li>
+                
+                <li><span class="information-model-property"><b>payloadDescriptors</b>: </span><span class="information-model-description"> A list of payloadDescriptors.</span></li>
+                
+                <li><span class="information-model-property"><b>targets</b>: </span><span class="information-model-description"> A list of valuesMap objects.</span></li>
+                
+            </ul>
+            
+        </li>
+    </ul>
+
+    <ul>
+        <li><b>report</b>: report object.
+            
+            <ul>
+                
+                <li><span class="information-model-property"><b>id</b>: </span><span class="information-model-ref"> #/components/schemas/objectID</span></li>
+                
+                <li><span class="information-model-property"><b>createdDateTime</b>: </span><span class="information-model-ref"> #/components/schemas/dateTime</span></li>
+                
+                <li><span class="information-model-property"><b>modificationDateTime</b>: </span><span class="information-model-ref"> #/components/schemas/dateTime</span></li>
+                
+                <li><span class="information-model-property"><b>objectType</b>: </span><span class="information-model-description"> Used as discriminator</span></li>
+                
+                <li><span class="information-model-property"><b>programID</b>: </span><span class="information-model-ref"> #/components/schemas/objectID</span></li>
+                
+                <li><span class="information-model-property"><b>eventID</b>: </span><span class="information-model-ref"> #/components/schemas/objectID</span></li>
+                
+                <li><span class="information-model-property"><b>clientName</b>: </span><span class="information-model-description"> User generated identifier; may be VEN ID provisioned out-of-band.</span></li>
+                
+                <li><span class="information-model-property"><b>reportName</b>: </span><span class="information-model-description"> User defined string for use in debugging or User Interface.</span></li>
+                
+                <li><span class="information-model-property"><b>payloadDescriptors</b>: </span><span class="information-model-description"> A list of reportPayloadDescriptors.</span></li>
+                
+                <li><span class="information-model-property"><b>resources</b>: </span><span class="information-model-description"> A list of objects containing report data for a set of resources.</span></li>
+                
+            </ul>
+            
+        </li>
+    </ul>
+
+    <ul>
+        <li><b>event</b>: Event object to communicate a Demand Response request to VEN.
+If intervalPeriod is present, sets default start time and duration of intervals.
+
+            
+            <ul>
+                
+                <li><span class="information-model-property"><b>id</b>: </span><span class="information-model-ref"> #/components/schemas/objectID</span></li>
+                
+                <li><span class="information-model-property"><b>createdDateTime</b>: </span><span class="information-model-ref"> #/components/schemas/dateTime</span></li>
+                
+                <li><span class="information-model-property"><b>modificationDateTime</b>: </span><span class="information-model-ref"> #/components/schemas/dateTime</span></li>
+                
+                <li><span class="information-model-property"><b>objectType</b>: </span><span class="information-model-description"> Used as discriminator</span></li>
+                
+                <li><span class="information-model-property"><b>programID</b>: </span><span class="information-model-ref"> #/components/schemas/objectID</span></li>
+                
+                <li><span class="information-model-property"><b>eventName</b>: </span><span class="information-model-description"> User defined string for use in debugging or User Interface.</span></li>
+                
+                <li><span class="information-model-property"><b>priority</b>: </span><span class="information-model-description"> Relative priority of event. A lower number is a higher priority.</span></li>
+                
+                <li><span class="information-model-property"><b>targets</b>: </span><span class="information-model-description"> A list of valuesMap objects.</span></li>
+                
+                <li><span class="information-model-property"><b>reportDescriptors</b>: </span><span class="information-model-description"> A list of reportDescriptor objects. Used to request reports from VEN.</span></li>
+                
+                <li><span class="information-model-property"><b>payloadDescriptors</b>: </span><span class="information-model-description"> A list of payloadDescriptor objects.</span></li>
+                
+                <li><span class="information-model-property"><b>intervalPeriod</b>: </span><span class="information-model-ref"> #/components/schemas/intervalPeriod</span></li>
+                
+                <li><span class="information-model-property"><b>intervals</b>: </span><span class="information-model-description"> A list of interval objects.</span></li>
+                
+            </ul>
+            
+        </li>
+    </ul>
+
+    <ul>
+        <li><b>subscription</b>: An object created by a client to receive notification of operations on objects.
+Clients may subscribe to be notified when a type of object is created,
+updated, or deleted.
+
+            
+            <ul>
+                
+                <li><span class="information-model-property"><b>id</b>: </span><span class="information-model-ref"> #/components/schemas/objectID</span></li>
+                
+                <li><span class="information-model-property"><b>createdDateTime</b>: </span><span class="information-model-ref"> #/components/schemas/dateTime</span></li>
+                
+                <li><span class="information-model-property"><b>modificationDateTime</b>: </span><span class="information-model-ref"> #/components/schemas/dateTime</span></li>
+                
+                <li><span class="information-model-property"><b>objectType</b>: </span><span class="information-model-description"> Used as discriminator.</span></li>
+                
+                <li><span class="information-model-property"><b>clientName</b>: </span><span class="information-model-description"> User generated identifier, may be VEN identifier provisioned out-of-band.</span></li>
+                
+                <li><span class="information-model-property"><b>programID</b>: </span><span class="information-model-ref"> #/components/schemas/objectID</span></li>
+                
+                <li><span class="information-model-property"><b>objectOperations</b>: </span><span class="information-model-description"> list of objects and operations to subscribe to.</span></li>
+                
+                <li><span class="information-model-property"><b>targets</b>: </span><span class="information-model-description"> A list of valuesMap objects. Used by server to filter callbacks.</span></li>
+                
+            </ul>
+            
+        </li>
+    </ul>
+
+    <ul>
+        <li><b>ven</b>: Ven represents a client with the ven role.
+            
+            <ul>
+                
+                <li><span class="information-model-property"><b>id</b>: </span><span class="information-model-ref"> #/components/schemas/objectID</span></li>
+                
+                <li><span class="information-model-property"><b>createdDateTime</b>: </span><span class="information-model-ref"> #/components/schemas/dateTime</span></li>
+                
+                <li><span class="information-model-property"><b>modificationDateTime</b>: </span><span class="information-model-ref"> #/components/schemas/dateTime</span></li>
+                
+                <li><span class="information-model-property"><b>objectType</b>: </span><span class="information-model-description"> Used as discriminator.</span></li>
+                
+                <li><span class="information-model-property"><b>venName</b>: </span><span class="information-model-description"> User generated identifier, may be VEN identifier provisioned out-of-band.
+venName is expected to be unique within the scope of a VTN
+</span></li>
+                
+                <li><span class="information-model-property"><b>attributes</b>: </span><span class="information-model-description"> A list of valuesMap objects describing attributes.</span></li>
+                
+                <li><span class="information-model-property"><b>targets</b>: </span><span class="information-model-description"> A list of valuesMap objects describing target criteria.</span></li>
+                
+                <li><span class="information-model-property"><b>resources</b>: </span><span class="information-model-description"> A list of resource objects representing end-devices or systems.</span></li>
+                
+            </ul>
+            
+        </li>
+    </ul>
+
+    <ul>
+        <li><b>resource</b>: A resource is an energy device or system subject to control by a VEN.
+
+            
+            <ul>
+                
+                <li><span class="information-model-property"><b>id</b>: </span><span class="information-model-ref"> #/components/schemas/objectID</span></li>
+                
+                <li><span class="information-model-property"><b>createdDateTime</b>: </span><span class="information-model-ref"> #/components/schemas/dateTime</span></li>
+                
+                <li><span class="information-model-property"><b>modificationDateTime</b>: </span><span class="information-model-ref"> #/components/schemas/dateTime</span></li>
+                
+                <li><span class="information-model-property"><b>objectType</b>: </span><span class="information-model-description"> Used as discriminator.</span></li>
+                
+                <li><span class="information-model-property"><b>resourceName</b>: </span><span class="information-model-description"> User generated identifier, resource may be configured with identifier out-of-band.
+resourceName is expected to be unique within the scope of the associated VEN.
+</span></li>
+                
+                <li><span class="information-model-property"><b>venID</b>: </span><span class="information-model-ref"> #/components/schemas/objectID</span></li>
+                
+                <li><span class="information-model-property"><b>attributes</b>: </span><span class="information-model-description"> A list of valuesMap objects describing attributes.</span></li>
+                
+                <li><span class="information-model-property"><b>targets</b>: </span><span class="information-model-description"> A list of valuesMap objects describing target criteria.</span></li>
+                
+            </ul>
+            
+        </li>
+    </ul>
+
+    <ul>
+        <li><b>interval</b>: An object defining a temporal window and a list of valuesMaps.
+if intervalPeriod present may set temporal aspects of interval or override event.intervalPeriod.
+
+            
+            <ul>
+                
+                <li><span class="information-model-property"><b>id</b>: </span><span class="information-model-description"> A client generated number assigned an interval object. Not a sequence number.</span></li>
+                
+                <li><span class="information-model-property"><b>intervalPeriod</b>: </span><span class="information-model-ref"> #/components/schemas/intervalPeriod</span></li>
+                
+                <li><span class="information-model-property"><b>payloads</b>: </span><span class="information-model-description"> A list of valuesMap objects.</span></li>
+                
+            </ul>
+            
+        </li>
+    </ul>
+
+    <ul>
+        <li><b>intervalPeriod</b>: Defines temporal aspects of intervals.
+A duration of default PT0S indicates instantaneous or infinity, depending on payloadType.
+A randomizeStart of default null indicates no randomization.
+
+            
+            <ul>
+                
+                <li><span class="information-model-property"><b>start</b>: </span><span class="information-model-ref"> #/components/schemas/dateTime</span></li>
+                
+                <li><span class="information-model-property"><b>duration</b>: </span><span class="information-model-ref"> #/components/schemas/duration</span></li>
+                
+                <li><span class="information-model-property"><b>randomizeStart</b>: </span><span class="information-model-ref"> #/components/schemas/duration</span></li>
+                
+            </ul>
+            
+        </li>
+    </ul>
+
+    <ul>
+        <li><b>valuesMap</b>: Represents one or more values associated with a type.
+E.g. a type of PRICE contains a single float value.
+
+            
+            <ul>
+                
+                <li><span class="information-model-property"><b>type</b>: </span><span class="information-model-description"> Enumerated or private string signifying the nature of values.
+E.G. &quot;PRICE&quot; indicates value is to be interpreted as a currency.
+</span></li>
+                
+                <li><span class="information-model-property"><b>values</b>: </span><span class="information-model-description"> A list of data points. Most often a singular value such as a price.</span></li>
+                
+            </ul>
+            
+        </li>
+    </ul>
+
+    <ul>
+        <li><b>point</b>: A pair of floats typically used as a point on a 2 dimensional grid.
+            
+            <ul>
+                
+                <li><span class="information-model-property"><b>x</b>: </span><span class="information-model-description"> A value on an x axis.</span></li>
+                
+                <li><span class="information-model-property"><b>y</b>: </span><span class="information-model-description"> A value on a y axis.</span></li>
+                
+            </ul>
+            
+        </li>
+    </ul>
+
+    <ul>
+        <li><b>eventPayloadDescriptor</b>: Contextual information used to interpret event valuesMap values.
+E.g. a PRICE payload simply contains a price value, an
+associated descriptor provides necessary context such as units and currency.
+
+            
+            <ul>
+                
+                <li><span class="information-model-property"><b>objectType</b>: </span><span class="information-model-description"> Used as discriminator.</span></li>
+                
+                <li><span class="information-model-property"><b>payloadType</b>: </span><span class="information-model-description"> Enumerated or private string signifying the nature of values.</span></li>
+                
+                <li><span class="information-model-property"><b>units</b>: </span><span class="information-model-description"> Units of measure.</span></li>
+                
+                <li><span class="information-model-property"><b>currency</b>: </span><span class="information-model-description"> Currency of price payload.</span></li>
+                
+            </ul>
+            
+        </li>
+    </ul>
+
+    <ul>
+        <li><b>reportPayloadDescriptor</b>: Contextual information used to interpret report payload values.
+E.g. a USAGE payload simply contains a usage value, an
+associated descriptor provides necessary context such as units and data quality.
+
+            
+            <ul>
+                
+                <li><span class="information-model-property"><b>objectType</b>: </span><span class="information-model-description"> Used as discriminator.</span></li>
+                
+                <li><span class="information-model-property"><b>payloadType</b>: </span><span class="information-model-description"> Enumerated or private string signifying the nature of values.</span></li>
+                
+                <li><span class="information-model-property"><b>readingType</b>: </span><span class="information-model-description"> Enumerated or private string signifying the type of reading.</span></li>
+                
+                <li><span class="information-model-property"><b>units</b>: </span><span class="information-model-description"> Units of measure.</span></li>
+                
+                <li><span class="information-model-property"><b>accuracy</b>: </span><span class="information-model-description"> A quantification of the accuracy of a set of payload values.</span></li>
+                
+                <li><span class="information-model-property"><b>confidence</b>: </span><span class="information-model-description"> A quantification of the confidence in a set of payload values.</span></li>
+                
+            </ul>
+            
+        </li>
+    </ul>
+
+    <ul>
+        <li><b>reportDescriptor</b>: An object that may be used to request a report from a VEN.
+
+            
+            <ul>
+                
+                <li><span class="information-model-property"><b>payloadType</b>: </span><span class="information-model-description"> Enumerated or private string signifying the nature of values.</span></li>
+                
+                <li><span class="information-model-property"><b>readingType</b>: </span><span class="information-model-description"> Enumerated or private string signifying the type of reading.</span></li>
+                
+                <li><span class="information-model-property"><b>units</b>: </span><span class="information-model-description"> Units of measure.</span></li>
+                
+                <li><span class="information-model-property"><b>targets</b>: </span><span class="information-model-description"> A list of valuesMap objects.</span></li>
+                
+                <li><span class="information-model-property"><b>aggregate</b>: </span><span class="information-model-description"> True if report should aggregate results from all targeted resources.
+False if report includes results for each resource.
+</span></li>
+                
+                <li><span class="information-model-property"><b>startInterval</b>: </span><span class="information-model-description"> The interval on which to generate a report.
+-1 indicates generate report at end of last interval.
+</span></li>
+                
+                <li><span class="information-model-property"><b>numIntervals</b>: </span><span class="information-model-description"> The number of intervals to include in a report.
+-1 indicates that all intervals are to be included.
+</span></li>
+                
+                <li><span class="information-model-property"><b>historical</b>: </span><span class="information-model-description"> True indicates report on intervals preceding startInterval.
+False indicates report on intervals following startInterval (e.g. forecast).
+</span></li>
+                
+                <li><span class="information-model-property"><b>frequency</b>: </span><span class="information-model-description"> Number of intervals that elapse between reports.
+-1 indicates same as numIntervals.
+</span></li>
+                
+                <li><span class="information-model-property"><b>repeat</b>: </span><span class="information-model-description"> Number of times to repeat report.
+1 indicates generate one report.
+-1 indicates repeat indefinitely.
+</span></li>
+                
+            </ul>
+            
+        </li>
+    </ul>
+
+    <ul>
+        <li><b>objectID</b>: URL safe VTN assigned object ID.
+            
+            <ul>
+                
+            </ul>
+            
+        </li>
+    </ul>
+
+    <ul>
+        <li><b>notification</b>: VTN generated object included in request to subscription callbackUrl.
+
+            
+            <ul>
+                
+                <li><span class="information-model-property"><b>objectType</b>: </span><span class="information-model-ref"> #/components/schemas/objectTypes</span></li>
+                
+                <li><span class="information-model-property"><b>operation</b>: </span><span class="information-model-description"> the operation on on object that triggered the notification.</span></li>
+                
+                <li><span class="information-model-property"><b>object</b>: </span><span class="information-model-description"> the object that is the subject of the notification.</span></li>
+                
+                <li><span class="information-model-property"><b>targets</b>: </span><span class="information-model-description"> A list of valuesMap objects.</span></li>
+                
+            </ul>
+            
+        </li>
+    </ul>
+
+    <ul>
+        <li><b>objectTypes</b>: Types of objects addressable through API.
+            
+            <ul>
+                
+            </ul>
+            
+        </li>
+    </ul>
+
+    <ul>
+        <li><b>dateTime</b>: datetime in ISO 8601 format
+            
+            <ul>
+                
+            </ul>
+            
+        </li>
+    </ul>
+
+    <ul>
+        <li><b>duration</b>: duration in ISO 8601 format
+            
+            <ul>
+                
+            </ul>
+            
+        </li>
+    </ul>
+
+    <ul>
+        <li><b>problem</b>: reusable error response. From https://opensource.zalando.com/problem/schema.yaml.
+
+            
+            <ul>
+                
+                <li><span class="information-model-property"><b>type</b>: </span><span class="information-model-description"> An absolute URI that identifies the problem type.
+When dereferenced, it SHOULD provide human-readable documentation for the problem type
+(e.g., using HTML).
+</span></li>
+                
+                <li><span class="information-model-property"><b>title</b>: </span><span class="information-model-description"> A short, summary of the problem type. Written in english and readable
+for engineers (usually not suited for non technical stakeholders and
+not localized); example: Service Unavailable.
+</span></li>
+                
+                <li><span class="information-model-property"><b>status</b>: </span><span class="information-model-description"> The HTTP status code generated by the origin server for this occurrence
+of the problem.
+</span></li>
+                
+                <li><span class="information-model-property"><b>detail</b>: </span><span class="information-model-description"> A human readable explanation specific to this occurrence of the
+problem.
+</span></li>
+                
+                <li><span class="information-model-property"><b>instance</b>: </span><span class="information-model-description"> An absolute URI that identifies the specific occurrence of the problem.
+It may or may not yield further information if dereferenced.
+</span></li>
+                
+            </ul>
+            
+        </li>
+    </ul>
+
+</span>
+</p>
+<p>*<em>NOTE</em>: This table is manually generated</p>
 <ul>
 <li>
 <p><strong>program</strong>: Provides program specific metadata from VTN to VEN.</p>
@@ -1988,7 +2443,6 @@ payloadDescriptor.
 <p><strong>Figure 11. Example Reading Types as used in reportPayloadDescriptor and in report payload</strong></p>
 <p><strong>Table 3. Reading Type Enumerations</strong></p>
 <!-- 
-
 This enumeration table is a simple "enum".
 Therefore we don't have a JSON table to read
 where there is a KEY and DESCRIPTION as two fields
