@@ -1,4 +1,15 @@
 <table {% if id %}id="{{ id | safe }}"{% endif %}>
+    {% if caption -%}
+        <caption>{{ caption }}</caption>
+    {%- endif %}
+    {% if descHeader and keyHeader -%}
+        <thead>
+            <tr>
+                <th>{{ keyHeader }}</th>
+                <th>{{ descHeader }}</th>
+            </tr>
+        </thead>
+    {%- endif %}
     {% for def in defs -%}
     <tr><td>{{ def.key }}</td><td>{{ def.description }}</td>
     {%- endfor %}

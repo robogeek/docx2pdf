@@ -14,6 +14,11 @@ img {
 	max-width: 100%;
 }
 
+figure figcaption {
+    font-style: italic;
+    font-weight: bold;
+}
+
 blockquote {
     background: #f9f9f9;
     border-left: 10px solid #ccc;
@@ -49,25 +54,22 @@ article a:visited {
   color: #5e00ea; /* #ef0505; /* was  #800000; *
 } */
 
-article {
-    h1, h2, h3, h4, h5, h6 {
-        margin-top: 15px;
-        margin-bottom: 10px;
-        border-bottom: 1px solid #444;
-    }
+article h1, h2, h3, h4, h5, h6 {
+    margin-top: 15px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #444;
+}
 
-    article-heading {
-        padding: 10px 15px;
-    }
+article .article-heading {
+    padding: 10px 15px;
+}
 
-    article-title {
-        font-size: 24px;
-    }
+article .article-title {
+    font-size: 24px;
+}
 
-    article-body {
-        padding: 10px 15px;
-    }
-
+article .article-body {
+    padding: 10px 15px;
 }
 
 img.logo-image {
@@ -86,27 +88,27 @@ img.logo-image {
   padding: 10px;
 }
 
-// #title-page {
+/* // #title-page {
 //     page-break-after: always;
 // }
 // #contents {
 //     page-break-after: always;
-// }
+// } */
 section#contents {
     page-break-after:  always;
     page-break-before: always;
     page-break-inside: avoid !important;
 }
 
-// .table-of-contents {
+/* // .table-of-contents {
 //     page-break-inside: auto !important;
-// }
+// } */
 
 /* https://stackoverflow.com/questions/22746958/dompdf-adding-a-new-page-to-pdf */
 
-// div.page_break {
+/* // div.page_break {
 //     page-break-before: always;
-// }
+// } */
 
 /* tables */
 
@@ -127,7 +129,7 @@ tr {
 
 tr th {
     border-bottom: #777 2px solid !important;
-    // border-top: #9d9d9d 2px solid !important;
+    /* // border-top: #9d9d9d 2px solid !important; */
 }
 
 tr:nth-of-type(even) {
@@ -180,7 +182,52 @@ table code {
     font-size: smaller;
 }
 
+/*
+https://stackoverflow.com/questions/54862755/how-to-set-table-caption-at-the-top-of-a-table
+*/
+table caption {
+    caption-side: top;
+    font-weight: bold;
+    font-style: italic;
+    font-size: larger;
+}
 
+/***** Implement section numbering in CSS *****/
+
+/*
+body {
+    counter-reset: h1
+}
+
+h1 {
+    counter-reset: h2
+}
+    
+h2 {
+    counter-reset: h3
+}
+    
+h3 {
+    counter-reset: h4
+}
+
+h1:not(.header-title)::before {
+    counter-increment: h1;
+    content: counter(h1) ". "
+}
+
+h2:before {
+    counter-increment: h2;
+    content: counter(h1) "." counter(h2) ". "
+}
+
+h3:before {
+    counter-increment: h3;
+    content: counter(h1) "." counter(h2) ". " counter(h3) ". "
+}
+*/
+
+/* 
 // The following magically numbers both the Hn tags
 // but also the Table of Contents
 // https://gist.github.com/rodolfoap/6cd714a65a891c6fe699ab91f0d22384
@@ -245,3 +292,4 @@ table code {
 // ul ul {
 //   counter-reset: section;
 // }
+*/

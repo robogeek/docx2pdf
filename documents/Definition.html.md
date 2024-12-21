@@ -41,9 +41,7 @@ Please send general questions and comments about the specification to
 
 # CONTENTS { #contents .header-title }
 
-TODO the numbering is here but it is incorrect.  The H1 CONTENTS is not numbered in the text, because of the `.header-title` class, but is numbered in the ToC.
-
-[[toc]]
+<toc-text-here></toc-text-here>
 
 # Introduction {.page_break}
 
@@ -154,9 +152,7 @@ consumers to exchange events and reports. Figure 1 illustrates the
 canonical REST paradigm of server and clients, and how OpenADR terms are
 applied to these constructs.
 
-![REST and its application to OpenADR](./img/defs-fig-1-rest-architecture.drawio.png "Figure 1. REST and its application to OpenADR"){.margin-left-auto .margin-right-auto}
-
-**Figure 1. REST and its application to OpenADR**
+![REST and its application to OpenADR](./img/defs-fig-1-rest-architecture.drawio.png "**Figure 1. REST and its application to OpenADR**"){.margin-left-auto .margin-right-auto}
 
 Business Logic (BL) is application software hosted by an energy retailer
 that integrates to the retailers backend systems and interfaces with a
@@ -186,8 +182,6 @@ message protocol broker, and potential clients are shown in Figure 1.5
 
 ![OpenADR data flow](./img/defs-fig-1-5-flow.drawio.png "Figure 1.5")
 
-**Figure 1.5**
-
 A tiered hierarchy of VTNs and VENs may also be supported, in which an
 entity acts as a VEN to interact with a VTN, and then presents its own
 VTN to 'downstream' VENs. This is shown in Figure 2.
@@ -195,8 +189,6 @@ VTN to 'downstream' VENs. This is shown in Figure 2.
 <!-- ![OpenADR example implementation scenarios](./img/defs-fig-2-implementation-scenarios.png "Figure 2. OpenADR 3.0 example implementation scenarios") -->
 
 ![OpenADR example implementation scenarios](./img/oa-3-implementation-scenarios.png "Figure 2. OpenADR 3.0 example implementation scenarios")
-
-**Figure 2. OpenADR 3.0 example implementation scenarios**
 
 ## Local Scenarios
 
@@ -1185,9 +1177,7 @@ Program. For example:
 
 **Figure 9. Example Event**
 
-**Table 1. Event Enumerations**
-
-<schema-descriptions id="event-payload-enumeration" schemahref="/home/david/Projects/openadr/openapi-3.0.0/enumerations/event-interval-payloads.schema.yaml"></schema-descriptions>
+<schema-descriptions id="event-payload-enumeration" schemahref="/home/david/Projects/openadr/openapi-3.0.0/enumerations/event-interval-payloads.schema.yaml" caption="Table 1. Event Enumerations" keyheader="Event payload type" descriptionheader="Definition"></schema-descriptions>
 
 ## Report Enumerations
 
@@ -1213,9 +1203,7 @@ of a payload included in an interval included in a report. For example:
 
 **Figure 10. Example Event**
 
-**Table 2. Report Enumerations**
-
-<schema-descriptions id="report-payload-enumeration" schemahref="/home/david/Projects/openadr/openapi-3.0.0/enumerations/report-payloads.schema.yaml"></schema-descriptions>
+<schema-descriptions id="report-payload-enumeration" schemahref="/home/david/Projects/openadr/openapi-3.0.0/enumerations/report-payloads.schema.yaml" caption="Table 2. Report Enumerations" keyheader="Report payload type" descriptionheader="Definition"></schema-descriptions>
 
 ## Reading Type Enumerations
 
@@ -1242,8 +1230,6 @@ Reading type usage in a `valuesMap`:
 
 **Figure 11. Example Reading Types as used in reportPayloadDescriptor and in report payload**
 
-**Table 3. Reading Type Enumerations**
-
 <!-- 
 This enumeration table is a simple "enum".
 Therefore we don't have a JSON table to read
@@ -1252,6 +1238,8 @@ of an array of objects.
 
 <--schema-descriptions id="reading-types-enumeration" schemahref="/home/david/Projects/openadr/openapi-3.0.0/enumerations/reading-types.schema.yaml"></schema-descriptions 
 -->
+
+Table: Table 3. Reading Type Enumerations
 
 | **Reading type** | **Definition** |
 -------------------|----------------|
@@ -1268,11 +1256,11 @@ of an array of objects.
 
 These definitions characterize the operating state of a resource under control of a VEN.
 
-**Table 4. Operating State Enumerations**
-
 <!-- As with Reading Type, this is a simple enumeration
 and if there were a schema file it would not
 be useful for constructing this table. -->
+
+Table: Table 4. Operating State Enumerations
 
 | **Operating State** |  **Definition** |
 |---------------------|-----------------|
@@ -1294,7 +1282,7 @@ TODO: Is there a description paragraph for this?  Where is this used?
 
 GUESS: This is in the Report object ... okay, in `report.resources[n].resourceName` there is this description: `description: User generated identifier. A value of AGGREGATED_REPORT indicates an aggregation of more that one resource's data`.  Hence, this section can have a paragraph referring to this.
 
-**Table 5. `resourceName` Enumeration**
+Table: Table 5. `resourceName` Enumeration
 
 | **Label**            | **Description**  |
 |--------------|------------------|
@@ -1327,12 +1315,11 @@ These can be used to qualify report payloads, to indicate the status of individu
 
 **Figure 12. Example Data Quality as used in a Report**
 
-**Table 6. Data Quality Enumerations**
-
 <!-- Because this is a simple enum of possible values
 for the DATA_QUALITY payload, no schema file can be
 written from which we can autogenerate this table -->
 
+Table: Table 6. Data Quality Enumerations
 
 | **Data quality values**     |    **Definition** |
 |-----------------------------|------------------|         
@@ -1357,9 +1344,7 @@ Example target array entry:
 
 **Figure 13. Example Target**
 
-**Table 7. Target Enumerations**
-
-<schema-descriptions id="target-types-enumeration" schemahref="/home/david/Projects/openadr/openapi-3.0.0/enumerations/target-types.schema.yaml"></schema-descriptions>
+<schema-descriptions id="target-types-enumeration" schemahref="/home/david/Projects/openadr/openapi-3.0.0/enumerations/target-types.schema.yaml" caption="Table 7. Target Enumerations" keyheader="Label" descriptionheader="Definition"></schema-descriptions>
 
 ## Attribute Enumerations
 
@@ -1377,9 +1362,7 @@ attribute
 
 **Figure 14. Example Attribute**
 
-**Table 8. Attribute Enumerations**
-
-<schema-descriptions id="ven-resource-attributes-enumeration" schemahref="/home/david/Projects/openadr/openapi-3.0.0/enumerations/ven-resource-attributes.schema.yaml"></schema-descriptions>
+<schema-descriptions id="ven-resource-attributes-enumeration" schemahref="/home/david/Projects/openadr/openapi-3.0.0/enumerations/ven-resource-attributes.schema.yaml" caption="Table 8. Attribute Enumerations" keyheader="Label" descriptionheader="Definition"></schema-descriptions>
 
 
 ## Unit Enumerations
@@ -1407,15 +1390,7 @@ Corresponding payload `valuesMap` showing a `PRICE` of `0.17` USD per kiloWatt-h
 
 **Figure 15. Example Units used in `eventPayloadDescriptor` and payload**
 
-**Table 9. Unit Enumerations**
-
-<!--
-Because this is a simple enumeration, just as
-for some previous enumeration tables, there is
-no matching schema file from which to read
-these descriptions.
--->
-
+Table: Table 9. Unit Enumerations
 
 | **Label**    | **Description**      |
 |--------------|----------------------|
@@ -1440,17 +1415,23 @@ Currency denominations adhere to the ISO 4217 standard [ISO 4217]. Also availabl
 
 ## 10.12. Binding Enumerations {#binding-enumerations .unnumbered}
 
+Table: Table 10. Binding eenumerations
+
 | **Label**            |  **Description** |
 |----------------------|------------------|
 | MQTT                 | The binding specified is for the MQTT protocol |
 
 ## 10.13. Serialization Enumerations {#serialization-enumerations .unnumbered}
 
+Table: Table 11. Serialization enumerations
+
 | **Label**            | **Description**  |
 |----------------------|------------------|
 | JSON                 | Messages published to the topic are in JSON format |
 
 ## 10.14. Message Broker Auth Enumerations {#message-broker-auth-enumerations .unnumbered}
+
+Table: Table 12. Message Broker Enumerations
 
 | **Label**            | **Description**  |
 |----------------------|------------------|
@@ -1498,18 +1479,9 @@ model.
 The choice of security protocol(s) depends in part on what client
 scenarios are anticipated.
 
-A protocol that is difficult and error prone for end users to support
-represents a security threat in itself; it is anticipated that humans
-may be engaged in creating accounts, obtaining credentials and tokens,
-and so on. What can be supported by the average customer is less complex
-than what IT professionals could support.
+A protocol that is difficult and error prone for end users to support represents a security threat in itself; it is anticipated that humans may be engaged in creating accounts, obtaining credentials and tokens, and so on. What can be supported by the average customer is less complex than what IT professionals could support.
 
-OpenADR 2.0b relies on x509 certificates provisioned into the OS of VTNs
-and VENs. This is most appropriate for commercial server to server
-communications, as acquiring, provisioning, and maintaining such certs
-is generally considered overly complex for use in consumer owned
-devices. X509 certs may also be useful in scenarios where a consumer
-device has factory installed certs.
+OpenADR 2.0b relies on x509 certificates provisioned into the OS of VTNs and VENs. This is most appropriate for commercial server to server communications, as acquiring, provisioning, and maintaining such certs is generally considered overly complex for use in consumer owned devices. X509 certs may also be useful in scenarios where a consumer device has factory installed certs.
 
 VEN client platforms include:
 
@@ -1518,67 +1490,35 @@ VEN client platforms include:
 - External control device for a single customer device such as a gateway device of some sort. Such environments do not lend themselves to device-level authentication as per x.509 as installing and managing such certs is impractical.
 - Appliance or other customer device such as a water heater, refrigerator, in-home battery, or EV. These may be provisioned with security certificates or otherwise configured before installation at a customer site, or provisioned remotely by an IT professional.
 
-Note that a VEN may directly control a device, may translate grid
-signals into device control signals that it passes on, or may pass along
-grid signals with a subsidiary VTN/VEN relationship or via another
-in-building protocol (e.g. BacNET or Matter).
+Note that a VEN may directly control a device, may translate grid signals into device control signals that it passes on, or may pass along grid signals with a subsidiary VTN/VEN relationship or via another in-building protocol (e.g. BacNET or Matter).
 
 ## Non-Authenticated Clients
 
-A VTN may adopt a security position that responds to all incoming
-requests and ignore the specified OAuth2 client credential flow and lack
-of bearer tokens in requests. This provision allows programs to offer
-public information, such as public pricing schedules to any software
-client that makes a request. This scenario introduces security risks and
-is intended only for program offerings, and associated VTNs that accept
-these risks or mitigate them through unspecified means.
+A VTN may adopt a security position that responds to all incoming requests and ignore the specified OAuth2 client credential flow and lack of bearer tokens in requests. This provision allows programs to offer public information, such as public pricing schedules to any software client that makes a request. This scenario introduces security risks and is intended only for program offerings, and associated VTNs that accept these risks or mitigate them through unspecified means.
 
 ## HTTPS/TLS
 
-VTN should use 'HTTP over TLS', or HTTPS. Transport Layer Security
-\[TLS\] is required to encrypt all messages 'on the wire'. Because of
-the wide variety of platforms that may host a VEN and the user
-experience issues that could inhibit provisioning of client certs in
-every scenario, server-side certs are required, but client-side certs
-are not.
+VTN should use 'HTTP over TLS', or HTTPS. Transport Layer Security [TLS] is required to encrypt all messages 'on the wire'. Because of the wide variety of platforms that may host a VEN and the user experience issues that could inhibit provisioning of client certs in every scenario, server-side certs are required, but client-side certs are not.
 
-TLS 1.2 is required. TLS 1.3 or later is optional. As technology
-progresses, these requirements may be updated.
+TLS 1.2 is required. TLS 1.3 or later is optional. As technology progresses, these requirements may be updated.
 
-It is the responsibility of the service provider hosting a VTN to
-maintain a secure web platform. This includes updating TLS ciphers when
-appropriate.
+It is the responsibility of the service provider hosting a VTN to maintain a secure web platform. This includes updating TLS ciphers when appropriate.
 
 ## 11.6. MQTTS/TLS {#mqttstls .unnumbered}
 
 MQTT brokers and clients must support MQTT version 5 (or later)
 
-Clients must use MQTT over TLS (MQTTS) to connect to a VTN message
-broker.
+Clients must use MQTT over TLS (MQTTS) to connect to a VTN message broker.
 
 ## API Gateway
 
-A production VTN might deploy with an API gateway to implement rate
-limiting and perhaps other features. Rate limiting blocks requests after
-a certain number within a given time period from a given IP address,
-thus mitigating Denial of Service attacks.
+A production VTN might deploy with an API gateway to implement rate limiting and perhaps other features. Rate limiting blocks requests after a certain number within a given time period from a given IP address, thus mitigating Denial of Service attacks.
 
 ## OAuth 2.0 client credential flow
 
-Certified VEN clients must implement the OAuth2 \[OAuth\] client
-credential flow in which an out of band (from the REST interactions)
-process provides a clientID and secret to the VEN and associates the VEN
-with a role and associated Access Controls in the VTN. At runtime the
-VEN trades the clientID/secret for a short-lived token, which the VTN
-uses to Authenticate the client, and therefore Authorize access to
-certain resources. The VTN uses the token to determine which programs or
-tariffs may be accessed by the VEN.
+Certified VEN clients must implement the OAuth2 [OAuth] client credential flow in which an out of band (from the REST interactions) process provides a clientID and secret to the VEN and associates the VEN with a role and associated Access Controls in the VTN. At runtime the VEN trades the clientID/secret for a short-lived token, which the VTN uses to Authenticate the client, and therefore Authorize access to certain resources. The VTN uses the token to determine which programs or tariffs may be accessed by the VEN.
 
-OAuth2 Client Credentials Flow \[Oauth2 Client Flow\] is designed to
-help facilitate Authentication & Authorization for a Machine To Machine
-application. While OAuth itself does not specify the format of the
-Access Token, the most common format used is a JSON Web Token (JWT
-\[JWT\]) and this is advantageous for use in OpenADR 3.0.
+OAuth2 Client Credentials Flow [Oauth2 Client Flow] is designed to help facilitate Authentication & Authorization for a Machine To Machine application. While OAuth itself does not specify the format of the Access Token, the most common format used is a JSON Web Token (JWT [JWT]) and this is advantageous for use in OpenADR 3.0.
 
 The Authentication / Authorization process is as follows:
 
@@ -1589,11 +1529,7 @@ The Authentication / Authorization process is as follows:
 - The VTN verifies the token and returns an Unauthorized response if invalid or expired.
 - The VTN determines the client role from the API token and applies fine-grained access control. For example, a VEN client not being allowed to create event objects.
 
-The following is a simplified view of the client credential flow for
-VENs. This does not include details such as coordinating the
-Authentication server with Business Logic web flow to share client IDs
-and secrets or illustrate a similar process for Business Logic clients
-of VTN. \[Client Flow Overview\]
+The following is a simplified view of the client credential flow for VENs. This does not include details such as coordinating the Authentication server with Business Logic web flow to share client IDs and secrets or illustrate a similar process for Business Logic clients of VTN. [Client Flow Overview]
 
 <!-- ![OAuth2 client credential flow](./img/defs-fig-16-oath-client-credential-flow.png "Figure 16: OAuth2 client credential flow") -->
 
@@ -1603,61 +1539,39 @@ of VTN. \[Client Flow Overview\]
 
 ## OpenAPI Specification
 
-OpenADR 3.0 is defined by an OpenAPI (aka swaggerdoc) YAML file. The
-OpenAPI platform provides mechanisms to define security objects and use
-them to assign scopes to operations \[OpenAPI Auth\]. In this manner the
-specification defines which clients can perform which operations on
-which objects. For example, Business logic clients can create events,
-but VENs cannot.
+OpenADR 3.0 is defined by an OpenAPI (aka swaggerdoc) YAML file. The OpenAPI platform provides mechanisms to define security objects and use them to assign scopes to operations \[OpenAPI Auth\]. In this manner the specification defines which clients can perform which operations on which objects. For example, Business logic clients can create events, but VENs cannot.
 
-Each endpoint operation definition includes a security attribute, with a
-child attribute of oAuth2ClientCredentials that specifies what
-permissions are required for the operation. For example,
+Each endpoint operation definition includes a security attribute, with a child attribute of `oAuth2ClientCredentials` that specifies what permissions are required for the operation. For example,
 
-```
+```yaml
   /programs:
-  \...\
-  get:
-  \...\
-  security:
-  - oAuth2ClientCredentials: [read_all]
-
+    # ...
+    get:
+      # ...
+      security:
+        - oAuth2ClientCredentials: [read_all]
 ```
 
-The 'read_all' scope is defined in the oAuth2ClientCredentials
-securitySchemes: section of the OpenAPI document, as are other scopes.
+The `'read_all'` scope is defined in the `oAuth2ClientCredentials.securitySchemes` section of the OpenAPI document, as are other scopes.
 
 ## Bearer tokens
 
-A VTN is responsible for issuing bearer tokens, and it is an
-implementation detail what format to use, what features are encoded in
-the token, and how the token is used at runtime besides the role-based
-operation access control described above.
+A VTN is responsible for issuing bearer tokens, and it is an implementation detail what format to use, what features are encoded in the token, and how the token is used at runtime besides the role-based operation access control described above.
 
-For example, a token may encode and be used to filter the events a VEN
-can read to only those associated with certain programs.
+For example, a token may encode and be used to filter the events a VEN can read to only those associated with certain programs.
 
 ## 11.10. Webhooks {#webhooks .unnumbered}
 
-When working with webhooks there are multiple potential security
-concerns, such as infiltrating and probing the VTN internal network
-(SSRF)[^2], etc. These can arise on the sender end (the VTN). On the
-receiver end (the VEN), the client needs to verify that the data coming
-into their webhook endpoint (the endpoint that accepts webhook
-notifications) is actually from the correct application, the VTN, and
-has not been spoofed/corrupted in transit.
+When working with webhooks there are multiple potential security concerns, such as infiltrating and probing the VTN internal network (SSRF)[^2], etc. These can arise on the sender end (the VTN). On the receiver end (the VEN), the client needs to verify that the data coming into their webhook endpoint (the endpoint that accepts webhook notifications) is actually from the correct application, the VTN, and has not been spoofed/corrupted in transit.
 
-To strengthen the webhooks security, the following requirements are to
-be met:
+To strengthen the webhooks security, the following requirements are to be met:
 
 - The VEN client MUST use HTTPS for the webhook callback URL. The VTN MUST validate that an HTTPS schema is used for the callback URL of the webhook subscription that is created and/or updated.
 - The VTN MUST verify the webhook callback URL is active and belongs to the requestor. To achieve this, the VTN MUST send a GET request to the provided callback URL that includes a challenge, a query string parameter named \'echo\', with random generated string value. When the VEN receives this request on the callback URL, it MUST respond with 200 OK response and include the query string parameter value in the body of the response. The VTN MUST verify that the echo parameter value that was sent back is the same as the one that was initially sent. In case when the validation fails, the VTN MUST NOT allow creation of the subscription.
 
 11.9.1 Additional guidelines
 
-Following are a few guidelines that can be taken into consideration in
-relation with the webhooks in order to ensure even better security and
-reliability.
+Following are a few guidelines that can be taken into consideration in relation with the webhooks in order to ensure even better security and reliability.
 
 - *Configure timeouts*. The VTN should configure a timeout when making requests to the VEN client as a webhook consumer. The nature of webhooks suggests that they execute relatively quickly, therefore it is recommended that a VTN configure a timeout period between 10 and 30 seconds.
 - *Check for private IPs and reserved IPs*. The VTN should check if users are creating subscriptions with a webhook callback URL to `http://127.0.0.1` or attempting to use URLs that resolve to private ranges. As a potential attack vector are domains that resolve to private IPs. For example, an attacker could set up `http://foo.com`> which resolves to a private IP.
@@ -1671,43 +1585,28 @@ reliability.
 
 # Reference Implementation
 
-The OpenADR Alliance provides an open source Reference Implementation
-(RI) [OADR3-RI] which includes a simple implementation of the client
-credential flow.
+The OpenADR Alliance provides an open source Reference Implementation (RI) [OADR3-RI] which includes a simple implementation of the client credential flow.
 
-Using constructs available in OpenAPI and the swaggerhub auto-generated
-python VTN server, the RI provides an `<base_url>/auth/token` endpoint
-that clients use to exchange pre-allocated clientID and secret
-credentials for an access token. The token is included as a bearer token
-header in each subsequent API request. The server framework resolves the
-token to a set of scopes which are used to enforce access control to
-each endpoint operation. These steps are described below:
+Using constructs available in OpenAPI and the swaggerhub auto-generated python VTN server, the RI provides an `<base_url>/auth/token` endpoint that clients use to exchange pre-allocated clientID and secret credentials for an access token. The token is included as a bearer token header in each subsequent API request. The server framework resolves the token to a set of scopes which are used to enforce access control to each endpoint operation. These steps are described below:
 
 ## Step 1: Trade clientID/clientSecret for access token
 
-CURL is a command line tool for making http requests. The example here
-illustrates an http GET request to obtain an access token. ClientID and
-clientSecret are included as headers, per best practice.
+CURL is a command line tool for making http requests. The example here illustrates an http GET request to obtain an access token. ClientID and clientSecret are included as headers, per best practice.
 
 ```shell
 $ curl http://localhost:8080/openadr3/OADR-3.0.0/1.0.0/auth/token \
   -H 'clientID: ven_client' -H 'clientSecret: 999'
 ```
 
-The RI hardcodes clientIDs and clientSecrets and tokens. On requests to
-the auth/token endpoint the endpoint handler (fetch_token()) interprets
-the clientID and clientSecret headers in the request and returns one of
-'ven_token', 'bl_token', or 'bad_token'.
+The RI hardcodes `clientIDs` and `clientSecrets` and tokens. On requests to the auth/token endpoint the endpoint handler (`fetch_token()`) interprets the `clientID` and `clientSecret` headers in the request and returns one of `'ven_token'`, `'bl_token'`, or 'bad_token'.
 
-In a production environment, the entity that grants clientIDs and
-clientSecrets populates a service or database with an association
-between those credentials and a token and set of scopes, such that Step
-3 below can be performed.
+In a production environment, the entity that grants `clientIDs` and
+`clientSecrets` populates a service or database with an association
+between those credentials and a token and set of scopes, such that Step 3 below can be performed.
 
 ## Step 2: Include access token in API requests
 
-The token obtained from Step 1 is used in a Bearer token header in API
-requests, as illustrated below:
+The token obtained from Step 1 is used in a Bearer token header in API requests, as illustrated below:
 
 ```shell
 $ curl http://localhost:8080/openadr3/OADR-3.0.0/1.0.0/programs \
@@ -1717,27 +1616,21 @@ $ curl http://localhost:8080/openadr3/OADR-3.0.0/1.0.0/programs \
 ## Step 3: Resolve token to scopes
 
 A scope is a string associated with an endpoint operation that the
-server framework checks to ensure an incoming request is permitted. See
-section above titled **OpenAPI Specification** for an example.
+server framework checks to ensure an incoming request is permitted. See section above titled **OpenAPI Specification** for an example.
 
 On every API request (except `<base_url>/auth/token`) the server
-framework invokes the authorization_controller.[check_oAuth2ClientCredentials() method to
+framework invokes the authorization_controller.[check_`oAuth2ClientCredentials()` method to
 resolve a token to a set of scopes.]{.mark}
 
 [The RI hardcodes the association between tokens and scopes.]{.mark}
 
-[In a production environment, the association between tokens and scopes
-is dynamically maintained by service or database.]{.mark}
+[In a production environment, the association between tokens and scopes is dynamically maintained by service or database.]{.mark}
 
 ## Step 4: Enforce Access Control
 
-On every API request (except `<base_url>/auth/token`), after a token as
-been resolved to scopes, the server framework invokes the
-authorization_controller.[validate_scope_oAuth2ClientCredentials()
-method to ensure the request has been granted the required scopes for
-the requested operation. If the required scopes have not been granted an
-http 403 status code will be returned.]{.mark}
+On every API request (except `<base_url>/auth/token`), after a token as been resolved to scopes, the server framework invokes the [`authorization_controller.validate_scope_oAuth2ClientCredentials()` method to ensure the request has been granted the required scopes for the requested operation. If the required scopes have not been granted an http 403 status code will be returned.]{.mark}
 
+# Footnotes
 
 [^1]: Note that VTNs may provide some endpoints with no access
     restrictions for freely available information such as prices for

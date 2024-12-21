@@ -16,10 +16,12 @@ import { default as MarkdownITHighlightJS } from 'markdown-it-highlightjs';
 import { default as MarkdownItAttrs } from 'markdown-it-attrs';
 import { default as MarkdownItDiv } from 'markdown-it-div';
 import { default as MarkdownItAnchor } from 'markdown-it-anchor';
-import { default as MarkdownItTOC } from 'markdown-it-table-of-contents';
+// import { default as MarkdownItTOC } from 'markdown-it-table-of-contents';
+// import { default as MarkdownItTOCDreapt } from 'markdown-it-toc-done-right';
 import { default as MarkdownItSections } from 'markdown-it-header-sections';
 import { default as MarkdownItImageFigures } from 'markdown-it-image-figures';
 import { default as MarkdownItMultiMDTable } from 'markdown-it-multimd-table';
+import { default as MarkdownItTableCaptions } from 'markdown-it-table-captions';
 
 import { ThemeBootstrapPlugin } from '@akashacms/theme-bootstrap';
 import { BasePlugin } from '@akashacms/plugins-base';
@@ -61,8 +63,9 @@ program
     .option('--no-md-highlightjs', 'Disable the markdown-it-highlightjs extension')
     .option('--no-md-image-figures', 'Disable the markdown-it-image-figures extension')
     .option('--no-md-multimd-table', 'Disable the markdown-it-multimd-table extension')
+    .option('--no-md-table-captions', 'Disable the markdown-it-table-captions extension')
     .option('--no-md-plantuml', 'Disable the markdown-it-plantuml extension')
-    .option('--no-md-table-of-contents', 'Disable the markdown-it-table-of-contents extension')
+    // .option('--no-md-table-of-contents', 'Disable the markdown-it-table-of-contents extension')
     .option('--funcs <funcsFN>', 'Name a JS file containing Mahafuncs for custom processing')
     .action(async (docPaths, options, command) => {
 
@@ -222,6 +225,8 @@ program
         ) {
             throw new Error(`Configuration must include document directories ${util.inspect(config.documentDirs)}`);
         }
+
+        await config.copyAssets();
 
         const renderedPaths = await renderDocuments(
             config, options, docPaths
@@ -411,12 +416,16 @@ async function generateConfiguration(options) {
         .use(MarkdownItDiv);
     }
     if (options.mdAnchor) {
-        config.findRendererName('.html.md')    .use(MarkdownItAnchor);
-    }
-    if (options.MarkdownItTOC) {
         config.findRendererName('.html.md')
         .use(MarkdownItAnchor);
     }
+    // if (options.mdTableOfContents) {
+    //     config.findRendererName('.html.md')
+    //     .use(MarkdownItTOC, {
+    //         placeholder: '[[toc]]',
+    //         containerId: 'table-of-contents',
+    //     });
+    // }
     if (options.mdHeaderSections) {
         config.findRendererName('.html.md')
         .use(MarkdownItSections);
@@ -439,7 +448,11 @@ async function generateConfiguration(options) {
             aotolabel:  true,
         });
     }
-
+    if (options.mdTableCaptions) {
+        config.findRendererName('.html.md')
+        .use(MarkdownItTableCaptions);
+    }
+    
     // Add directories for assets, plugins,
     //     layout templates, and documents
 
@@ -479,7 +492,11 @@ async function generateConfiguration(options) {
     .addFooterJavaScript({ href: "/vendor/popper.js/umd/popper.min.js" })
     .addFooterJavaScript({ href: "/vendor/bootstrap/js/bootstrap.min.js" })
     .addStylesheet({ href: "/vendor/bootstrap/css/bootstrap.min.css" });
-    // .addStylesheet({       href: "/style.css" })
+    if (options.style) {
+        config.addStylesheet({
+            href: options.style
+        });
+    }
 
     // TODO there must be an assets directory
     // where this is stored

@@ -56,9 +56,9 @@
 		content: " (" attr(datetime) ")"; }
 	q:after {
 		content: "\201D" " (" attr(cite) ")"; }
-	canvas, html:after, img, picture {
+	canvas, html:after, img, picture, nav {
 		display: block; }
-	applet, audio, blink, dialog, embed, form, iframe, map, map + img, marquee, menu, nav, object, video {
+	applet, audio, blink, dialog, embed, form, iframe, map, map + img, marquee, menu, /* nav, */ object, video {
 		display: none; }
 	code, kbd, pre, samp, tt, var {
 		font-family: 'Courier New', Courier, 'Lucida Sans Typewriter', 'Lucida Typewriter', monospace;
@@ -113,7 +113,7 @@
 		padding: 2em 4em; }
 	article {
 		page-break-before: always; }
-	a, blockquote, canvas, details, dl, figure, img, ol, picture, svg, table /* , ul */ {
+	a, blockquote, canvas, details, dl, figure, img, ol, picture, svg /* , table */ /* , ul */ {
 		break-inside: avoid;
 		page-break-inside: avoid; }
 	canvas, figure, h1, html:after, img, picture, svg, table {
@@ -165,7 +165,7 @@
 	/* --------------------- */
 	/* Advanced Url Handling */
 	/* --------------------- */
-	$a:after > img {
+	a:after > img {
 		content: ""; }
 	a[href^="#"]:after, a[href^="javascript:"]:after {
 		content: ""; }

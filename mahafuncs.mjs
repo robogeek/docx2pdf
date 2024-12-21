@@ -25,6 +25,7 @@ export function mahabhutaArray(options) {
     ret.addMahafunc(new OpenAPISecurityScopes());
     ret.addMahafunc(new OpenAPIEndpoints());
     ret.addMahafunc(new OpenAPIInformationModel());
+    ret.addMahafunc(new HnNumbering());
     return ret;
 };
 
@@ -39,6 +40,9 @@ export class SchemaDescriptions extends mahabhuta.CustomElement {
                 ? $element.attr('template')
                 : 'schema-descriptions.html.njk';
         const id = $element.attr('id');
+        const caption = $element.attr('caption');
+        const keyHeader = $element.attr('keyheader');
+        const descHeader = $element.attr('descriptionheader');
 
         if (!schemaFN || typeof schemaFN !== 'string') {
             throw new Error(`No schema file given ${util.inspect(schemaFN)}`);
@@ -71,7 +75,7 @@ export class SchemaDescriptions extends mahabhuta.CustomElement {
         return akasha.partial(
             this.array.options.config,
             template, {
-                defs, id
+                defs, id, caption, keyHeader, descHeader
             });
     }
 }
@@ -273,22 +277,113 @@ class OpenAPIInformationModel extends mahabhuta.CustomElement {
 // }
 // <div class="page_break"></div>
 
+/**
+ * Generate numbering for Hn tags, along with generating
+ * a table of contents.
+ * 
+ * The technique for numbering Hn tags is similar to
+ * the CSS in this Gist: https://gist.github.com/rodolfoap/6cd714a65a891c6fe699ab91f0d22384
+ * In that case, a CSS counter is kept for H1/H2/H3/etc tags,
+ * which is reset at certain cases.
+ * 
+ * What we're doing is looking for H1, H2, H3 tags.
+ * The corresponding counter is kept tracking the numbering
+ * for each.  For H2 and H3 tags the counter will be reset
+ * to zero when needed.
+ * 
+ * The text of the Hn tag is the original text prepended
+ * with the counters.
+ * 
+ * Next, the headers array stores data about the Hn tags.
+ * It stores the level of each Hn tag as a child of the
+ * previous Hn parent.  This way the ToC becomes a nested
+ * list of items.
+ * 
+ * Next, a Partial traverses that list producing
+ * a <nav><ul>...</ul></nav> structure
+ * The <nav> tag is important because it is the
+ * semantically correct HTML element.
+ * 
+ * Finally, the text generated with the Partial
+ * replaces the <toc-text-here> tag.
+ */
+class HnNumbering extends mahabhuta.PageProcessor {
+	async process($, metadata, dirty) /* : Promise<string> */ {
 
-// class HnNumbering extends mahabhuta.PageProcessor {
-// 	async process($, metadata, dirty) /* : Promise<string> */ {
+        let counter_h1 = 0;
+        let counter_h2 = 0;
+        let counter_h3 = 0;
 
-//         const headers = $("section > h1,h2,h3,h4,h5").get()
-//         .map(element => {
-//             return {
-//                 path: metadata.document.path,
-//                 id: $(element).attr('id'),
-//                 name: element.tagName,
-//                 text: $(element).text()
-//             };
-//         });
+        const headers = [];
+        let prevH1;
+        let prevH2;
+        let prevH3;
+        $('article').find('h1:not(.header-title), h2, h3').each(function() {
+            if ($(this).is('h1')) {
+                counter_h1++;
+                counter_h2 = counter_h3 = 0;
 
-//         console.log(headers);
+                const title = `${counter_h1}. ${$(this).text()}`;
+                $(this).text(title);
+            }
+            if ($(this).is('h2')) {
+                counter_h2++;
+                counter_h3 = 0;
+
+                const title = `${counter_h1}.${counter_h2}. ${$(this).text()}`;
+                $(this).text(title);
+            }
+            if ($(this).is('h3')) {
+                counter_h3++;
+
+                const title = `${counter_h1}.${counter_h2}.${counter_h3}. ${$(this).text()}`;
+                $(this).text(title);
+            }
+            if ($(this).is('h1')) {
+                prevH1 = {
+                    id: $(this).parent('section').attr('id'),
+                    title: $(this).text()
+                };
+                headers.push(prevH1);
+                prevH2 = prevH3 = undefined;
+            } else if ($(this).is('h2')) {
+                if (!prevH1) {
+                    throw new Error(`H2 found before any H1`);
+                }
+                if (!('children' in prevH1)) {
+                    prevH1.children = [];
+                }
+                prevH2 = {
+                    id: $(this).parent('section').attr('id'),
+                    title: $(this).text()
+                };
+                prevH1.children.push(prevH2);
+            } else if ($(this).is('h3')) {
+                if (!prevH2) {
+                    throw new Error(`H2 found before any H1`);
+                }
+                if (!('children' in prevH2)) {
+                    prevH2.children = [];
+                }
+                prevH3 = {
+                    id: $(this).parent('section').attr('id'),
+                    title: $(this).text()
+                };
+                prevH2.children.push(prevH3);
+            }
+        });
+
+        // console.log(headers);
         
-// 	}
-// }
+        const toctext = await akasha.partial(
+            this.array.options.config,
+            'toc.html.njk', {
+            headers
+        });
+
+        // console.log(toctext);
+
+        $('toc-text-here').replaceWith(toctext);
+	}
+}
 
