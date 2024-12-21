@@ -69,29 +69,9 @@ program
     .option('--funcs <funcsFN>', 'Name a JS file containing Mahafuncs for custom processing')
     .action(async (docPaths, options, command) => {
 
-        // TODO --style
-        // TODO --height-header
-        // TODO --height-footer
-        // TODO --layout-dir
-        // TODO --partial-dir
-        // TODO --asset-dir
-        // TODO --document-dir
-        // TODO --html-output
-        // TODO --no-printcss
-        // TODO --no-md-anchor
-        // TODO --no-md-attrs
-        // TODO --no-md-div
-        // TODO --no-md-header-sections
-        // TODO --no-md-highlightjs
-        // TODO --no-md-image-figures
-        // TODO --no-md-multimd-table
-        // TODO --no-md-plantuml
-        // TODO --no-md-table-of-contents
-        // TODO --watch
+        // TODO --watch  -- or nodemon
         // TODO -- URL for PlantUML server
         // TODO -- highlight.js theme link
-        // TODO -- config file (avoids autogenerating config)
-        // TODO --funcs
 
         let config;
         
@@ -226,7 +206,7 @@ program
             throw new Error(`Configuration must include document directories ${util.inspect(config.documentDirs)}`);
         }
 
-        await config.copyAssets();
+        // await config.copyAssets();
 
         const renderedPaths = await renderDocuments(
             config, options, docPaths
@@ -250,6 +230,7 @@ program
                 );
             }
         }
+        await akasha.closeCaches();
         await browser.close();
     });
 
@@ -564,8 +545,6 @@ async function renderDocuments(config, options, docPaths) {
         // console.log(result);
         renderedPaths.push(docInfo.renderPath);
     }
-
-    await akasha.closeCaches();
 
     return renderedPaths;
 }

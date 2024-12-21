@@ -159,79 +159,140 @@ Pajarito Technologies, LLC</p>
 <section id="contents" class="header-title" tabindex="-1">
 <h1 class="header-title" tabindex="-1">CONTENTS</h1>
 <p><span id="table-of-contents">
-  <ul><li>
-        <a href="#introduction">1. Introduction</a><ul><li>
-                        <a href="#revision-3.0.2-introduction">1.1. 1.1 Revision 3.0.2 Introduction</a></li></ul>
+  <ul class="list-no-margin"><li>
+        <a href="#introduction">1. Introduction</a>
+        <ul class="list-no-margin"><li>
+                        <a href="#revision-3.0.2-introduction">1.1. 1.1 Revision 3.0.2 Introduction</a></li>
+                </ul>
         </li><li>
-        <a href="#normative-references">2. Normative References</a></li><li>
-        <a href="#informative-references">3. Informative References</a></li><li>
-        <a href="#terms-and-definitions">4. Terms and Definitions</a><ul><li>
-                        <a href="#messaging-protocol-terms-and-definitions">4.1. 4.1 Messaging Protocol Terms and Definitions</a></li></ul>
+        <a href="#normative-references">2. Normative References</a>
         </li><li>
-        <a href="#overview">5. Overview</a><ul><li>
-                        <a href="#system-architecture">5.1. System Architecture</a></li><li>
-                        <a href="#local-scenarios">5.2. Local Scenarios</a></li><li>
-                        <a href="#ven-enrollment">5.3. VEN enrollment</a></li></ul>
+        <a href="#informative-references">3. Informative References</a>
         </li><li>
-        <a href="#general-usage">6. General Usage</a><ul><li>
-                        <a href="#vtn-provided-fields">6.1. VTN provided fields</a></li><li>
-                        <a href="#required-and-optional-properties">6.2. Required and optional properties</a></li><li>
-                        <a href="#response-codes-and-errors">6.3. Response Codes and Errors</a><ul><li>
+        <a href="#terms-and-definitions">4. Terms and Definitions</a>
+        <ul class="list-no-margin"><li>
+                        <a href="#messaging-protocol-terms-and-definitions">4.1. 4.1 Messaging Protocol Terms and Definitions</a></li>
+                </ul>
+        </li><li>
+        <a href="#overview">5. Overview</a>
+        <ul class="list-no-margin"><li>
+                        <a href="#system-architecture">5.1. System Architecture</a></li>
+                <li>
+                        <a href="#local-scenarios">5.2. Local Scenarios</a></li>
+                <li>
+                        <a href="#ven-enrollment">5.3. VEN enrollment</a></li>
+                </ul>
+        </li><li>
+        <a href="#general-usage">6. General Usage</a>
+        <ul class="list-no-margin"><li>
+                        <a href="#vtn-provided-fields">6.1. VTN provided fields</a></li>
+                <li>
+                        <a href="#required-and-optional-properties">6.2. Required and optional properties</a></li>
+                <li>
+                        <a href="#response-codes-and-errors">6.3. Response Codes and Errors</a><ul class="list-no-margin"><li>
                                         <a href="#problem">6.3.1. Problem</a>
                                     </li></ul>
-                        </li><li>
-                        <a href="#post-and-put">6.4. POST and PUT</a></li><li>
-                        <a href="#compression">6.5. Compression</a></li><li>
-                        <a href="#support-for-strongly-typed-languages">6.6. Support for Strongly Typed languages</a></li><li>
-                        <a href="#message-validation">6.7. Message validation</a></li><li>
-                        <a href="#subscriptions">6.8. Subscriptions</a></li><li>
-                        <a href="#subscription-and-notification-via-messaging-protocols">6.9. 6.8.1 Subscription and Notification via Messaging Protocols</a></li><li>
-                        <a href="#response-filtering">6.10. Response Filtering</a></li><li>
-                        <a href="#object-names">6.11. Object names</a></li></ul>
+                        </li>
+                <li>
+                        <a href="#post-and-put">6.4. POST and PUT</a></li>
+                <li>
+                        <a href="#compression">6.5. Compression</a></li>
+                <li>
+                        <a href="#support-for-strongly-typed-languages">6.6. Support for Strongly Typed languages</a></li>
+                <li>
+                        <a href="#message-validation">6.7. Message validation</a></li>
+                <li>
+                        <a href="#subscriptions">6.8. Subscriptions</a></li>
+                <li>
+                        <a href="#subscription-and-notification-via-messaging-protocols">6.9. 6.8.1 Subscription and Notification via Messaging Protocols</a></li>
+                <li>
+                        <a href="#response-filtering">6.10. Response Filtering</a></li>
+                <li>
+                        <a href="#object-names">6.11. Object names</a></li>
+                </ul>
         </li><li>
-        <a href="#information-model">7. Information Model</a></li><li>
-        <a href="#endpoints">8. EndPoints</a></li><li>
-        <a href="#revision">9. Revision</a></li><li>
-        <a href="#extensibility">10. Extensibility</a><ul><li>
-                        <a href="#model-extension">10.1. Model Extension</a></li><li>
-                        <a href="#private-strings">10.2. Private Strings</a></li></ul>
+        <a href="#information-model">7. Information Model</a>
         </li><li>
-        <a href="#enumerations">11. Enumerations</a><ul><li>
-                        <a href="#introduction-1">11.1. Introduction</a></li><li>
-                        <a href="#event-payload-enumerations">11.2. Event Payload Enumerations</a></li><li>
-                        <a href="#report-enumerations">11.3. Report Enumerations</a></li><li>
-                        <a href="#reading-type-enumerations">11.4. Reading Type Enumerations</a></li><li>
-                        <a href="#operating-state-enumerations">11.5. Operating State Enumerations</a></li><li>
-                        <a href="#resourcename-enumerations">11.6. ResourceName Enumerations</a></li><li>
-                        <a href="#data-quality-enumerations">11.7. Data Quality Enumerations</a></li><li>
-                        <a href="#target-enumerations">11.8. Target Enumerations</a></li><li>
-                        <a href="#attribute-enumerations">11.9. Attribute Enumerations</a></li><li>
-                        <a href="#unit-enumerations">11.10. Unit Enumerations</a></li><li>
-                        <a href="#currency-enumerations">11.11. Currency Enumerations</a></li><li>
-                        <a href="#binding-enumerations">11.12. 10.12. Binding Enumerations</a></li><li>
-                        <a href="#serialization-enumerations">11.13. 10.13. Serialization Enumerations</a></li><li>
-                        <a href="#message-broker-auth-enumerations">11.14. 10.14. Message Broker Auth Enumerations</a></li></ul>
+        <a href="#endpoints">8. EndPoints</a>
         </li><li>
-        <a href="#security">12. Security</a><ul><li>
-                        <a href="#security-objectives">12.1. Security objectives</a></li><li>
-                        <a href="#assumptions">12.2. Assumptions</a></li><li>
-                        <a href="#client-scenarios">12.3. Client Scenarios</a></li><li>
-                        <a href="#non-authenticated-clients">12.4. Non-Authenticated Clients</a></li><li>
-                        <a href="#https%2Ftls">12.5. HTTPS/TLS</a></li><li>
-                        <a href="#mqttstls">12.6. 11.6. MQTTS/TLS</a></li><li>
-                        <a href="#api-gateway">12.7. API Gateway</a></li><li>
-                        <a href="#oauth-2.0-client-credential-flow">12.8. OAuth 2.0 client credential flow</a></li><li>
-                        <a href="#openapi-specification">12.9. OpenAPI Specification</a></li><li>
-                        <a href="#bearer-tokens">12.10. Bearer tokens</a></li><li>
-                        <a href="#webhooks">12.11. 11.10. Webhooks</a></li></ul>
+        <a href="#revision">9. Revision</a>
         </li><li>
-        <a href="#reference-implementation">13. Reference Implementation</a><ul><li>
-                        <a href="#step-1%3A-trade-clientid%2Fclientsecret-for-access-token">13.1. Step 1: Trade clientID/clientSecret for access token</a></li><li>
-                        <a href="#step-2%3A-include-access-token-in-api-requests">13.2. Step 2: Include access token in API requests</a></li><li>
-                        <a href="#step-3%3A-resolve-token-to-scopes">13.3. Step 3: Resolve token to scopes</a></li><li>
-                        <a href="#step-4%3A-enforce-access-control">13.4. Step 4: Enforce Access Control</a></li></ul>
+        <a href="#extensibility">10. Extensibility</a>
+        <ul class="list-no-margin"><li>
+                        <a href="#model-extension">10.1. Model Extension</a></li>
+                <li>
+                        <a href="#private-strings">10.2. Private Strings</a></li>
+                </ul>
         </li><li>
-        <a href="#footnotes">14. Footnotes</a></li></ul>
+        <a href="#enumerations">11. Enumerations</a>
+        <ul class="list-no-margin"><li>
+                        <a href="#introduction-1">11.1. Introduction</a></li>
+                <li>
+                        <a href="#event-payload-enumerations">11.2. Event Payload Enumerations</a></li>
+                <li>
+                        <a href="#report-enumerations">11.3. Report Enumerations</a></li>
+                <li>
+                        <a href="#reading-type-enumerations">11.4. Reading Type Enumerations</a></li>
+                <li>
+                        <a href="#operating-state-enumerations">11.5. Operating State Enumerations</a></li>
+                <li>
+                        <a href="#resourcename-enumerations">11.6. ResourceName Enumerations</a></li>
+                <li>
+                        <a href="#data-quality-enumerations">11.7. Data Quality Enumerations</a></li>
+                <li>
+                        <a href="#target-enumerations">11.8. Target Enumerations</a></li>
+                <li>
+                        <a href="#attribute-enumerations">11.9. Attribute Enumerations</a></li>
+                <li>
+                        <a href="#unit-enumerations">11.10. Unit Enumerations</a></li>
+                <li>
+                        <a href="#currency-enumerations">11.11. Currency Enumerations</a></li>
+                <li>
+                        <a href="#binding-enumerations">11.12. 10.12. Binding Enumerations</a></li>
+                <li>
+                        <a href="#serialization-enumerations">11.13. 10.13. Serialization Enumerations</a></li>
+                <li>
+                        <a href="#message-broker-auth-enumerations">11.14. 10.14. Message Broker Auth Enumerations</a></li>
+                </ul>
+        </li><li>
+        <a href="#security">12. Security</a>
+        <ul class="list-no-margin"><li>
+                        <a href="#security-objectives">12.1. Security objectives</a></li>
+                <li>
+                        <a href="#assumptions">12.2. Assumptions</a></li>
+                <li>
+                        <a href="#client-scenarios">12.3. Client Scenarios</a></li>
+                <li>
+                        <a href="#non-authenticated-clients">12.4. Non-Authenticated Clients</a></li>
+                <li>
+                        <a href="#https%2Ftls">12.5. HTTPS/TLS</a></li>
+                <li>
+                        <a href="#mqttstls">12.6. 11.6. MQTTS/TLS</a></li>
+                <li>
+                        <a href="#api-gateway">12.7. API Gateway</a></li>
+                <li>
+                        <a href="#oauth-2.0-client-credential-flow">12.8. OAuth 2.0 client credential flow</a></li>
+                <li>
+                        <a href="#openapi-specification">12.9. OpenAPI Specification</a></li>
+                <li>
+                        <a href="#bearer-tokens">12.10. Bearer tokens</a></li>
+                <li>
+                        <a href="#webhooks">12.11. 11.10. Webhooks</a></li>
+                </ul>
+        </li><li>
+        <a href="#reference-implementation">13. Reference Implementation</a>
+        <ul class="list-no-margin"><li>
+                        <a href="#step-1%3A-trade-clientid%2Fclientsecret-for-access-token">13.1. Step 1: Trade clientID/clientSecret for access token</a></li>
+                <li>
+                        <a href="#step-2%3A-include-access-token-in-api-requests">13.2. Step 2: Include access token in API requests</a></li>
+                <li>
+                        <a href="#step-3%3A-resolve-token-to-scopes">13.3. Step 3: Resolve token to scopes</a></li>
+                <li>
+                        <a href="#step-4%3A-enforce-access-control">13.4. Step 4: Enforce Access Control</a></li>
+                </ul>
+        </li><li>
+        <a href="#footnotes">14. Footnotes</a>
+        </li></ul>
 </span>
 </p>
 </section>

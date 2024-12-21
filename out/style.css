@@ -129,7 +129,7 @@ tr {
 
 tr th {
     border-bottom: #777 2px solid !important;
-    // border-top: #9d9d9d 2px solid !important;
+    /* // border-top: #9d9d9d 2px solid !important; */
 }
 
 tr:nth-of-type(even) {
@@ -190,6 +190,10 @@ table caption {
     font-weight: bold;
     font-style: italic;
     font-size: larger;
+}
+
+ul.list-no-margin {
+    margin-top: 0em;
 }
 
 /***** Implement section numbering in CSS *****/
