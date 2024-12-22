@@ -387,11 +387,16 @@ async function generateConfiguration(options) {
             auto: true, 
             code: true 
         });
+
+        config.addAssetsDir({ 
+            src: 'node_modules/highlight.js', 
+            dest: 'vendor/highlight.js' 
+        });
     }
     if (options.mdAttrs) {
         config.findRendererName('.html.md')
         .use(MarkdownItAttrs, {
-            allowedAttributes: [ 'id', 'class' ]
+            allowedAttributes: [ 'id', 'class', 'caption', 'data' ]
         });
     }
     if (options.mdDiv) {
@@ -450,6 +455,7 @@ async function generateConfiguration(options) {
     
     // Add directories for assets, plugins,
     //     layout templates, and documents
+    
 
     if (options.assetDir) {
         for (const aDir of options.assetDir) {
@@ -486,7 +492,14 @@ async function generateConfiguration(options) {
     .addFooterJavaScript({ href: "/vendor/jquery/jquery.min.js" })
     .addFooterJavaScript({ href: "/vendor/popper.js/umd/popper.min.js" })
     .addFooterJavaScript({ href: "/vendor/bootstrap/js/bootstrap.min.js" })
-    .addStylesheet({ href: "/vendor/bootstrap/css/bootstrap.min.css" });
+    .addStylesheet({ href: "/vendor/bootstrap/css/bootstrap.min.css" })
+    .addStylesheet({ href: "/vendor/highlight.js/styles/stackoverflow-dark.css" })
+    // .addStylesheet({ href: "/vendor/highlight.js/styles/shades-of-purple.css" })
+    // .addStylesheet({ href: "/vendor/highlight.js/styles/github-dark-dimmed.css" });
+    // .addStylesheet({ href: "/vendor/highlight.js/styles/tomorrow-night-blue.css" });
+    // .addStylesheet({ href: "/vendor/highlight.js/styles/atelier-cave-light.css" });
+    ;
+
     if (options.style) {
         config.addStylesheet({
             href: options.style
@@ -712,11 +725,11 @@ async function renderDocToPDF(
             left: '20mm'
         },
         displayHeaderFooter: true,
-        headerTemplate: tmplHeader,
-        footerTemplate: tmplFooter,
+        headerTemplate: await fsp.readFile(tmplHeader, 'utf-8'),
+        footerTemplate: await fsp.readFile(tmplFooter, 'utf-8'),
         printBackground: true
     };
-    // console.log(opts);
+    console.log(opts);
     const pdf = await page.pdf(opts);
 
     // Write PDF to file

@@ -198,8 +198,12 @@ table caption {
  * declaration where ul has margin 1em 0, which means
  * margin-top is 1em.  This overrides that for lists
  * with class list-no-margin.
+ *
+ * UPDATE: It was discovered that every nested UL/LI
+ * list had this issue.  So, we simply apply the
+ * override to every <ul>
  */
-ul.list-no-margin {
+ul.list-no-margin, ul {
     margin-top: 0em;
 }
 

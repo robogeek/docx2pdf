@@ -102,7 +102,7 @@
 
 
 
-<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css"><link rel="stylesheet" type="text/css" href="style.css"><link rel="stylesheet" type="text/css" href="print.css">
+<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css"><link rel="stylesheet" type="text/css" href="vendor/highlight.js/styles/stackoverflow-dark.css"><link rel="stylesheet" type="text/css" href="style.css"><link rel="stylesheet" type="text/css" href="print.css">
 
 </head>
 <body>
@@ -340,7 +340,7 @@ Pajarito Technologies, LLC</p>
 <ul>
 <li><strong>Program</strong> - The business context for a given usage of the VTN. May be a Demand Response program, tariff, or other business construct.</li>
 <li><strong>ProgramName</strong> - A unique name for a program or tariff. May be used by customers.</li>
-<li><strong>[Program Description]</strong> - A human readable document provided out-of-band by a Business Logic entity that specifies a usage of the OpenADR 3.0 object model and configuration details such as VTN address, program names, applicable customer types, etc.</li>
+<li><strong>Program Description</strong> - A human readable document provided out-of-band by a Business Logic entity that specifies a usage of the OpenADR 3.0 object model and configuration details such as VTN address, program names, applicable customer types, etc.</li>
 <li><strong>Tariff</strong> - A type of program that defines the basic agreement between a retailer and a customer, such as an electricity pricing structure, as opposed to optional programs offered on top of a tariff.</li>
 <li><strong>Virtual Top Node (VTN)</strong> - An application that implements the OpenADR 3.0 APIs. This is a Resource Server in REST parlance.</li>
 <li><strong>Virtual End Node (VEN)</strong> - A software application that consumes events, generates reports, and directly or indirectly causes changes in energy consumption patterns. This is a client of a VTN.</li>
@@ -2981,28 +2981,28 @@ device can export, in kiloWatts.
 <p>The following specific assumptions underlie the OpenADR 3.0 security model.</p>
 <ul>
 <li>VTN security must meet stringent requirements. Client requests must be able to be authenticated and access to API resources and operations must be able to be authorized.
-<ul>
+<ul class="list-no-margin">
 <li>VTNs are software applications that do not directly interface with any element of the grid. As an information service provided by a utility retailer, the VTN provides APIs to allow the retailer to &apos;publish&apos; information it deems appropriate toshare with customers and other interested parties. There is no mechanism by which a VTN (if restricted to implement only its function as a resource server) or its clients may interact with other components of a utility&apos;s systems.</li>
 </ul>
 </li>
 <li>VTN clients include utility Business Logic and VENs; therefore a security solution must work for both scenarios.
-<ul>
+<ul class="list-no-margin">
 <li>Client requests must be associated with a client role, and roles define what operations on what API objects a given client may perform. For example, a Business Logic client may create an event, but a VEN cannot. Both can read an event, but a VEN can only read events associated with the programs it is entitled to access.</li>
 </ul>
 </li>
 <li>VENs may be implemented within on-site customer devices such as a water heater, external hardware controllers, or a central device. VENs may also be implemented in servers in the cloud.
-<ul>
+<ul class="list-no-margin">
 <li>This implies that certifying devices and provisioning x.509 certs or other PKI (Public Key Infrastructure) as detailed in OpenADR 2.0b is daunting at best, or simply not supportable.</li>
 <li>A REST API requires some form of application level credential exchange to authenticate and authorize client requests. Even where PKI may be required, it is not sufficient to address access control of API objects.</li>
 </ul>
 </li>
 <li>Devices (OpenADR &apos;resources&apos;) represented by VENs are owned by a utility customer, who has a customer account with the utility.
-<ul>
+<ul class="list-no-margin">
 <li>A utility may require that for a customer to participate in a DR program they enroll their account in the program, and may need to register their &apos;resources&apos; or devices into the program.</li>
 </ul>
 </li>
 <li>VENs must be manually provisioned with a VTN address that has been provided by the utility retailer.
-<ul>
+<ul class="list-no-margin">
 <li>This implies that there is no plug-n-play scenario in which a customer owned device simply begins to participate in a conventional demand response program without some manual configuration. Therefore, the device should present a web UI or other interface to a customer. (Much like a home router presents a web app at a known address).</li>
 <li>A typical means to acquire a VTN address would be for a customer to login in to their utility account and obtain the address as part of the enrollment and registration flow described in the bullet above.</li>
 <li>Methods to automate and standardize this are under consideration by the OpenADR Alliance but separate from the OpenADR 3.0 standard itself. This could be particularly applicable for automated discovery of price servers with only the identity of a retailer or tariff, or completely automated discovery of a price server local to a customer site.</li>
@@ -3010,7 +3010,7 @@ device can export, in kiloWatts.
 </li>
 <li>Business Logic and VEN clients must be provisioned with client secrets or other credentials prior to accessing a VTN.</li>
 <li>A VTN may be configured to allow &apos;unregistered&apos; VENs to access the API. This model is particularly applicable for the subset of programs that are tariffs and so the information involved is freely available.
-<ul>
+<ul class="list-no-margin">
 <li>A customer device may be minimally configured, e.g. just a VTN address that includes the retailer and tariff ID, to read price and related events. In this scenario, the VEN may present some sort of generic credential (perhaps an OpenADR token provided at certification) which the VTN accepts for read access to some programs.</li>
 <li>Such a VTN may limit such access only to a subset of programs.</li>
 </ul>
@@ -3019,8 +3019,7 @@ device can export, in kiloWatts.
 </section>
 <section id="client-scenarios" tabindex="-1">
 <h2 tabindex="-1">12.3. Client Scenarios</h2>
-<p>The choice of security protocol(s) depends in part on what client
-scenarios are anticipated.</p>
+<p>The choice of security protocol(s) depends in part on what client scenarios are anticipated.</p>
 <p>A protocol that is difficult and error prone for end users to support represents a security threat in itself; it is anticipated that humans may be engaged in creating accounts, obtaining credentials and tokens, and so on. What can be supported by the average customer is less complex than what IT professionals could support.</p>
 <p>OpenADR 2.0b relies on x509 certificates provisioned into the OS of VTNs and VENs. This is most appropriate for commercial server to server communications, as acquiring, provisioning, and maintaining such certs is generally considered overly complex for use in consumer owned devices. X509 certs may also be useful in scenarios where a consumer device has factory installed certs.</p>
 <p>VEN client platforms include:</p>
@@ -3105,7 +3104,7 @@ scenarios are anticipated.</p>
 <li><em>Sign webhook payloads</em>. A VEN client may verify the source of a VTN request when a VTN signs the webhook payload with a secret key. One way to do this is symmetrically by using HMAC cryptography algorithm. The VTN signs the webhook payloads with a symmetrical secret key and sends the signature in the request header for the VEN client to verify it.</li>
 <li><em>List the origin IPs</em>. A VTN may list and communicate out of band the IP origins of the sent requests to VEN clients. This information allows developers to implement IP policies in their VEN clients for additional security.</li>
 <li><em>Error handling and backing off</em>. The VTN sends POST requests to VEN clients endpoints but some of them will inevitably fail (DNS issues, incorrect routing, etc.). VTN may retry to some degree, but not constantly and not forever. The general practices for handling this should be the following:
-<ul>
+<ul class="list-no-margin">
 <li>Use fixed delay between retries or even exponential backoff to slowly increase the time between retries.</li>
 <li>If an endpoint hasn&apos;t been responding for a while, mark it as &quot;broken&quot; and stop sending requests to it.</li>
 <li>Once an endpoint is marked as broken, send a notification (e.g., email) to the developer notifying them that the VTN has been unable to reach the endpoint and they need to fix it.</li>
@@ -3139,11 +3138,9 @@ between those credentials and a token and set of scopes, such that Step 3 below 
 </section>
 <section id="step-3%3A-resolve-token-to-scopes" tabindex="-1">
 <h2 tabindex="-1">13.3. Step 3: Resolve token to scopes</h2>
-<p>A scope is a string associated with an endpoint operation that the
-server framework checks to ensure an incoming request is permitted. See section above titled <strong>OpenAPI Specification</strong> for an example.</p>
-<p class="mark">On every API request (except <code>&lt;base_url&gt;/auth/token</code>) the server
-framework invokes the authorization_controller.[check_<code>oAuth2ClientCredentials()</code> method to
-resolve a token to a set of scopes.]</p>
+<p>A scope is a string associated with an endpoint operation that the server framework checks to ensure an incoming request is permitted. See section above titled <strong>OpenAPI Specification</strong> for an example.</p>
+<p class="mark">On every API request (except <code>&lt;base_url&gt;/auth/token</code>) the server framework invokes the <code>authorization_controller.check_oAuth2ClientCredentials()</code> method to
+resolve a token to a set of scopes.</p>
 <p class="mark">[The RI hardcodes the association between tokens and scopes.]</p>
 <p class="mark">[In a production environment, the association between tokens and scopes is dynamically maintained by service or database.]</p>
 </section>

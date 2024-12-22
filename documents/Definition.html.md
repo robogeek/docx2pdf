@@ -100,7 +100,7 @@ OpenADR 3.0 adopts many terms from 2.0b directly, such as Event and Report. Term
 
 - **Program** - The business context for a given usage of the VTN. May be a Demand Response program, tariff, or other business construct.
 - **ProgramName** - A unique name for a program or tariff. May be used by customers.
-- **[Program Description]** - A human readable document provided out-of-band by a Business Logic entity that specifies a usage of the OpenADR 3.0 object model and configuration details such as VTN address, program names, applicable customer types, etc.
+- **Program Description** - A human readable document provided out-of-band by a Business Logic entity that specifies a usage of the OpenADR 3.0 object model and configuration details such as VTN address, program names, applicable customer types, etc.
 - **Tariff** - A type of program that defines the basic agreement between a retailer and a customer, such as an electricity pricing structure, as opposed to optional programs offered on top of a tariff.
 - **Virtual Top Node (VTN)** - An application that implements the OpenADR 3.0 APIs. This is a Resource Server in REST parlance.
 - **Virtual End Node (VEN)** - A software application that consumes events, generates reports, and directly or indirectly causes changes in energy consumption patterns. This is a client of a VTN.
@@ -1443,26 +1443,31 @@ The following specific assumptions underlie the OpenADR 3.0 security model.
 
 - VTN security must meet stringent requirements. Client requests must be able to be authenticated and access to API resources and operations must be able to be authorized.
   - VTNs are software applications that do not directly interface with any element of the grid. As an information service provided by a utility retailer, the VTN provides APIs to allow the retailer to 'publish' information it deems appropriate toshare with customers and other interested parties. There is no mechanism by which a VTN (if restricted to implement only its function as a resource server) or its clients may interact with other components of a utility\'s systems.
+  {.list-no-margin}
 - VTN clients include utility Business Logic and VENs; therefore a security solution must work for both scenarios.
   - Client requests must be associated with a client role, and roles define what operations on what API objects a given client may perform. For example, a Business Logic client may create an event, but a VEN cannot. Both can read an event, but a VEN can only read events associated with the programs it is entitled to access.
+  {.list-no-margin}
 - VENs may be implemented within on-site customer devices such as a water heater, external hardware controllers, or a central device. VENs may also be implemented in servers in the cloud.
   - This implies that certifying devices and provisioning x.509 certs or other PKI (Public Key Infrastructure) as detailed in OpenADR 2.0b is daunting at best, or simply not supportable.
   - A REST API requires some form of application level credential exchange to authenticate and authorize client requests. Even where PKI may be required, it is not sufficient to address access control of API objects.
+  {.list-no-margin}
 - Devices (OpenADR 'resources') represented by VENs are owned by a utility customer, who has a customer account with the utility.
   - A utility may require that for a customer to participate in a DR program they enroll their account in the program, and may need to register their 'resources' or devices into the program.
+  {.list-no-margin}
 - VENs must be manually provisioned with a VTN address that has been provided by the utility retailer.
   - This implies that there is no plug-n-play scenario in which a customer owned device simply begins to participate in a conventional demand response program without some manual configuration. Therefore, the device should present a web UI or other interface to a customer. (Much like a home router presents a web app at a known address).
   - A typical means to acquire a VTN address would be for a customer to login in to their utility account and obtain the address as part of the enrollment and registration flow described in the bullet above.
   - Methods to automate and standardize this are under consideration by the OpenADR Alliance but separate from the OpenADR 3.0 standard itself. This could be particularly applicable for automated discovery of price servers with only the identity of a retailer or tariff, or completely automated discovery of a price server local to a customer site.
+  {.list-no-margin}
 - Business Logic and VEN clients must be provisioned with client secrets or other credentials prior to accessing a VTN.
 - A VTN may be configured to allow 'unregistered' VENs to access the API. This model is particularly applicable for the subset of programs that are tariffs and so the information involved is freely available.
   - A customer device may be minimally configured, e.g. just a VTN address that includes the retailer and tariff ID, to read price and related events. In this scenario, the VEN may present some sort of generic credential (perhaps an OpenADR token provided at certification) which the VTN accepts for read access to some programs.
   - Such a VTN may limit such access only to a subset of programs.
+{.list-no-margin}
 
 ## Client Scenarios
 
-The choice of security protocol(s) depends in part on what client
-scenarios are anticipated.
+The choice of security protocol(s) depends in part on what client scenarios are anticipated.
 
 A protocol that is difficult and error prone for end users to support represents a security threat in itself; it is anticipated that humans may be engaged in creating accounts, obtaining credentials and tokens, and so on. What can be supported by the average customer is less complex than what IT professionals could support.
 
@@ -1569,6 +1574,7 @@ Following are a few guidelines that can be taken into consideration in relation 
   - Use fixed delay between retries or even exponential backoff to slowly increase the time between retries.
   - If an endpoint hasn't been responding for a while, mark it as "broken" and stop sending requests to it.
   - Once an endpoint is marked as broken, send a notification (e.g., email) to the developer notifying them that the VTN has been unable to reach the endpoint and they need to fix it.
+{.list-no-margin}
 
 # Reference Implementation
 

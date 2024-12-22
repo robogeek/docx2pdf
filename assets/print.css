@@ -29,8 +29,8 @@
 		line-height: 1.5; }
 	blockquote code {
 		border: 0; }
-	blockquote, code, kbd, pre {
-		border: 1px solid grey; }
+	/* blockquote, code, kbd, pre {
+		border: 1px solid grey; } */
 	table, td, th {
 		border-bottom: 1px solid black; }
 	abbr[title], acronym[title] {
