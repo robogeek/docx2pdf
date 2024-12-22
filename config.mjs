@@ -12,6 +12,7 @@ import { default as MarkdownITHighlightJS } from 'markdown-it-highlightjs';
 import { default as MarkdownItAttrs } from 'markdown-it-attrs';
 import { default as MarkdownItDiv } from 'markdown-it-div';
 import { default as MarkdownItAnchor } from 'markdown-it-anchor';
+import { default as MarkdownItFootnote } from 'markdown-it-footnote';
 // import { default as MarkdownItTOC } from 'markdown-it-table-of-contents';
 import { default as MarkdownItSections } from 'markdown-it-header-sections';
 import { default as MarkdownItImageFigures } from 'markdown-it-image-figures';
@@ -53,6 +54,7 @@ config.findRendererName('.html.md')
     .use(MarkdownItDiv)
     .use(MarkdownItAnchor)
     // .use(MarkdownItTOC)
+    .use(MarkdownItFootnote)
     .use(MarkdownItSections)
     .use(MarkdownItImageFigures, {
         dataType: true,
@@ -68,6 +70,13 @@ config.findRendererName('.html.md')
     })
     .use(MarkdownItTableCaptions);
     // .use(require('markdown-it-expand-tabs'), { tabWidth: 4 });
+
+config.findRendererName('.html.md')
+    .rendererRules.footnote_block_open = () => (
+        '<h1 class="mt-3">Footnotes</h1>\n' +
+        '<section class="footnotes">\n' +
+        '<ol class="footnotes-list">\n'
+    );
 
 config
     // .addAssetsDir('assets')

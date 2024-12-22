@@ -45,30 +45,13 @@ Please send general questions and comments about the specification to
 
 # Introduction {.page_break}
 
-This document describes the third major iteration of the OpenADR
-protocol. It serves as a near functional equivalent of its predecessor,
-OpenADR 2.0b, but departs from the 2.0b SOAP-like web service design and
-instead adheres to RESTful web service best practices. REST services are
-much more common today than SOAP and are generally considered much more
-straightforward to use and troubleshoot. The main goal in providing this
-version as a complement to 2.0b is to lower the barriers of entry for
-new implementers and thereby encourage more widespread adoption of the
-standard.
+This document describes the third major iteration of the OpenADR protocol. It serves as a near functional equivalent of its predecessor, OpenADR 2.0b, but departs from the 2.0b SOAP-like web service design and instead adheres to RESTful web service best practices. REST services are much more common today than SOAP and are generally considered much more straightforward to use and troubleshoot. The main goal in providing this version as a complement to 2.0b is to lower the barriers of entry for new implementers and thereby encourage more widespread adoption of the standard.
 
-This document contains normative and non-normative content and may
-contain simplifications for the purpose of conveying the underlying
-OpenADR REST concepts. Additional normative content can be found in the
-Normative References section, including the OpenADR 3.0 OpenAPI
-document. [OADR-3.0-Specification] which is the authoritative
-specification of the interface between VTN and clients.
+This document contains normative and non-normative content and may contain simplifications for the purpose of conveying the underlying OpenADR REST concepts. Additional normative content can be found in the Normative References section, including the OpenADR 3.0 OpenAPI document. [OADR-3.0-Specification] which is the authoritative specification of the interface between VTN and clients.
 
 ## 1.1 Revision 3.0.2 Introduction {#revision-3.0.2-introduction .unnumbered}
 
-The 3.0 revision supported a single mechanism (webhooks, via HTTP) for
-the Virtual Top Node (VTN) to push notifications to clients (resulting
-from Subscriptions), this revision adds support for notification event
-delivery via standard messaging protocols, with MQTT being the first
-such messaging protocol defined.
+The 3.0 revision supported a single mechanism (webhooks, via HTTP) for the Virtual Top Node (VTN) to push notifications to clients (resulting from Subscriptions), this revision adds support for notification event delivery via standard messaging protocols, with MQTT being the first such messaging protocol defined.
 
 # Normative References
 
@@ -793,7 +776,7 @@ event payload values.
   * **numIntervals**: The number of intervals to include in a report. \[-1\]
   * **historical**: True indicates report on intervals preceding   startInterval. \[true\]
   * **frequency**: Number of intervals that elapse between reports. \[-1\]
-  * **repeat**: Number of times to repeat a report. \[1\]
+  * **repeat**: Number of times to repeat a report. [1]
 
 
 * **objectID**: URL safe VTN assigned object ID.
@@ -1451,10 +1434,12 @@ The overall approach to security in OpenADR 3.0 is based on the following three 
 - **Authorization.** Within the context of a given program, a VEN will be authorized to access some set of resources and associated operations. The VTN server will limit access to resources and associated operations to those authorized to a requestor, based on the identity of the requestor. See Authentication above.
 - **Common (well known and widely implemented) Security Model**. OADR REST adopts common industry approaches to Authentication and Authorization. [REST-API-Best_Practices]
 
+
+[^1]: Note that VTNs may provide some endpoints with no access restrictions for freely available information such as prices for common tariffs.
+
 ## Assumptions
 
-The following specific assumptions underlie the OpenADR 3.0 security
-model.
+The following specific assumptions underlie the OpenADR 3.0 security model.
 
 - VTN security must meet stringent requirements. Client requests must be able to be authenticated and access to API resources and operations must be able to be authorized.
   - VTNs are software applications that do not directly interface with any element of the grid. As an information service provided by a utility retailer, the VTN provides APIs to allow the retailer to 'publish' information it deems appropriate toshare with customers and other interested parties. There is no mechanism by which a VTN (if restricted to implement only its function as a resource server) or its clients may interact with other components of a utility\'s systems.
@@ -1564,12 +1549,14 @@ For example, a token may encode and be used to filter the events a VEN can read 
 
 When working with webhooks there are multiple potential security concerns, such as infiltrating and probing the VTN internal network (SSRF)[^2], etc. These can arise on the sender end (the VTN). On the receiver end (the VEN), the client needs to verify that the data coming into their webhook endpoint (the endpoint that accepts webhook notifications) is actually from the correct application, the VTN, and has not been spoofed/corrupted in transit.
 
+[^2]: https://owasp.org/www-community/attacks/Server_Side_Request_Forgery
+
 To strengthen the webhooks security, the following requirements are to be met:
 
 - The VEN client MUST use HTTPS for the webhook callback URL. The VTN MUST validate that an HTTPS schema is used for the callback URL of the webhook subscription that is created and/or updated.
 - The VTN MUST verify the webhook callback URL is active and belongs to the requestor. To achieve this, the VTN MUST send a GET request to the provided callback URL that includes a challenge, a query string parameter named \'echo\', with random generated string value. When the VEN receives this request on the callback URL, it MUST respond with 200 OK response and include the query string parameter value in the body of the response. The VTN MUST verify that the echo parameter value that was sent back is the same as the one that was initially sent. In case when the validation fails, the VTN MUST NOT allow creation of the subscription.
 
-11.9.1 Additional guidelines
+### Additional guidelines
 
 Following are a few guidelines that can be taken into consideration in relation with the webhooks in order to ensure even better security and reliability.
 
@@ -1615,12 +1602,10 @@ $ curl http://localhost:8080/openadr3/OADR-3.0.0/1.0.0/programs \
 
 ## Step 3: Resolve token to scopes
 
-A scope is a string associated with an endpoint operation that the
-server framework checks to ensure an incoming request is permitted. See section above titled **OpenAPI Specification** for an example.
+A scope is a string associated with an endpoint operation that the server framework checks to ensure an incoming request is permitted. See section above titled **OpenAPI Specification** for an example.
 
-On every API request (except `<base_url>/auth/token`) the server
-framework invokes the authorization_controller.[check_`oAuth2ClientCredentials()` method to
-resolve a token to a set of scopes.]{.mark}
+On every API request (except `<base_url>/auth/token`) the server framework invokes the `authorization_controller.check_oAuth2ClientCredentials()` method to
+resolve a token to a set of scopes. {.mark}
 
 [The RI hardcodes the association between tokens and scopes.]{.mark}
 
@@ -1630,10 +1615,4 @@ resolve a token to a set of scopes.]{.mark}
 
 On every API request (except `<base_url>/auth/token`), after a token as been resolved to scopes, the server framework invokes the [`authorization_controller.validate_scope_oAuth2ClientCredentials()` method to ensure the request has been granted the required scopes for the requested operation. If the required scopes have not been granted an http 403 status code will be returned.]{.mark}
 
-# Footnotes
 
-[^1]: Note that VTNs may provide some endpoints with no access
-    restrictions for freely available information such as prices for
-    common tariffs.
-
-[^2]: https://owasp.org/www-community/attacks/Server_Side_Request_Forgery

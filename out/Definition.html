@@ -277,7 +277,10 @@ Pajarito Technologies, LLC</p>
                 <li>
                         <a href="#bearer-tokens">12.10. Bearer tokens</a></li>
                 <li>
-                        <a href="#webhooks">12.11. 11.10. Webhooks</a></li>
+                        <a href="#webhooks">12.11. 11.10. Webhooks</a><ul class="list-no-margin"><li>
+                                        <a href="#additional-guidelines">12.11.1. Additional guidelines</a>
+                                    </li></ul>
+                        </li>
                 </ul>
         </li><li>
         <a href="#reference-implementation">13. Reference Implementation</a>
@@ -291,35 +294,18 @@ Pajarito Technologies, LLC</p>
                         <a href="#step-4%3A-enforce-access-control">13.4. Step 4: Enforce Access Control</a></li>
                 </ul>
         </li><li>
-        <a href="#footnotes">14. Footnotes</a>
+        <a href="#step-4%3A-enforce-access-control">14. Footnotes</a>
         </li></ul>
 </span>
 </p>
 </section>
 <section class="page_break" id="introduction" tabindex="-1">
 <h1 class="page_break" tabindex="-1">1. Introduction</h1>
-<p>This document describes the third major iteration of the OpenADR
-protocol. It serves as a near functional equivalent of its predecessor,
-OpenADR 2.0b, but departs from the 2.0b SOAP-like web service design and
-instead adheres to RESTful web service best practices. REST services are
-much more common today than SOAP and are generally considered much more
-straightforward to use and troubleshoot. The main goal in providing this
-version as a complement to 2.0b is to lower the barriers of entry for
-new implementers and thereby encourage more widespread adoption of the
-standard.</p>
-<p>This document contains normative and non-normative content and may
-contain simplifications for the purpose of conveying the underlying
-OpenADR REST concepts. Additional normative content can be found in the
-Normative References section, including the OpenADR 3.0 OpenAPI
-document. [OADR-3.0-Specification] which is the authoritative
-specification of the interface between VTN and clients.</p>
+<p>This document describes the third major iteration of the OpenADR protocol. It serves as a near functional equivalent of its predecessor, OpenADR 2.0b, but departs from the 2.0b SOAP-like web service design and instead adheres to RESTful web service best practices. REST services are much more common today than SOAP and are generally considered much more straightforward to use and troubleshoot. The main goal in providing this version as a complement to 2.0b is to lower the barriers of entry for new implementers and thereby encourage more widespread adoption of the standard.</p>
+<p>This document contains normative and non-normative content and may contain simplifications for the purpose of conveying the underlying OpenADR REST concepts. Additional normative content can be found in the Normative References section, including the OpenADR 3.0 OpenAPI document. [OADR-3.0-Specification] which is the authoritative specification of the interface between VTN and clients.</p>
 <section id="revision-3.0.2-introduction" class="unnumbered" tabindex="-1">
 <h2 class="unnumbered" tabindex="-1">1.1. 1.1 Revision 3.0.2 Introduction</h2>
-<p>The 3.0 revision supported a single mechanism (webhooks, via HTTP) for
-the Virtual Top Node (VTN) to push notifications to clients (resulting
-from Subscriptions), this revision adds support for notification event
-delivery via standard messaging protocols, with MQTT being the first
-such messaging protocol defined.</p>
+<p>The 3.0 revision supported a single mechanism (webhooks, via HTTP) for the Virtual Top Node (VTN) to push notifications to clients (resulting from Subscriptions), this revision adds support for notification event delivery via standard messaging protocols, with MQTT being the first such messaging protocol defined.</p>
 </section>
 </section>
 <section id="normative-references" tabindex="-1">
@@ -2985,15 +2971,14 @@ device can export, in kiloWatts.
 <h2 tabindex="-1">12.1. Security objectives</h2>
 <p>The overall approach to security in OpenADR 3.0 is based on the following three pillars.</p>
 <ul>
-<li><strong>Authentication.</strong> A client request is Authenticated with a VTN in order to access resources[^1]. REST servers are &apos;stateless&apos; and do not maintain session state, therefore every API request must contain some token or credential to allow the VTN server to authenticate the identity of the requestor.</li>
+<li><strong>Authentication.</strong> A client request is Authenticated with a VTN in order to access resources<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup>. REST servers are &apos;stateless&apos; and do not maintain session state, therefore every API request must contain some token or credential to allow the VTN server to authenticate the identity of the requestor.</li>
 <li><strong>Authorization.</strong> Within the context of a given program, a VEN will be authorized to access some set of resources and associated operations. The VTN server will limit access to resources and associated operations to those authorized to a requestor, based on the identity of the requestor. See Authentication above.</li>
 <li><strong>Common (well known and widely implemented) Security Model</strong>. OADR REST adopts common industry approaches to Authentication and Authorization. [REST-API-Best_Practices]</li>
 </ul>
 </section>
 <section id="assumptions" tabindex="-1">
 <h2 tabindex="-1">12.2. Assumptions</h2>
-<p>The following specific assumptions underlie the OpenADR 3.0 security
-model.</p>
+<p>The following specific assumptions underlie the OpenADR 3.0 security model.</p>
 <ul>
 <li>VTN security must meet stringent requirements. Client requests must be able to be authenticated and access to API resources and operations must be able to be authorized.
 <ul>
@@ -3104,13 +3089,14 @@ scenarios are anticipated.</p>
 </section>
 <section id="webhooks" class="unnumbered" tabindex="-1">
 <h2 class="unnumbered" tabindex="-1">12.11. 11.10. Webhooks</h2>
-<p>When working with webhooks there are multiple potential security concerns, such as infiltrating and probing the VTN internal network (SSRF)<a href="https://owasp.org/www-community/attacks/Server_Side_Request_Forgery">^2</a>, etc. These can arise on the sender end (the VTN). On the receiver end (the VEN), the client needs to verify that the data coming into their webhook endpoint (the endpoint that accepts webhook notifications) is actually from the correct application, the VTN, and has not been spoofed/corrupted in transit.</p>
+<p>When working with webhooks there are multiple potential security concerns, such as infiltrating and probing the VTN internal network (SSRF)<sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup>, etc. These can arise on the sender end (the VTN). On the receiver end (the VEN), the client needs to verify that the data coming into their webhook endpoint (the endpoint that accepts webhook notifications) is actually from the correct application, the VTN, and has not been spoofed/corrupted in transit.</p>
 <p>To strengthen the webhooks security, the following requirements are to be met:</p>
 <ul>
 <li>The VEN client MUST use HTTPS for the webhook callback URL. The VTN MUST validate that an HTTPS schema is used for the callback URL of the webhook subscription that is created and/or updated.</li>
 <li>The VTN MUST verify the webhook callback URL is active and belongs to the requestor. To achieve this, the VTN MUST send a GET request to the provided callback URL that includes a challenge, a query string parameter named &apos;echo&apos;, with random generated string value. When the VEN receives this request on the callback URL, it MUST respond with 200 OK response and include the query string parameter value in the body of the response. The VTN MUST verify that the echo parameter value that was sent back is the same as the one that was initially sent. In case when the validation fails, the VTN MUST NOT allow creation of the subscription.</li>
 </ul>
-<p>11.9.1 Additional guidelines</p>
+<section id="additional-guidelines" tabindex="-1">
+<h3 tabindex="-1">12.11.1. Additional guidelines</h3>
 <p>Following are a few guidelines that can be taken into consideration in relation with the webhooks in order to ensure even better security and reliability.</p>
 <ul>
 <li><em>Configure timeouts</em>. The VTN should configure a timeout when making requests to the VEN client as a webhook consumer. The nature of webhooks suggests that they execute relatively quickly, therefore it is recommended that a VTN configure a timeout period between 10 and 30 seconds.</li>
@@ -3126,6 +3112,7 @@ scenarios are anticipated.</p>
 </ul>
 </li>
 </ul>
+</section>
 </section>
 </section>
 <section id="reference-implementation" tabindex="-1">
@@ -3163,13 +3150,16 @@ resolve a token to a set of scopes.]</p>
 <section id="step-4%3A-enforce-access-control" tabindex="-1">
 <h2 tabindex="-1">13.4. Step 4: Enforce Access Control</h2>
 <p class="mark">On every API request (except <code>&lt;base_url&gt;/auth/token</code>), after a token as been resolved to scopes, the server framework invokes the [<code>authorization_controller.validate_scope_oAuth2ClientCredentials()</code> method to ensure the request has been granted the required scopes for the requested operation. If the required scopes have not been granted an http 403 status code will be returned.]</p>
+<h1 class="mt-3">14. Footnotes</h1>
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p>Note that VTNs may provide some endpoints with no access restrictions for freely available information such as prices for common tariffs. <a href="#fnref1" class="footnote-backref">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn2" class="footnote-item"><p><a href="https://owasp.org/www-community/attacks/Server_Side_Request_Forgery">https://owasp.org/www-community/attacks/Server_Side_Request_Forgery</a> <a href="#fnref2" class="footnote-backref">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
 </section>
 </section>
-<section id="footnotes" tabindex="-1">
-<h1 tabindex="-1">14. Footnotes</h1>
-<p>[^1]: Note that VTNs may provide some endpoints with no access
-restrictions for freely available information such as prices for
-common tariffs.</p>
 </section>
 
 </article>

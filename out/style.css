@@ -192,6 +192,13 @@ table caption {
     font-size: larger;
 }
 
+/* This is for the Table of Contents, which is a
+ * nested ul/li/ul/li list.  The nested elements
+ * had blank space.  In print.css there is a
+ * declaration where ul has margin 1em 0, which means
+ * margin-top is 1em.  This overrides that for lists
+ * with class list-no-margin.
+ */
 ul.list-no-margin {
     margin-top: 0em;
 }

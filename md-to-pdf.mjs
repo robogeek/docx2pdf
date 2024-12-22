@@ -16,6 +16,7 @@ import { default as MarkdownITHighlightJS } from 'markdown-it-highlightjs';
 import { default as MarkdownItAttrs } from 'markdown-it-attrs';
 import { default as MarkdownItDiv } from 'markdown-it-div';
 import { default as MarkdownItAnchor } from 'markdown-it-anchor';
+import { default as MarkdownItFootnote } from 'markdown-it-footnote';
 // import { default as MarkdownItTOC } from 'markdown-it-table-of-contents';
 // import { default as MarkdownItTOCDreapt } from 'markdown-it-toc-done-right';
 import { default as MarkdownItSections } from 'markdown-it-header-sections';
@@ -57,6 +58,7 @@ program
     .option('--no-pdf', 'Do not generate PDFs')
     .option('--no-printcss', 'Disable the print.css stylesheet')
     .option('--no-md-anchor', 'Disable the markdown-it-anchor extension')
+    .option('--no-md-footnote', 'Disable the markdown-it-footnote extension')
     .option('--no-md-attrs', 'Disable the markdown-it-attrs extension')
     .option('--no-md-div', 'Disable the markdown-it-div extension')
     .option('--no-md-header-sections', 'Disable the markdown-it-header-sections extension')
@@ -399,6 +401,18 @@ async function generateConfiguration(options) {
     if (options.mdAnchor) {
         config.findRendererName('.html.md')
         .use(MarkdownItAnchor);
+    }
+    if (options.mdFootnote) {
+        config.findRendererName('.html.md')
+        .use(MarkdownItFootnote);
+
+        config.findRendererName('.html.md')
+        .rendererRules.footnote_block_open = () => (
+            '<h1 class="mt-3">Footnotes</h1>\n' +
+            '<section class="footnotes">\n' +
+            '<ol class="footnotes-list">\n'
+        );
+
     }
     // if (options.mdTableOfContents) {
     //     config.findRendererName('.html.md')
